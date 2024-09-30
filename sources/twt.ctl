@@ -1076,8 +1076,8 @@ N $8736 The active player can't afford to fly anywhere.
   $8745,$01 Restore #REGhl from the stack.
   $8746,$03 Jump to #R$8903.
 
-c $8749 Process Location Choice
-@ $8749 label=ProcessLocationChoice
+c $8749 Handler: Location Choice
+@ $8749 label=Handler_LocationChoice
   $8749,$03 #REGa=*#R$7811.
   $874C,$02,b$01 Set bit 3.
   $874E,$01 #REGc=#REGa.
@@ -1085,7 +1085,7 @@ c $8749 Process Location Choice
   $8754,$01 Stash #REGbc on the stack.
   $8755,$03 Call #R$8830.
   $8758,$03 Call #R$8479.
-@ $875B label=ProcessLocationChoiceInput_Loop
+@ $875B label=Handler_LocationChoice_InputLoop
   $875B,$05 Call #R$8055 with a count of #N$0A.
   $8760,$03 Call #R$85E7.
   $8763,$06 Jump to #R$87F8 if "up" was pressed.
@@ -1440,29 +1440,36 @@ c $8A3D Print String
 @ $8A3D label=Print_String
 R $8A3D HL Pointer to string
 R $8A3D DE Screen buffer location
-  $8A3D,$01 #REGa=*#REGhl.
-  $8A3E,$01 Stash #REGhl on the stack.
+  $8A3D,$01 Fetch a character from the string pointer and store it in #REGa.
+  $8A3E,$01 Stash the string pointer on the stack.
   $8A3F,$02,b$01 Strip off the termination bit.
+N $8A41 Fetch the font UDG for the current character.
   $8A41,$03 Create an offset in #REGhl.
-  $8A44,$03 #REGhl*=#N$08.
-  $8A47,$04 #REGhl+=#R$F840.
+  $8A44,$03 Letter UDGs are #N$08 bytes, so multiply #REGhl by #N$08.
+  $8A47,$04 Add #R$F840 to #REGhl to reference the UDG for the current letter
+. in the string.
+N $8A4B Now print it to the screen buffer.
   $8A4B,$03 Call #R$8A56.
-  $8A4E,$01 Restore #REGhl from the stack.
-  $8A4F,$01 Increment #REGde by one.
-  $8A50,$02 Test bit 7 of *#REGhl.
-  $8A52,$01 Increment #REGhl by one.
-  $8A53,$02 Jump to #R$8A3D if #REGhl is zero.
+  $8A4E,$01 Restore the string pointer from the stack.
+  $8A4F,$01 Increment the screen buffer pointer by one.
+  $8A50,$02 Test for the termination bit in the current letter *#REGhl.
+  $8A52,$01 Increment the string pointer by one.
+  $8A53,$02 Jump to #R$8A3D until the terminator bit is found.
   $8A55,$01 Return.
+N $8A56 Printing routine.
 @ $8A56 label=Print_Character
-  $8A56,$02 #REGb=#N$08.
-  $8A58,$01 Stash #REGde on the stack.
+  $8A56,$02 Set a counter in #REGb of #N$08, for the number of bytes in a
+. letter UDG.
+  $8A58,$01 Stash the screen buffer pointer on the stack.
 @ $8A59 label=Print_Character_Loop
-  $8A59,$01 #REGa=*#REGhl.
-  $8A5A,$01 Write #REGa to *#REGde.
-  $8A5B,$01 Increment #REGhl by one.
-  $8A5C,$01 Increment #REGd by one.
-  $8A5D,$02 Decrease counter by one and loop back to #R$8A59 until counter is zero.
-  $8A5F,$01 Restore #REGde from the stack.
+  $8A59,$01 Fetch the letter UDG byte from *#REGhl...
+  $8A5A,$01 ...and write it to the screen buffer using the position stored in
+. *#REGde.
+  $8A5B,$01 Increment the string pointer by one.
+  $8A5C,$01 Move right one byte to the next screen buffer position.
+  $8A5D,$02 Decrease the UDG byte counter by one and loop back to #R$8A59 until
+. the letter has been printed to the screen.
+  $8A5F,$01 Restore the screen buffer pointer from the stack.
   $8A60,$01 Return.
 
 c $8A61 Clear Menu Screen Areas

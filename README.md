@@ -8,8 +8,8 @@ Created using [SkoolKit](https://skoolkit.ca).
 
 Browse the latest release:
 
-* [Travel With Trashman disassembly](https://pobtastic.github.io/twt/) (hexadecimal; mirror [here](http://skoolkit.arcadegeek.co.uk/twt/))
-* [Travel With Trashman disassembly](https://pobtastic.github.io/twt/dec/) (decimal; mirror [here](http://skoolkit.arcadegeek.co.uk/twt/dec/))
+* [Travel With Trashman disassembly](https://pobtastic.github.io/travelwithtrashman/) (hexadecimal; mirror [here](http://skoolkit.arcadegeek.co.uk/twt/))
+* [Travel With Trashman disassembly](https://pobtastic.github.io/travelwithtrashman/dec/) (decimal; mirror [here](http://skoolkit.arcadegeek.co.uk/twt/dec/))
 
 To build the current development version, first either install SkoolKit, or
 make a clone of the [SkoolKit repository](https://github.com/skoolkid/skoolkit)
