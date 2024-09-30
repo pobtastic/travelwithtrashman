@@ -61,19 +61,29 @@ Used by the routines at <a href="83AA.html">GameMenu</a>, <a href="84D5.html">Se
 <td class="asm-label">Print_String</td>
 <td class="address-2"><span id="8a3d"></span>8A3D</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-1" rowspan="1"><span class="register">A</span>=*<span class="register">HL</span>.</td>
+<td class="comment-1" rowspan="1">Fetch a character from the string pointer and store it in <span class="register">A</span>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="8a3e"></span>8A3E</td>
 <td class="instruction">PUSH HL</td>
-<td class="comment-1" rowspan="1">Stash <span class="register">HL</span> on the stack.</td>
+<td class="comment-1" rowspan="1">Stash the string pointer on the stack.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="8a3f"></span>8A3F</td>
 <td class="instruction">AND %01111111</td>
 <td class="comment-1" rowspan="1">Strip off the termination bit.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="8a41"></span>
+<div class="comments">
+<div class="paragraph">
+Fetch the font UDG for the current character.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -90,7 +100,7 @@ Used by the routines at <a href="83AA.html">GameMenu</a>, <a href="84D5.html">Se
 <td class="asm-label"></td>
 <td class="address-1"><span id="8a44"></span>8A44</td>
 <td class="instruction">ADD HL,HL</td>
-<td class="comment-1" rowspan="3"><span class="register">HL</span>*=08.</td>
+<td class="comment-1" rowspan="3">Letter UDGs are 08 bytes, so multiply <span class="register">HL</span> by 08.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -106,12 +116,22 @@ Used by the routines at <a href="83AA.html">GameMenu</a>, <a href="84D5.html">Se
 <td class="asm-label"></td>
 <td class="address-1"><span id="8a47"></span>8A47</td>
 <td class="instruction">LD BC,$F740</td>
-<td class="comment-1" rowspan="2"><span class="register">HL</span>+=<a href="F840.html">Font</a>.</td>
+<td class="comment-1" rowspan="2">Add <a href="F840.html">Font</a> to <span class="register">HL</span> to reference the UDG for the current letter in the string.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="8a4a"></span>8A4A</td>
 <td class="instruction">ADD HL,BC</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="8a4b"></span>
+<div class="comments">
+<div class="paragraph">
+Now print it to the screen buffer.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -123,31 +143,31 @@ Used by the routines at <a href="83AA.html">GameMenu</a>, <a href="84D5.html">Se
 <td class="asm-label"></td>
 <td class="address-1"><span id="8a4e"></span>8A4E</td>
 <td class="instruction">POP HL</td>
-<td class="comment-1" rowspan="1">Restore <span class="register">HL</span> from the stack.</td>
+<td class="comment-1" rowspan="1">Restore the string pointer from the stack.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="8a4f"></span>8A4F</td>
 <td class="instruction">INC DE</td>
-<td class="comment-1" rowspan="1">Increment <span class="register">DE</span> by one.</td>
+<td class="comment-1" rowspan="1">Increment the screen buffer pointer by one.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="8a50"></span>8A50</td>
 <td class="instruction">BIT 7,(HL)</td>
-<td class="comment-1" rowspan="1">Test bit 7 of *<span class="register">HL</span>.</td>
+<td class="comment-1" rowspan="1">Test for the termination bit in the current letter *<span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="8a52"></span>8A52</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1">Increment <span class="register">HL</span> by one.</td>
+<td class="comment-1" rowspan="1">Increment the string pointer by one.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="8a53"></span>8A53</td>
 <td class="instruction">JR Z,<a href="8A3D.html#8a3d">Print_String</a></td>
-<td class="comment-1" rowspan="1">Jump to <a href="8A3D.html">Print_String</a> if <span class="register">HL</span> is zero.</td>
+<td class="comment-1" rowspan="1">Jump to <a href="8A3D.html">Print_String</a> until the terminator bit is found.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -156,52 +176,62 @@ Used by the routines at <a href="83AA.html">GameMenu</a>, <a href="84D5.html">Se
 <td class="comment-1" rowspan="1">Return.</td>
 </tr>
 <tr>
+<td class="routine-comment" colspan="5">
+<span id="8a56"></span>
+<div class="comments">
+<div class="paragraph">
+Printing routine.
+</div>
+</div>
+</td>
+</tr>
+<tr>
 <td class="asm-label">Print_Character</td>
 <td class="address-2"><span id="8a56"></span>8A56</td>
 <td class="instruction">LD B,$08</td>
-<td class="comment-1" rowspan="1"><span class="register">B</span>=08.</td>
+<td class="comment-1" rowspan="1">Set a counter in <span class="register">B</span> of 08 for the number of bytes in a letter UDG.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="8a58"></span>8A58</td>
 <td class="instruction">PUSH DE</td>
-<td class="comment-1" rowspan="1">Stash <span class="register">DE</span> on the stack.</td>
+<td class="comment-1" rowspan="1">Stash the screen buffer pointer on the stack.</td>
 </tr>
 <tr>
 <td class="asm-label">Print_Character_Loop</td>
 <td class="address-2"><span id="8a59"></span>8A59</td>
 <td class="instruction">LD A,(HL)</td>
-<td class="comment-1" rowspan="1"><span class="register">A</span>=*<span class="register">HL</span>.</td>
+<td class="comment-1" rowspan="1">Fetch the letter UDG byte from *<span class="register">HL</span>...</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="8a5a"></span>8A5A</td>
 <td class="instruction">LD (DE),A</td>
-<td class="comment-1" rowspan="1">Write <span class="register">A</span> to *<span class="register">DE</span>.</td>
+<td class="comment-1" rowspan="1">...and write it to the screen buffer using the position stored in *<span class="register">DE</span>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="8a5b"></span>8A5B</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1">Increment <span class="register">HL</span> by one.</td>
+<td class="comment-1" rowspan="1">Increment the string pointer by one.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="8a5c"></span>8A5C</td>
 <td class="instruction">INC D</td>
-<td class="comment-1" rowspan="1">Increment <span class="register">D</span> by one.</td>
+<td class="comment-1" rowspan="1">Move right one byte to the next screen buffer position.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="8a5d"></span>8A5D</td>
 <td class="instruction">DJNZ <a href="8A3D.html#8a59">Print_Character_Loop</a></td>
-<td class="comment-1" rowspan="1">Decrease counter by one and loop back to <a href="8A3D.html#8a59">Print_Character_Loop</a> until counter is zero.</td>
+<td class="comment-1" rowspan="1">Decrease the UDG byte counter by one and loop back to <a href="8A3D.html#8a59">Print_Character_Loop</a> until the letter has been printed to the screen.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="8a5f"></span>8A5F</td>
 <td class="instruction">POP DE</td>
-<td class="comment-1" rowspan="1">Restore <span class="register">DE</span> from the stack.</td>
+<td class="comment-1" rowspan="1">Restore the screen buffer pointer from the stack.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
