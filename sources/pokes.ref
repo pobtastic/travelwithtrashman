@@ -1,0 +1,146 @@
+; Copyright 2024 Paul Maddern (paul@arcadegeek.co.uk)
+
+[Poke:dontspendmoney:Don't Spend Money]
+<code>POKE #R$9700,#N$8E</code>
+
+This alters the following line:
+<table>
+  <tbody>
+    <tr>
+      <td class="address-1">#R$9700(#N$9700)</td>
+      <td class="instruction">SBC #REGa,(#REGhl)</td>
+    </tr>
+  </tbody>
+</table>
+
+To ADD (with carry) instead of subtract:
+<table>
+  <tbody>
+    <tr>
+      <td class="address-1">#R$9700(#N$9700)</td>
+      <td class="instruction">ADC #REGa,(#REGhl)</td>
+    </tr>
+  </tbody>
+</table>
+
+[Poke:9999:£9999]
+You've 9999 pounds (the max) -use these when you've to select city- (*)
+
+<code>
+  <div>POKE #R$8C35(#N$8C35),#N$99</div>
+  <div>POKE #R$8C35(#N$8C36),#N$99</div>
+</code>
+
+You've 9999 pounds (the max) -these pokes ONLY work while you're playing a city.
+<code>
+  <div>POKE #R$EFF7(#N$EFF7),#N$99</div>
+  <div>POKE #R$EFF7(#N$EFF8),#N$99</div>
+</code>
+
+[Poke:altdontspendmoney:Don't Spend Money (alt)]
+<code>
+  <div>POKE #R$9700,#N$1A</div>
+  <div>POKE #R$9701,#N$00</div>
+</code>
+
+This alters the following line:
+<table>
+  <tbody>
+    <tr>
+      <td class="address-1">#R$9700(#N$9700)</td>
+      <td class="instruction">SUB #REGa,(#REGhl)</td>
+    </tr>
+    <tr>
+      <td class="address-1">#R$9701(#N$9701)</td>
+      <td class="instruction">DAA</td>
+    </tr>
+  </tbody>
+</table>
+
+To just set #REGa to the current value in the wallet (so it doesn't ever
+decrease):
+<table>
+  <tbody>
+    <tr>
+      <td class="address-1">#R$9700(#N$9700)</td>
+      <td class="instruction">LD #REGa,(#REGde)</td>
+    </tr>
+    <tr>
+      <td class="address-1">#R$9701(#N$9701)</td>
+      <td class="instruction">NOP</td>
+    </tr>
+  </tbody>
+</table>
+
+[Poke:nocash:Game Doesn't End When Cash is £#N($00,$04,$04)]
+<code>
+  <div>POKE #R$8895(#N$8896),#N$00</div>
+  <div>POKE #R$8963(#N$8964),#N$62</div>
+</code>
+
+[Poke:bull:The Bull Doesn't Kill]
+<code>POKE #R$B709,#N$3A</code>
+
+This alters the following line:
+<table>
+  <tbody>
+    <tr>
+      <td class="address-1">#R$B707(#N$B707)</td>
+      <td class="instruction">LD #REGa,#N$08</td>
+      <td class="comment-1" rowspan="2">Write 00001000 ("Hit By The Bull") to *#R$EFFA.</td>
+    </tr>
+    <tr>
+      <td class="address-1">#R$B709(#N$B709)</td>
+      <td class="instruction">LD (#R$EFFA(#N$EFFA)),#REGa</td>
+    </tr>
+    <tr>
+      <td class="address-1">#R$B70C(#N$B70C)</td>
+      <td class="instruction">JP #R$9926(#N$9926)</td>
+      <td class="comment-1" rowspan="1">Jump to #R$9926.</td>
+    </tr>
+  </tbody>
+</table>
+
+To:
+<table>
+  <tbody>
+    <tr>
+      <td class="address-1">#R$B709(#N$B709)</td>
+      <td class="instruction">LD #REGa,(#R$EFFA(#N$EFFA))</td>
+    </tr>
+  </tbody>
+</table>
+
+So the game flag for setting that the player has been struck by the bull is
+never set.
+
+[Poke:moscow:Not Deported From Moscow]
+<code>POKE #R$C826,#N$18</code>
+
+This alters the following line:
+<table>
+  <tbody>
+    <tr>
+      <td class="address-1">#R$C824(#N$C824)</td>
+      <td class="instruction">CP #N$40</td>
+    </tr>
+    <tr>
+      <td class="address-1">#R$C826(#N$C826)</td>
+      <td class="instruction">JR NZ,#R$C832(#N$C832)</td>
+    </tr>
+  </tbody>
+</table>
+
+To jump regardless of the result of the comparison:
+<table>
+  <tbody>
+    <tr>
+      <td class="address-1">#R$C824(#N$C824)</td>
+      <td class="instruction">CP #N$40</td>
+    </tr>
+    <tr>
+      <td class="address-1">#R$C826(#N$C826)</td>
+      <td class="instruction">JR #R$C832(#N$C832)</td>
+    </tr>
+  </tbody>
+</table>

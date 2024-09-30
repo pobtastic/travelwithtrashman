@@ -1,0 +1,82 @@
+;
+; SkoolKit ref file for Travel With Trashman
+;
+; To build the HTML disassembly, run these commands:
+;   tap2sna.py @twt.t2s
+;   sna2skool.py -H -c sources/twt.ctl TravelWithTrashman.z80 > sources/twt.skool
+;   skool2html.py -H sources/twt.skool -T dark
+
+[Config]
+Expand=#INCLUDE(Expand)
+RefFiles=bases.ref;analytics.ref;changelog.ref;pokes.ref
+GameDir=twt
+
+[Game]
+Game=Travel With Trashman
+Logo=#SCR$01,$00,$01,$0D,$07,$4000,$5800(/images/logo)
+Copyright=&copy; 1984 New Generation Software &copy; 2024 ArcadeGeek LTD.
+Repository=https://github.com/pobtastic/travelwithtrashman/
+LinkInternalOperands=1
+AddressAnchor={address#IF({base}==16)(:04x)}
+
+[PageHeaders]
+GameIndex=The complete<>RAM disassembly (work in progress)
+
+[Expand]
+#DEF(#COLOUR(id)
+  #LET(ink=$id&$07)#IF({ink}>=$00)(INK:
+    #MAP({ink})(
+      UNKNOWN,
+      0:BLACK,
+      1:BLUE,
+      2:RED,
+      3:MAGENTA,
+      4:GREEN,
+      5:CYAN,
+      6:YELLOW,
+      7:WHITE)),
+  #LET(paper=$id>>$03&$07)#IF({paper}>=$00)(PAPER:
+    #MAP({paper})(
+      UNKNOWN,
+      0:BLACK,
+      1:BLUE,
+      2:RED,
+      3:MAGENTA,
+      4:GREEN,
+      5:CYAN,
+      6:YELLOW,
+      7:WHITE))
+  #LET(bright=$id&$40)#IF({bright}>$00)((BRIGHT))
+  #LET(flash=$id&$80)#IF({flash}>$00)(FLASH: ON))
+
+#DEF(#INK(id)
+  #LET(bright=$id&$40)
+  #LET(flash=$id&$80)
+  #LET(ink=$id&$07)#IF({ink}>=$00)(
+    #MAP({ink})(
+      UNKNOWN,
+      0:BLACK,
+      1:BLUE,
+      2:RED,
+      3:MAGENTA,
+      4:GREEN,
+      5:CYAN,
+      6:YELLOW,
+      7:WHITE))#IF({bright}>$00)( (BRIGHT))#IF({flash}>$00)( (FLASH: ON)))
+
+#DEF(#LOCATION(addr,scale=$02)
+  #POKES($8C30,$addr&$FF);($8C31,($addr>>$08)&$FF)
+  #SIM(start=$8600,stop=$8665)#SIM(start=$9052,stop=$9088)
+  #SCR$scale)
+
+#DEF(#MONEY
+  #LET(amount=(#PEEK(#PC+$01)*$0100)+#PEEK(#PC))#FORMAT$00(£{amount:X}))
+
+#DEF(#STATE(id)
+  #MAP($id)(
+  UNKNOWN,
+  0:Not visited,
+  3:Completed))
+
+#DEF(#TICKER(bit)
+  #POKES($EFFA,$01<<$bit)#SIM(start=$823B,stop=$839E)#FONT#(:(#STR($7820,$01,$A0)))$F840,attr=$4E)

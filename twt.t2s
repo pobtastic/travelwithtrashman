@@ -1,0 +1,14 @@
+; tap2sna.py file for Travel With Trashman. Run
+;
+;   $ tap2sna.py @twt.t2s
+;
+; to create a Z80 snapshot.
+
+https://www.worldofspectrum.org//pub/sinclair/games/t/TravelWithTrashman.tzx.zip
+TravelWithTrashman.z80
+
+--tape-name "Travel With Trashman.tzx"
+--tape-sum 7db6b2023754d24f24a8501e987f16c8
+;--start 0xFFC7
+--start 0x8193
+--sim-load-config accelerator=rom,bleepload
