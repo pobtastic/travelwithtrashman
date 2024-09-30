@@ -1636,7 +1636,7 @@ t $8C23 Messaging: Yes
 
 t $8C26 Messaging: Pound Symbol
 @ $8C26 label=Messaging_£
-  $8C26,$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(pound)
+  $8C26,$01 #FONT:(`)$F840,attr=$4E(pound)
 
 t $8C27 Messaging: Arrow Symbol
 @ $8C27 label=Messaging_Arrow

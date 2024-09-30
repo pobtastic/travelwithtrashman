@@ -3461,7 +3461,7 @@ t$8C23 DEFM "Ye","s"+$80 ; #FONT#(:(#STR(#PC)))$F840,attr=$4E(yes)
 
 ; Messaging: Pound Symbol
 @label=Messaging_£
-t$8C26 DEFM $E0      ; #FONT#(:(#STR(#PC)))$F840,attr=$4E(pound)
+t$8C26 DEFM $E0      ; #FONT:(`)$F840,attr=$4E(pound)
 
 ; Messaging: Arrow Symbol
 @label=Messaging_Arrow
