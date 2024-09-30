@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Travel With Trashman: Routine at 32771</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="30912.html">30912</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#32771">Map</a></td>
+<td class="next">
+Next: <a href="32826.html">32826</a>
+</td>
+</tr>
+</table>
+<div class="description">32771: Game Loop</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="23698.html">GameEntryPoint</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">GameInitialise</td>
+<td class="address-2"><span id="32771"></span>32771</td>
+<td class="instruction">CALL <a href="33094.html">Print_WorldMap</a></td>
+<td class="comment-1" rowspan="1">Call <a href="33094.html">Print_WorldMap</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="32774"></span>32774</td>
+<td class="instruction">LD HL,61439</td>
+<td class="comment-1" rowspan="2">Write 1 to *<a href="61439.html">61439</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="32777"></span>32777</td>
+<td class="instruction">LD (HL),1</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="32779"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="33084.html">Handler_DebounceSpace</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">RestartGame</td>
+<td class="address-2"><span id="32779"></span>32779</td>
+<td class="instruction">LD SP,(23627)</td>
+<td class="comment-1" rowspan="1"><span class="register">SP</span>=*<a rel="noopener nofollow" href="https://skoolkit.ca/disassemblies/rom/hex/asm/5C4B.html">VARS</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="32783"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="34876.html">Handler_SubGame</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ShowMenu</td>
+<td class="address-2"><span id="32783"></span>32783</td>
+<td class="instruction">CALL <a href="35425.html">ClearMenuScreenAreas</a></td>
+<td class="comment-1" rowspan="1">Call <a href="35425.html">ClearMenuScreenAreas</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="32786"></span>32786</td>
+<td class="instruction">LD HL,(36484)</td>
+<td class="comment-1" rowspan="2">Write *<a href="36482.html#36484">London_MapCoordinates</a> to *<a href="30725.html">CurrentLocationCoOrdinates</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="32789"></span>32789</td>
+<td class="instruction">LD (30725),HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="32792"></span>32792</td>
+<td class="instruction">LD A,0</td>
+<td class="comment-1" rowspan="3">Write 0 to: <ul class="">
+<li>*<a href="61434.html">GameState_1</a></li>
+<li>*<a href="61435.html">GameState_2</a></li>
+</ul></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="32794"></span>32794</td>
+<td class="instruction">LD (61434),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="32797"></span>32797</td>
+<td class="instruction">LD (61435),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="32800"></span>32800</td>
+<td class="instruction">CALL <a href="33706.html">GameMenu</a></td>
+<td class="comment-1" rowspan="1">Call <a href="33706.html">GameMenu</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="32803"></span>32803</td>
+<td class="instruction">CALL <a href="34005.html">Select1Or2PlayerGame</a></td>
+<td class="comment-1" rowspan="1">Call <a href="34005.html">Select1Or2PlayerGame</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="32806"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="34876.html">Handler_SubGame</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">NewGame</td>
+<td class="address-2"><span id="32806"></span>32806</td>
+<td class="instruction">CALL <a href="33949.html">Initialise_NewGame</a></td>
+<td class="comment-1" rowspan="1">Call <a href="33949.html">Initialise_NewGame</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="32809"></span>32809</td>
+<td class="instruction">CALL <a href="32826.html">Initialise_LocationStates</a></td>
+<td class="comment-1" rowspan="1">Call <a href="32826.html">Initialise_LocationStates</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="32812"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="34876.html">Handler_SubGame</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">GameLoop</td>
+<td class="address-2"><span id="32812"></span>32812</td>
+<td class="instruction">CALL <a href="34304.html">Print_Header</a></td>
+<td class="comment-1" rowspan="1">Call <a href="34304.html">Print_Header</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="32815"></span>32815</td>
+<td class="instruction">CALL <a href="34406.html">ChooseLocationOrTakeJob</a></td>
+<td class="comment-1" rowspan="1">Call <a href="34406.html">ChooseLocationOrTakeJob</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="32818"></span>32818</td>
+<td class="instruction">CALL <a href="34633.html">Handler_LocationChoice</a></td>
+<td class="comment-1" rowspan="1">Call <a href="34633.html">Handler_LocationChoice</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="32821"></span>32821</td>
+<td class="instruction">CALL <a href="35228.html">Handler_FlightPath</a></td>
+<td class="comment-1" rowspan="1">Call <a href="35228.html">Handler_FlightPath</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="32824"></span>32824</td>
+<td class="instruction">JR <a href="32771.html#32812">GameLoop</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="32771.html#32812">GameLoop</a>.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="30912.html">30912</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#32771">Map</a></td>
+<td class="next">
+Next: <a href="32826.html">32826</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1984 New Generation Software &copy; 2024 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.3.</div>
+<div class="repository">Link to <a href="https://github.com/pobtastic/travelwithtrashman/">Source code</a>.</div>
+<div><a href="asm/32771.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Travel With Trashman: Routine at 9465</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="9447.html">9447</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#9465">Map</a></td>
+<td class="next">
+Next: <a href="9478.html">9478</a>
+</td>
+</tr>
+</table>
+<div class="description">9465: Routine at 9465</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="9478.html">9478</a> and <a href="94CC.html">94CC</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="9465"></span>9465</td>
+<td class="instruction">LD HL,$0008</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=0008.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9468"></span>9468</td>
+<td class="instruction">ADD HL,DE</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>+=<span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9469"></span>9469</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-1" rowspan="1">Exchange the <span class="register">DE</span> and <span class="register">HL</span> registers.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="946a"></span>946A</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">BC</span> from the stack.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="946b"></span>946B</td>
+<td class="instruction">DJNZ <a href="9447.html#945f">$945F</a></td>
+<td class="comment-1" rowspan="1">Decrease counter by one and loop back to <a href="9447.html#945f">945F</a> until counter is zero.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="946d"></span>946D</td>
+<td class="instruction">POP IX</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">IX</span> from the stack.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="946f"></span>946F</td>
+<td class="instruction">INC IX</td>
+<td class="comment-1" rowspan="1">Increment <span class="register">IX</span> by one.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9471"></span>9471</td>
+<td class="instruction">INC IX</td>
+<td class="comment-1" rowspan="1">Increment <span class="register">IX</span> by one.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9473"></span>9473</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">BC</span> from the stack.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9474"></span>9474</td>
+<td class="instruction">DEC C</td>
+<td class="comment-1" rowspan="1">Decrease <span class="register">C</span> by one.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9475"></span>9475</td>
+<td class="instruction">JR NZ,<a href="9447.html#945c">$945C</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="9447.html#945c">945C</a> if <span class="register">C</span> is not zero.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9477"></span>9477</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="9447.html">9447</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#9465">Map</a></td>
+<td class="next">
+Next: <a href="9478.html">9478</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1984 New Generation Software &copy; 2024 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.3.</div>
+<div class="repository">Link to <a href="https://github.com/pobtastic/travelwithtrashman/">Source code</a>.</div>
+<div><a href="asm/9465.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

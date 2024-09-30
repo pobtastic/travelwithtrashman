@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Travel With Trashman: Routine at B0AE</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="B031.html">B031</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#b0ae">Map</a></td>
+<td class="next">
+Next: <a href="B0CA.html">B0CA</a>
+</td>
+</tr>
+</table>
+<div class="description">B0AE: Paris</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="AADA.html">Initialise_Paris</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="b0ae"></span>B0AE</td>
+<td class="instruction">LD C,$48</td>
+<td class="comment-1" rowspan="1"><span class="register">C</span>=48.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="b0b0"></span>B0B0</td>
+<td class="instruction">LD IX,$6240</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>=<a href="6000.html#6240">6240</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="b0b4"></span>B0B4</td>
+<td class="instruction">LD DE,$0006</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=0006.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="b0b7"></span>B0B7</td>
+<td class="instruction">LD B,$08</td>
+<td class="comment-1" rowspan="1"><span class="register">B</span>=08.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="b0b9"></span>B0B9</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=*<span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="b0ba"></span>B0BA</td>
+<td class="instruction">RLCA</td>
+<td class="comment-1" rowspan="1">RLCA.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="b0bb"></span>B0BB</td>
+<td class="instruction">JR NC,<a href="B0AE.html#b0c1">$B0C1</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="B0AE.html#b0c1">B0C1</a> if  is higher.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="b0bd"></span>B0BD</td>
+<td class="instruction">SET 7,(IX+$00)</td>
+<td class="comment-1" rowspan="1">Set bit 7 of *<span class="register">IX</span>+00.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="b0c1"></span>B0C1</td>
+<td class="instruction">ADD IX,DE</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>+=<span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="b0c3"></span>B0C3</td>
+<td class="instruction">DJNZ <a href="B0AE.html#b0ba">$B0BA</a></td>
+<td class="comment-1" rowspan="1">Decrease counter by one and loop back to <a href="B0AE.html#b0ba">B0BA</a> until counter is zero.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="b0c5"></span>B0C5</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Increment <span class="register">HL</span> by one.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="b0c6"></span>B0C6</td>
+<td class="instruction">DEC C</td>
+<td class="comment-1" rowspan="1">Decrease <span class="register">C</span> by one.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="b0c7"></span>B0C7</td>
+<td class="instruction">JR NZ,<a href="B0AE.html#b0b7">$B0B7</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="B0AE.html#b0b7">B0B7</a> if <span class="register">C</span> is not zero.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="b0c9"></span>B0C9</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="B031.html">B031</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#b0ae">Map</a></td>
+<td class="next">
+Next: <a href="B0CA.html">B0CA</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1984 New Generation Software &copy; 2024 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.3.</div>
+<div class="repository">Link to <a href="https://github.com/pobtastic/travelwithtrashman/">Source code</a>.</div>
+<div><a href="asm/B0AE.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Travel With Trashman: Routine at 8146</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="813C.html">813C</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#8146">Map</a></td>
+<td class="next">
+Next: <a href="81B3.html">81B3</a>
+</td>
+</tr>
+</table>
+<div class="description">8146: Print World Map</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="8003.html">GameInitialise</a> and <a href="883C.html">Handler_SubGame</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="8146"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="world-map" src="../images/scr/world-map.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Print_WorldMap</td>
+<td class="address-2"><span id="8146"></span>8146</td>
+<td class="instruction">LD IX,$F000</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>=<a href="F000.html">F000</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="814a"></span>814A</td>
+<td class="instruction">LD HL,$6000</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="6000.html">ShadowBuffer</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="814d"></span>814D</td>
+<td class="instruction">LD E,$FF</td>
+<td class="comment-1" rowspan="1"><span class="register">E</span>=FF.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="814f"></span>814F</td>
+<td class="instruction">LD D,$80</td>
+<td class="comment-1" rowspan="1"><span class="register">D</span>=80.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8151"></span>8151</td>
+<td class="instruction">LD A,$00</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=00.</td>
+</tr>
+<tr>
+<td class="asm-label">Print_WorldMap_0</td>
+<td class="address-2"><span id="8153"></span>8153</td>
+<td class="instruction">INC IX</td>
+<td class="comment-1" rowspan="1">Increment <span class="register">IX</span> by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8155"></span>8155</td>
+<td class="instruction">LD B,(IX-$01)</td>
+<td class="comment-1" rowspan="1"><span class="register">B</span>=*<span class="register">IX</span>+FF.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8158"></span>8158</td>
+<td class="instruction">INC E</td>
+<td class="comment-1" rowspan="1">Increment <span class="register">E</span> by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8159"></span>8159</td>
+<td class="instruction">JR Z,<a href="8146.html#815d">Print_WorldMap_1</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="8146.html#815d">Print_WorldMap_1</a> if <span class="register">E</span> is zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="815b"></span>815B</td>
+<td class="instruction">LD E,$FF</td>
+<td class="comment-1" rowspan="1"><span class="register">E</span>=FF.</td>
+</tr>
+<tr>
+<td class="asm-label">Print_WorldMap_1</td>
+<td class="address-2"><span id="815d"></span>815D</td>
+<td class="instruction">RRC E</td>
+<td class="comment-1" rowspan="1">Rotate <span class="register">E</span> right (with carry).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="815f"></span>815F</td>
+<td class="instruction">RL (HL)</td>
+<td class="comment-1" rowspan="1">Rotate *<span class="register">HL</span> left.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8161"></span>8161</td>
+<td class="instruction">DEC B</td>
+<td class="comment-1" rowspan="1">Decrease <span class="register">B</span> by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8162"></span>8162</td>
+<td class="instruction">SRL D</td>
+<td class="comment-1" rowspan="1">Shift <span class="register">D</span> right.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8164"></span>8164</td>
+<td class="instruction">JR Z,<a href="8146.html#816b">Print_WorldMap_2</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="8146.html#816b">Print_WorldMap_2</a> if <span class="register">B</span> is zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8166"></span>8166</td>
+<td class="instruction">CP B</td>
+<td class="comment-1" rowspan="1">Compare <span class="register">A</span> with <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8167"></span>8167</td>
+<td class="instruction">JR NZ,<a href="8146.html#815d">Print_WorldMap_1</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="8146.html#815d">Print_WorldMap_1</a> if <span class="register">A</span> is not zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8169"></span>8169</td>
+<td class="instruction">JR <a href="8146.html#8153">Print_WorldMap_0</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="8146.html#8153">Print_WorldMap_0</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">Print_WorldMap_2</td>
+<td class="address-2"><span id="816b"></span>816B</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Increment <span class="register">HL</span> by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="816c"></span>816C</td>
+<td class="instruction">LD A,$78</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=78.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="816e"></span>816E</td>
+<td class="instruction">CP H</td>
+<td class="comment-1" rowspan="1">Compare <span class="register">A</span> with <span class="register">H</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="816f"></span>816F</td>
+<td class="instruction">JR Z,<a href="8146.html#8186">Print_WorldMap_4</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="8146.html#8186">Print_WorldMap_4</a> if <span class="register">A</span> is zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8171"></span>8171</td>
+<td class="instruction">LD A,B</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=<span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8172"></span>8172</td>
+<td class="instruction">CP $08</td>
+<td class="comment-1" rowspan="1">Compare <span class="register">A</span> with 08.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8174"></span>8174</td>
+<td class="instruction">JR NC,<a href="8146.html#8180">Print_WorldMap_3</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="8146.html#8180">Print_WorldMap_3</a> if <span class="register">A</span> is higher.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8176"></span>8176</td>
+<td class="instruction">CP $00</td>
+<td class="comment-1" rowspan="1">Compare <span class="register">A</span> with 00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8178"></span>8178</td>
+<td class="instruction">LD D,$80</td>
+<td class="comment-1" rowspan="1"><span class="register">D</span>=80.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="817a"></span>817A</td>
+<td class="instruction">JR Z,<a href="8146.html#8153">Print_WorldMap_0</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="8146.html#8153">Print_WorldMap_0</a> if <span class="register">A</span> is zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="817c"></span>817C</td>
+<td class="instruction">LD A,$00</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="817e"></span>817E</td>
+<td class="instruction">JR <a href="8146.html#815d">Print_WorldMap_1</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="8146.html#815d">Print_WorldMap_1</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">Print_WorldMap_3</td>
+<td class="address-2"><span id="8180"></span>8180</td>
+<td class="instruction">LD (HL),E</td>
+<td class="comment-1" rowspan="1">Write <span class="register">E</span> to *<span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8181"></span>8181</td>
+<td class="instruction">SUB $08</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>-=08.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8183"></span>8183</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-1" rowspan="1"><span class="register">B</span>=<span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8184"></span>8184</td>
+<td class="instruction">JR <a href="8146.html#816b">Print_WorldMap_2</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="8146.html#816b">Print_WorldMap_2</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">Print_WorldMap_4</td>
+<td class="address-2"><span id="8186"></span>8186</td>
+<td class="instruction">LD HL,$601F</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="6000.html">601F</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8189"></span>8189</td>
+<td class="instruction">LD DE,$0020</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=0020.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="818c"></span>818C</td>
+<td class="instruction">LD B,$C0</td>
+<td class="comment-1" rowspan="1"><span class="register">B</span>=C0.</td>
+</tr>
+<tr>
+<td class="asm-label">Print_WorldMap_5</td>
+<td class="address-2"><span id="818e"></span>818E</td>
+<td class="instruction">RES 0,(HL)</td>
+<td class="comment-1" rowspan="1">Reset bit 0 of *<span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8190"></span>8190</td>
+<td class="instruction">ADD HL,DE</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>+=<span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8191"></span>8191</td>
+<td class="instruction">DJNZ <a href="8146.html#818e">Print_WorldMap_5</a></td>
+<td class="comment-1" rowspan="1">Decrease counter by one and loop back to <a href="8146.html#818e">Print_WorldMap_5</a> until counter is zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8193"></span>8193</td>
+<td class="instruction">LD HL,$6000</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="6000.html">ShadowBuffer</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8196"></span>8196</td>
+<td class="instruction">LD DE,$4000</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=4000.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8199"></span>8199</td>
+<td class="instruction">LD BC,$1800</td>
+<td class="comment-1" rowspan="1"><span class="register">BC</span>=1800.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="819c"></span>819C</td>
+<td class="instruction">LDIR</td>
+<td class="comment-1" rowspan="1">LDIR.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="819e"></span>819E</td>
+<td class="instruction">LD HL,$5800</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=5800 (screen buffer location).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="81a1"></span>81A1</td>
+<td class="instruction">LD DE,$5801</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=5801 (attribute buffer location).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="81a4"></span>81A4</td>
+<td class="instruction">LD BC,$02FF</td>
+<td class="comment-1" rowspan="1"><span class="register">BC</span>=02FF.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="81a7"></span>81A7</td>
+<td class="instruction">LD (HL),$4E</td>
+<td class="comment-1" rowspan="1">Write INK:
+YELLOW,
+PAPER:
+BLUE
+(BRIGHT)
+ to *<span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="81a9"></span>81A9</td>
+<td class="instruction">LDIR</td>
+<td class="comment-1" rowspan="1">LDIR.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="81ab"></span>81AB</td>
+<td class="instruction">LD A,$01</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=01.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="81ad"></span>81AD</td>
+<td class="instruction">LD ($99CC),A</td>
+<td class="comment-1" rowspan="1">Write <span class="register">A</span> to *<a href="99C4.html#99cc">99CC</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="81b0"></span>81B0</td>
+<td class="instruction">OUT ($FE),A</td>
+<td class="comment-1" rowspan="1">OUT C9FE</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="81b2"></span>81B2</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="813C.html">813C</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#8146">Map</a></td>
+<td class="next">
+Next: <a href="81B3.html">81B3</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1984 New Generation Software &copy; 2024 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.3.</div>
+<div class="repository">Link to <a href="https://github.com/pobtastic/travelwithtrashman/">Source code</a>.</div>
+<div><a href="asm/8146.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

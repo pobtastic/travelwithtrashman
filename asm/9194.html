@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Travel With Trashman: Routine at 9194</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="918D.html">918D</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#9194">Map</a></td>
+<td class="next">
+Next: <a href="9226.html">9226</a>
+</td>
+</tr>
+</table>
+<div class="description">9194: Routine at 9194</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="9052.html">Initialise_SubGame</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="9194"></span>9194</td>
+<td class="instruction">LD DE,$0006</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=0006.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9197"></span>9197</td>
+<td class="instruction">LD HL,($99CD)</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=*<a href="99C4.html#99cd">99CD</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="919a"></span>919A</td>
+<td class="instruction">LD IX,$6240</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>=<a href="6000.html#6240">6240</a>.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="919e"></span>919E</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=*<span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="919f"></span>919F</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-1" rowspan="1"><span class="register">B</span>=<span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="91a0"></span>91A0</td>
+<td class="instruction">SRL B</td>
+<td class="comment-1" rowspan="2">Shift <span class="register">B</span> right two positions.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="91a2"></span>91A2</td>
+<td class="instruction">SRL B</td>
+</tr>
+<tr>
+<td class="address-1"><span id="91a4"></span>91A4</td>
+<td class="instruction">JR Z,<a href="9194.html#91b6">$91B6</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="9194.html#91b6">91B6</a> if <span class="register">HL</span> is zero.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="91a6"></span>91A6</td>
+<td class="instruction">AND %00000011</td>
+<td class="comment-1" rowspan="1">Keep only bits 0-1.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="91a8"></span>91A8</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-1" rowspan="1"><span class="register">C</span>=<span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="91a9"></span>91A9</td>
+<td class="instruction">SRL C</td>
+<td class="comment-1" rowspan="1">Shift <span class="register">C</span> right.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="91ab"></span>91AB</td>
+<td class="instruction">RLA</td>
+<td class="comment-1" rowspan="1">RLA.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="91ac"></span>91AC</td>
+<td class="instruction">AND %00000011</td>
+<td class="comment-1" rowspan="1">Keep only bits 0-1.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="91ae"></span>91AE</td>
+<td class="instruction">OR %00000100</td>
+<td class="comment-1" rowspan="1">Set bits 2.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="91b0"></span>91B0</td>
+<td class="instruction">CALL <a href="9194.html#921b">$921B</a></td>
+<td class="comment-1" rowspan="1">Call <a href="9194.html#921b">921B</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="91b3"></span>91B3</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Increment <span class="register">HL</span> by one.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="91b4"></span>91B4</td>
+<td class="instruction">JR <a href="9194.html#919e">$919E</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="9194.html#919e">919E</a>.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="91b6"></span>91B6</td>
+<td class="instruction">LD IX,$6000</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>=<a href="6000.html">ShadowBuffer</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="91ba"></span>91BA</td>
+<td class="instruction">LD C,$07</td>
+<td class="comment-1" rowspan="1"><span class="register">C</span>=07.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="91bc"></span>91BC</td>
+<td class="instruction">LD A,$01</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=01.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="91be"></span>91BE</td>
+<td class="instruction">LD B,$60</td>
+<td class="comment-1" rowspan="1"><span class="register">B</span>=60.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="91c0"></span>91C0</td>
+<td class="instruction">CALL <a href="9194.html#921b">$921B</a></td>
+<td class="comment-1" rowspan="1">Call <a href="9194.html#921b">921B</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="91c3"></span>91C3</td>
+<td class="instruction">LD IX,$6FC0</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>=<a href="6000.html#6fc0">6FC0</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="91c7"></span>91C7</td>
+<td class="instruction">LD B,$60</td>
+<td class="comment-1" rowspan="1"><span class="register">B</span>=60.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="91c9"></span>91C9</td>
+<td class="instruction">CALL <a href="9194.html#921b">$921B</a></td>
+<td class="comment-1" rowspan="1">Call <a href="9194.html#921b">921B</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="91cc"></span>91CC</td>
+<td class="instruction">LD B,$12</td>
+<td class="comment-1" rowspan="1"><span class="register">B</span>=12.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="91ce"></span>91CE</td>
+<td class="instruction">LD IX,$6240</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>=<a href="6000.html#6240">6240</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="91d2"></span>91D2</td>
+<td class="instruction">LD DE,$00C0</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=00C0.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="91d5"></span>91D5</td>
+<td class="instruction">LD (IX+$00),$05</td>
+<td class="comment-1" rowspan="1">Write 05 to *<span class="register">IX</span>+00.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="91d9"></span>91D9</td>
+<td class="instruction">LD (IX+$01),$07</td>
+<td class="comment-1" rowspan="1">Write 07 to *<span class="register">IX</span>+01.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="91dd"></span>91DD</td>
+<td class="instruction">ADD IX,DE</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>+=<span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="91df"></span>91DF</td>
+<td class="instruction">LD (IX-$06),$05</td>
+<td class="comment-1" rowspan="1">Write 05 to *<span class="register">IX</span>+FA.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="91e3"></span>91E3</td>
+<td class="instruction">LD (IX-$05),$07</td>
+<td class="comment-1" rowspan="1">Write 07 to *<span class="register">IX</span>+FB.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="91e7"></span>91E7</td>
+<td class="instruction">DJNZ <a href="9194.html#91d5">$91D5</a></td>
+<td class="comment-1" rowspan="1">Decrease counter by one and loop back to <a href="9194.html#91d5">91D5</a> until counter is zero.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="91e9"></span>91E9</td>
+<td class="instruction">LD IX,$6F06</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>=6F06.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="91ed"></span>91ED</td>
+<td class="instruction">LD BC,$121E</td>
+<td class="comment-1" rowspan="1"><span class="register">BC</span>=121E.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="91f0"></span>91F0</td>
+<td class="instruction">LD DE,$FF40</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=<a href="F840.html#ff40">FF40</a>.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="91f3"></span>91F3</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">BC</span> on the stack.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="91f4"></span>91F4</td>
+<td class="instruction">PUSH IX</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">IX</span> on the stack.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="91f6"></span>91F6</td>
+<td class="instruction">LD A,$06</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=06.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="91f8"></span>91F8</td>
+<td class="instruction">BIT 0,(IX+$01)</td>
+<td class="comment-1" rowspan="1">Test bit 0 of *<span class="register">IX</span>+01.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="91fc"></span>91FC</td>
+<td class="instruction">JR NZ,<a href="9194.html#9213">$9213</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="9194.html#9213">9213</a> if <span class="register">HL</span> is not zero.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="91fe"></span>91FE</td>
+<td class="instruction">LD A,$00</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=00.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="9200"></span>9200</td>
+<td class="instruction">LD (IX+$01),A</td>
+<td class="comment-1" rowspan="1">Write <span class="register">A</span> to *<span class="register">IX</span>+01.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9203"></span>9203</td>
+<td class="instruction">ADD IX,DE</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>+=<span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9205"></span>9205</td>
+<td class="instruction">DJNZ <a href="9194.html#91f8">$91F8</a></td>
+<td class="comment-1" rowspan="1">Decrease counter by one and loop back to <a href="9194.html#91f8">91F8</a> until counter is zero.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9207"></span>9207</td>
+<td class="instruction">POP IX</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">IX</span> from the stack.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9209"></span>9209</td>
+<td class="instruction">LD BC,$0006</td>
+<td class="comment-1" rowspan="1"><span class="register">BC</span>=0006.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="920c"></span>920C</td>
+<td class="instruction">ADD IX,BC</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>+=<span class="register">BC</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="920e"></span>920E</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">BC</span> from the stack.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="920f"></span>920F</td>
+<td class="instruction">DEC C</td>
+<td class="comment-1" rowspan="1">Decrease <span class="register">C</span> by one.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9210"></span>9210</td>
+<td class="instruction">JR NZ,<a href="9194.html#91f3">$91F3</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="9194.html#91f3">91F3</a> if <span class="register">C</span> is not zero.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9212"></span>9212</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="9213"></span>9213</td>
+<td class="instruction">CP $06</td>
+<td class="comment-1" rowspan="1">Compare <span class="register">A</span> with 06.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9215"></span>9215</td>
+<td class="instruction">JR Z,<a href="9194.html#9200">$9200</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="9194.html#9200">9200</a> if <span class="register">A</span> is zero.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9217"></span>9217</td>
+<td class="instruction">ADD A,$01</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>+=01.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9219"></span>9219</td>
+<td class="instruction">JR <a href="9194.html#9200">$9200</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="9194.html#9200">9200</a>.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="921b"></span>921B</td>
+<td class="instruction">LD (IX+$00),A</td>
+<td class="comment-1" rowspan="1">Write <span class="register">A</span> to *<span class="register">IX</span>+00.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="921e"></span>921E</td>
+<td class="instruction">LD (IX+$01),C</td>
+<td class="comment-1" rowspan="1">Write <span class="register">C</span> to *<span class="register">IX</span>+01.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9221"></span>9221</td>
+<td class="instruction">ADD IX,DE</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>+=<span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9223"></span>9223</td>
+<td class="instruction">DJNZ <a href="9194.html#921b">$921B</a></td>
+<td class="comment-1" rowspan="1">Decrease counter by one and loop back to <a href="9194.html#921b">921B</a> until counter is zero.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9225"></span>9225</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="918D.html">918D</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#9194">Map</a></td>
+<td class="next">
+Next: <a href="9226.html">9226</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1984 New Generation Software &copy; 2024 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.3.</div>
+<div class="repository">Link to <a href="https://github.com/pobtastic/travelwithtrashman/">Source code</a>.</div>
+<div><a href="asm/9194.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

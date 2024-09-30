@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Travel With Trashman: Routine at 34254</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="34120.html">34120</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#34254">Map</a></td>
+<td class="next">
+Next: <a href="34279.html">34279</a>
+</td>
+</tr>
+</table>
+<div class="description">34254: Toggle Players</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="34005.html">Select1Or2PlayerGame</a> and <a href="34876.html">Handler_SubGame</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="34254"></span>
+<div class="comments">
+<div class="paragraph">
+Switch the active player.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Toggle_Players</td>
+<td class="address-2"><span id="34254"></span>34254</td>
+<td class="instruction">LD HL,(61426)</td>
+<td class="comment-1" rowspan="1">Store *<a href="61426.html">Pointer_ActivePlayer</a> in <span class="register">HL</span> for the comparison.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="34257"></span>
+<div class="comments">
+<div class="paragraph">
+Start with comparing against 1UP.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34257"></span>34257</td>
+<td class="instruction">LD DE,35880</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=<a href="35880.html">1UP_Name</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34260"></span>34260</td>
+<td class="instruction">AND A</td>
+<td class="comment-1" rowspan="3">If the currently active player is not 1UP then jump to <a href="34254.html#34268">Set_Active_Player</a> (which will then set it to 1UP).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34261"></span>34261</td>
+<td class="instruction">SBC HL,DE</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34263"></span>34263</td>
+<td class="instruction">JR NZ,<a href="34254.html#34268">Set_Active_Player</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="34265"></span>
+<div class="comments">
+<div class="paragraph">
+Else, set the active player to 2UP.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34265"></span>34265</td>
+<td class="instruction">LD DE,35896</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=<a href="35880.html#35896">2UP_Name</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="34268"></span>
+<div class="comments">
+<div class="paragraph">
+Sets the active player to *<a href="61426.html">Pointer_ActivePlayer</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Set_Active_Player</td>
+<td class="address-2"><span id="34268"></span>34268</td>
+<td class="instruction">LD (61426),DE</td>
+<td class="comment-1" rowspan="1">Write <span class="register">DE</span> to *<a href="61426.html">Pointer_ActivePlayer</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34272"></span>34272</td>
+<td class="instruction">LD HL,15</td>
+<td class="comment-1" rowspan="2">Move <span class="register">HL</span> 0015 bytes to point to the active player state.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34275"></span>34275</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34276"></span>34276</td>
+<td class="instruction">BIT 7,(HL)</td>
+<td class="comment-1" rowspan="1">Test bit 7 of *<span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34278"></span>34278</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="34120.html">34120</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#34254">Map</a></td>
+<td class="next">
+Next: <a href="34279.html">34279</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1984 New Generation Software &copy; 2024 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.3.</div>
+<div class="repository">Link to <a href="https://github.com/pobtastic/travelwithtrashman/">Source code</a>.</div>
+<div><a href="asm/34254.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

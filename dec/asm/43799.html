@@ -1,0 +1,1675 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Travel With Trashman: Routine at 43799</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="43738.html">43738</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#43799">Map</a></td>
+<td class="next">
+Next: <a href="44841.html">44841</a>
+</td>
+</tr>
+</table>
+<div class="description">43799: Handler: Paris</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Handler_Paris</td>
+<td class="address-2"><span id="43799"></span>43799</td>
+<td class="instruction">CALL <a href="43799.html#44059">Handler_Paris_8</a></td>
+<td class="comment-1" rowspan="1">Call <a href="43799.html#44059">Handler_Paris_8</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43802"></span>43802</td>
+<td class="instruction">LD A,(29191)</td>
+<td class="comment-1" rowspan="3">Return if *<a href="24576.html#29191">29191</a> is zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43805"></span>43805</td>
+<td class="instruction">CP 0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43807"></span>43807</td>
+<td class="instruction">RET Z</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43808"></span>43808</td>
+<td class="instruction">LD HL,(39395)</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=*<a href="39364.html#39395">39395</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43811"></span>43811</td>
+<td class="instruction">LD DE,56</td>
+<td class="comment-1" rowspan="2"><span class="register">HL</span>+=0056.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43814"></span>43814</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43815"></span>43815</td>
+<td class="instruction">LD A,200</td>
+<td class="comment-1" rowspan="3">Jump to <a href="43799.html#43823">Handler_Paris_0</a> if <span class="register">L</span> is not equal to 200.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43817"></span>43817</td>
+<td class="instruction">CP L</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43818"></span>43818</td>
+<td class="instruction">JR NZ,<a href="43799.html#43823">Handler_Paris_0</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43820"></span>43820</td>
+<td class="instruction">LD HL,24240</td>
+<td class="comment-1" rowspan="2">Write <a href="23808.html#24240">24240</a> to *<a href="39364.html#39395">39395</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">Handler_Paris_0</td>
+<td class="address-2"><span id="43823"></span>43823</td>
+<td class="instruction">LD (39395),HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43826"></span>43826</td>
+<td class="instruction">BIT 7,(HL)</td>
+<td class="comment-1" rowspan="1">Test bit 7 of *<span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43828"></span>43828</td>
+<td class="instruction">JP Z,<a href="43799.html#44005">Handler_Paris_7</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="43799.html#44005">Handler_Paris_7</a> if <span class="register">A</span> is zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43831"></span>43831</td>
+<td class="instruction">CALL <a href="37945.html">37945</a></td>
+<td class="comment-1" rowspan="1">Call <a href="37945.html">37945</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43834"></span>43834</td>
+<td class="instruction">LD IX,(39395)</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>=*<a href="39364.html#39395">39395</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43838"></span>43838</td>
+<td class="instruction">LD A,128</td>
+<td class="comment-1" rowspan="3">Jump to <a href="43799.html#43867">Handler_Paris_1</a> if *<span class="register">IX</span>+0 is equal to 128.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43840"></span>43840</td>
+<td class="instruction">CP (IX+0)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43843"></span>43843</td>
+<td class="instruction">JR Z,<a href="43799.html#43867">Handler_Paris_1</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43845"></span>43845</td>
+<td class="instruction">DEC (IX+0)</td>
+<td class="comment-1" rowspan="1">Decrease *<span class="register">IX</span>+0 by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43848"></span>43848</td>
+<td class="instruction">CP (IX+0)</td>
+<td class="comment-1" rowspan="1">Compare <span class="register">A</span> with *<span class="register">IX</span>+0.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43851"></span>43851</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-1" rowspan="1">Return if {} is not zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43852"></span>43852</td>
+<td class="instruction">LD HL,44371</td>
+<td class="comment-1" rowspan="2">Write <a href="43799.html#44371">44371</a> to *<a href="43799.html#44282">44282</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43855"></span>43855</td>
+<td class="instruction">LD (44282),HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43858"></span>43858</td>
+<td class="instruction">CALL <a href="39234.html#39245">39245</a></td>
+<td class="comment-1" rowspan="1">Call <a href="39234.html#39245">39245</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43861"></span>43861</td>
+<td class="instruction">LD HL,(39395)</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=*<a href="39364.html#39395">39395</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43864"></span>43864</td>
+<td class="instruction">LD (HL),128</td>
+<td class="comment-1" rowspan="1">Write 128 to *<span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43866"></span>43866</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="asm-label">Handler_Paris_1</td>
+<td class="address-2"><span id="43867"></span>43867</td>
+<td class="instruction">BIT 5,(IX+6)</td>
+<td class="comment-1" rowspan="1">Test bit 5 of *<span class="register">IX</span>+6.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43871"></span>43871</td>
+<td class="instruction">JR Z,<a href="43799.html#43896">Handler_Paris_2</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="43799.html#43896">Handler_Paris_2</a> if <span class="register">A</span> is zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43873"></span>43873</td>
+<td class="instruction">RES 5,(IX+6)</td>
+<td class="comment-1" rowspan="1">Reset bit 5 of *<span class="register">IX</span>+6.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43877"></span>43877</td>
+<td class="instruction">LD L,(IX+4)</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=*<span class="register">IX</span>+4.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43880"></span>43880</td>
+<td class="instruction">LD H,(IX+5)</td>
+<td class="comment-1" rowspan="1"><span class="register">H</span>=*<span class="register">IX</span>+5.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43883"></span>43883</td>
+<td class="instruction">CALL <a href="38404.html">38404</a></td>
+<td class="comment-1" rowspan="1">Call <a href="38404.html">38404</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43886"></span>43886</td>
+<td class="instruction">JP NZ,<a href="39206.html">39206</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="39206.html">39206</a> if <span class="register">A</span> is not zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43889"></span>43889</td>
+<td class="instruction">LD (IX+0),0</td>
+<td class="comment-1" rowspan="1">Write 0 to *<span class="register">IX</span>+0.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43893"></span>43893</td>
+<td class="instruction">JP <a href="39234.html">39234</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="39234.html">39234</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">Handler_Paris_2</td>
+<td class="address-2"><span id="43896"></span>43896</td>
+<td class="instruction">LD A,(39339)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=*<a href="39273.html#39339">39339</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43899"></span>43899</td>
+<td class="instruction">CP 80</td>
+<td class="comment-1" rowspan="1">Compare <span class="register">A</span> with 80.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43901"></span>43901</td>
+<td class="instruction">JR Z,<a href="43799.html#43945">Handler_Paris_4</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="43799.html#43945">Handler_Paris_4</a> if <span class="register">A</span> is zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43903"></span>43903</td>
+<td class="instruction">LD A,(39340)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=*<a href="39273.html#39340">39340</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43906"></span>43906</td>
+<td class="instruction">CP 0</td>
+<td class="comment-1" rowspan="1">Compare <span class="register">A</span> with 0.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43908"></span>43908</td>
+<td class="instruction">JR Z,<a href="43799.html#43945">Handler_Paris_4</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="43799.html#43945">Handler_Paris_4</a> if <span class="register">A</span> is zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43910"></span>43910</td>
+<td class="instruction">LD A,(IX+24)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=*<span class="register">IX</span>+24.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43913"></span>43913</td>
+<td class="instruction">AND %10010000</td>
+<td class="comment-1" rowspan="1">Keep only bits 4, 7.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43915"></span>43915</td>
+<td class="instruction">CP 128</td>
+<td class="comment-1" rowspan="1">Compare <span class="register">A</span> with 128.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43917"></span>43917</td>
+<td class="instruction">JR NZ,<a href="43799.html#43945">Handler_Paris_4</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="43799.html#43945">Handler_Paris_4</a> if <span class="register">A</span> is not zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43919"></span>43919</td>
+<td class="instruction">CALL <a href="38425.html">38425</a></td>
+<td class="comment-1" rowspan="1">Call <a href="38425.html">38425</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43922"></span>43922</td>
+<td class="instruction">AND %00001111</td>
+<td class="comment-1" rowspan="1">Keep only bits 0-3.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43924"></span>43924</td>
+<td class="instruction">OR %10010000</td>
+<td class="comment-1" rowspan="1">Set bits 4, 7.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43926"></span>43926</td>
+<td class="instruction">LD IX,(39395)</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>=*<a href="39364.html#39395">39395</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43930"></span>43930</td>
+<td class="instruction">LD (IX+0),A</td>
+<td class="comment-1" rowspan="1">Write <span class="register">A</span> to *<span class="register">IX</span>+0.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43933"></span>43933</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="asm-label">Handler_Paris_3</td>
+<td class="address-2"><span id="43934"></span>43934</td>
+<td class="instruction">AND %01000000</td>
+<td class="comment-1" rowspan="1">Keep only bits 6.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43936"></span>43936</td>
+<td class="instruction">JR Z,<a href="43799.html#43952">Handler_Paris_5</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="43799.html#43952">Handler_Paris_5</a> if <span class="register">A</span> is zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43938"></span>43938</td>
+<td class="instruction">LD HL,29184</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="24576.html#29184">29184</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43941"></span>43941</td>
+<td class="instruction">SET 4,(HL)</td>
+<td class="comment-1" rowspan="1">Set bit 4 of *<span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43943"></span>43943</td>
+<td class="instruction">JR <a href="43799.html#43952">Handler_Paris_5</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="43799.html#43952">Handler_Paris_5</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">Handler_Paris_4</td>
+<td class="address-2"><span id="43945"></span>43945</td>
+<td class="instruction">LD A,(IX+7)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=*<span class="register">IX</span>+7.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43948"></span>43948</td>
+<td class="instruction">CP 0</td>
+<td class="comment-1" rowspan="1">Compare <span class="register">A</span> with 0.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43950"></span>43950</td>
+<td class="instruction">JR NZ,<a href="43799.html#43976">Handler_Paris_6</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="43799.html#43976">Handler_Paris_6</a> if <span class="register">A</span> is not zero.</td>
+</tr>
+<tr>
+<td class="asm-label">Handler_Paris_5</td>
+<td class="address-2"><span id="43952"></span>43952</td>
+<td class="instruction">CALL <a href="38425.html">38425</a></td>
+<td class="comment-1" rowspan="1">Call <a href="38425.html">38425</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43955"></span>43955</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-1" rowspan="1"><span class="register">C</span>=<span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43956"></span>43956</td>
+<td class="instruction">AND %00011000</td>
+<td class="comment-1" rowspan="1">Keep only bits 3-4.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43958"></span>43958</td>
+<td class="instruction">LD IX,(39395)</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>=*<a href="39364.html#39395">39395</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43962"></span>43962</td>
+<td class="instruction">LD (IX+6),A</td>
+<td class="comment-1" rowspan="1">Write <span class="register">A</span> to *<span class="register">IX</span>+6.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43965"></span>43965</td>
+<td class="instruction">LD A,C</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=<span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43966"></span>43966</td>
+<td class="instruction">AND %00000111</td>
+<td class="comment-1" rowspan="1">Keep only bits 0-2.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43968"></span>43968</td>
+<td class="instruction">ADD A,8</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>+=8.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43970"></span>43970</td>
+<td class="instruction">LD (IX+7),A</td>
+<td class="comment-1" rowspan="1">Write <span class="register">A</span> to *<span class="register">IX</span>+7.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43973"></span>43973</td>
+<td class="instruction">JP <a href="39206.html">39206</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="39206.html">39206</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">Handler_Paris_6</td>
+<td class="address-2"><span id="43976"></span>43976</td>
+<td class="instruction">DEC (IX+7)</td>
+<td class="comment-1" rowspan="1">Decrease *<span class="register">IX</span>+7 by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43979"></span>43979</td>
+<td class="instruction">LD H,(IX+5)</td>
+<td class="comment-1" rowspan="1"><span class="register">H</span>=*<span class="register">IX</span>+5.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43982"></span>43982</td>
+<td class="instruction">LD L,(IX+4)</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=*<span class="register">IX</span>+4.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43985"></span>43985</td>
+<td class="instruction">CALL <a href="37749.html">37749</a></td>
+<td class="comment-1" rowspan="1">Call <a href="37749.html">37749</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43988"></span>43988</td>
+<td class="instruction">AND %01100010</td>
+<td class="comment-1" rowspan="1">Keep only bits 1, 5-6.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43990"></span>43990</td>
+<td class="instruction">JR NZ,<a href="43799.html#43934">Handler_Paris_3</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="43799.html#43934">Handler_Paris_3</a> if <span class="register">A</span> is not zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43992"></span>43992</td>
+<td class="instruction">LD (IX+4),L</td>
+<td class="comment-1" rowspan="1">Write <span class="register">L</span> to *<span class="register">IX</span>+4.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43995"></span>43995</td>
+<td class="instruction">LD (IX+5),H</td>
+<td class="comment-1" rowspan="1">Write <span class="register">H</span> to *<span class="register">IX</span>+5.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="43998"></span>43998</td>
+<td class="instruction">SET 5,(IX+6)</td>
+<td class="comment-1" rowspan="1">Set bit 5 of *<span class="register">IX</span>+6.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44002"></span>44002</td>
+<td class="instruction">JP <a href="39206.html">39206</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="39206.html">39206</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">Handler_Paris_7</td>
+<td class="address-2"><span id="44005"></span>44005</td>
+<td class="instruction">CALL <a href="37945.html">37945</a></td>
+<td class="comment-1" rowspan="1">Call <a href="37945.html">37945</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44008"></span>44008</td>
+<td class="instruction">CALL <a href="38425.html">38425</a></td>
+<td class="comment-1" rowspan="1">Call <a href="38425.html">38425</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44011"></span>44011</td>
+<td class="instruction">AND %11110000</td>
+<td class="comment-1" rowspan="1">Keep only bits 4-7.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44013"></span>44013</td>
+<td class="instruction">LD L,A</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=<span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44014"></span>44014</td>
+<td class="instruction">LD H,0</td>
+<td class="comment-1" rowspan="1"><span class="register">H</span>=0.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44016"></span>44016</td>
+<td class="instruction">ADD HL,HL</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>+=<span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44017"></span>44017</td>
+<td class="instruction">ADD HL,HL</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>+=<span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44018"></span>44018</td>
+<td class="instruction">LD DE,30974</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=<a href="30912.html#30974">30974</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44021"></span>44021</td>
+<td class="instruction">ADD HL,DE</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>+=<span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44022"></span>44022</td>
+<td class="instruction">LD A,16</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=16.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44024"></span>44024</td>
+<td class="instruction">LD IX,(39395)</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>=*<a href="39364.html#39395">39395</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44028"></span>44028</td>
+<td class="instruction">CALL <a href="37749.html#37752">37752</a></td>
+<td class="comment-1" rowspan="1">Call <a href="37749.html#37752">37752</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44031"></span>44031</td>
+<td class="instruction">AND %01100010</td>
+<td class="comment-1" rowspan="1">Keep only bits 1, 5-6.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44033"></span>44033</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-1" rowspan="1">Return if {} is not zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44034"></span>44034</td>
+<td class="instruction">LD A,(39333)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=*<a href="39273.html#39333">39333</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44037"></span>44037</td>
+<td class="instruction">AND %00001111</td>
+<td class="comment-1" rowspan="1">Keep only bits 0-3.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44039"></span>44039</td>
+<td class="instruction">LD (IX+7),A</td>
+<td class="comment-1" rowspan="1">Write <span class="register">A</span> to *<span class="register">IX</span>+7.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44042"></span>44042</td>
+<td class="instruction">LD (IX+0),128</td>
+<td class="comment-1" rowspan="1">Write 128 to *<span class="register">IX</span>+0.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44046"></span>44046</td>
+<td class="instruction">LD (IX+4),L</td>
+<td class="comment-1" rowspan="1">Write <span class="register">L</span> to *<span class="register">IX</span>+4.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44049"></span>44049</td>
+<td class="instruction">LD (IX+5),H</td>
+<td class="comment-1" rowspan="1">Write <span class="register">H</span> to *<span class="register">IX</span>+5.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44052"></span>44052</td>
+<td class="instruction">LD (IX+6),48</td>
+<td class="comment-1" rowspan="1">Write 48 to *<span class="register">IX</span>+6.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44056"></span>44056</td>
+<td class="instruction">JP <a href="39206.html#39209">39209</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="39206.html#39209">39209</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">Handler_Paris_8</td>
+<td class="address-2"><span id="44059"></span>44059</td>
+<td class="instruction">LD HL,(29241)</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=*<a href="24576.html#29241">29241</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44062"></span>44062</td>
+<td class="instruction">BIT 0,(HL)</td>
+<td class="comment-1" rowspan="1">Test bit 0 of *<span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44064"></span>44064</td>
+<td class="instruction">JR NZ,<a href="43799.html#44085">Handler_Paris_11</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="43799.html#44085">Handler_Paris_11</a> if <span class="register">A</span> is not zero.</td>
+</tr>
+<tr>
+<td class="asm-label">Handler_Paris_9</td>
+<td class="address-2"><span id="44066"></span>44066</td>
+<td class="instruction">LD HL,(29241)</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=*<a href="24576.html#29241">29241</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44069"></span>44069</td>
+<td class="instruction">LD DE,10</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=0010.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44072"></span>44072</td>
+<td class="instruction">ADD HL,DE</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>+=<span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44073"></span>44073</td>
+<td class="instruction">LD A,128</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=128.</td>
+</tr>
+<tr>
+<td class="asm-label">Handler_Paris_10</td>
+<td class="address-2"><span id="44075"></span>44075</td>
+<td class="instruction">CP H</td>
+<td class="comment-1" rowspan="1">Compare <span class="register">A</span> with <span class="register">H</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44076"></span>44076</td>
+<td class="instruction">LD (29241),HL</td>
+<td class="comment-1" rowspan="1">Write <span class="register">HL</span> to *<a href="24576.html#29241">29241</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44079"></span>44079</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-1" rowspan="1">Return if {} is not zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44080"></span>44080</td>
+<td class="instruction">LD HL,32256</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="30912.html#32256">32256</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44083"></span>44083</td>
+<td class="instruction">JR <a href="43799.html#44075">Handler_Paris_10</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="43799.html#44075">Handler_Paris_10</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">Handler_Paris_11</td>
+<td class="address-2"><span id="44085"></span>44085</td>
+<td class="instruction">BIT 1,(HL)</td>
+<td class="comment-1" rowspan="1">Test bit 1 of *<span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44087"></span>44087</td>
+<td class="instruction">JR NZ,<a href="43799.html#44123">Handler_Paris_12</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="43799.html#44123">Handler_Paris_12</a> if <span class="register">A</span> is not zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44089"></span>44089</td>
+<td class="instruction">CALL <a href="38425.html">38425</a></td>
+<td class="comment-1" rowspan="1">Call <a href="38425.html">38425</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44092"></span>44092</td>
+<td class="instruction">CP 150</td>
+<td class="comment-1" rowspan="1">Compare <span class="register">A</span> with 150.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44094"></span>44094</td>
+<td class="instruction">JR C,<a href="43799.html#44066">Handler_Paris_9</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="43799.html#44066">Handler_Paris_9</a> if <span class="register">A</span> is lower.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44096"></span>44096</td>
+<td class="instruction">AND %00001100</td>
+<td class="comment-1" rowspan="1">Keep only bits 2-3.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44098"></span>44098</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-1" rowspan="1"><span class="register">E</span>=<span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44099"></span>44099</td>
+<td class="instruction">RLCA</td>
+<td class="comment-1" rowspan="1">RLCA.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44100"></span>44100</td>
+<td class="instruction">LD IX,(29241)</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>=*<a href="24576.html#29241">29241</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44104"></span>44104</td>
+<td class="instruction">LD L,(IX+1)</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=*<span class="register">IX</span>+1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44107"></span>44107</td>
+<td class="instruction">LD H,(IX+2)</td>
+<td class="comment-1" rowspan="1"><span class="register">H</span>=*<span class="register">IX</span>+2.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44110"></span>44110</td>
+<td class="instruction">CALL <a href="37749.html#37752">37752</a></td>
+<td class="comment-1" rowspan="1">Call <a href="37749.html#37752">37752</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44113"></span>44113</td>
+<td class="instruction">AND %00010001</td>
+<td class="comment-1" rowspan="1">Keep only bits 0, 4.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44115"></span>44115</td>
+<td class="instruction">JR NZ,<a href="43799.html#44066">Handler_Paris_9</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="43799.html#44066">Handler_Paris_9</a> if <span class="register">A</span> is not zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44117"></span>44117</td>
+<td class="instruction">LD A,E</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=<span class="register">E</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44118"></span>44118</td>
+<td class="instruction">OR %00000011</td>
+<td class="comment-1" rowspan="1">Set bits 0-1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44120"></span>44120</td>
+<td class="instruction">LD (IX+0),A</td>
+<td class="comment-1" rowspan="1">Write <span class="register">A</span> to *<span class="register">IX</span>+0.</td>
+</tr>
+<tr>
+<td class="asm-label">Handler_Paris_12</td>
+<td class="address-2"><span id="44123"></span>44123</td>
+<td class="instruction">LD IX,(29241)</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>=*<a href="24576.html#29241">29241</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44127"></span>44127</td>
+<td class="instruction">LD C,(IX+1)</td>
+<td class="comment-1" rowspan="1"><span class="register">C</span>=*<span class="register">IX</span>+1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44130"></span>44130</td>
+<td class="instruction">LD B,(IX+2)</td>
+<td class="comment-1" rowspan="1"><span class="register">B</span>=*<span class="register">IX</span>+2.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44133"></span>44133</td>
+<td class="instruction">CALL <a href="37865.html">37865</a></td>
+<td class="comment-1" rowspan="1">Call <a href="37865.html">37865</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44136"></span>44136</td>
+<td class="instruction">LD IX,(29241)</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>=*<a href="24576.html#29241">29241</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44140"></span>44140</td>
+<td class="instruction">LD A,(IX+0)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=*<span class="register">IX</span>+0.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44143"></span>44143</td>
+<td class="instruction">ADD A,16</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>+=16.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44145"></span>44145</td>
+<td class="instruction">CP 80</td>
+<td class="comment-1" rowspan="1">Compare <span class="register">A</span> with 80.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44147"></span>44147</td>
+<td class="instruction">JR C,<a href="43799.html#44159">Handler_Paris_13</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="43799.html#44159">Handler_Paris_13</a> if <span class="register">A</span> is lower.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44149"></span>44149</td>
+<td class="instruction">AND %00001101</td>
+<td class="comment-1" rowspan="1">Keep only bits 0, 2-3.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44151"></span>44151</td>
+<td class="instruction">LD (IX+0),A</td>
+<td class="comment-1" rowspan="1">Write <span class="register">A</span> to *<span class="register">IX</span>+0.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44154"></span>44154</td>
+<td class="instruction">CALL <a href="43799.html#44218">Handler_Paris_15</a></td>
+<td class="comment-1" rowspan="1">Call <a href="43799.html#44218">Handler_Paris_15</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44157"></span>44157</td>
+<td class="instruction">JR <a href="43799.html#44066">Handler_Paris_9</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="43799.html#44066">Handler_Paris_9</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">Handler_Paris_13</td>
+<td class="address-2"><span id="44159"></span>44159</td>
+<td class="instruction">LD (IX+0),A</td>
+<td class="comment-1" rowspan="1">Write <span class="register">A</span> to *<span class="register">IX</span>+0.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44162"></span>44162</td>
+<td class="instruction">CALL <a href="43799.html#44234">Handler_Paris_17</a></td>
+<td class="comment-1" rowspan="1">Call <a href="43799.html#44234">Handler_Paris_17</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44165"></span>44165</td>
+<td class="instruction">LD A,(IX+2)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=*<span class="register">IX</span>+2.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44168"></span>44168</td>
+<td class="instruction">LD D,(IX+3)</td>
+<td class="comment-1" rowspan="1"><span class="register">D</span>=*<span class="register">IX</span>+3.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44171"></span>44171</td>
+<td class="instruction">LD IX,(29241)</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>=*<a href="24576.html#29241">29241</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44175"></span>44175</td>
+<td class="instruction">CP 0</td>
+<td class="comment-1" rowspan="1">Compare <span class="register">A</span> with 0.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44177"></span>44177</td>
+<td class="instruction">JR Z,<a href="43799.html#44225">Handler_Paris_16</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="43799.html#44225">Handler_Paris_16</a> if <span class="register">A</span> is zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44179"></span>44179</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-1" rowspan="1"><span class="register">E</span>=<span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44180"></span>44180</td>
+<td class="instruction">LD L,(IX+1)</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=*<span class="register">IX</span>+1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44183"></span>44183</td>
+<td class="instruction">LD H,(IX+2)</td>
+<td class="comment-1" rowspan="1"><span class="register">H</span>=*<span class="register">IX</span>+2.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44186"></span>44186</td>
+<td class="instruction">ADD HL,DE</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>+=<span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44187"></span>44187</td>
+<td class="instruction">LD D,(HL)</td>
+<td class="comment-1" rowspan="1"><span class="register">D</span>=*<span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44188"></span>44188</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Increment <span class="register">HL</span> by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44189"></span>44189</td>
+<td class="instruction">LD E,(HL)</td>
+<td class="comment-1" rowspan="1"><span class="register">E</span>=*<span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44190"></span>44190</td>
+<td class="instruction">LD A,(DE)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=*<span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44191"></span>44191</td>
+<td class="instruction">DEC HL</td>
+<td class="comment-1" rowspan="1">Decrease <span class="register">HL</span> by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44192"></span>44192</td>
+<td class="instruction">AND %00010001</td>
+<td class="comment-1" rowspan="1">Keep only bits 0, 4.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44194"></span>44194</td>
+<td class="instruction">JR NZ,<a href="43799.html#44205">Handler_Paris_14</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="43799.html#44205">Handler_Paris_14</a> if <span class="register">HL</span> is not zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44196"></span>44196</td>
+<td class="instruction">LD (IX+1),L</td>
+<td class="comment-1" rowspan="1">Write <span class="register">L</span> to *<span class="register">IX</span>+1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44199"></span>44199</td>
+<td class="instruction">LD (IX+2),H</td>
+<td class="comment-1" rowspan="1">Write <span class="register">H</span> to *<span class="register">IX</span>+2.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44202"></span>44202</td>
+<td class="instruction">JP <a href="38754.html#38823">38823</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="38754.html#38823">38823</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">Handler_Paris_14</td>
+<td class="address-2"><span id="44205"></span>44205</td>
+<td class="instruction">LD A,(IX+0)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=*<span class="register">IX</span>+0.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44208"></span>44208</td>
+<td class="instruction">AND %00001111</td>
+<td class="comment-1" rowspan="1">Keep only bits 0-3.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44210"></span>44210</td>
+<td class="instruction">OR %01000000</td>
+<td class="comment-1" rowspan="1">Set bits 6.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44212"></span>44212</td>
+<td class="instruction">LD (IX+0),A</td>
+<td class="comment-1" rowspan="1">Write <span class="register">A</span> to *<span class="register">IX</span>+0.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44215"></span>44215</td>
+<td class="instruction">JP <a href="43799.html#44218">Handler_Paris_15</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="43799.html#44218">Handler_Paris_15</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">Handler_Paris_15</td>
+<td class="address-2"><span id="44218"></span>44218</td>
+<td class="instruction">CALL <a href="43799.html#44234">Handler_Paris_17</a></td>
+<td class="comment-1" rowspan="1">Call <a href="43799.html#44234">Handler_Paris_17</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44221"></span>44221</td>
+<td class="instruction">LD IX,(29241)</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>=*<a href="24576.html#29241">29241</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">Handler_Paris_16</td>
+<td class="address-2"><span id="44225"></span>44225</td>
+<td class="instruction">LD L,(IX+1)</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=*<span class="register">IX</span>+1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44228"></span>44228</td>
+<td class="instruction">LD H,(IX+2)</td>
+<td class="comment-1" rowspan="1"><span class="register">H</span>=*<span class="register">IX</span>+2.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44231"></span>44231</td>
+<td class="instruction">JP <a href="38754.html#38823">38823</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="38754.html#38823">38823</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">Handler_Paris_17</td>
+<td class="address-2"><span id="44234"></span>44234</td>
+<td class="instruction">AND %01111100</td>
+<td class="comment-1" rowspan="1">Keep only bits 2-6.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44236"></span>44236</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-1" rowspan="1"><span class="register">E</span>=<span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44237"></span>44237</td>
+<td class="instruction">LD D,0</td>
+<td class="comment-1" rowspan="1"><span class="register">D</span>=0.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44239"></span>44239</td>
+<td class="instruction">LD IX,44291</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>=<a href="43799.html#44291">44291</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44243"></span>44243</td>
+<td class="instruction">ADD IX,DE</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>+=<span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44245"></span>44245</td>
+<td class="instruction">LD E,(IX+0)</td>
+<td class="comment-1" rowspan="1"><span class="register">E</span>=*<span class="register">IX</span>+0.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44248"></span>44248</td>
+<td class="instruction">LD D,(IX+1)</td>
+<td class="comment-1" rowspan="1"><span class="register">D</span>=*<span class="register">IX</span>+1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44251"></span>44251</td>
+<td class="instruction">LD (44282),DE</td>
+<td class="comment-1" rowspan="1">Write <span class="register">DE</span> to *<a href="43799.html#44282">44282</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44255"></span>44255</td>
+<td class="instruction">AND %01100000</td>
+<td class="comment-1" rowspan="1">Keep only bits 5-6.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44257"></span>44257</td>
+<td class="instruction">LD E,16</td>
+<td class="comment-1" rowspan="1"><span class="register">E</span>=16.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44259"></span>44259</td>
+<td class="instruction">JR Z,<a href="43799.html#44275">Handler_Paris_18</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="43799.html#44275">Handler_Paris_18</a> if <span class="register">HL</span> is zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44261"></span>44261</td>
+<td class="instruction">CP 32</td>
+<td class="comment-1" rowspan="1">Compare <span class="register">A</span> with 32.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44263"></span>44263</td>
+<td class="instruction">LD E,32</td>
+<td class="comment-1" rowspan="1"><span class="register">E</span>=32.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44265"></span>44265</td>
+<td class="instruction">JR Z,<a href="43799.html#44275">Handler_Paris_18</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="43799.html#44275">Handler_Paris_18</a> if <span class="register">A</span> is zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44267"></span>44267</td>
+<td class="instruction">CP 64</td>
+<td class="comment-1" rowspan="1">Compare <span class="register">A</span> with 64.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44269"></span>44269</td>
+<td class="instruction">LD E,64</td>
+<td class="comment-1" rowspan="1"><span class="register">E</span>=64.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44271"></span>44271</td>
+<td class="instruction">JR Z,<a href="43799.html#44275">Handler_Paris_18</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="43799.html#44275">Handler_Paris_18</a> if <span class="register">A</span> is zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44273"></span>44273</td>
+<td class="instruction">LD E,128</td>
+<td class="comment-1" rowspan="1"><span class="register">E</span>=128.</td>
+</tr>
+<tr>
+<td class="asm-label">Handler_Paris_18</td>
+<td class="address-2"><span id="44275"></span>44275</td>
+<td class="instruction">LD HL,61439</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="61439.html">61439</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44278"></span>44278</td>
+<td class="instruction">LD A,E</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=<span class="register">E</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44279"></span>44279</td>
+<td class="instruction">OR (HL)</td>
+<td class="comment-1" rowspan="1">Set the bits from *<span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44280"></span>44280</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-1" rowspan="1">Write <span class="register">A</span> to *<span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44281"></span>44281</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44282"></span>44282</td>
+<td class="instruction">DEFB 83,173,1,1,2,173,0,0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44290"></span>44290</td>
+<td class="instruction">DEFB 17</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44291"></span>44291</td>
+<td class="instruction">DEFB 83,173,0,0,83,173,0,0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44299"></span>44299</td>
+<td class="instruction">DEFB 83,173,0,0,83,173,0,0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44307"></span>44307</td>
+<td class="instruction">DEFB 91,173,0,0,115,173,0,0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44315"></span>44315</td>
+<td class="instruction">DEFB 131,173,0,0,155,173,0,0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44323"></span>44323</td>
+<td class="instruction">DEFB 99,173,2,0,123,173,64,0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44331"></span>44331</td>
+<td class="instruction">DEFB 139,173,254,255,155,173,192,255</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44339"></span>44339</td>
+<td class="instruction">DEFB 99,173,2,0,123,173,64,0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44347"></span>44347</td>
+<td class="instruction">DEFB 139,173,254,255,155,173,192,255</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44355"></span>44355</td>
+<td class="instruction">DEFB 107,173,2,0,123,173,64,0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44363"></span>44363</td>
+<td class="instruction">DEFB 147,173,254,255,163,173,192,255</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44371"></span>44371</td>
+<td class="instruction">DEFB 0,0,0,0,0,24,24,0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44379"></span>44379</td>
+<td class="instruction">DEFB 0,0,3,7,10,4,8,0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44387"></span>44387</td>
+<td class="instruction">DEFB 0,0,124,12,112,0,0,0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44395"></span>44395</td>
+<td class="instruction">DEFB 0,0,192,32,176,112,0,0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44403"></span>44403</td>
+<td class="instruction">DEFB 0,0,0,0,0,36,24,24</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44411"></span>44411</td>
+<td class="instruction">DEFB 0,36,36,36,24,24,0,0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44419"></span>44419</td>
+<td class="instruction">DEFB 0,0,192,224,80,32,16,0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44427"></span>44427</td>
+<td class="instruction">DEFB 0,0,62,48,14,0,0,0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44435"></span>44435</td>
+<td class="instruction">DEFB 0,0,3,4,13,14,0,0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44443"></span>44443</td>
+<td class="instruction">DEFB 0,0,24,24,36,36,36,0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44451"></span>44451</td>
+<td class="instruction">DEFB 0,0,0,0,0,24,60,36</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44459"></span>44459</td>
+<td class="instruction">DEFB 50,174,206,121,7,50,174,30</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44467"></span>44467</td>
+<td class="instruction">DEFB 122,7,50,174,102,122,7,50</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44475"></span>44475</td>
+<td class="instruction">DEFB 174,150,122,7,50,174,200,122</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44483"></span>44483</td>
+<td class="instruction">DEFB 7,50,174,160,123,7,50,174</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44491"></span>44491</td>
+<td class="instruction">DEFB 236,123,7,50,174,14,124,7</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44499"></span>44499</td>
+<td class="instruction">DEFB 50,174,88,124,7,58,174,78</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44507"></span>44507</td>
+<td class="instruction">DEFB 121,6,66,174,82,121,2,58</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44515"></span>44515</td>
+<td class="instruction">DEFB 174,158,121,6,66,174,162,121</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44523"></span>44523</td>
+<td class="instruction">DEFB 3,58,174,230,121,5,66,174</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44531"></span>44531</td>
+<td class="instruction">DEFB 234,121,3,58,174,22,122,7</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44539"></span>44539</td>
+<td class="instruction">DEFB 66,174,26,122,5,58,174,72</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44547"></span>44547</td>
+<td class="instruction">DEFB 122,3,66,174,76,122,5,58</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44555"></span>44555</td>
+<td class="instruction">DEFB 174,32,123,4,66,174,36,123</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44563"></span>44563</td>
+<td class="instruction">DEFB 6,58,174,108,123,3,66,174</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44571"></span>44571</td>
+<td class="instruction">DEFB 112,123,5,58,174,142,123,6</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44579"></span>44579</td>
+<td class="instruction">DEFB 66,174,146,123,4,58,174,216</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44587"></span>44587</td>
+<td class="instruction">DEFB 123,6,66,174,220,123,2,41</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44595"></span>44595</td>
+<td class="instruction">DEFB 175,4,3,142,174,0,0,74</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44603"></span>44603</td>
+<td class="instruction">DEFB 174,2,2,138,174,0,0,106</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44611"></span>44611</td>
+<td class="instruction">DEFB 174,2,2,138,174,0,0,0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44619"></span>44619</td>
+<td class="instruction">DEFB 0,0,0,0,1,7,31,31</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44627"></span>44627</td>
+<td class="instruction">DEFB 31,31,15,11,2,0,0,0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44635"></span>44635</td>
+<td class="instruction">DEFB 1,7,31,127,255,255,255,255</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44643"></span>44643</td>
+<td class="instruction">DEFB 255,255,255,255,255,219,1,0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44651"></span>44651</td>
+<td class="instruction">DEFB 128,224,248,254,255,255,255,255</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44659"></span>44659</td>
+<td class="instruction">DEFB 255,255,255,255,255,219,128,0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44667"></span>44667</td>
+<td class="instruction">DEFB 0,0,0,0,128,224,248,248</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44675"></span>44675</td>
+<td class="instruction">DEFB 248,248,240,208,64,0,0,5</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44683"></span>44683</td>
+<td class="instruction">DEFB 4,5,4,3,34,1,3,34</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44691"></span>44691</td>
+<td class="instruction">DEFB 33,3,34,33,3,34,1,72</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44699"></span>44699</td>
+<td class="instruction">DEFB 97,117,112,112,101,116,32,84</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44707"></span>44707</td>
+<td class="instruction">DEFB 114,97,115,104,109,111,110,160</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44715"></span>44715</td>
+<td class="instruction">DEFB 0,0,0,0,0,0,36,0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44723"></span>44723</td>
+<td class="instruction">DEFB 0,9,1,32,0,0,0,0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44731"></span>44731</td>
+<td class="instruction">DEFB 1,32,0,0,0,1,32,0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44739"></span>44739</td>
+<td class="instruction">DEFB 1,32,18,0,0,19,32,0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44747"></span>44747</td>
+<td class="instruction">DEFB 9,0,18,0,0,18,0,0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44755"></span>44755</td>
+<td class="instruction">DEFB 9,0,0,0,0,0,144,0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44763"></span>44763</td>
+<td class="instruction">DEFB 0,0,2,64,1,32,144,0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44771"></span>44771</td>
+<td class="instruction">DEFB 0,9,2,64,1,32,0,0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44779"></span>44779</td>
+<td class="instruction">DEFB 0,9,0,0,0,0,0,0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44787"></span>44787</td>
+<td class="instruction">DEFB 48,17,8,17,4,17,8,10</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44795"></span>44795</td>
+<td class="instruction">DEFB 52,17,12,9,8,17,8,10</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44803"></span>44803</td>
+<td class="instruction">DEFB 56,9,36,9,12,10,120,10</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44811"></span>44811</td>
+<td class="instruction">DEFB 120,10,120,10,120,10,120,10</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44819"></span>44819</td>
+<td class="instruction">DEFB 120,10,120,10,120,10,120,10</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44827"></span>44827</td>
+<td class="instruction">DEFB 120,10,120,10,120,10,120,10</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="44835"></span>44835</td>
+<td class="instruction">DEFB 120,10,120,10,4,0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="43738.html">43738</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#43799">Map</a></td>
+<td class="next">
+Next: <a href="44841.html">44841</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1984 New Generation Software &copy; 2024 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.3.</div>
+<div class="repository">Link to <a href="https://github.com/pobtastic/travelwithtrashman/">Source code</a>.</div>
+<div><a href="asm/43799.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

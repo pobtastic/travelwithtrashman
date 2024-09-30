@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Travel With Trashman: Routine at 9134</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="9126.html">9126</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#9134">Map</a></td>
+<td class="next">
+Next: <a href="915A.html">915A</a>
+</td>
+</tr>
+</table>
+<div class="description">9134: Copy Buffer To Screen</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="9052.html">Initialise_SubGame</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">CopyBufferToScreen</td>
+<td class="address-2"><span id="9134"></span>9134</td>
+<td class="instruction">LD BC,$2012</td>
+<td class="comment-1" rowspan="1">Set the size of the playarea in <span class="register">BC</span> (width 20 height 12).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9137"></span>9137</td>
+<td class="instruction">LD HL,$78C0</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="78C0.html">78C0</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">CopyBufferToScreen_Loop</td>
+<td class="address-2"><span id="913a"></span>913A</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="2">Stash the playarea size and <span class="register">HL</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="913b"></span>913B</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="913c"></span>913C</td>
+<td class="instruction">CALL <a href="9562.html">$9562</a></td>
+<td class="comment-1" rowspan="1">Call <a href="9562.html">9562</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="913f"></span>913F</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">HL</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9140"></span>9140</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="2">Increment <span class="register">HL</span> by two.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9141"></span>9141</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9142"></span>9142</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="1">Restore the playarea size from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9143"></span>9143</td>
+<td class="instruction">DJNZ <a href="9134.html#913a">CopyBufferToScreen_Loop</a></td>
+<td class="comment-1" rowspan="1">Decrease the playarea width counter by one and loop back to <a href="9134.html#913a">CopyBufferToScreen_Loop</a> the whole width has been drawn for this line.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9145"></span>9145</td>
+<td class="instruction">LD B,$20</td>
+<td class="comment-1" rowspan="1">Reset the playarea width in <span class="register">B</span> back to 20.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9147"></span>9147</td>
+<td class="instruction">DEC C</td>
+<td class="comment-1" rowspan="1">Decrease the playarea height counter by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9148"></span>9148</td>
+<td class="instruction">JR NZ,<a href="9134.html#913a">CopyBufferToScreen_Loop</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="9134.html#913a">CopyBufferToScreen_Loop</a> until all the playarea lines have been drawn.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="914a"></span>914A</td>
+<td class="instruction">LD HL,$4040</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=4040 (screen buffer location).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="914d"></span>914D</td>
+<td class="instruction">LD C,$20</td>
+<td class="comment-1" rowspan="1"><span class="register">C</span>=20.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="914f"></span>914F</td>
+<td class="instruction">CALL <a href="8A61.html#8a76">ClearScreenArea</a></td>
+<td class="comment-1" rowspan="1">Call <a href="8A61.html#8a76">ClearScreenArea</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9152"></span>9152</td>
+<td class="instruction">LD HL,$50A0</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=50A0 (screen buffer location).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9155"></span>9155</td>
+<td class="instruction">LD C,$60</td>
+<td class="comment-1" rowspan="1"><span class="register">C</span>=60.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9157"></span>9157</td>
+<td class="instruction">JP <a href="8A61.html#8a76">ClearScreenArea</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="8A61.html#8a76">ClearScreenArea</a>.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="9126.html">9126</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#9134">Map</a></td>
+<td class="next">
+Next: <a href="915A.html">915A</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1984 New Generation Software &copy; 2024 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.3.</div>
+<div class="repository">Link to <a href="https://github.com/pobtastic/travelwithtrashman/">Source code</a>.</div>
+<div><a href="asm/9134.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

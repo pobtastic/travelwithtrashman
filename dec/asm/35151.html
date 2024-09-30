@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Travel With Trashman: Routine at 35151</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="34876.html">34876</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#35151">Map</a></td>
+<td class="next">
+Next: <a href="35180.html">35180</a>
+</td>
+</tr>
+</table>
+<div class="description">35151: Afford To Fly Check</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="34406.html">ChooseLocationOrTakeJob</a> and <a href="34876.html">Handler_SubGame</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">IX</td>
+<td class="register-desc">The active player; either <a href="35880.html">1UP_Name</a> or <a href="35880.html#35896">2UP_Name</a></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Check_AffordToFly</td>
+<td class="address-2"><span id="35151"></span>35151</td>
+<td class="instruction">LD L,(IX+8)</td>
+<td class="comment-1" rowspan="2">Fetch the players current location and store it in <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35154"></span>35154</td>
+<td class="instruction">LD H,(IX+9)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35157"></span>35157</td>
+<td class="instruction">LD DE,6</td>
+<td class="comment-1" rowspan="2">Move <span class="register">HL</span> by 0006 to point to the destination cost.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35160"></span>35160</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35161"></span>35161</td>
+<td class="instruction">LD E,(HL)</td>
+<td class="comment-1" rowspan="3">Load the cost of this destination into <span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35162"></span>35162</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35163"></span>35163</td>
+<td class="instruction">LD D,(HL)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35164"></span>35164</td>
+<td class="instruction">LD L,(IX+13)</td>
+<td class="comment-1" rowspan="2">Loads the active players cash balance into <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35167"></span>35167</td>
+<td class="instruction">LD H,(IX+14)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35170"></span>35170</td>
+<td class="instruction">AND A</td>
+<td class="comment-1" rowspan="2">Subtract the cost of the destination from the active players cash balance.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35171"></span>35171</td>
+<td class="instruction">SBC HL,DE</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35173"></span>35173</td>
+<td class="instruction">LD HL,61434</td>
+<td class="comment-1" rowspan="2">Return if the player can afford the "cheapest" destination.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35176"></span>35176</td>
+<td class="instruction">RET NC</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="35177"></span>
+<div class="comments">
+<div class="paragraph">
+Else, the player is stuck in their current destination. Set the flag for this.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35177"></span>35177</td>
+<td class="instruction">SET 5,(HL)</td>
+<td class="comment-1" rowspan="1">Set bit 5 ("Can't Afford To Fly") of *<a href="61434.html">GameState_1</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35179"></span>35179</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="34876.html">34876</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#35151">Map</a></td>
+<td class="next">
+Next: <a href="35180.html">35180</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1984 New Generation Software &copy; 2024 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.3.</div>
+<div class="repository">Link to <a href="https://github.com/pobtastic/travelwithtrashman/">Source code</a>.</div>
+<div><a href="asm/35151.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

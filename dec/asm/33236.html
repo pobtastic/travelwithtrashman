@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Travel With Trashman: Routine at 33236</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="33203.html">33203</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#33236">Map</a></td>
+<td class="next">
+Next: <a href="33339.html">33339</a>
+</td>
+</tr>
+</table>
+<div class="description">33236: Handler: Ticker</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="32853.html">32853</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33236"></span>
+<div class="comments">
+<div class="paragraph">
+Example messaging (note, this is two frames at a time - the game is smoother - plus, in the game the message starts off-screen).    <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="ticker-animation" src="../../images/udgs/ticker-animation.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Handler_Ticker</td>
+<td class="address-2"><span id="33236"></span>33236</td>
+<td class="instruction">LD HL,61435</td>
+<td class="comment-1" rowspan="3">Return if the ticker is not currently enabled.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33239"></span>33239</td>
+<td class="instruction">BIT 0,(HL)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33241"></span>33241</td>
+<td class="instruction">RET Z</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33242"></span>33242</td>
+<td class="instruction">LD HL,30741</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="30741.html">30741</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33245"></span>33245</td>
+<td class="instruction">DEC (HL)</td>
+<td class="comment-1" rowspan="1">Decrease *<span class="register">HL</span> by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33246"></span>33246</td>
+<td class="instruction">JR NZ,<a href="33236.html#33312">Handler_Ticker_2</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="33236.html#33312">Handler_Ticker_2</a> if *<span class="register">HL</span> is not zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33248"></span>33248</td>
+<td class="instruction">LD (HL),7</td>
+<td class="comment-1" rowspan="1">Write 7 to *<span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33250"></span>33250</td>
+<td class="instruction">LD HL,30738</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="30738.html">30738</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33253"></span>33253</td>
+<td class="instruction">DEC (HL)</td>
+<td class="comment-1" rowspan="1">Decrease *<span class="register">HL</span> by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33254"></span>33254</td>
+<td class="instruction">JR NZ,<a href="33236.html#33287">Handler_Ticker_1</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="33236.html#33287">Handler_Ticker_1</a> if *<span class="register">HL</span> is not zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33256"></span>33256</td>
+<td class="instruction">LD HL,61435</td>
+<td class="comment-1" rowspan="3">Jump to <a href="33236.html#33278">Handler_Ticker_0</a> if bit 1 of *<a href="61435.html">GameState_2</a> is set.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33259"></span>33259</td>
+<td class="instruction">BIT 1,(HL)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33261"></span>33261</td>
+<td class="instruction">JR NZ,<a href="33236.html#33278">Handler_Ticker_0</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33263"></span>33263</td>
+<td class="instruction">LD A,(61434)</td>
+<td class="comment-1" rowspan="3">Jump to <a href="33236.html#33275">TickerAnimation_Complete</a> if *<a href="61434.html">GameState_1</a> is equal to 0.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33266"></span>33266</td>
+<td class="instruction">CP 0</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33268"></span>33268</td>
+<td class="instruction">JR Z,<a href="33236.html#33275">TickerAnimation_Complete</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33270"></span>33270</td>
+<td class="instruction">CALL <a href="33339.html">Messaging_GenerateTicker</a></td>
+<td class="comment-1" rowspan="1">Call <a href="33339.html">Messaging_GenerateTicker</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33273"></span>33273</td>
+<td class="instruction">JR <a href="33236.html#33236">Handler_Ticker</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="33236.html">Handler_Ticker</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33275"></span>
+<div class="comments">
+<div class="paragraph">
+The ticker animation is complete, so reset the state flag.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">TickerAnimation_Complete</td>
+<td class="address-2"><span id="33275"></span>33275</td>
+<td class="instruction">RES 0,(HL)</td>
+<td class="comment-1" rowspan="1">Set the ticker bit in *<a href="61435.html">GameState_2</a> to "ticker OFF".</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33277"></span>33277</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="asm-label">Handler_Ticker_0</td>
+<td class="address-2"><span id="33278"></span>33278</td>
+<td class="instruction">LD A,(30750)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=*30750.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33281"></span>33281</td>
+<td class="instruction">CALL <a href="33663.html#33672">DoneFillingTickerBuffer</a></td>
+<td class="comment-1" rowspan="1">Call <a href="33663.html#33672">DoneFillingTickerBuffer</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33284"></span>33284</td>
+<td class="instruction">JP <a href="33236.html#33236">Handler_Ticker</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="33236.html">Handler_Ticker</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">Handler_Ticker_1</td>
+<td class="address-2"><span id="33287"></span>33287</td>
+<td class="instruction">LD HL,(30739)</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=*<a href="30739.html">30739</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33290"></span>33290</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="2">Increment *<a href="30739.html">30739</a> by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33291"></span>33291</td>
+<td class="instruction">LD (30739),HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33294"></span>33294</td>
+<td class="instruction">LD L,(HL)</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=*<span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33295"></span>33295</td>
+<td class="instruction">LD H,0</td>
+<td class="comment-1" rowspan="1"><span class="register">H</span>=0.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33297"></span>33297</td>
+<td class="instruction">ADD HL,HL</td>
+<td class="comment-1" rowspan="3"><span class="register">HL</span>*=8.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33298"></span>33298</td>
+<td class="instruction">ADD HL,HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33299"></span>33299</td>
+<td class="instruction">ADD HL,HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33300"></span>33300</td>
+<td class="instruction">LD DE,63296</td>
+<td class="comment-1" rowspan="2"><span class="register">HL</span>+=<a href="63552.html">63296</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33303"></span>33303</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33304"></span>33304</td>
+<td class="instruction">LD DE,30742</td>
+<td class="comment-1" rowspan="3">Copy 0008 bytes from *<span class="register">HL</span> to 30742.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33307"></span>33307</td>
+<td class="instruction">LD BC,8</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33310"></span>33310</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33312"></span>
+<div class="comments">
+<div class="paragraph">
+Rotate the messaging left across the screen.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Handler_Ticker_2</td>
+<td class="address-2"><span id="33312"></span>33312</td>
+<td class="instruction">LD C,8</td>
+<td class="comment-1" rowspan="1">Set a counter in <span class="register">C</span> for the number of bytes in a character (8).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33314"></span>33314</td>
+<td class="instruction">LD HL,30742</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=30742.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33317"></span>33317</td>
+<td class="instruction">LD DE,20703</td>
+<td class="comment-1" rowspan="1">Set <span class="register">DE</span> to the screen buffer location 20703.</td>
+</tr>
+<tr>
+<td class="asm-label">TickerRotate_Loop</td>
+<td class="address-2"><span id="33320"></span>33320</td>
+<td class="instruction">RLC (HL)</td>
+<td class="comment-1" rowspan="1">Rotate *<span class="register">HL</span> left (with carry).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33322"></span>33322</td>
+<td class="instruction">PUSH DE</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">DE</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33323"></span>33323</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-1" rowspan="1">Exchange the <span class="register">DE</span> and <span class="register">HL</span> registers.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33324"></span>
+<div class="comments">
+<div class="paragraph">
+Rotate the current line.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33324"></span>33324</td>
+<td class="instruction">LD B,32</td>
+<td class="comment-1" rowspan="1">Set a counter in <span class="register">B</span> for the number of characters in a line (32).</td>
+</tr>
+<tr>
+<td class="asm-label">TickerRotateLine_Loop</td>
+<td class="address-2"><span id="33326"></span>33326</td>
+<td class="instruction">RL (HL)</td>
+<td class="comment-1" rowspan="1">Rotate *<span class="register">HL</span> left.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33328"></span>33328</td>
+<td class="instruction">DEC HL</td>
+<td class="comment-1" rowspan="1">Decrease <span class="register">HL</span> by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33329"></span>33329</td>
+<td class="instruction">DJNZ <a href="33236.html#33326">TickerRotateLine_Loop</a></td>
+<td class="comment-1" rowspan="1">Decrease counter by one and loop back to <a href="33236.html#33326">TickerRotateLine_Loop</a> until counter is zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33331"></span>33331</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">HL</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33332"></span>33332</td>
+<td class="instruction">INC H</td>
+<td class="comment-1" rowspan="1">Increment <span class="register">H</span> by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33333"></span>33333</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-1" rowspan="1">Exchange the <span class="register">DE</span> and <span class="register">HL</span> registers.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33334"></span>33334</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Increment <span class="register">HL</span> by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33335"></span>33335</td>
+<td class="instruction">DEC C</td>
+<td class="comment-1" rowspan="1">Decrease <span class="register">C</span> by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33336"></span>33336</td>
+<td class="instruction">JR NZ,<a href="33236.html#33320">TickerRotate_Loop</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="33236.html#33320">TickerRotate_Loop</a> if <span class="register">C</span> is not zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33338"></span>33338</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="33203.html">33203</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#33236">Map</a></td>
+<td class="next">
+Next: <a href="33339.html">33339</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1984 New Generation Software &copy; 2024 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.3.</div>
+<div class="repository">Link to <a href="https://github.com/pobtastic/travelwithtrashman/">Source code</a>.</div>
+<div><a href="asm/33236.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

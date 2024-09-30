@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Travel With Trashman: Routine at 8600</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="85E7.html">85E7</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#8600">Map</a></td>
+<td class="next">
+Next: <a href="8666.html">8666</a>
+</td>
+</tr>
+</table>
+<div class="description">8600: Print Header</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="8003.html">GameInitialise</a> and <a href="883C.html">Handler_SubGame</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="8600"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="game-header" src="../images/scr/game-header.png" /></td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+Prints "Score  Trashman           Cash".
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Print_Header</td>
+<td class="address-2"><span id="8600"></span>8600</td>
+<td class="instruction">LD HL,$8C48</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="8C48.html">Messaging_Header</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8603"></span>8603</td>
+<td class="instruction">LD DE,$4001</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=4001 (screen buffer location).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8606"></span>8606</td>
+<td class="instruction">CALL <a href="8A3D.html">Print_String</a></td>
+<td class="comment-1" rowspan="1">Call <a href="8A3D.html">Print_String</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="8609"></span>
+<div class="comments">
+<div class="paragraph">
+Prints the name of the current player.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8609"></span>8609</td>
+<td class="instruction">LD HL,($EFF2)</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=*<a href="EFF2.html">Pointer_ActivePlayer</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="860c"></span>860C</td>
+<td class="instruction">LD DE,$4011</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=4011 (screen buffer location).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="860f"></span>860F</td>
+<td class="instruction">CALL <a href="8A3D.html">Print_String</a></td>
+<td class="comment-1" rowspan="1">Call <a href="8A3D.html">Print_String</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="8612"></span>
+<div class="comments">
+<div class="paragraph">
+Prints the players score.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8612"></span>8612</td>
+<td class="instruction">LD DE,$0004</td>
+<td class="comment-1" rowspan="2"><span class="register">HL</span>+=0004.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8615"></span>8615</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8616"></span>8616</td>
+<td class="instruction">LD DE,$4021</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=4021 (screen buffer location).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8619"></span>8619</td>
+<td class="instruction">LD BC,$0203</td>
+<td class="comment-1" rowspan="1"><span class="register">BC</span>=0203.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="861c"></span>861C</td>
+<td class="instruction">CALL <a href="9712.html">PrintNumbers</a></td>
+<td class="comment-1" rowspan="1">Call <a href="9712.html">PrintNumbers</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="861f"></span>
+<div class="comments">
+<div class="paragraph">
+Prints "in".
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="861f"></span>861F</td>
+<td class="instruction">LD HL,$8C66</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="8C66.html">Messaging_In</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8622"></span>8622</td>
+<td class="instruction">LD DE,$4029</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=4029 (screen buffer location).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8625"></span>8625</td>
+<td class="instruction">CALL <a href="8A3D.html">Print_String</a></td>
+<td class="comment-1" rowspan="1">Call <a href="8A3D.html">Print_String</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="8628"></span>
+<div class="comments">
+<div class="paragraph">
+Prepare to fetch and print the location name.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8628"></span>8628</td>
+<td class="instruction">LD IX,($EFF2)</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>=<a href="EFF2.html">Pointer_ActivePlayer</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="862c"></span>862C</td>
+<td class="instruction">LD L,(IX+$08)</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=*<span class="register">IX</span>+08.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="862f"></span>862F</td>
+<td class="instruction">LD H,(IX+$09)</td>
+<td class="comment-1" rowspan="1"><span class="register">H</span>=*<span class="register">IX</span>+09.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8632"></span>8632</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="2">Increment <span class="register">HL</span> by two.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8633"></span>8633</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8634"></span>8634</td>
+<td class="instruction">LD E,(HL)</td>
+<td class="comment-1" rowspan="1"><span class="register">E</span>=*<span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8635"></span>8635</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Increment <span class="register">HL</span> by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8636"></span>8636</td>
+<td class="instruction">LD D,(HL)</td>
+<td class="comment-1" rowspan="1"><span class="register">D</span>=*<span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8637"></span>8637</td>
+<td class="instruction">LD ($7805),DE</td>
+<td class="comment-1" rowspan="1">Write <span class="register">DE</span> to *<a href="7805.html">CurrentLocationCoOrdinates</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="863b"></span>
+<div class="comments">
+<div class="paragraph">
+Point <span class="register">HL</span> to the location name, and print it.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="863b"></span>863B</td>
+<td class="instruction">LD DE,$000E</td>
+<td class="comment-1" rowspan="2"><span class="register">HL</span>+=000E.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="863e"></span>863E</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="863f"></span>863F</td>
+<td class="instruction">LD DE,$402B</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=402B (screen buffer location).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8642"></span>8642</td>
+<td class="instruction">CALL <a href="8A3D.html">Print_String</a></td>
+<td class="comment-1" rowspan="1">Call <a href="8A3D.html">Print_String</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8645"></span>8645</td>
+<td class="instruction">LD A,$3A</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=3A.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8647"></span>8647</td>
+<td class="instruction">SUB E</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>-=<span class="register">E</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8648"></span>8648</td>
+<td class="instruction">JR Z,<a href="8600.html#864f">Print_CashRemaining</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="8600.html#864f">Print_CashRemaining</a> if <span class="register">HL</span> is zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="864a"></span>864A</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-1" rowspan="1">Exchange the <span class="register">DE</span> and <span class="register">HL</span> registers.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="864b"></span>864B</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-1" rowspan="1"><span class="register">C</span>=<span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="864c"></span>864C</td>
+<td class="instruction">CALL <a href="8A61.html#8a76">ClearScreenArea</a></td>
+<td class="comment-1" rowspan="1">Call <a href="8A61.html#8a76">ClearScreenArea</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="864f"></span>
+<div class="comments">
+<div class="paragraph">
+Prints "£".
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Print_CashRemaining</td>
+<td class="address-2"><span id="864f"></span>864F</td>
+<td class="instruction">LD DE,$403A</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=403A (screen buffer location).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8652"></span>8652</td>
+<td class="instruction">LD HL,$8C26</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="8C26.html">Messaging_£</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8655"></span>8655</td>
+<td class="instruction">CALL <a href="8A3D.html">Print_String</a></td>
+<td class="comment-1" rowspan="1">Call <a href="8A3D.html">Print_String</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="8658"></span>
+<div class="comments">
+<div class="paragraph">
+Prints the amount of cash remaining for the active player.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8658"></span>8658</td>
+<td class="instruction">LD HL,($EFF2)</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=*<a href="EFF2.html">Pointer_ActivePlayer</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="865b"></span>865B</td>
+<td class="instruction">LD BC,$000E</td>
+<td class="comment-1" rowspan="2"><span class="register">HL</span>+=000E.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="865e"></span>865E</td>
+<td class="instruction">ADD HL,BC</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="865f"></span>865F</td>
+<td class="instruction">LD BC,$0202</td>
+<td class="comment-1" rowspan="1"><span class="register">BC</span>=0202.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8662"></span>8662</td>
+<td class="instruction">CALL <a href="9712.html">PrintNumbers</a></td>
+<td class="comment-1" rowspan="1">Call <a href="9712.html">PrintNumbers</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8665"></span>8665</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="85E7.html">85E7</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#8600">Map</a></td>
+<td class="next">
+Next: <a href="8666.html">8666</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1984 New Generation Software &copy; 2024 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.3.</div>
+<div class="repository">Link to <a href="https://github.com/pobtastic/travelwithtrashman/">Source code</a>.</div>
+<div><a href="asm/8600.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

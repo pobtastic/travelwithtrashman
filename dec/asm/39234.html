@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Travel With Trashman: Routine at 39234</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="39206.html">39206</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#39234">Map</a></td>
+<td class="next">
+Next: <a href="39273.html">39273</a>
+</td>
+</tr>
+</table>
+<div class="description">39234: Routine at 9942</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="39206.html">39206</a>, <a href="43799.html">Handler_Paris</a>, <a href="45331.html">Handler_Jerusalem</a>, <a href="47877.html">Handler_Munich</a>, <a href="50027.html">Handler_HongKong</a> and <a href="51721.html">51721</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="39234"></span>39234</td>
+<td class="instruction">LD IX,(39395)</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>=*<a href="39364.html#39395">39395</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="39238"></span>39238</td>
+<td class="instruction">LD BC,(39397)</td>
+<td class="comment-1" rowspan="1"><span class="register">BC</span>=*<a href="39364.html#39397">39397</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="39242"></span>39242</td>
+<td class="instruction">JP <a href="37891.html">37891</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="37891.html">37891</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="39245"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routines at <a href="43799.html">Handler_Paris</a>, <a href="45331.html">Handler_Jerusalem</a>, <a href="47877.html">Handler_Munich</a>, <a href="50027.html">Handler_HongKong</a> and <a href="59331.html">Handler_SaoPaulo</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="39245"></span>39245</td>
+<td class="instruction">LD A,(39339)</td>
+<td class="comment-1" rowspan="3">Return if *<a href="39273.html#39339">39339</a> is equal to 80.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="39248"></span>39248</td>
+<td class="instruction">CP 80</td>
+</tr>
+<tr>
+<td class="address-1"><span id="39250"></span>39250</td>
+<td class="instruction">RET Z</td>
+</tr>
+<tr>
+<td class="address-1"><span id="39251"></span>39251</td>
+<td class="instruction">LD A,(39340)</td>
+<td class="comment-1" rowspan="3">Return if *<a href="39273.html#39340">39340</a> is equal to 0.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="39254"></span>39254</td>
+<td class="instruction">CP 0</td>
+</tr>
+<tr>
+<td class="address-1"><span id="39256"></span>39256</td>
+<td class="instruction">RET Z</td>
+</tr>
+<tr>
+<td class="address-1"><span id="39257"></span>39257</td>
+<td class="instruction">LD HL,(39352)</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=*<a href="39273.html#39352">39352</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="39260"></span>39260</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">HL</span> on the stack.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="39261"></span>39261</td>
+<td class="instruction">LD IX,(39395)</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>=*<a href="39364.html#39395">39395</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="39265"></span>39265</td>
+<td class="instruction">CALL <a href="38754.html">38754</a></td>
+<td class="comment-1" rowspan="1">Call <a href="38754.html">38754</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="39268"></span>39268</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">HL</span> from the stack.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="39269"></span>39269</td>
+<td class="instruction">LD (39352),HL</td>
+<td class="comment-1" rowspan="1">Write <span class="register">HL</span> to *<a href="39273.html#39352">39352</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="39272"></span>39272</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="39206.html">39206</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#39234">Map</a></td>
+<td class="next">
+Next: <a href="39273.html">39273</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1984 New Generation Software &copy; 2024 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.3.</div>
+<div class="repository">Link to <a href="https://github.com/pobtastic/travelwithtrashman/">Source code</a>.</div>
+<div><a href="asm/39234.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

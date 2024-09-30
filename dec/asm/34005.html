@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Travel With Trashman: Routine at 34005</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="33949.html">33949</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#34005">Map</a></td>
+<td class="next">
+Next: <a href="34073.html">34073</a>
+</td>
+</tr>
+</table>
+<div class="description">34005: Select 1 Or 2 Player Game</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="32771.html">GameInitialise</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Select1Or2PlayerGame</td>
+<td class="address-2"><span id="34005"></span>34005</td>
+<td class="instruction">CALL <a href="35425.html#35441">ClearBottomScreenArea</a></td>
+<td class="comment-1" rowspan="1">Call <a href="35425.html#35441">ClearBottomScreenArea</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="34008"></span>
+<div class="comments">
+<div class="paragraph">
+Prints "Visa Application".
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34008"></span>34008</td>
+<td class="instruction">LD HL,35779</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="35779.html">Messaging_VisaApplication</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34011"></span>34011</td>
+<td class="instruction">LD DE,20554</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=20554 (screen buffer location).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34014"></span>34014</td>
+<td class="instruction">CALL <a href="35389.html">Print_String</a></td>
+<td class="comment-1" rowspan="1">Call <a href="35389.html">Print_String</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34017"></span>34017</td>
+<td class="instruction">LD HL,20586</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=20586 (screen buffer location).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34020"></span>34020</td>
+<td class="instruction">LD B,16</td>
+<td class="comment-1" rowspan="2"><a href="35383.html">Underline</a> the header with 16 character blocks of 255.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34022"></span>34022</td>
+<td class="instruction">CALL <a href="35383.html">Underline</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="34025"></span>
+<div class="comments">
+<div class="paragraph">
+Prints "form no. 594/627Y/60X".
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34025"></span>34025</td>
+<td class="instruction">LD HL,35795</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="35779.html#35795">Messaging_FormNo</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34028"></span>34028</td>
+<td class="instruction">LD DE,20711</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=20711 (screen buffer location).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34031"></span>34031</td>
+<td class="instruction">CALL <a href="35389.html">Print_String</a></td>
+<td class="comment-1" rowspan="1">Call <a href="35389.html">Print_String</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="34034"></span>
+<div class="comments">
+<div class="paragraph">
+Get the 1UP players name.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34034"></span>34034</td>
+<td class="instruction">LD HL,35880</td>
+<td class="comment-1" rowspan="2">Write <a href="35880.html">1UP_Name</a> to *<a href="61426.html">Pointer_ActivePlayer</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34037"></span>34037</td>
+<td class="instruction">LD (61426),HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34040"></span>34040</td>
+<td class="instruction">CALL <a href="34120.html">PlayerNameInput</a></td>
+<td class="comment-1" rowspan="1">Call <a href="34120.html">PlayerNameInput</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34043"></span>34043</td>
+<td class="instruction">LD HL,61435</td>
+<td class="comment-1" rowspan="2">Write 00000000 to *<a href="61435.html">GameState_2</a> to set this as a 1UP only game.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34046"></span>34046</td>
+<td class="instruction">LD (HL),0</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="34048"></span>
+<div class="comments">
+<div class="paragraph">
+Prints "Another form reqd?".
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34048"></span>34048</td>
+<td class="instruction">LD HL,35838</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="35779.html#35838">Messaging_AnotherForm</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34051"></span>34051</td>
+<td class="instruction">LD DE,20616</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=20616 (screen buffer location).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34054"></span>34054</td>
+<td class="instruction">CALL <a href="35389.html">Print_String</a></td>
+<td class="comment-1" rowspan="1">Call <a href="35389.html">Print_String</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34057"></span>34057</td>
+<td class="instruction">CALL <a href="34073.html">Select_Yes/No</a></td>
+<td class="comment-1" rowspan="1">Call <a href="34073.html">Select_Yes/No</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34060"></span>34060</td>
+<td class="instruction">RET NC</td>
+<td class="comment-1" rowspan="1">Return if this is only a 1 player game.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="34061"></span>
+<div class="comments">
+<div class="paragraph">
+There is a 2UP player! Get their name and set *<a href="61435.html">GameState_2</a> accordingly.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34061"></span>34061</td>
+<td class="instruction">CALL <a href="34254.html">Toggle_Players</a></td>
+<td class="comment-1" rowspan="1">Call <a href="34254.html">Toggle_Players</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34064"></span>34064</td>
+<td class="instruction">CALL <a href="34120.html">PlayerNameInput</a></td>
+<td class="comment-1" rowspan="1">Call <a href="34120.html">PlayerNameInput</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34067"></span>34067</td>
+<td class="instruction">LD HL,61435</td>
+<td class="comment-1" rowspan="2">Write 00100000 to *<a href="61435.html">GameState_2</a> to set this as a 2 player game.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34070"></span>34070</td>
+<td class="instruction">LD (HL),32</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34072"></span>34072</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="33949.html">33949</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#34005">Map</a></td>
+<td class="next">
+Next: <a href="34073.html">34073</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1984 New Generation Software &copy; 2024 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.3.</div>
+<div class="repository">Link to <a href="https://github.com/pobtastic/travelwithtrashman/">Source code</a>.</div>
+<div><a href="asm/34005.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

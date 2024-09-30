@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Travel With Trashman: Routine at 8055</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="803A.html">803A</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#8055">Map</a></td>
+<td class="next">
+Next: <a href="8079.html">8079</a>
+</td>
+</tr>
+</table>
+<div class="description">8055: Routine at 8055</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="83AA.html">GameMenu</a>, <a href="8479.html">PauseCheck</a>, <a href="8519.html">Select_Yes/No</a>, <a href="8548.html">PlayerNameInput</a>, <a href="8666.html">ChooseLocationOrTakeJob</a>, <a href="8749.html">Handler_LocationChoice</a>, <a href="883C.html">Handler_SubGame</a>, <a href="899C.html">Handler_FlightPath</a> and <a href="8A84.html">HighScoreTable</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="8055"></span>8055</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">BC</span> on the stack.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="8056"></span>8056</td>
+<td class="instruction">CALL <a href="8079.html">$8079</a></td>
+<td class="comment-1" rowspan="1">Call <a href="8079.html">8079</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="8059"></span>8059</td>
+<td class="instruction">CALL <a href="81D4.html">Handler_Ticker</a></td>
+<td class="comment-1" rowspan="1">Call <a href="81D4.html">Handler_Ticker</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="805c"></span>805C</td>
+<td class="instruction">CALL <a href="813C.html">Handler_DebounceSpace</a></td>
+<td class="comment-1" rowspan="1">Call <a href="813C.html">Handler_DebounceSpace</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="805f"></span>805F</td>
+<td class="instruction">LD A,($EFFC)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=*<a href="EFFC.html">EFFC</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="8062"></span>8062</td>
+<td class="instruction">AND %00000111</td>
+<td class="comment-1" rowspan="1">Keep only bits 0-2.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="8064"></span>8064</td>
+<td class="instruction">JR Z,<a href="8055.html#8072">$8072</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="8055.html#8072">8072</a> if the result is zero.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="8066"></span>8066</td>
+<td class="instruction">CP $04</td>
+<td class="comment-1" rowspan="2">Jump to <a href="8055.html#8075">8075</a> if <span class="register">A</span> is not equal to 04.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="8068"></span>8068</td>
+<td class="instruction">JR NZ,<a href="8055.html#8075">$8075</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="806a"></span>806A</td>
+<td class="instruction">LD HL,($7805)</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=*<a href="7805.html">CurrentLocationCoOrdinates</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="806d"></span>806D</td>
+<td class="instruction">CALL <a href="8A07.html">ToggleMapPoint</a></td>
+<td class="comment-1" rowspan="1">Call <a href="8A07.html">ToggleMapPoint</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="8070"></span>8070</td>
+<td class="instruction">JR <a href="8055.html#8075">$8075</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="8055.html#8075">8075</a>.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="8072"></span>8072</td>
+<td class="instruction">CALL <a href="81B3.html">FlashLocationMapPoints</a></td>
+<td class="comment-1" rowspan="1">Call <a href="81B3.html">FlashLocationMapPoints</a>.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="8075"></span>8075</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">BC</span> from the stack.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="8076"></span>8076</td>
+<td class="instruction">DJNZ <a href="8055.html#8055">$8055</a></td>
+<td class="comment-1" rowspan="1">Decrease counter by one and loop back to <a href="8055.html">8055</a> until counter is zero.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="8078"></span>8078</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="803A.html">803A</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#8055">Map</a></td>
+<td class="next">
+Next: <a href="8079.html">8079</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1984 New Generation Software &copy; 2024 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.3.</div>
+<div class="repository">Link to <a href="https://github.com/pobtastic/travelwithtrashman/">Source code</a>.</div>
+<div><a href="asm/8055.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

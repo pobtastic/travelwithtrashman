@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Travel With Trashman: Routine at 90FC</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="90A2.html">90A2</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#90fc">Map</a></td>
+<td class="next">
+Next: <a href="9126.html">9126</a>
+</td>
+</tr>
+</table>
+<div class="description">90FC: Routine at 90FC</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="9052.html">Initialise_SubGame</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="90fc"></span>90FC</td>
+<td class="instruction">LD HL,($99C8)</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=*<a href="99C4.html#99c8">99C8</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="90ff"></span>90FF</td>
+<td class="instruction">LD IX,$6240</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>=<a href="6000.html#6240">6240</a>.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="9103"></span>9103</td>
+<td class="instruction">LD A,$00</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=00.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9105"></span>9105</td>
+<td class="instruction">RLD</td>
+<td class="comment-1" rowspan="1">RLD.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9107"></span>9107</td>
+<td class="instruction">RET Z</td>
+<td class="comment-1" rowspan="1">Return if {} is zero.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9108"></span>9108</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-1" rowspan="1"><span class="register">B</span>=<span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9109"></span>9109</td>
+<td class="instruction">RLD</td>
+<td class="comment-1" rowspan="1">RLD.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="910b"></span>910B</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-1" rowspan="1"><span class="register">C</span>=<span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="910c"></span>910C</td>
+<td class="instruction">RLD</td>
+<td class="comment-1" rowspan="1">RLD.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="910e"></span>910E</td>
+<td class="instruction">LD DE,($99CA)</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=*<a href="99C4.html#99ca">99CA</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9112"></span>9112</td>
+<td class="instruction">LD A,C</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=<span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9113"></span>9113</td>
+<td class="instruction">ADD A,E</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>+=<span class="register">E</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9114"></span>9114</td>
+<td class="instruction">JR NC,<a href="90FC.html#9117">$9117</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="90FC.html#9117">9117</a> if <span class="register">D</span> is higher.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9116"></span>9116</td>
+<td class="instruction">INC D</td>
+<td class="comment-1" rowspan="1">Increment <span class="register">D</span> by one.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="9117"></span>9117</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-1" rowspan="1"><span class="register">E</span>=<span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9118"></span>9118</td>
+<td class="instruction">LD A,(DE)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=*<span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9119"></span>9119</td>
+<td class="instruction">LD DE,$0006</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=0006.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="911c"></span>911C</td>
+<td class="instruction">LD (IX+$04),A</td>
+<td class="comment-1" rowspan="1">Write <span class="register">A</span> to *<span class="register">IX</span>+04.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="911f"></span>911F</td>
+<td class="instruction">ADD IX,DE</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>+=<span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9121"></span>9121</td>
+<td class="instruction">DJNZ <a href="90FC.html#911c">$911C</a></td>
+<td class="comment-1" rowspan="1">Decrease counter by one and loop back to <a href="90FC.html#911c">911C</a> until counter is zero.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9123"></span>9123</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Increment <span class="register">HL</span> by one.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9124"></span>9124</td>
+<td class="instruction">JR <a href="90FC.html#9103">$9103</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="90FC.html#9103">9103</a>.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="90A2.html">90A2</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#90fc">Map</a></td>
+<td class="next">
+Next: <a href="9126.html">9126</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1984 New Generation Software &copy; 2024 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.3.</div>
+<div class="repository">Link to <a href="https://github.com/pobtastic/travelwithtrashman/">Source code</a>.</div>
+<div><a href="asm/90FC.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

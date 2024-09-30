@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Travel With Trashman: Routine at 84D5</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="849D.html">849D</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#84d5">Map</a></td>
+<td class="next">
+Next: <a href="8519.html">8519</a>
+</td>
+</tr>
+</table>
+<div class="description">84D5: Select 1 Or 2 Player Game</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="8003.html">GameInitialise</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Select1Or2PlayerGame</td>
+<td class="address-2"><span id="84d5"></span>84D5</td>
+<td class="instruction">CALL <a href="8A61.html#8a71">ClearBottomScreenArea</a></td>
+<td class="comment-1" rowspan="1">Call <a href="8A61.html#8a71">ClearBottomScreenArea</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="84d8"></span>
+<div class="comments">
+<div class="paragraph">
+Prints "Visa Application".
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="84d8"></span>84D8</td>
+<td class="instruction">LD HL,$8BC3</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="8BC3.html">Messaging_VisaApplication</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="84db"></span>84DB</td>
+<td class="instruction">LD DE,$504A</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=504A (screen buffer location).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="84de"></span>84DE</td>
+<td class="instruction">CALL <a href="8A3D.html">Print_String</a></td>
+<td class="comment-1" rowspan="1">Call <a href="8A3D.html">Print_String</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="84e1"></span>84E1</td>
+<td class="instruction">LD HL,$506A</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=506A (screen buffer location).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="84e4"></span>84E4</td>
+<td class="instruction">LD B,$10</td>
+<td class="comment-1" rowspan="2"><a href="8A37.html">Underline</a> the header with 10 character blocks of FF.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="84e6"></span>84E6</td>
+<td class="instruction">CALL <a href="8A37.html">Underline</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="84e9"></span>
+<div class="comments">
+<div class="paragraph">
+Prints "form no. 594/627Y/60X".
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="84e9"></span>84E9</td>
+<td class="instruction">LD HL,$8BD3</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="8BC3.html#8bd3">Messaging_FormNo</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="84ec"></span>84EC</td>
+<td class="instruction">LD DE,$50E7</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=50E7 (screen buffer location).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="84ef"></span>84EF</td>
+<td class="instruction">CALL <a href="8A3D.html">Print_String</a></td>
+<td class="comment-1" rowspan="1">Call <a href="8A3D.html">Print_String</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="84f2"></span>
+<div class="comments">
+<div class="paragraph">
+Get the 1UP players name.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="84f2"></span>84F2</td>
+<td class="instruction">LD HL,$8C28</td>
+<td class="comment-1" rowspan="2">Write <a href="8C28.html">1UP_Name</a> to *<a href="EFF2.html">Pointer_ActivePlayer</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="84f5"></span>84F5</td>
+<td class="instruction">LD ($EFF2),HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="84f8"></span>84F8</td>
+<td class="instruction">CALL <a href="8548.html">PlayerNameInput</a></td>
+<td class="comment-1" rowspan="1">Call <a href="8548.html">PlayerNameInput</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="84fb"></span>84FB</td>
+<td class="instruction">LD HL,$EFFB</td>
+<td class="comment-1" rowspan="2">Write 00000000 to *<a href="EFFB.html">GameState_2</a> to set this as a 1UP only game.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="84fe"></span>84FE</td>
+<td class="instruction">LD (HL),$00</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="8500"></span>
+<div class="comments">
+<div class="paragraph">
+Prints "Another form reqd?".
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8500"></span>8500</td>
+<td class="instruction">LD HL,$8BFE</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="8BC3.html#8bfe">Messaging_AnotherForm</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8503"></span>8503</td>
+<td class="instruction">LD DE,$5088</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=5088 (screen buffer location).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8506"></span>8506</td>
+<td class="instruction">CALL <a href="8A3D.html">Print_String</a></td>
+<td class="comment-1" rowspan="1">Call <a href="8A3D.html">Print_String</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8509"></span>8509</td>
+<td class="instruction">CALL <a href="8519.html">Select_Yes/No</a></td>
+<td class="comment-1" rowspan="1">Call <a href="8519.html">Select_Yes/No</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="850c"></span>850C</td>
+<td class="instruction">RET NC</td>
+<td class="comment-1" rowspan="1">Return if this is only a 1 player game.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="850d"></span>
+<div class="comments">
+<div class="paragraph">
+There is a 2UP player! Get their name and set *<a href="EFFB.html">GameState_2</a> accordingly.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="850d"></span>850D</td>
+<td class="instruction">CALL <a href="85CE.html">Toggle_Players</a></td>
+<td class="comment-1" rowspan="1">Call <a href="85CE.html">Toggle_Players</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8510"></span>8510</td>
+<td class="instruction">CALL <a href="8548.html">PlayerNameInput</a></td>
+<td class="comment-1" rowspan="1">Call <a href="8548.html">PlayerNameInput</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8513"></span>8513</td>
+<td class="instruction">LD HL,$EFFB</td>
+<td class="comment-1" rowspan="2">Write 00100000 to *<a href="EFFB.html">GameState_2</a> to set this as a 2 player game.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8516"></span>8516</td>
+<td class="instruction">LD (HL),$20</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8518"></span>8518</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="849D.html">849D</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#84d5">Map</a></td>
+<td class="next">
+Next: <a href="8519.html">8519</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1984 New Generation Software &copy; 2024 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.3.</div>
+<div class="repository">Link to <a href="https://github.com/pobtastic/travelwithtrashman/">Source code</a>.</div>
+<div><a href="asm/84D5.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

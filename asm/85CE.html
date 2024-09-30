@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Travel With Trashman: Routine at 85CE</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="8548.html">8548</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#85ce">Map</a></td>
+<td class="next">
+Next: <a href="85E7.html">85E7</a>
+</td>
+</tr>
+</table>
+<div class="description">85CE: Toggle Players</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="84D5.html">Select1Or2PlayerGame</a> and <a href="883C.html">Handler_SubGame</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="85ce"></span>
+<div class="comments">
+<div class="paragraph">
+Switch the active player.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Toggle_Players</td>
+<td class="address-2"><span id="85ce"></span>85CE</td>
+<td class="instruction">LD HL,($EFF2)</td>
+<td class="comment-1" rowspan="1">Store *<a href="EFF2.html">Pointer_ActivePlayer</a> in <span class="register">HL</span> for the comparison.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="85d1"></span>
+<div class="comments">
+<div class="paragraph">
+Start with comparing against 1UP.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="85d1"></span>85D1</td>
+<td class="instruction">LD DE,$8C28</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=<a href="8C28.html">1UP_Name</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="85d4"></span>85D4</td>
+<td class="instruction">AND A</td>
+<td class="comment-1" rowspan="3">If the currently active player is not 1UP then jump to <a href="85CE.html#85dc">Set_Active_Player</a> (which will then set it to 1UP).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="85d5"></span>85D5</td>
+<td class="instruction">SBC HL,DE</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="85d7"></span>85D7</td>
+<td class="instruction">JR NZ,<a href="85CE.html#85dc">Set_Active_Player</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="85d9"></span>
+<div class="comments">
+<div class="paragraph">
+Else, set the active player to 2UP.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="85d9"></span>85D9</td>
+<td class="instruction">LD DE,$8C38</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=<a href="8C28.html#8c38">2UP_Name</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="85dc"></span>
+<div class="comments">
+<div class="paragraph">
+Sets the active player to *<a href="EFF2.html">Pointer_ActivePlayer</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Set_Active_Player</td>
+<td class="address-2"><span id="85dc"></span>85DC</td>
+<td class="instruction">LD ($EFF2),DE</td>
+<td class="comment-1" rowspan="1">Write <span class="register">DE</span> to *<a href="EFF2.html">Pointer_ActivePlayer</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="85e0"></span>85E0</td>
+<td class="instruction">LD HL,$000F</td>
+<td class="comment-1" rowspan="2">Move <span class="register">HL</span> 000F bytes to point to the active player state.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="85e3"></span>85E3</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="85e4"></span>85E4</td>
+<td class="instruction">BIT 7,(HL)</td>
+<td class="comment-1" rowspan="1">Test bit 7 of *<span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="85e6"></span>85E6</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="8548.html">8548</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#85ce">Map</a></td>
+<td class="next">
+Next: <a href="85E7.html">85E7</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1984 New Generation Software &copy; 2024 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.3.</div>
+<div class="repository">Link to <a href="https://github.com/pobtastic/travelwithtrashman/">Source code</a>.</div>
+<div><a href="asm/85CE.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

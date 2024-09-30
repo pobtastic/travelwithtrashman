@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Travel With Trashman: Routine at 32826</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="32771.html">32771</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#32826">Map</a></td>
+<td class="next">
+Next: <a href="32853.html">32853</a>
+</td>
+</tr>
+</table>
+<div class="description">32826: Initialise Location States</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="32771.html">GameInitialise</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="32826"></span>
+<div class="comments">
+<div class="paragraph">
+Start with Madrid, as it's the first location in the table Trashman can travel to (London doesn't count, that's the first game!)
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Initialise_LocationStates</td>
+<td class="address-2"><span id="32826"></span>32826</td>
+<td class="instruction">LD HL,36522</td>
+<td class="comment-1" rowspan="1">Set a pointer in <span class="register">HL</span> for the first location state: <a href="36482.html#36522">Madrid_State</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="32829"></span>32829</td>
+<td class="instruction">LD DE,17</td>
+<td class="comment-1" rowspan="1">Set 0017 in <span class="register">DE</span>, which is the count of data before the location name starts. The location names vary in length but the data for them does not.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="32832"></span>32832</td>
+<td class="instruction">LD B,13</td>
+<td class="comment-1" rowspan="1">Set a counter in <span class="register">B</span> of the number of locations which have a playable level for Trashman (13 - one less than the total which includes London).</td>
+</tr>
+<tr>
+<td class="asm-label">Initialise_LocationState</td>
+<td class="address-2"><span id="32834"></span>32834</td>
+<td class="instruction">LD (HL),0</td>
+<td class="comment-1" rowspan="1">Mark this location as: "Not visited".</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="32836"></span>
+<div class="comments">
+<div class="paragraph">
+Keep moving forward one byte until the termination bit is found, signifying the final character of the location name.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">FindEndCharacter_Loop</td>
+<td class="address-2"><span id="32836"></span>32836</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Increment <span class="register">HL</span> by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="32837"></span>32837</td>
+<td class="instruction">BIT 7,(HL)</td>
+<td class="comment-1" rowspan="2">Jump to <a href="32826.html#32836">FindEndCharacter_Loop</a> if the terminator bit is not set.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="32839"></span>32839</td>
+<td class="instruction">JR Z,<a href="32826.html#32836">FindEndCharacter_Loop</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="32841"></span>32841</td>
+<td class="instruction">ADD HL,DE</td>
+<td class="comment-1" rowspan="1">Move <span class="register">HL</span> to point to the next location state.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="32842"></span>32842</td>
+<td class="instruction">DJNZ <a href="32826.html#32834">Initialise_LocationState</a></td>
+<td class="comment-1" rowspan="1">Decrease the location counter by one and loop back to <a href="32826.html#32834">Initialise_LocationState</a> until all of the location states have been processeed.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="32844"></span>32844</td>
+<td class="instruction">LD A,(61435)</td>
+<td class="comment-1" rowspan="3">Reset all the bits in *<a href="61435.html">GameState_2</a> except for the 1UP/ 2UP choice.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="32847"></span>32847</td>
+<td class="instruction">AND %00100000</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="32849"></span>32849</td>
+<td class="instruction">LD (61435),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="32852"></span>32852</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="32771.html">32771</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#32826">Map</a></td>
+<td class="next">
+Next: <a href="32853.html">32853</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1984 New Generation Software &copy; 2024 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.3.</div>
+<div class="repository">Link to <a href="https://github.com/pobtastic/travelwithtrashman/">Source code</a>.</div>
+<div><a href="asm/32826.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

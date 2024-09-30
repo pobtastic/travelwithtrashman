@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Travel With Trashman: Routine at 33339</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="33236.html">33236</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#33339">Map</a></td>
+<td class="next">
+Next: <a href="33631.html">33631</a>
+</td>
+</tr>
+</table>
+<div class="description">33339: Generate Ticker Messaging</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="33236.html">Handler_Ticker</a>, <a href="34406.html">ChooseLocationOrTakeJob</a>, <a href="34633.html">Handler_LocationChoice</a> and <a href="34876.html">Handler_SubGame</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33339"></span>
+<div class="comments">
+<div class="paragraph">
+These examples are generated with the location being "London" so obviously aren't possible to see in the actual game (given London isn't a playable level - that's the first game!)
+</div>
+<div class="paragraph">
+Note, this isn't a complete list - as some vary with the bonus points messaging:   <table class="default">
+<tr>
+<th colspan="1" rowspan="1">Bit</th>
+<th colspan="1" rowspan="1">Message</th>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">1</td>
+<td class="" colspan="1" rowspan="1"><img alt="ticker-1" src="../../images/font/ticker-1.png" /></td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">2</td>
+<td class="" colspan="1" rowspan="1"><img alt="ticker-2" src="../../images/font/ticker-2.png" /></td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">3</td>
+<td class="" colspan="1" rowspan="1"><img alt="ticker-3" src="../../images/font/ticker-3.png" /></td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">4</td>
+<td class="" colspan="1" rowspan="1"><img alt="ticker-4" src="../../images/font/ticker-4.png" /></td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">5</td>
+<td class="" colspan="1" rowspan="1"><img alt="ticker-5" src="../../images/font/ticker-5.png" /></td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">6</td>
+<td class="" colspan="1" rowspan="1"><img alt="ticker-6" src="../../images/font/ticker-6.png" /></td>
+</tr>
+<tr>
+<td class="" colspan="1" rowspan="1">7</td>
+<td class="" colspan="1" rowspan="1"><img alt="ticker-7" src="../../images/font/ticker-7.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Messaging_GenerateTicker</td>
+<td class="address-2"><span id="33339"></span>33339</td>
+<td class="instruction">CALL <a href="33631.html">InitialiseTickerBuffer</a></td>
+<td class="comment-1" rowspan="1">Call <a href="33631.html">InitialiseTickerBuffer</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33342"></span>
+<div class="comments">
+<div class="paragraph">
+Test if the player has been deported from Russia.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33342"></span>33342</td>
+<td class="instruction">LD HL,61434</td>
+<td class="comment-1" rowspan="3">Jump to <a href="33339.html#33391">Ticker_CheckKilledInSpain</a> if the player hasn't been "deported from Russia".</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33345"></span>33345</td>
+<td class="instruction">BIT 2,(HL)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33347"></span>33347</td>
+<td class="instruction">JR Z,<a href="33339.html#33391">Ticker_CheckKilledInSpain</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33349"></span>
+<div class="comments">
+<div class="paragraph">
+Player has been deported from Russia, so handle displaying the messaging in the ticker.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33349"></span>33349</td>
+<td class="instruction">RES 2,(HL)</td>
+<td class="comment-1" rowspan="1">Reset bit 2 ("Deported From Russia") in *<a href="61434.html">GameState_1</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33351"></span>33351</td>
+<td class="instruction">RES 0,(HL)</td>
+<td class="comment-1" rowspan="1">Reset bit 0 of *<a href="61434.html">GameState_1</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33353"></span>
+<div class="comments">
+<div class="paragraph">
+Build the string in the ticker buffer.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33353"></span>33353</td>
+<td class="instruction">LD HL,36080</td>
+<td class="comment-1" rowspan="2">Adds ... " deported from Russia, FO says rubbish." to the ticker buffer.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33356"></span>33356</td>
+<td class="instruction">CALL <a href="33695.html">AddStringToBuffer</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33359"></span>33359</td>
+<td class="instruction">LD A,90</td>
+<td class="comment-1" rowspan="1">Set the spacing to 90 in <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33361"></span>33361</td>
+<td class="instruction">LD HL,61434</td>
+<td class="comment-1" rowspan="3">Jump to <a href="33663.html">AddSpacingFillTickerBuffer</a> if the player has no bonus points.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33364"></span>33364</td>
+<td class="instruction">BIT 1,(HL)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33366"></span>33366</td>
+<td class="instruction">JP Z,<a href="33663.html">AddSpacingFillTickerBuffer</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33369"></span>33369</td>
+<td class="instruction">RES 1,(HL)</td>
+<td class="comment-1" rowspan="1">Reset bit 1 ("Has Bonus Points?") of *<a href="61434.html">GameState_1</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33371"></span>33371</td>
+<td class="instruction">LD HL,36119</td>
+<td class="comment-1" rowspan="2">Adds ... " He denies smuggling out " to the ticker buffer.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33374"></span>33374</td>
+<td class="instruction">CALL <a href="33695.html">AddStringToBuffer</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33377"></span>33377</td>
+<td class="instruction">CALL <a href="33339.html#33589">AddBonusPointsToTicker</a></td>
+<td class="comment-1" rowspan="1">Adds the players bonus points to the ticker buffer.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33380"></span>33380</td>
+<td class="instruction">LD HL,36273</td>
+<td class="comment-1" rowspan="2">Adds ... " bonus pts." to the ticker buffer.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33383"></span>33383</td>
+<td class="instruction">CALL <a href="33695.html">AddStringToBuffer</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33386"></span>33386</td>
+<td class="instruction">LD A,120</td>
+<td class="comment-1" rowspan="2">Set the spacing to 120 and jump to <a href="33663.html">AddSpacingFillTickerBuffer</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33388"></span>33388</td>
+<td class="instruction">JP <a href="33663.html">AddSpacingFillTickerBuffer</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33391"></span>
+<div class="comments">
+<div class="paragraph">
+Test if the player has been hit by the bull in Madrid.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Ticker_CheckKilledInSpain</td>
+<td class="address-2"><span id="33391"></span>33391</td>
+<td class="instruction">BIT 3,(HL)</td>
+<td class="comment-1" rowspan="2">Jump to <a href="33339.html#33437">Ticker_CheckSubGameWasSuccess</a> if the player has not been hit by the bull.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33393"></span>33393</td>
+<td class="instruction">JR Z,<a href="33339.html#33437">Ticker_CheckSubGameWasSuccess</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33395"></span>
+<div class="comments">
+<div class="paragraph">
+Player has been hit by the bull, so handle displaying the messaging in the ticker.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33395"></span>33395</td>
+<td class="instruction">RES 3,(HL)</td>
+<td class="comment-1" rowspan="1">Reset bit 3 ("Hit By The Bull") of *<a href="61434.html">GameState_1</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33397"></span>33397</td>
+<td class="instruction">RES 0,(HL)</td>
+<td class="comment-1" rowspan="1">Reset bit 0 of *<a href="61434.html">GameState_1</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33399"></span>
+<div class="comments">
+<div class="paragraph">
+Build the string in the ticker buffer.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33399"></span>33399</td>
+<td class="instruction">LD HL,36144</td>
+<td class="comment-1" rowspan="2">Adds ... " killed in Spain, while crowd cheers." to the ticker buffer.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33402"></span>33402</td>
+<td class="instruction">CALL <a href="33695.html">AddStringToBuffer</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33405"></span>33405</td>
+<td class="instruction">LD A,85</td>
+<td class="comment-1" rowspan="1">Set the spacing to 85 in <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33407"></span>33407</td>
+<td class="instruction">LD HL,61434</td>
+<td class="comment-1" rowspan="3">Jump to <a href="33663.html">AddSpacingFillTickerBuffer</a> if the player has no bonus points.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33410"></span>33410</td>
+<td class="instruction">BIT 1,(HL)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33412"></span>33412</td>
+<td class="instruction">JP Z,<a href="33663.html">AddSpacingFillTickerBuffer</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33415"></span>33415</td>
+<td class="instruction">RES 1,(HL)</td>
+<td class="comment-1" rowspan="1">Reset bit 1 ("Has Bonus Points?") of *<a href="61434.html">GameState_1</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33417"></span>33417</td>
+<td class="instruction">LD HL,36181</td>
+<td class="comment-1" rowspan="2">Adds ... " His " to the ticker buffer.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33420"></span>33420</td>
+<td class="instruction">CALL <a href="33695.html">AddStringToBuffer</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33423"></span>33423</td>
+<td class="instruction">CALL <a href="33339.html#33589">AddBonusPointsToTicker</a></td>
+<td class="comment-1" rowspan="1">Adds the players bonus points to the ticker buffer.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33426"></span>33426</td>
+<td class="instruction">LD HL,36186</td>
+<td class="comment-1" rowspan="2">Adds ... " Bonus pts. will be flown back to the U.K. today." to the ticker buffer.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33429"></span>33429</td>
+<td class="instruction">CALL <a href="33695.html">AddStringToBuffer</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33432"></span>33432</td>
+<td class="instruction">LD A,142</td>
+<td class="comment-1" rowspan="2">Set the spacing to 142 and jump to <a href="33663.html">AddSpacingFillTickerBuffer</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33434"></span>33434</td>
+<td class="instruction">JP <a href="33663.html">AddSpacingFillTickerBuffer</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33437"></span>
+<div class="comments">
+<div class="paragraph">
+Did the player manage to complete the sub-game?
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Ticker_CheckSubGameWasSuccess</td>
+<td class="address-2"><span id="33437"></span>33437</td>
+<td class="instruction">BIT 0,(HL)</td>
+<td class="comment-1" rowspan="2">Jump to <a href="33339.html#33463">Ticker_CheckSubGameWasSuccess_WithBonusPoints</a> if bit 0 of *<a href="61434.html">GameState_1</a> is not set.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33439"></span>33439</td>
+<td class="instruction">JR Z,<a href="33339.html#33463">Ticker_CheckSubGameWasSuccess_WithBonusPoints</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33441"></span>33441</td>
+<td class="instruction">RES 0,(HL)</td>
+<td class="comment-1" rowspan="1">Reset bit 0 of *<a href="61434.html">GameState_1</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33443"></span>
+<div class="comments">
+<div class="paragraph">
+Build the string in the ticker buffer.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33443"></span>33443</td>
+<td class="instruction">LD HL,36235</td>
+<td class="comment-1" rowspan="2">Adds ... " successfully cleans up " to the ticker buffer.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33446"></span>33446</td>
+<td class="instruction">CALL <a href="33695.html">AddStringToBuffer</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33449"></span>33449</td>
+<td class="instruction">CALL <a href="33646.html">AddLocationTickerBuffer</a></td>
+<td class="comment-1" rowspan="1">Add the current location name to the ticker buffer.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33452"></span>33452</td>
+<td class="instruction">LD HL,36259</td>
+<td class="comment-1" rowspan="2">Adds ... " ." to the ticker buffer.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33455"></span>33455</td>
+<td class="instruction">CALL <a href="33695.html">AddStringToBuffer</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33458"></span>33458</td>
+<td class="instruction">LD A,90</td>
+<td class="comment-1" rowspan="2">Set the spacing to 90 and jump to <a href="33663.html">AddSpacingFillTickerBuffer</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33460"></span>33460</td>
+<td class="instruction">JP <a href="33663.html">AddSpacingFillTickerBuffer</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33463"></span>
+<div class="comments">
+<div class="paragraph">
+As above, but also with bonus points.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Ticker_CheckSubGameWasSuccess_WithBonusPoints</td>
+<td class="address-2"><span id="33463"></span>33463</td>
+<td class="instruction">BIT 1,(HL)</td>
+<td class="comment-1" rowspan="2">Jump to <a href="33339.html#33498">Ticker_CheckStranded</a> if the player has no bonus points.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33465"></span>33465</td>
+<td class="instruction">JR Z,<a href="33339.html#33498">Ticker_CheckStranded</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33467"></span>
+<div class="comments">
+<div class="paragraph">
+Player has completed the sub-game and has bonus points, so handle displaying the messaging in the ticker.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33467"></span>33467</td>
+<td class="instruction">RES 1,(HL)</td>
+<td class="comment-1" rowspan="1">Reset bit 1 ("Has Bonus Points?") of *<a href="61434.html">GameState_1</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33469"></span>
+<div class="comments">
+<div class="paragraph">
+Build the string in the ticker buffer.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33469"></span>33469</td>
+<td class="instruction">LD HL,36235</td>
+<td class="comment-1" rowspan="2">Adds ... " successfully cleans up " to the ticker buffer.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33472"></span>33472</td>
+<td class="instruction">CALL <a href="33695.html">AddStringToBuffer</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33475"></span>33475</td>
+<td class="instruction">CALL <a href="33646.html">AddLocationTickerBuffer</a></td>
+<td class="comment-1" rowspan="1">Add the current location name to the ticker buffer.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33478"></span>33478</td>
+<td class="instruction">LD HL,36261</td>
+<td class="comment-1" rowspan="2">Adds ... "  and gains " to the ticker buffer.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33481"></span>33481</td>
+<td class="instruction">CALL <a href="33695.html">AddStringToBuffer</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33484"></span>33484</td>
+<td class="instruction">CALL <a href="33339.html#33589">AddBonusPointsToTicker</a></td>
+<td class="comment-1" rowspan="1">Add the players bonus points to the ticker buffer.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33487"></span>33487</td>
+<td class="instruction">LD HL,36273</td>
+<td class="comment-1" rowspan="2">Adds ... " bonus pts." to the ticker buffer.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33490"></span>33490</td>
+<td class="instruction">CALL <a href="33695.html">AddStringToBuffer</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33493"></span>33493</td>
+<td class="instruction">LD A,110</td>
+<td class="comment-1" rowspan="2">Set the spacing to 110 and jump to <a href="33663.html">AddSpacingFillTickerBuffer</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33495"></span>33495</td>
+<td class="instruction">JP <a href="33663.html">AddSpacingFillTickerBuffer</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33498"></span>
+<div class="comments">
+<div class="paragraph">
+Is the player out of money and stranded in their current location?
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Ticker_CheckStranded</td>
+<td class="address-2"><span id="33498"></span>33498</td>
+<td class="instruction">BIT 4,(HL)</td>
+<td class="comment-1" rowspan="2">Jump to <a href="33339.html#33524">Ticker_CheckAffordToFly</a> if the player is not "stranded" (doesn't have enough money to fly).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33500"></span>33500</td>
+<td class="instruction">JR Z,<a href="33339.html#33524">Ticker_CheckAffordToFly</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33502"></span>
+<div class="comments">
+<div class="paragraph">
+Player is stranded in their current location, so handle displaying the messaging in the ticker.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33502"></span>33502</td>
+<td class="instruction">RES 4,(HL)</td>
+<td class="comment-1" rowspan="1">Reset bit 4 ("Stranded") of *<a href="61434.html">GameState_1</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33504"></span>
+<div class="comments">
+<div class="paragraph">
+Build the string in the ticker buffer.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33504"></span>33504</td>
+<td class="instruction">LD HL,36035</td>
+<td class="comment-1" rowspan="2">Adds ... " stranded in " to the ticker buffer.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33507"></span>33507</td>
+<td class="instruction">CALL <a href="33695.html">AddStringToBuffer</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33510"></span>33510</td>
+<td class="instruction">CALL <a href="33646.html">AddLocationTickerBuffer</a></td>
+<td class="comment-1" rowspan="1">Add the current location name to the ticker buffer.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33513"></span>33513</td>
+<td class="instruction">LD HL,36048</td>
+<td class="comment-1" rowspan="2">Adds ... ", penniless." to the ticker buffer.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33516"></span>33516</td>
+<td class="instruction">CALL <a href="33695.html">AddStringToBuffer</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33519"></span>33519</td>
+<td class="instruction">LD A,80</td>
+<td class="comment-1" rowspan="2">Set the spacing to 80 and jump to <a href="33663.html">AddSpacingFillTickerBuffer</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33521"></span>33521</td>
+<td class="instruction">JP <a href="33663.html">AddSpacingFillTickerBuffer</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33524"></span>
+<div class="comments">
+<div class="paragraph">
+Can the player not afford to fly?
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Ticker_CheckAffordToFly</td>
+<td class="address-2"><span id="33524"></span>33524</td>
+<td class="instruction">BIT 5,(HL)</td>
+<td class="comment-1" rowspan="2">Jump to <a href="33339.html#33550">Ticker_CheckGameWasCompleted</a> if the player can afford to fly to someplace else.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33526"></span>33526</td>
+<td class="instruction">JR Z,<a href="33339.html#33550">Ticker_CheckGameWasCompleted</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33528"></span>
+<div class="comments">
+<div class="paragraph">
+The player is broke and can't afford to fly to a new destination, so handle displaying this in the ticker.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33528"></span>33528</td>
+<td class="instruction">RES 5,(HL)</td>
+<td class="comment-1" rowspan="1">Reset bit 5 ("Can't Afford To Fly") of *<a href="61434.html">GameState_1</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33530"></span>
+<div class="comments">
+<div class="paragraph">
+Build the string in the ticker buffer.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33530"></span>33530</td>
+<td class="instruction">LD HL,36035</td>
+<td class="comment-1" rowspan="2">Adds ... " stranded in " to the ticker buffer.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33533"></span>33533</td>
+<td class="instruction">CALL <a href="33695.html">AddStringToBuffer</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33536"></span>33536</td>
+<td class="instruction">CALL <a href="33646.html">AddLocationTickerBuffer</a></td>
+<td class="comment-1" rowspan="1">Add the current location name to the ticker buffer.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33539"></span>33539</td>
+<td class="instruction">LD HL,36060</td>
+<td class="comment-1" rowspan="2">Adds ... ", without fare home." to the ticker buffer.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33542"></span>33542</td>
+<td class="instruction">CALL <a href="33695.html">AddStringToBuffer</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33545"></span>33545</td>
+<td class="instruction">LD A,90</td>
+<td class="comment-1" rowspan="2">Set the spacing to 90 and jump to <a href="33663.html">AddSpacingFillTickerBuffer</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33547"></span>33547</td>
+<td class="instruction">JP <a href="33663.html">AddSpacingFillTickerBuffer</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33550"></span>
+<div class="comments">
+<div class="paragraph">
+Has the player completed ALL the sub-games?
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Ticker_CheckGameWasCompleted</td>
+<td class="address-2"><span id="33550"></span>33550</td>
+<td class="instruction">BIT 6,(HL)</td>
+<td class="comment-1" rowspan="2">Jump to <a href="33339.html#33570">Ticker_CheckFlyingToNewDestination</a> if the player hasn't yet completed all the sub-games.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33552"></span>33552</td>
+<td class="instruction">JR Z,<a href="33339.html#33570">Ticker_CheckFlyingToNewDestination</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33554"></span>
+<div class="comments">
+<div class="paragraph">
+Player has completed all the sub-games, so handle displaying the messaging in the ticker.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33554"></span>33554</td>
+<td class="instruction">RES 6,(HL)</td>
+<td class="comment-1" rowspan="1">Reset bit 6 ("Completed All Locations") of *<a href="61434.html">GameState_1</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33556"></span>
+<div class="comments">
+<div class="paragraph">
+Build the string in the ticker buffer.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33556"></span>33556</td>
+<td class="instruction">LD HL,36284</td>
+<td class="comment-1" rowspan="2">Adds ... " completes round world trip........... time machine found in " to the ticker buffer.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33559"></span>33559</td>
+<td class="instruction">CALL <a href="33695.html">AddStringToBuffer</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33562"></span>33562</td>
+<td class="instruction">CALL <a href="33646.html">AddLocationTickerBuffer</a></td>
+<td class="comment-1" rowspan="1">Add the current location name to the ticker buffer.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33565"></span>33565</td>
+<td class="instruction">LD A,120</td>
+<td class="comment-1" rowspan="2">Set the spacing to 120 and jump to <a href="33663.html">AddSpacingFillTickerBuffer</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33567"></span>33567</td>
+<td class="instruction">JP <a href="33663.html">AddSpacingFillTickerBuffer</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33570"></span>
+<div class="comments">
+<div class="paragraph">
+Is the player flying somewhere new?
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Ticker_CheckFlyingToNewDestination</td>
+<td class="address-2"><span id="33570"></span>33570</td>
+<td class="instruction">BIT 7,(HL)</td>
+<td class="comment-1" rowspan="2">Just return if the player is not flying somewhere new, there are no more conditions covered.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33572"></span>33572</td>
+<td class="instruction">RET Z</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33573"></span>
+<div class="comments">
+<div class="paragraph">
+Player is flying to a new destination, so handle displaying the messaging in the ticker.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33573"></span>33573</td>
+<td class="instruction">RES 7,(HL)</td>
+<td class="comment-1" rowspan="1">Reset bit 7 ("Flying To New Destination") of *<a href="61434.html">GameState_1</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33575"></span>
+<div class="comments">
+<div class="paragraph">
+Build the string in the ticker buffer.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33575"></span>33575</td>
+<td class="instruction">LD HL,36026</td>
+<td class="comment-1" rowspan="2">Adds ... " flies to" to the ticker buffer.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33578"></span>33578</td>
+<td class="instruction">CALL <a href="33695.html">AddStringToBuffer</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33581"></span>33581</td>
+<td class="instruction">CALL <a href="33646.html">AddLocationTickerBuffer</a></td>
+<td class="comment-1" rowspan="1">Add the current location name to the ticker buffer.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33584"></span>33584</td>
+<td class="instruction">LD A,70</td>
+<td class="comment-1" rowspan="2">Set the spacing to 70 and jump to <a href="33663.html">AddSpacingFillTickerBuffer</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33586"></span>33586</td>
+<td class="instruction">JP <a href="33663.html">AddSpacingFillTickerBuffer</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33589"></span>
+<div class="comments">
+<div class="paragraph">
+Adds the players bonus points count to the ticker.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">AddBonusPointsToTicker</td>
+<td class="address-2"><span id="33589"></span>33589</td>
+<td class="instruction">LD HL,61432</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="61431.html#61432">ActivePlayerCash_02</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33592"></span>33592</td>
+<td class="instruction">LD IX,61435</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>=<a href="61435.html">GameState_2</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33596"></span>33596</td>
+<td class="instruction">SET 4,(IX+0)</td>
+<td class="comment-1" rowspan="1">Set bit 4 ("Used for printing scores/ stripping off leading zeroes") of *<span class="register">IX</span>+0.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33600"></span>33600</td>
+<td class="instruction">LD C,2</td>
+<td class="comment-1" rowspan="1">Set a counter in <span class="register">C</span> for the number of digits (2).</td>
+</tr>
+<tr>
+<td class="asm-label">ProcessBonusPointsDigit_Loop</td>
+<td class="address-2"><span id="33602"></span>33602</td>
+<td class="instruction">LD B,2</td>
+<td class="comment-1" rowspan="1">Set a counter in <span class="register">B</span> for the count of how many score digits are to be processed in each score byte (2).</td>
+</tr>
+<tr>
+<td class="asm-label">ProcessBonusPoints_Loop</td>
+<td class="address-2"><span id="33604"></span>33604</td>
+<td class="instruction">LD A,48</td>
+<td class="comment-1" rowspan="1">Load <span class="register">A</span> with ASCII "0" (48).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33606"></span>33606</td>
+<td class="instruction">RLD</td>
+<td class="comment-1" rowspan="1">Extract the score digit into the accumulator.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33608"></span>
+<div class="comments">
+<div class="paragraph">
+Don't print any zeros while bit 4 is set, it's only unset when a printable digit is "found" (i.e. not a zero). Once it is, then the zero characters are set freely (e.g. we won't print 001, but we will print 100).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33608"></span>33608</td>
+<td class="instruction">BIT 4,(IX+0)</td>
+<td class="comment-1" rowspan="2">Jump to <a href="33339.html#33622">WriteDigitToTickerBuffer</a> if bit 4 of *<span class="register">IX</span>+0 is not set.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33612"></span>33612</td>
+<td class="instruction">JR Z,<a href="33339.html#33622">WriteDigitToTickerBuffer</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33614"></span>
+<div class="comments">
+<div class="paragraph">
+Strip off leading zeros.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33614"></span>33614</td>
+<td class="instruction">CP 48</td>
+<td class="comment-1" rowspan="2">Jump to <a href="33339.html#33624">BonusPointsProcessNextNumber</a> if the current digit is "0".</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33616"></span>33616</td>
+<td class="instruction">JR Z,<a href="33339.html#33624">BonusPointsProcessNextNumber</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33618"></span>
+<div class="comments">
+<div class="paragraph">
+The digit is not a zero, so flag and process.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33618"></span>33618</td>
+<td class="instruction">RES 4,(IX+0)</td>
+<td class="comment-1" rowspan="1">Reset bit 4 ("Used for printing scores/ stripping off leading zeroes") of *<span class="register">IX</span>+0.</td>
+</tr>
+<tr>
+<td class="asm-label">WriteDigitToTickerBuffer</td>
+<td class="address-2"><span id="33622"></span>33622</td>
+<td class="instruction">LD (DE),A</td>
+<td class="comment-1" rowspan="1">Write the digit to the ticker buffer.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33623"></span>33623</td>
+<td class="instruction">INC DE</td>
+<td class="comment-1" rowspan="1">Increment the ticker buffer pointer by one.</td>
+</tr>
+<tr>
+<td class="asm-label">BonusPointsProcessNextNumber</td>
+<td class="address-2"><span id="33624"></span>33624</td>
+<td class="instruction">DJNZ <a href="33339.html#33604">ProcessBonusPoints_Loop</a></td>
+<td class="comment-1" rowspan="1">Decrease counter by one and loop back to <a href="33339.html#33604">ProcessBonusPoints_Loop</a> until counter is zero.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33626"></span>
+<div class="comments">
+<div class="paragraph">
+The score is evaluated backwards.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33626"></span>33626</td>
+<td class="instruction">DEC HL</td>
+<td class="comment-1" rowspan="1">Decrease the score pointer by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33627"></span>33627</td>
+<td class="instruction">DEC C</td>
+<td class="comment-1" rowspan="1">Decrease the score digit counter by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33628"></span>33628</td>
+<td class="instruction">JR NZ,<a href="33339.html#33602">ProcessBonusPointsDigit_Loop</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="33339.html#33602">ProcessBonusPointsDigit_Loop</a> until both digits of the score have been processed.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33630"></span>33630</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="33236.html">33236</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#33339">Map</a></td>
+<td class="next">
+Next: <a href="33631.html">33631</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1984 New Generation Software &copy; 2024 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.3.</div>
+<div class="repository">Link to <a href="https://github.com/pobtastic/travelwithtrashman/">Source code</a>.</div>
+<div><a href="asm/33339.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

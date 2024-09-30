@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Travel With Trashman: Routine at 81B3</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="8146.html">8146</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#81b3">Map</a></td>
+<td class="next">
+Next: <a href="81D4.html">81D4</a>
+</td>
+</tr>
+</table>
+<div class="description">81B3: Flash Location Map Points</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="8055.html">8055</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="81b3"></span>
+<div class="comments">
+<div class="paragraph">
+Starting with the first location, London.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">FlashLocationMapPoints</td>
+<td class="address-2"><span id="81b3"></span>81B3</td>
+<td class="instruction">LD IX,$8E82</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>=<a href="8E82.html">London_Location</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="81b7"></span>81B7</td>
+<td class="instruction">LD B,$0E</td>
+<td class="comment-1" rowspan="1">Set a counter in <span class="register">B</span> for the total number of locations (0E).</td>
+</tr>
+<tr>
+<td class="asm-label">FlashLocationMapPoints_Loop</td>
+<td class="address-2"><span id="81b9"></span>81B9</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="1">Stash the locations count on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="81ba"></span>81BA</td>
+<td class="instruction">LD L,(IX+$02)</td>
+<td class="comment-1" rowspan="2">Load the map co-ordinates for the current location into <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="81bd"></span>81BD</td>
+<td class="instruction">LD H,(IX+$03)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="81c0"></span>81C0</td>
+<td class="instruction">CALL <a href="8A07.html">ToggleMapPoint</a></td>
+<td class="comment-1" rowspan="1">Call <a href="8A07.html">ToggleMapPoint</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="81c3"></span>81C3</td>
+<td class="instruction">LD DE,$0016</td>
+<td class="comment-1" rowspan="2">Add 0016 to <span class="register">IX</span> which is a safe place to land to find the next location.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="81c6"></span>81C6</td>
+<td class="instruction">ADD IX,DE</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="81c8"></span>
+<div class="comments">
+<div class="paragraph">
+All locations end with the string for the location name, so now move through the string to find the terminating bit. This is necessary as the location names have varying lengths.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">CheckTerminator_Loop</td>
+<td class="address-2"><span id="81c8"></span>81C8</td>
+<td class="instruction">BIT 7,(IX+$00)</td>
+<td class="comment-1" rowspan="1">Test bit 7 of *<span class="register">IX</span>+00.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="81cc"></span>81CC</td>
+<td class="instruction">INC IX</td>
+<td class="comment-1" rowspan="1">Increment <span class="register">IX</span> by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="81ce"></span>81CE</td>
+<td class="instruction">JR Z,<a href="81B3.html#81c8">CheckTerminator_Loop</a></td>
+<td class="comment-1" rowspan="1">Keep jumping back to <a href="81B3.html#81c8">CheckTerminator_Loop</a> until the terminating bit 7 is found.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="81d0"></span>81D0</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="1">Restore the locations count from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="81d1"></span>81D1</td>
+<td class="instruction">DJNZ <a href="81B3.html#81b9">FlashLocationMapPoints_Loop</a></td>
+<td class="comment-1" rowspan="1">Decrease the locations count by one and loop back to <a href="81B3.html#81b9">FlashLocationMapPoints_Loop</a> until locations have been processed.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="81d3"></span>81D3</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="8146.html">8146</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#81b3">Map</a></td>
+<td class="next">
+Next: <a href="81D4.html">81D4</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1984 New Generation Software &copy; 2024 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.3.</div>
+<div class="repository">Link to <a href="https://github.com/pobtastic/travelwithtrashman/">Source code</a>.</div>
+<div><a href="asm/81B3.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

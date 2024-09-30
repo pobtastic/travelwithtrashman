@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Travel With Trashman: Routine at 33706</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="33695.html">33695</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#33706">Map</a></td>
+<td class="next">
+Next: <a href="33913.html">33913</a>
+</td>
+</tr>
+</table>
+<div class="description">33706: Game Selection Menu</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="32771.html">GameInitialise</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33706"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="main-menu" src="../../images/scr/main-menu.png" /></td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+Prints "Select controls".
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">GameMenu</td>
+<td class="address-2"><span id="33706"></span>33706</td>
+<td class="instruction">LD HL,35633</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="35633.html">Messaging_SelectControls</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33709"></span>33709</td>
+<td class="instruction">LD DE,20555</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=20555 (screen buffer location).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33712"></span>33712</td>
+<td class="instruction">CALL <a href="35389.html">Print_String</a></td>
+<td class="comment-1" rowspan="1">Call <a href="35389.html">Print_String</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33715"></span>33715</td>
+<td class="instruction">LD HL,20587</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=20587 (screen buffer location).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33718"></span>33718</td>
+<td class="instruction">LD B,15</td>
+<td class="comment-1" rowspan="2"><a href="35383.html">Underline</a> the header with 15 character blocks of 255.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33720"></span>33720</td>
+<td class="instruction">CALL <a href="35383.html">Underline</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33723"></span>
+<div class="comments">
+<div class="paragraph">
+Prints "1 User defined keys".
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33723"></span>33723</td>
+<td class="instruction">LD HL,35648</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="35633.html#35648">Messaging_UserDefinedKeys</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33726"></span>33726</td>
+<td class="instruction">LD DE,20617</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=20617 (screen buffer location).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33729"></span>33729</td>
+<td class="instruction">CALL <a href="35389.html">Print_String</a></td>
+<td class="comment-1" rowspan="1">Call <a href="35389.html">Print_String</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33732"></span>
+<div class="comments">
+<div class="paragraph">
+Prints "2 Kempston joystick".
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33732"></span>33732</td>
+<td class="instruction">LD HL,35667</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="35633.html#35667">Messaging_KempstonJoystick</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33735"></span>33735</td>
+<td class="instruction">LD DE,20649</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=20649 (screen buffer location).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33738"></span>33738</td>
+<td class="instruction">CALL <a href="35389.html">Print_String</a></td>
+<td class="comment-1" rowspan="1">Call <a href="35389.html">Print_String</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33741"></span>
+<div class="comments">
+<div class="paragraph">
+Prints "3 Interface 2".
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33741"></span>33741</td>
+<td class="instruction">LD HL,35686</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="35633.html#35686">Messaging_Interface2</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33744"></span>33744</td>
+<td class="instruction">LD DE,20681</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=20681 (screen buffer location).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33747"></span>33747</td>
+<td class="instruction">CALL <a href="35389.html">Print_String</a></td>
+<td class="comment-1" rowspan="1">Call <a href="35389.html">Print_String</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33750"></span>
+<div class="comments">
+<div class="paragraph">
+Prints "4 Cursor key type J/S".
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33750"></span>33750</td>
+<td class="instruction">LD HL,35699</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="35633.html#35699">Messaging_CursorKeys</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33753"></span>33753</td>
+<td class="instruction">LD DE,20713</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=20713 (screen buffer location).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33756"></span>33756</td>
+<td class="instruction">CALL <a href="35389.html">Print_String</a></td>
+<td class="comment-1" rowspan="1">Call <a href="35389.html">Print_String</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33759"></span>
+<div class="comments">
+<div class="paragraph">
+Handle retrieving the players input.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">GameMenu_InputLoop</td>
+<td class="address-2"><span id="33759"></span>33759</td>
+<td class="instruction">LD BC,63486</td>
+<td class="comment-1" rowspan="2">Read from the keyboard; <table class="default">
+<tr>
+<th colspan="1" rowspan="2">Port Number</th>
+<th colspan="5" rowspan="1">Bit</th>
+</tr>
+<tr>
+<th colspan="1" rowspan="1">0</th>
+<th colspan="1" rowspan="1">1</th>
+<th colspan="1" rowspan="1">2</th>
+<th colspan="1" rowspan="1">3</th>
+<th colspan="1" rowspan="1">4</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">247</td>
+<td class="centre" colspan="1" rowspan="1">1</td>
+<td class="centre" colspan="1" rowspan="1">2</td>
+<td class="centre" colspan="1" rowspan="1">3</td>
+<td class="centre" colspan="1" rowspan="1">4</td>
+<td class="centre" colspan="1" rowspan="1">5</td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33762"></span>33762</td>
+<td class="instruction">IN A,(C)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33764"></span>33764</td>
+<td class="instruction">OR %11100000</td>
+<td class="comment-1" rowspan="1">Set bits 5-7 (to fill in the extra bits).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33766"></span>33766</td>
+<td class="instruction">CP 255</td>
+<td class="comment-1" rowspan="2">Jump to <a href="33706.html#33777">GameMenu_HandleInput</a> if any of the keys have been pressed.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33768"></span>33768</td>
+<td class="instruction">JR NZ,<a href="33706.html#33777">GameMenu_HandleInput</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33770"></span>33770</td>
+<td class="instruction">LD B,5</td>
+<td class="comment-1" rowspan="2">Call <a href="32853.html">32853</a> with a count of 5.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33772"></span>33772</td>
+<td class="instruction">CALL <a href="32853.html">32853</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33775"></span>33775</td>
+<td class="instruction">JR <a href="33706.html#33759">GameMenu_InputLoop</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="33706.html#33759">GameMenu_InputLoop</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33777"></span>
+<div class="comments">
+<div class="paragraph">
+Process the players input.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">GameMenu_HandleInput</td>
+<td class="address-2"><span id="33777"></span>33777</td>
+<td class="instruction">CP 254</td>
+<td class="comment-1" rowspan="2">Jump to <a href="33706.html#33820">SetUserDefinedKeys</a> if <span class="register">A</span> is equal to 254.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33779"></span>33779</td>
+<td class="instruction">JR Z,<a href="33706.html#33820">SetUserDefinedKeys</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33781"></span>
+<div class="comments">
+<div class="paragraph">
+Was Kempston joystick selected?
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33781"></span>33781</td>
+<td class="instruction">LD HL,36437</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="36437.html">KeyMap_Kempston</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33784"></span>33784</td>
+<td class="instruction">CP 253</td>
+<td class="comment-1" rowspan="2">Jump to <a href="33706.html#33816">SetKempstonJoystick</a> if <span class="register">A</span> is equal to 253.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33786"></span>33786</td>
+<td class="instruction">JR Z,<a href="33706.html#33816">SetKempstonJoystick</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33788"></span>
+<div class="comments">
+<div class="paragraph">
+Was Interface 2 joystick selected?
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33788"></span>33788</td>
+<td class="instruction">LD HL,36452</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="36452.html">KeyMap_Interface2</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33791"></span>33791</td>
+<td class="instruction">CP 251</td>
+<td class="comment-1" rowspan="2">Jump to <a href="33706.html#33802">SetNoOperation</a> if <span class="register">A</span> is equal to 251.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33793"></span>33793</td>
+<td class="instruction">JR Z,<a href="33706.html#33802">SetNoOperation</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33795"></span>
+<div class="comments">
+<div class="paragraph">
+Was the Cursor joystick selected?
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33795"></span>33795</td>
+<td class="instruction">LD HL,36467</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="36467.html">KeyMap_CursorKeys</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33798"></span>33798</td>
+<td class="instruction">CP 247</td>
+<td class="comment-1" rowspan="2">Jump back to <a href="33706.html#33759">GameMenu_InputLoop</a> if the cursor joystick was not selected.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33800"></span>33800</td>
+<td class="instruction">JR NZ,<a href="33706.html#33759">GameMenu_InputLoop</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33802"></span>
+<div class="comments">
+<div class="paragraph">
+Self-modifying code. See; <a href="34279.html#34292">HandleControlBits</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">SetNoOperation</td>
+<td class="address-2"><span id="33802"></span>33802</td>
+<td class="instruction">LD A,0</td>
+<td class="comment-1" rowspan="1">Write 0 (NOP) to *<a href="34279.html#34292">HandleControlBits</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">SetActiveKeyMap</td>
+<td class="address-2"><span id="33804"></span>33804</td>
+<td class="instruction">LD (34292),A</td>
+<td class="comment-1" rowspan="1">Write <span class="register">A</span> to *<a href="34279.html#34292">HandleControlBits</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33807"></span>33807</td>
+<td class="instruction">LD DE,61408</td>
+<td class="comment-1" rowspan="3">Copy 0015 bytes from *<span class="register">HL</span> to *<a href="61408.html">ActiveKeyMap</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33810"></span>33810</td>
+<td class="instruction">LD BC,15</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33813"></span>33813</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33815"></span>33815</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33816"></span>
+<div class="comments">
+<div class="paragraph">
+Self-modifying code. See; <a href="34279.html#34292">HandleControlBits</a>.
+</div>
+<div class="paragraph">
+Invert the bits in the controls routine.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">SetKempstonJoystick</td>
+<td class="address-2"><span id="33816"></span>33816</td>
+<td class="instruction">LD A,47</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=47 (CPL) to *<a href="34279.html#34292">HandleControlBits</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33818"></span>33818</td>
+<td class="instruction">JR <a href="33706.html#33804">SetActiveKeyMap</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="33706.html#33804">SetActiveKeyMap</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33820"></span>
+<div class="comments">
+<div class="paragraph">
+Self-modifying code. See; <a href="34279.html#34292">HandleControlBits</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">SetUserDefinedKeys</td>
+<td class="address-2"><span id="33820"></span>33820</td>
+<td class="instruction">LD A,0</td>
+<td class="comment-1" rowspan="2">Write 0 (NOP) to *<a href="34279.html#34292">HandleControlBits</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33822"></span>33822</td>
+<td class="instruction">LD (34292),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33825"></span>33825</td>
+<td class="instruction">CALL <a href="35425.html#35441">ClearBottomScreenArea</a></td>
+<td class="comment-1" rowspan="1">Call <a href="35425.html#35441">ClearBottomScreenArea</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33828"></span>
+<div class="comments">
+<div class="paragraph">
+Prints "Please select ".
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33828"></span>33828</td>
+<td class="instruction">LD HL,35720</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="35720.html">Messaging_PleaseSelectKeys</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33831"></span>33831</td>
+<td class="instruction">LD DE,20647</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=20647 (screen buffer location).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33834"></span>33834</td>
+<td class="instruction">CALL <a href="35389.html">Print_String</a></td>
+<td class="comment-1" rowspan="1">Call <a href="35389.html">Print_String</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33837"></span>
+<div class="comments">
+<div class="paragraph">
+Cycle through each key/ key messaging to collect the user input:
+</div>
+<div class="paragraph">
+Using &quot;right key&quot;, &quot;down key&quot;, &quot;left key&quot;, &quot;up key&quot; and &quot;fire key&quot; strings.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33837"></span>33837</td>
+<td class="instruction">LD HL,35734</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="35720.html#35734">Messaging_RedefineKeys_Right</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33840"></span>33840</td>
+<td class="instruction">LD B,5</td>
+<td class="comment-1" rowspan="1">Store a counter in <span class="register">B</span> of 5 for how many strings to print.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33842"></span>33842</td>
+<td class="instruction">LD IX,61408</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>=<a href="61408.html">ActiveKeyMap</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">SetKeys_Loop</td>
+<td class="address-2"><span id="33846"></span>33846</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="2">Stash the string counter and active keymap position on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33847"></span>33847</td>
+<td class="instruction">PUSH IX</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33849"></span>33849</td>
+<td class="instruction">LD DE,20661</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=20661 (screen buffer location).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33852"></span>33852</td>
+<td class="instruction">CALL <a href="35389.html">Print_String</a></td>
+<td class="comment-1" rowspan="1">Call <a href="35389.html">Print_String</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33855"></span>33855</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="1">Stash the messaging pointer on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label">GameMenu_0</td>
+<td class="address-2"><span id="33856"></span>33856</td>
+<td class="instruction">CALL <a href="33913.html">PauseCheck</a></td>
+<td class="comment-1" rowspan="1">Call <a href="33913.html">PauseCheck</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">GameMenu_1</td>
+<td class="address-2"><span id="33859"></span>33859</td>
+<td class="instruction">LD B,5</td>
+<td class="comment-1" rowspan="2">Call <a href="32853.html">32853</a> with a count of 5.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33861"></span>33861</td>
+<td class="instruction">CALL <a href="32853.html">32853</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33864"></span>33864</td>
+<td class="instruction">LD BC,65278</td>
+<td class="comment-1" rowspan="2">Read from the keyboard; <table class="default">
+<tr>
+<th colspan="1" rowspan="2">Port Number</th>
+<th colspan="5" rowspan="1">Bit</th>
+</tr>
+<tr>
+<th colspan="1" rowspan="1">0</th>
+<th colspan="1" rowspan="1">1</th>
+<th colspan="1" rowspan="1">2</th>
+<th colspan="1" rowspan="1">3</th>
+<th colspan="1" rowspan="1">4</th>
+</tr>
+<tr>
+<td class="centre" colspan="1" rowspan="1">254</td>
+<td class="centre" colspan="1" rowspan="1">SHIFT</td>
+<td class="centre" colspan="1" rowspan="1">Z</td>
+<td class="centre" colspan="1" rowspan="1">X</td>
+<td class="centre" colspan="1" rowspan="1">C</td>
+<td class="centre" colspan="1" rowspan="1">V</td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="asm-label">GameMenu_2</td>
+<td class="address-2"><span id="33867"></span>33867</td>
+<td class="instruction">IN A,(C)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33869"></span>33869</td>
+<td class="instruction">OR %11100000</td>
+<td class="comment-1" rowspan="1">Set bits 5-7 (to fill in the extra bits).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33871"></span>33871</td>
+<td class="instruction">CP 255</td>
+<td class="comment-1" rowspan="2">Jump to <a href="33706.html#33881">GameMenu_3</a> if any of the keys have been pressed.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33873"></span>33873</td>
+<td class="instruction">JR NZ,<a href="33706.html#33881">GameMenu_3</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33875"></span>33875</td>
+<td class="instruction">RLC B</td>
+<td class="comment-1" rowspan="1">Rotate <span class="register">B</span> left (with carry).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33877"></span>33877</td>
+<td class="instruction">JR C,<a href="33706.html#33867">GameMenu_2</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="33706.html#33867">GameMenu_2</a> if <span class="register">A</span> is lower.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33879"></span>33879</td>
+<td class="instruction">JR <a href="33706.html#33859">GameMenu_1</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="33706.html#33859">GameMenu_1</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">GameMenu_3</td>
+<td class="address-2"><span id="33881"></span>33881</td>
+<td class="instruction">CPL</td>
+<td class="comment-1" rowspan="1">Invert the bits in <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33882"></span>33882</td>
+<td class="instruction">AND %00011111</td>
+<td class="comment-1" rowspan="1">Keep only bits 0-4.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33884"></span>33884</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-1" rowspan="1"><span class="register">E</span>=<span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label">GameMenu_4</td>
+<td class="address-2"><span id="33885"></span>33885</td>
+<td class="instruction">RRA</td>
+<td class="comment-1" rowspan="1">RRA.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33886"></span>33886</td>
+<td class="instruction">JR NC,<a href="33706.html#33885">GameMenu_4</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="33706.html#33885">GameMenu_4</a> if <span class="register">A</span> is higher.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33888"></span>33888</td>
+<td class="instruction">CP 0</td>
+<td class="comment-1" rowspan="2">Jump to <a href="33706.html#33856">GameMenu_0</a> if <span class="register">A</span> is not equal to 0.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33890"></span>33890</td>
+<td class="instruction">JR NZ,<a href="33706.html#33856">GameMenu_0</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33892"></span>33892</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="2">Restore the messaging pointer and active keymap position from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33893"></span>33893</td>
+<td class="instruction">POP IX</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33895"></span>33895</td>
+<td class="instruction">LD (IX+0),C</td>
+<td class="comment-1" rowspan="3">Write the keymap data to the current active key.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33898"></span>33898</td>
+<td class="instruction">LD (IX+1),B</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33901"></span>33901</td>
+<td class="instruction">LD (IX+2),E</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33904"></span>33904</td>
+<td class="instruction">LD BC,3</td>
+<td class="comment-1" rowspan="2">Add 0003 to <span class="register">IX</span> to move to the next key.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33907"></span>33907</td>
+<td class="instruction">ADD IX,BC</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33909"></span>33909</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="1">Restore the string counter from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33910"></span>33910</td>
+<td class="instruction">DJNZ <a href="33706.html#33846">SetKeys_Loop</a></td>
+<td class="comment-1" rowspan="1">Decrease the string counter by one and loop back to <a href="33706.html#33846">SetKeys_Loop</a> until all keys have been collected.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33912"></span>33912</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="33695.html">33695</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#33706">Map</a></td>
+<td class="next">
+Next: <a href="33913.html">33913</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1984 New Generation Software &copy; 2024 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.3.</div>
+<div class="repository">Link to <a href="https://github.com/pobtastic/travelwithtrashman/">Source code</a>.</div>
+<div><a href="asm/33706.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

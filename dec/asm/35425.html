@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Travel With Trashman: Routine at 35425</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="35389.html">35389</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#35425">Map</a></td>
+<td class="next">
+Next: <a href="35460.html">35460</a>
+</td>
+</tr>
+</table>
+<div class="description">35425: Clear Menu Screen Areas</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="32771.html">GameInitialise</a>, <a href="34406.html">ChooseLocationOrTakeJob</a>, <a href="34633.html">Handler_LocationChoice</a>, <a href="34876.html">Handler_SubGame</a> and <a href="35460.html">HighScoreTable</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="35425"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="clear-screen-01" src="../../images/scr/clear-screen-01.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ClearMenuScreenAreas</td>
+<td class="address-2"><span id="35425"></span>35425</td>
+<td class="instruction">LD HL,20553</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=20553 (screen buffer location).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35428"></span>35428</td>
+<td class="instruction">LD C,19</td>
+<td class="comment-1" rowspan="1"><span class="register">C</span>=19.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35430"></span>35430</td>
+<td class="instruction">CALL <a href="35425.html#35446">ClearScreenArea</a></td>
+<td class="comment-1" rowspan="1">Call <a href="35425.html#35446">ClearScreenArea</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35433"></span>35433</td>
+<td class="instruction">LD HL,20585</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=20585 (screen buffer location).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35436"></span>35436</td>
+<td class="instruction">LD C,19</td>
+<td class="comment-1" rowspan="1"><span class="register">C</span>=19.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35438"></span>35438</td>
+<td class="instruction">CALL <a href="35425.html#35446">ClearScreenArea</a></td>
+<td class="comment-1" rowspan="1">Call <a href="35425.html#35446">ClearScreenArea</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="35441"></span>
+<div class="comments">
+<div class="paragraph">
+<table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="clear-screen-02" src="../../images/scr/clear-screen-02.png" /></td>
+</tr>
+</table>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ClearBottomScreenArea</td>
+<td class="address-2"><span id="35441"></span>35441</td>
+<td class="instruction">LD HL,20616</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=20616 (screen buffer location).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35444"></span>35444</td>
+<td class="instruction">LD C,119</td>
+<td class="comment-1" rowspan="1"><span class="register">C</span>=119.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="35446"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routines at <a href="34304.html">Print_Header</a>, <a href="37172.html">CopyBufferToScreen</a>, <a href="38452.html">38452</a> and <a href="38740.html">38740</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ClearScreenArea</td>
+<td class="address-2"><span id="35446"></span>35446</td>
+<td class="instruction">LD B,8</td>
+<td class="comment-1" rowspan="1"><span class="register">B</span>=8.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35448"></span>35448</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">HL</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label">ClearScreenArea_Loop</td>
+<td class="address-2"><span id="35449"></span>35449</td>
+<td class="instruction">LD (HL),0</td>
+<td class="comment-1" rowspan="1">Write 0 to *<span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35451"></span>35451</td>
+<td class="instruction">INC H</td>
+<td class="comment-1" rowspan="1">Increment <span class="register">H</span> by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35452"></span>35452</td>
+<td class="instruction">DJNZ <a href="35425.html#35449">ClearScreenArea_Loop</a></td>
+<td class="comment-1" rowspan="1">Decrease counter by one and loop back to <a href="35425.html#35449">ClearScreenArea_Loop</a> until counter is zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35454"></span>35454</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">HL</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35455"></span>35455</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Increment <span class="register">HL</span> by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35456"></span>35456</td>
+<td class="instruction">DEC C</td>
+<td class="comment-1" rowspan="1">Decrease <span class="register">C</span> by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35457"></span>35457</td>
+<td class="instruction">JR NZ,<a href="35425.html#35446">ClearScreenArea</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="35425.html#35446">ClearScreenArea</a> until <span class="register">C</span> is zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35459"></span>35459</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="35389.html">35389</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#35425">Map</a></td>
+<td class="next">
+Next: <a href="35460.html">35460</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1984 New Generation Software &copy; 2024 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.3.</div>
+<div class="repository">Link to <a href="https://github.com/pobtastic/travelwithtrashman/">Source code</a>.</div>
+<div><a href="asm/35425.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

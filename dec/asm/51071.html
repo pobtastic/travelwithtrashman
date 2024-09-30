@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Travel With Trashman: Routine at 51071</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="51027.html">51027</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#51071">Map</a></td>
+<td class="next">
+Next: <a href="51126.html">51126</a>
+</td>
+</tr>
+</table>
+<div class="description">51071: Initialise: Moscow</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Moscow_Initialise</td>
+<td class="address-2"><span id="51071"></span>51071</td>
+<td class="instruction">LD HL,31428</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=31428.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51074"></span>51074</td>
+<td class="instruction">LD A,0</td>
+<td class="comment-1" rowspan="2">Write 0 to *<a href="39273.html#39338">39338</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51076"></span>51076</td>
+<td class="instruction">LD (39338),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51079"></span>51079</td>
+<td class="instruction">LD BC,1032</td>
+<td class="comment-1" rowspan="1"><span class="register">BC</span>=1032.</td>
+</tr>
+<tr>
+<td class="asm-label">Moscow_Initialise_Loop</td>
+<td class="address-2"><span id="51082"></span>51082</td>
+<td class="instruction">LD IX,(39395)</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>=*<a href="39364.html#39395">39395</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51086"></span>51086</td>
+<td class="instruction">LD (IX+4),L</td>
+<td class="comment-1" rowspan="1">Write <span class="register">L</span> to *<span class="register">IX</span>+4.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51089"></span>51089</td>
+<td class="instruction">LD (IX+5),H</td>
+<td class="comment-1" rowspan="1">Write <span class="register">H</span> to *<span class="register">IX</span>+5.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51092"></span>51092</td>
+<td class="instruction">LD (IX+6),C</td>
+<td class="comment-1" rowspan="1">Write <span class="register">C</span> to *<span class="register">IX</span>+6.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51095"></span>51095</td>
+<td class="instruction">LD (IX+7),B</td>
+<td class="comment-1" rowspan="1">Write <span class="register">B</span> to *<span class="register">IX</span>+7.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51098"></span>51098</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="2">Stash <span class="register">HL</span> and <span class="register">BC</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51099"></span>51099</td>
+<td class="instruction">PUSH BC</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51100"></span>51100</td>
+<td class="instruction">LD HL,(39395)</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=*<a href="39364.html#39395">39395</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51103"></span>51103</td>
+<td class="instruction">CALL <a href="37945.html">37945</a></td>
+<td class="comment-1" rowspan="1">Call <a href="37945.html">37945</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51106"></span>51106</td>
+<td class="instruction">CALL <a href="39206.html#39209">39209</a></td>
+<td class="comment-1" rowspan="1">Call <a href="39206.html#39209">39209</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51109"></span>51109</td>
+<td class="instruction">LD HL,(39395)</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=*<a href="39364.html#39395">39395</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51112"></span>51112</td>
+<td class="instruction">LD DE,56</td>
+<td class="comment-1" rowspan="2"><span class="register">HL</span>+=0056.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51115"></span>51115</td>
+<td class="instruction">ADD HL,DE</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51116"></span>51116</td>
+<td class="instruction">LD (39395),HL</td>
+<td class="comment-1" rowspan="1">Write <span class="register">HL</span> to *<a href="39364.html#39395">39395</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51119"></span>51119</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="2">Restore <span class="register">BC</span> and <span class="register">HL</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51120"></span>51120</td>
+<td class="instruction">POP HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51121"></span>51121</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="2">Increment <span class="register">HL</span> by two.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51122"></span>51122</td>
+<td class="instruction">INC HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51123"></span>51123</td>
+<td class="instruction">DJNZ <a href="51071.html#51082">Moscow_Initialise_Loop</a></td>
+<td class="comment-1" rowspan="1">Decrease counter by one and loop back to <a href="51071.html#51082">Moscow_Initialise_Loop</a> until counter is zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51125"></span>51125</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="51027.html">51027</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#51071">Map</a></td>
+<td class="next">
+Next: <a href="51126.html">51126</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1984 New Generation Software &copy; 2024 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.3.</div>
+<div class="repository">Link to <a href="https://github.com/pobtastic/travelwithtrashman/">Source code</a>.</div>
+<div><a href="asm/51071.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

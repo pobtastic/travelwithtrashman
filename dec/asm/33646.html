@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Travel With Trashman: Routine at 33646</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="33631.html">33631</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#33646">Map</a></td>
+<td class="next">
+Next: <a href="33663.html">33663</a>
+</td>
+</tr>
+</table>
+<div class="description">33646: Add Location To Ticker Buffer</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="33339.html">Messaging_GenerateTicker</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">AddLocationTickerBuffer</td>
+<td class="address-2"><span id="33646"></span>33646</td>
+<td class="instruction">LD IX,(61426)</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>=*<a href="61426.html">Pointer_ActivePlayer</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33650"></span>33650</td>
+<td class="instruction">LD L,(IX+8)</td>
+<td class="comment-1" rowspan="2">Load the current location pointer to <span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33653"></span>33653</td>
+<td class="instruction">LD H,(IX+9)</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33656"></span>
+<div class="comments">
+<div class="paragraph">
+Add 0017 to <span class="register">HL</span>, which is the count of data before the location name string starts.
+</div>
+<div class="paragraph">
+The location names vary in length but the data for them does not.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33656"></span>33656</td>
+<td class="instruction">LD BC,17</td>
+<td class="comment-1" rowspan="2"><span class="register">HL</span>+=0017.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33659"></span>33659</td>
+<td class="instruction">ADD HL,BC</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33660"></span>33660</td>
+<td class="instruction">JP <a href="33695.html">AddStringToBuffer</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="33695.html">AddStringToBuffer</a>.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="33631.html">33631</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#33646">Map</a></td>
+<td class="next">
+Next: <a href="33663.html">33663</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1984 New Generation Software &copy; 2024 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.3.</div>
+<div class="repository">Link to <a href="https://github.com/pobtastic/travelwithtrashman/">Source code</a>.</div>
+<div><a href="asm/33646.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

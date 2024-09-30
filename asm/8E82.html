@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Travel With Trashman: Data at 8E82</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-b">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Data</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="8E73.html">8E73</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#8e82">Map</a></td>
+<td class="next">
+Next: <a href="8FEB.html">8FEB</a>
+</td>
+</tr>
+</table>
+<div class="description">8E82: Table: Locations</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="8e82"></span>
+<div class="comments">
+<div class="paragraph">
+Location 01: London (not a "real" location).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">London_Location</td>
+<td class="address-1"><span id="8e82"></span>8E82</td>
+<td class="instruction">DEFW $0000</td>
+<td class="comment-1" rowspan="1">Data: 0000 (not a level).</td>
+</tr>
+<tr>
+<td class="asm-label">London_MapCoordinates</td>
+<td class="address-1"><span id="8e84"></span>8E84</td>
+<td class="instruction">DEFB $6B,$33</td>
+<td class="comment-1" rowspan="1">Map co-ordinates.</td>
+</tr>
+<tr>
+<td class="asm-label">London_Destinations_1</td>
+<td class="address-1"><span id="8e86"></span>8E86</td>
+<td class="instruction">DEFW <a href="8E82.html#8eb2">Paris_Location</a></td>
+<td class="comment-1" rowspan="1">Location: <a href="8E82.html#8eb2">Paris_Location</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8e88"></span>8E88</td>
+<td class="instruction">DEFB $00,$01</td>
+<td class="comment-1" rowspan="1">Cost: "£100".</td>
+</tr>
+<tr>
+<td class="asm-label">London_Destinations_2</td>
+<td class="address-1"><span id="8e8a"></span>8E8A</td>
+<td class="instruction">DEFW <a href="8E82.html#8ec9">Munich_Location</a></td>
+<td class="comment-1" rowspan="1">Location: <a href="8E82.html#8ec9">Munich_Location</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8e8c"></span>8E8C</td>
+<td class="instruction">DEFB $50,$01</td>
+<td class="comment-1" rowspan="1">Cost: "£150".</td>
+</tr>
+<tr>
+<td class="asm-label">London_Destinations_3</td>
+<td class="address-1"><span id="8e8e"></span>8E8E</td>
+<td class="instruction">DEFW <a href="8E82.html#8e9a">Madrid_Location</a></td>
+<td class="comment-1" rowspan="1">Location: <a href="8E82.html#8e9a">Madrid_Location</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8e90"></span>8E90</td>
+<td class="instruction">DEFB $50,$01</td>
+<td class="comment-1" rowspan="1">Cost: "£150".</td>
+</tr>
+<tr>
+<td class="asm-label">London_State</td>
+<td class="address-1"><span id="8e92"></span>8E92</td>
+<td class="instruction">DEFB $03</td>
+<td class="comment-1" rowspan="1">State: Completed.</td>
+</tr>
+<tr>
+<td class="asm-label">London_Name</td>
+<td class="address-1"><span id="8e93"></span>8E93</td>
+<td class="instruction">DEFM " Londo","n"+$80</td>
+<td class="comment-1" rowspan="1"><img alt="location-london" src="../images/font/location-london.png" /></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="8e9a"></span>
+<div class="comments">
+<div class="paragraph">
+Location 02: Madrid.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Madrid_Location</td>
+<td class="address-1"><span id="8e9a"></span>8E9A</td>
+<td class="instruction">DEFW <a href="B496.html">Madrid_Data</a></td>
+<td class="comment-1" rowspan="1">Data: <a href="B496.html">Madrid_Data</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">Madrid_MapCoordinates</td>
+<td class="address-1"><span id="8e9c"></span>8E9C</td>
+<td class="instruction">DEFB $68,$3F</td>
+<td class="comment-1" rowspan="1">Map co-ordinates.</td>
+</tr>
+<tr>
+<td class="asm-label">Madrid_Destinations_1</td>
+<td class="address-1"><span id="8e9e"></span>8E9E</td>
+<td class="instruction">DEFW <a href="8E82.html#8eb2">Paris_Location</a></td>
+<td class="comment-1" rowspan="1">Location: <a href="8E82.html#8eb2">Paris_Location</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8ea0"></span>8EA0</td>
+<td class="instruction">DEFB $00,$01</td>
+<td class="comment-1" rowspan="1">Cost: "£100".</td>
+</tr>
+<tr>
+<td class="asm-label">Madrid_Destinations_2</td>
+<td class="address-1"><span id="8ea2"></span>8EA2</td>
+<td class="instruction">DEFW <a href="8E82.html#8f9c">NewOrleans_Location</a></td>
+<td class="comment-1" rowspan="1">Location: <a href="8E82.html#8f9c">NewOrleans_Location</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8ea4"></span>8EA4</td>
+<td class="instruction">DEFB $00,$06</td>
+<td class="comment-1" rowspan="1">Cost: "£600".</td>
+</tr>
+<tr>
+<td class="asm-label">Madrid_Destinations_3</td>
+<td class="address-1"><span id="8ea6"></span>8EA6</td>
+<td class="instruction">DEFW <a href="8E82.html#8fb9">Kanyu_Location</a></td>
+<td class="comment-1" rowspan="1">Location: <a href="8E82.html#8fb9">Kanyu_Location</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8ea8"></span>8EA8</td>
+<td class="instruction">DEFB $00,$07</td>
+<td class="comment-1" rowspan="1">Cost: "£700".</td>
+</tr>
+<tr>
+<td class="asm-label">Madrid_State</td>
+<td class="address-1"><span id="8eaa"></span>8EAA</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">State: Not visited.</td>
+</tr>
+<tr>
+<td class="asm-label">Madrid_Name</td>
+<td class="address-1"><span id="8eab"></span>8EAB</td>
+<td class="instruction">DEFM " Madri","d"+$80</td>
+<td class="comment-1" rowspan="1"><img alt="location-madrid" src="../images/font/location-madrid.png" /></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="8eb2"></span>
+<div class="comments">
+<div class="paragraph">
+Location 03: Paris.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Paris_Location</td>
+<td class="address-1"><span id="8eb2"></span>8EB2</td>
+<td class="instruction">DEFW <a href="AAAE.html">Paris_Data</a></td>
+<td class="comment-1" rowspan="1">Data: <a href="AAAE.html">Paris_Data</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">Paris_MapCoordinates</td>
+<td class="address-1"><span id="8eb4"></span>8EB4</td>
+<td class="instruction">DEFB $6D,$38</td>
+<td class="comment-1" rowspan="1">Map co-ordinates.</td>
+</tr>
+<tr>
+<td class="asm-label">Paris_Destinations_1</td>
+<td class="address-1"><span id="8eb6"></span>8EB6</td>
+<td class="instruction">DEFW <a href="8E82.html#8e9a">Madrid_Location</a></td>
+<td class="comment-1" rowspan="1">Location: <a href="8E82.html#8e9a">Madrid_Location</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8eb8"></span>8EB8</td>
+<td class="instruction">DEFB $00,$01</td>
+<td class="comment-1" rowspan="1">Cost: "£100".</td>
+</tr>
+<tr>
+<td class="asm-label">Paris_Destinations_2</td>
+<td class="address-1"><span id="8eba"></span>8EBA</td>
+<td class="instruction">DEFW <a href="8E82.html#8ec9">Munich_Location</a></td>
+<td class="comment-1" rowspan="1">Location: <a href="8E82.html#8ec9">Munich_Location</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8ebc"></span>8EBC</td>
+<td class="instruction">DEFB $00,$01</td>
+<td class="comment-1" rowspan="1">Cost: "£100".</td>
+</tr>
+<tr>
+<td class="asm-label">Paris_Destinations_3</td>
+<td class="address-1"><span id="8ebe"></span>8EBE</td>
+<td class="instruction">DEFW <a href="8E82.html#8ef9">Jerusalem_Location</a></td>
+<td class="comment-1" rowspan="1">Location: <a href="8E82.html#8ef9">Jerusalem_Location</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8ec0"></span>8EC0</td>
+<td class="instruction">DEFB $00,$03</td>
+<td class="comment-1" rowspan="1">Cost: "£300".</td>
+</tr>
+<tr>
+<td class="asm-label">Paris_State</td>
+<td class="address-1"><span id="8ec2"></span>8EC2</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">State: Not visited.</td>
+</tr>
+<tr>
+<td class="asm-label">Paris_Name</td>
+<td class="address-1"><span id="8ec3"></span>8EC3</td>
+<td class="instruction">DEFM " Pari","s"+$80</td>
+<td class="comment-1" rowspan="1"><img alt="location-paris" src="../images/font/location-paris.png" /></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="8ec9"></span>
+<div class="comments">
+<div class="paragraph">
+Location 04: Munich.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Munich_Location</td>
+<td class="address-1"><span id="8ec9"></span>8EC9</td>
+<td class="instruction">DEFW <a href="BA76.html">Munich_Data</a></td>
+<td class="comment-1" rowspan="1">Data: <a href="BA76.html">Munich_Data</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">Munich_MapCoordinates</td>
+<td class="address-1"><span id="8ecb"></span>8ECB</td>
+<td class="instruction">DEFB $74,$37</td>
+<td class="comment-1" rowspan="1">Map co-ordinates.</td>
+</tr>
+<tr>
+<td class="asm-label">Munich_Destinations_1</td>
+<td class="address-1"><span id="8ecd"></span>8ECD</td>
+<td class="instruction">DEFW <a href="8E82.html#8eb2">Paris_Location</a></td>
+<td class="comment-1" rowspan="1">Location: <a href="8E82.html#8eb2">Paris_Location</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8ecf"></span>8ECF</td>
+<td class="instruction">DEFB $00,$01</td>
+<td class="comment-1" rowspan="1">Cost: "£100".</td>
+</tr>
+<tr>
+<td class="asm-label">Munich_Destinations_2</td>
+<td class="address-1"><span id="8ed1"></span>8ED1</td>
+<td class="instruction">DEFW <a href="8E82.html#8ee1">Moscow_Location</a></td>
+<td class="comment-1" rowspan="1">Location: <a href="8E82.html#8ee1">Moscow_Location</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8ed3"></span>8ED3</td>
+<td class="instruction">DEFB $50,$02</td>
+<td class="comment-1" rowspan="1">Cost: "£250".</td>
+</tr>
+<tr>
+<td class="asm-label">Munich_Destinations_3</td>
+<td class="address-1"><span id="8ed5"></span>8ED5</td>
+<td class="instruction">DEFW <a href="8E82.html#8ef9">Jerusalem_Location</a></td>
+<td class="comment-1" rowspan="1">Location: <a href="8E82.html#8ef9">Jerusalem_Location</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8ed7"></span>8ED7</td>
+<td class="instruction">DEFB $00,$03</td>
+<td class="comment-1" rowspan="1">Cost: "£300".</td>
+</tr>
+<tr>
+<td class="asm-label">Munich_State</td>
+<td class="address-1"><span id="8ed9"></span>8ED9</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">State: Not visited.</td>
+</tr>
+<tr>
+<td class="asm-label">Munich_Name</td>
+<td class="address-1"><span id="8eda"></span>8EDA</td>
+<td class="instruction">DEFM " Munic","h"+$80</td>
+<td class="comment-1" rowspan="1"><img alt="location-munich" src="../images/font/location-munich.png" /></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="8ee1"></span>
+<div class="comments">
+<div class="paragraph">
+Location 05: Moscow.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Moscow_Location</td>
+<td class="address-1"><span id="8ee1"></span>8EE1</td>
+<td class="instruction">DEFW <a href="C753.html">Moscow_Data</a></td>
+<td class="comment-1" rowspan="1">Data: <a href="C753.html">Moscow_Data</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">Moscow_MapCoordinates</td>
+<td class="address-1"><span id="8ee3"></span>8EE3</td>
+<td class="instruction">DEFB $85,$2E</td>
+<td class="comment-1" rowspan="1">Map co-ordinates.</td>
+</tr>
+<tr>
+<td class="asm-label">Moscow_Destinations_1</td>
+<td class="address-1"><span id="8ee5"></span>8EE5</td>
+<td class="instruction">DEFW <a href="8E82.html#8ef9">Jerusalem_Location</a></td>
+<td class="comment-1" rowspan="1">Location: <a href="8E82.html#8ef9">Jerusalem_Location</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8ee7"></span>8EE7</td>
+<td class="instruction">DEFB $00,$03</td>
+<td class="comment-1" rowspan="1">Cost: "£300".</td>
+</tr>
+<tr>
+<td class="asm-label">Moscow_Destinations_2</td>
+<td class="address-1"><span id="8ee9"></span>8EE9</td>
+<td class="instruction">DEFW <a href="8E82.html#8f14">Benares_Location</a></td>
+<td class="comment-1" rowspan="1">Location: <a href="8E82.html#8f14">Benares_Location</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8eeb"></span>8EEB</td>
+<td class="instruction">DEFB $50,$04</td>
+<td class="comment-1" rowspan="1">Cost: "£450".</td>
+</tr>
+<tr>
+<td class="asm-label">Moscow_Destinations_3</td>
+<td class="address-1"><span id="8eed"></span>8EED</td>
+<td class="instruction">DEFW <a href="8E82.html#8f2d">HongKong_Location</a></td>
+<td class="comment-1" rowspan="1">Location: <a href="8E82.html#8f2d">HongKong_Location</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8eef"></span>8EEF</td>
+<td class="instruction">DEFB $00,$06</td>
+<td class="comment-1" rowspan="1">Cost: "£600".</td>
+</tr>
+<tr>
+<td class="asm-label">Moscow_State</td>
+<td class="address-1"><span id="8ef1"></span>8EF1</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">State: Not visited.</td>
+</tr>
+<tr>
+<td class="asm-label">Moscow_Name</td>
+<td class="address-1"><span id="8ef2"></span>8EF2</td>
+<td class="instruction">DEFM " Mosco","w"+$80</td>
+<td class="comment-1" rowspan="1"><img alt="location-moscow" src="../images/font/location-moscow.png" /></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="8ef9"></span>
+<div class="comments">
+<div class="paragraph">
+Location 06: Jerusalem.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Jerusalem_Location</td>
+<td class="address-1"><span id="8ef9"></span>8EF9</td>
+<td class="instruction">DEFW <a href="B0CA.html">Jerusalem_Data</a></td>
+<td class="comment-1" rowspan="1">Data: <a href="B0CA.html">Jerusalem_Data</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">Jerusalem_MapCoordinates</td>
+<td class="address-1"><span id="8efb"></span>8EFB</td>
+<td class="instruction">DEFB $88,$47</td>
+<td class="comment-1" rowspan="1">Map co-ordinates.</td>
+</tr>
+<tr>
+<td class="asm-label">Jerusalem_Destinations_1</td>
+<td class="address-1"><span id="8efd"></span>8EFD</td>
+<td class="instruction">DEFW <a href="8E82.html#8ec9">Munich_Location</a></td>
+<td class="comment-1" rowspan="1">Location: <a href="8E82.html#8ec9">Munich_Location</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8eff"></span>8EFF</td>
+<td class="instruction">DEFB $00,$03</td>
+<td class="comment-1" rowspan="1">Cost: "£300".</td>
+</tr>
+<tr>
+<td class="asm-label">Jerusalem_Destinations_2</td>
+<td class="address-1"><span id="8f01"></span>8F01</td>
+<td class="instruction">DEFW <a href="8E82.html#8f14">Benares_Location</a></td>
+<td class="comment-1" rowspan="1">Location: <a href="8E82.html#8f14">Benares_Location</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8f03"></span>8F03</td>
+<td class="instruction">DEFB $00,$04</td>
+<td class="comment-1" rowspan="1">Cost: "£400".</td>
+</tr>
+<tr>
+<td class="asm-label">Jerusalem_Destinations_3</td>
+<td class="address-1"><span id="8f05"></span>8F05</td>
+<td class="instruction">DEFW <a href="8E82.html#8fb9">Kanyu_Location</a></td>
+<td class="comment-1" rowspan="1">Location: <a href="8E82.html#8fb9">Kanyu_Location</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8f07"></span>8F07</td>
+<td class="instruction">DEFB $00,$07</td>
+<td class="comment-1" rowspan="1">Cost: "£700".</td>
+</tr>
+<tr>
+<td class="asm-label">Jerusalem_State</td>
+<td class="address-1"><span id="8f09"></span>8F09</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">State: Not visited.</td>
+</tr>
+<tr>
+<td class="asm-label">Jerusalem_Name</td>
+<td class="address-1"><span id="8f0a"></span>8F0A</td>
+<td class="instruction">DEFM " Jerusale","m"+$80</td>
+<td class="comment-1" rowspan="1"><img alt="location-jerusalem" src="../images/font/location-jerusalem.png" /></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="8f14"></span>
+<div class="comments">
+<div class="paragraph">
+Location 07: Benares.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Benares_Location</td>
+<td class="address-1"><span id="8f14"></span>8F14</td>
+<td class="instruction">DEFW <a href="D67D.html">Benares_Data</a></td>
+<td class="comment-1" rowspan="1">Data: <a href="D67D.html">Benares_Data</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">Benares_MapCoordinates</td>
+<td class="address-1"><span id="8f16"></span>8F16</td>
+<td class="instruction">DEFB $AD,$52</td>
+<td class="comment-1" rowspan="1">Map co-ordinates.</td>
+</tr>
+<tr>
+<td class="asm-label">Benares_Destinations_1</td>
+<td class="address-1"><span id="8f18"></span>8F18</td>
+<td class="instruction">DEFW <a href="8E82.html#8f2d">HongKong_Location</a></td>
+<td class="comment-1" rowspan="1">Location: <a href="8E82.html#8f2d">HongKong_Location</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8f1a"></span>8F1A</td>
+<td class="instruction">DEFB $00,$03</td>
+<td class="comment-1" rowspan="1">Cost: "£300".</td>
+</tr>
+<tr>
+<td class="asm-label">Benares_Destinations_2</td>
+<td class="address-1"><span id="8f1c"></span>8F1C</td>
+<td class="instruction">DEFW <a href="8E82.html#8ef9">Jerusalem_Location</a></td>
+<td class="comment-1" rowspan="1">Location: <a href="8E82.html#8ef9">Jerusalem_Location</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8f1e"></span>8F1E</td>
+<td class="instruction">DEFB $00,$04</td>
+<td class="comment-1" rowspan="1">Cost: "£400".</td>
+</tr>
+<tr>
+<td class="asm-label">Benares_Destinations_3</td>
+<td class="address-1"><span id="8f20"></span>8F20</td>
+<td class="instruction">DEFW <a href="8E82.html#8fb9">Kanyu_Location</a></td>
+<td class="comment-1" rowspan="1">Location: <a href="8E82.html#8fb9">Kanyu_Location</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8f22"></span>8F22</td>
+<td class="instruction">DEFB $00,$06</td>
+<td class="comment-1" rowspan="1">Cost: "£600".</td>
+</tr>
+<tr>
+<td class="asm-label">Benares_State</td>
+<td class="address-1"><span id="8f24"></span>8F24</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">State: Not visited.</td>
+</tr>
+<tr>
+<td class="asm-label">Benares_Name</td>
+<td class="address-1"><span id="8f25"></span>8F25</td>
+<td class="instruction">DEFM " Benare","s"+$80</td>
+<td class="comment-1" rowspan="1"><img alt="location-benares" src="../images/font/location-benares.png" /></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="8f2d"></span>
+<div class="comments">
+<div class="paragraph">
+Location 08: Hong Kong.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">HongKong_Location</td>
+<td class="address-1"><span id="8f2d"></span>8F2D</td>
+<td class="instruction">DEFW <a href="C146.html">HongKong_Data</a></td>
+<td class="comment-1" rowspan="1">Data: <a href="C146.html">HongKong_Data</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">HongKong_MapCoordinates</td>
+<td class="address-1"><span id="8f2f"></span>8F2F</td>
+<td class="instruction">DEFB $C7,$51</td>
+<td class="comment-1" rowspan="1">Map co-ordinates.</td>
+</tr>
+<tr>
+<td class="asm-label">HongKong_Destinations_1</td>
+<td class="address-1"><span id="8f31"></span>8F31</td>
+<td class="instruction">DEFW <a href="8E82.html#8f14">Benares_Location</a></td>
+<td class="comment-1" rowspan="1">Location: <a href="8E82.html#8f14">Benares_Location</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8f33"></span>8F33</td>
+<td class="instruction">DEFB $00,$03</td>
+<td class="comment-1" rowspan="1">Cost: "£300".</td>
+</tr>
+<tr>
+<td class="asm-label">HongKong_Destinations_2</td>
+<td class="address-1"><span id="8f35"></span>8F35</td>
+<td class="instruction">DEFW <a href="8E82.html#8f48">AliceSprings_Location</a></td>
+<td class="comment-1" rowspan="1">Location: <a href="8E82.html#8f48">AliceSprings_Location</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8f37"></span>8F37</td>
+<td class="instruction">DEFB $00,$04</td>
+<td class="comment-1" rowspan="1">Cost: "£400".</td>
+</tr>
+<tr>
+<td class="asm-label">HongKong_Destinations_3</td>
+<td class="address-1"><span id="8f39"></span>8F39</td>
+<td class="instruction">DEFW <a href="8E82.html#8f7e">ChichenItza_Location</a></td>
+<td class="comment-1" rowspan="1">Location: <a href="8E82.html#8f7e">ChichenItza_Location</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8f3b"></span>8F3B</td>
+<td class="instruction">DEFB $00,$06</td>
+<td class="comment-1" rowspan="1">Cost: "£600".</td>
+</tr>
+<tr>
+<td class="asm-label">HongKong_State</td>
+<td class="address-1"><span id="8f3d"></span>8F3D</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">State: Not visited.</td>
+</tr>
+<tr>
+<td class="asm-label">HongKong_Name</td>
+<td class="address-1"><span id="8f3e"></span>8F3E</td>
+<td class="instruction">DEFM " Hong Kon","g"+$80</td>
+<td class="comment-1" rowspan="1"><img alt="location-hong-kong" src="../images/font/location-hong-kong.png" /></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="8f48"></span>
+<div class="comments">
+<div class="paragraph">
+Location 09: Alice Springs.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">AliceSprings_Location</td>
+<td class="address-1"><span id="8f48"></span>8F48</td>
+<td class="instruction">DEFW <a href="C9DD.html">AliceSprings_Data</a></td>
+<td class="comment-1" rowspan="1">Data: <a href="C9DD.html">AliceSprings_Data</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">AliceSprings_MapCoordinates</td>
+<td class="address-1"><span id="8f4a"></span>8F4A</td>
+<td class="instruction">DEFB $D7,$7E</td>
+<td class="comment-1" rowspan="1">Map co-ordinates.</td>
+</tr>
+<tr>
+<td class="asm-label">AliceSprings_Destinations_1</td>
+<td class="address-1"><span id="8f4c"></span>8F4C</td>
+<td class="instruction">DEFW <a href="8E82.html#8f2d">HongKong_Location</a></td>
+<td class="comment-1" rowspan="1">Location: <a href="8E82.html#8f2d">HongKong_Location</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8f4e"></span>8F4E</td>
+<td class="instruction">DEFB $00,$04</td>
+<td class="comment-1" rowspan="1">Cost: "£400".</td>
+</tr>
+<tr>
+<td class="asm-label">AliceSprings_Destinations_2</td>
+<td class="address-1"><span id="8f50"></span>8F50</td>
+<td class="instruction">DEFW <a href="8E82.html#8f67">Samoa_Location</a></td>
+<td class="comment-1" rowspan="1">Location: <a href="8E82.html#8f67">Samoa_Location</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8f52"></span>8F52</td>
+<td class="instruction">DEFB $00,$04</td>
+<td class="comment-1" rowspan="1">Cost: "£400".</td>
+</tr>
+<tr>
+<td class="asm-label">AliceSprings_Destinations_3</td>
+<td class="address-1"><span id="8f54"></span>8F54</td>
+<td class="instruction">DEFW <a href="8E82.html#8fb9">Kanyu_Location</a></td>
+<td class="comment-1" rowspan="1">Location: <a href="8E82.html#8fb9">Kanyu_Location</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8f56"></span>8F56</td>
+<td class="instruction">DEFB $00,$07</td>
+<td class="comment-1" rowspan="1">Cost: "£700".</td>
+</tr>
+<tr>
+<td class="asm-label">AliceSprings_State</td>
+<td class="address-1"><span id="8f58"></span>8F58</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">State: Not visited.</td>
+</tr>
+<tr>
+<td class="asm-label">AliceSprings_Name</td>
+<td class="address-1"><span id="8f59"></span>8F59</td>
+<td class="instruction">DEFM " Alice Spring","s"+$80</td>
+<td class="comment-1" rowspan="1"><img alt="location-alice-springs" src="../images/font/location-alice-springs.png" /></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="8f67"></span>
+<div class="comments">
+<div class="paragraph">
+Location 0A: Samoa.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Samoa_Location</td>
+<td class="address-1"><span id="8f67"></span>8F67</td>
+<td class="instruction">DEFW <a href="D1E8.html">Samoa_Data</a></td>
+<td class="comment-1" rowspan="1">Data: <a href="D1E8.html">Samoa_Data</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">Samoa_MapCoordinates</td>
+<td class="address-1"><span id="8f69"></span>8F69</td>
+<td class="instruction">DEFB $03,$79</td>
+<td class="comment-1" rowspan="1">Map co-ordinates.</td>
+</tr>
+<tr>
+<td class="asm-label">Samoa_Destinations_1</td>
+<td class="address-1"><span id="8f6b"></span>8F6B</td>
+<td class="instruction">DEFW <a href="8E82.html#8f48">AliceSprings_Location</a></td>
+<td class="comment-1" rowspan="1">Location: <a href="8E82.html#8f48">AliceSprings_Location</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8f6d"></span>8F6D</td>
+<td class="instruction">DEFB $00,$04</td>
+<td class="comment-1" rowspan="1">Cost: "£400".</td>
+</tr>
+<tr>
+<td class="asm-label">Samoa_Destinations_2</td>
+<td class="address-1"><span id="8f6f"></span>8F6F</td>
+<td class="instruction">DEFW <a href="8E82.html#8f7e">ChichenItza_Location</a></td>
+<td class="comment-1" rowspan="1">Location: <a href="8E82.html#8f7e">ChichenItza_Location</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8f71"></span>8F71</td>
+<td class="instruction">DEFB $00,$05</td>
+<td class="comment-1" rowspan="1">Cost: "£500".</td>
+</tr>
+<tr>
+<td class="asm-label">Samoa_Destinations_3</td>
+<td class="address-1"><span id="8f73"></span>8F73</td>
+<td class="instruction">DEFW <a href="8E82.html#8fd0">SaoPaulo_Location</a></td>
+<td class="comment-1" rowspan="1">Location: <a href="8E82.html#8fd0">SaoPaulo_Location</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8f75"></span>8F75</td>
+<td class="instruction">DEFB $00,$07</td>
+<td class="comment-1" rowspan="1">Cost: "£700".</td>
+</tr>
+<tr>
+<td class="asm-label">Samoa_State</td>
+<td class="address-1"><span id="8f77"></span>8F77</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">State: Not visited.</td>
+</tr>
+<tr>
+<td class="asm-label">Samoa_Name</td>
+<td class="address-1"><span id="8f78"></span>8F78</td>
+<td class="instruction">DEFM " Samo","a"+$80</td>
+<td class="comment-1" rowspan="1"><img alt="location-samoa" src="../images/font/location-samoa.png" /></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="8f7e"></span>
+<div class="comments">
+<div class="paragraph">
+Location 0B: Chichen Itza.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">ChichenItza_Location</td>
+<td class="address-1"><span id="8f7e"></span>8F7E</td>
+<td class="instruction">DEFW <a href="DA90.html">ChichenItza_Data</a></td>
+<td class="comment-1" rowspan="1">Data: <a href="DA90.html">ChichenItza_Data</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">ChichenItza_MapCoordinates</td>
+<td class="address-1"><span id="8f80"></span>8F80</td>
+<td class="instruction">DEFB $22,$57</td>
+<td class="comment-1" rowspan="1">Map co-ordinates.</td>
+</tr>
+<tr>
+<td class="asm-label">ChichenItza_Destinations_1</td>
+<td class="address-1"><span id="8f82"></span>8F82</td>
+<td class="instruction">DEFW <a href="8E82.html#8f9c">NewOrleans_Location</a></td>
+<td class="comment-1" rowspan="1">Location: <a href="8E82.html#8f9c">NewOrleans_Location</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8f84"></span>8F84</td>
+<td class="instruction">DEFB $50,$01</td>
+<td class="comment-1" rowspan="1">Cost: "£150".</td>
+</tr>
+<tr>
+<td class="asm-label">ChichenItza_Destinations_2</td>
+<td class="address-1"><span id="8f86"></span>8F86</td>
+<td class="instruction">DEFW <a href="8E82.html#8f67">Samoa_Location</a></td>
+<td class="comment-1" rowspan="1">Location: <a href="8E82.html#8f67">Samoa_Location</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8f88"></span>8F88</td>
+<td class="instruction">DEFB $00,$05</td>
+<td class="comment-1" rowspan="1">Cost: "£500".</td>
+</tr>
+<tr>
+<td class="asm-label">ChichenItza_Destinations_3</td>
+<td class="address-1"><span id="8f8a"></span>8F8A</td>
+<td class="instruction">DEFW <a href="8E82.html#8fd0">SaoPaulo_Location</a></td>
+<td class="comment-1" rowspan="1">Location: <a href="8E82.html#8fd0">SaoPaulo_Location</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8f8c"></span>8F8C</td>
+<td class="instruction">DEFB $00,$06</td>
+<td class="comment-1" rowspan="1">Cost: "£600".</td>
+</tr>
+<tr>
+<td class="asm-label">ChichenItza_State</td>
+<td class="address-1"><span id="8f8e"></span>8F8E</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">State: Not visited.</td>
+</tr>
+<tr>
+<td class="asm-label">ChichenItza_Name</td>
+<td class="address-1"><span id="8f8f"></span>8F8F</td>
+<td class="instruction">DEFM " Chichen Itz","a"+$80</td>
+<td class="comment-1" rowspan="1"><img alt="location-chichen-itza" src="../images/font/location-chichen-itza.png" /></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="8f9c"></span>
+<div class="comments">
+<div class="paragraph">
+Location 0C: New Orleans.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">NewOrleans_Location</td>
+<td class="address-1"><span id="8f9c"></span>8F9C</td>
+<td class="instruction">DEFW <a href="DE4C.html">NewOrleans_Data</a></td>
+<td class="comment-1" rowspan="1">Data: <a href="DE4C.html">NewOrleans_Data</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">NewOrleans_MapCoordinates</td>
+<td class="address-1"><span id="8f9e"></span>8F9E</td>
+<td class="instruction">DEFB $22,$4C</td>
+<td class="comment-1" rowspan="1">Map co-ordinates.</td>
+</tr>
+<tr>
+<td class="asm-label">NewOrleans_Destinations_1</td>
+<td class="address-1"><span id="8fa0"></span>8FA0</td>
+<td class="instruction">DEFW <a href="8E82.html#8f7e">ChichenItza_Location</a></td>
+<td class="comment-1" rowspan="1">Location: <a href="8E82.html#8f7e">ChichenItza_Location</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8fa2"></span>8FA2</td>
+<td class="instruction">DEFB $50,$01</td>
+<td class="comment-1" rowspan="1">Cost: "£150".</td>
+</tr>
+<tr>
+<td class="asm-label">NewOrleans_Destinations_2</td>
+<td class="address-1"><span id="8fa4"></span>8FA4</td>
+<td class="instruction">DEFW <a href="8E82.html#8e9a">Madrid_Location</a></td>
+<td class="comment-1" rowspan="1">Location: <a href="8E82.html#8e9a">Madrid_Location</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8fa6"></span>8FA6</td>
+<td class="instruction">DEFB $00,$06</td>
+<td class="comment-1" rowspan="1">Cost: "£600".</td>
+</tr>
+<tr>
+<td class="asm-label">NewOrleans_Destinations_3</td>
+<td class="address-1"><span id="8fa8"></span>8FA8</td>
+<td class="instruction">DEFW <a href="8E82.html#8f67">Samoa_Location</a></td>
+<td class="comment-1" rowspan="1">Location: <a href="8E82.html#8f67">Samoa_Location</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8faa"></span>8FAA</td>
+<td class="instruction">DEFB $00,$06</td>
+<td class="comment-1" rowspan="1">Cost: "£600".</td>
+</tr>
+<tr>
+<td class="asm-label">NewOrleans_State</td>
+<td class="address-1"><span id="8fac"></span>8FAC</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">State: Not visited.</td>
+</tr>
+<tr>
+<td class="asm-label">NewOrleans_Name</td>
+<td class="address-1"><span id="8fad"></span>8FAD</td>
+<td class="instruction">DEFM " New Orlean","s"+$80</td>
+<td class="comment-1" rowspan="1"><img alt="location-new-orleans" src="../images/font/location-new-orleans.png" /></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="8fb9"></span>
+<div class="comments">
+<div class="paragraph">
+Location 0D: Kanyu.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Kanyu_Location</td>
+<td class="address-1"><span id="8fb9"></span>8FB9</td>
+<td class="instruction">DEFW <a href="E10B.html">Kanyu_Data</a></td>
+<td class="comment-1" rowspan="1">Data: <a href="E10B.html">Kanyu_Data</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">Kanyu_MapCoordinates</td>
+<td class="address-1"><span id="8fbb"></span>8FBB</td>
+<td class="instruction">DEFB $7E,$7A</td>
+<td class="comment-1" rowspan="1">Map co-ordinates.</td>
+</tr>
+<tr>
+<td class="asm-label">Kanyu_Destinations_1</td>
+<td class="address-1"><span id="8fbd"></span>8FBD</td>
+<td class="instruction">DEFW <a href="8E82.html#8f14">Benares_Location</a></td>
+<td class="comment-1" rowspan="1">Location: <a href="8E82.html#8f14">Benares_Location</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8fbf"></span>8FBF</td>
+<td class="instruction">DEFB $00,$06</td>
+<td class="comment-1" rowspan="1">Cost: "£600".</td>
+</tr>
+<tr>
+<td class="asm-label">Kanyu_Destinations_2</td>
+<td class="address-1"><span id="8fc1"></span>8FC1</td>
+<td class="instruction">DEFW <a href="8E82.html#8fd0">SaoPaulo_Location</a></td>
+<td class="comment-1" rowspan="1">Location: <a href="8E82.html#8fd0">SaoPaulo_Location</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8fc3"></span>8FC3</td>
+<td class="instruction">DEFB $00,$06</td>
+<td class="comment-1" rowspan="1">Cost: "£600".</td>
+</tr>
+<tr>
+<td class="asm-label">Kanyu_Destinations_3</td>
+<td class="address-1"><span id="8fc5"></span>8FC5</td>
+<td class="instruction">DEFW <a href="8E82.html#8ef9">Jerusalem_Location</a></td>
+<td class="comment-1" rowspan="1">Location: <a href="8E82.html#8ef9">Jerusalem_Location</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8fc7"></span>8FC7</td>
+<td class="instruction">DEFB $00,$07</td>
+<td class="comment-1" rowspan="1">Cost: "£700".</td>
+</tr>
+<tr>
+<td class="asm-label">Kanyu_State</td>
+<td class="address-1"><span id="8fc9"></span>8FC9</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">State: Not visited.</td>
+</tr>
+<tr>
+<td class="asm-label">Kanyu_Name</td>
+<td class="address-1"><span id="8fca"></span>8FCA</td>
+<td class="instruction">DEFM " Kany","u"+$80</td>
+<td class="comment-1" rowspan="1"><img alt="location-kanyu" src="../images/font/location-kanyu.png" /></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="8fd0"></span>
+<div class="comments">
+<div class="paragraph">
+Location 0E: Sao Paulo.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">SaoPaulo_Location</td>
+<td class="address-1"><span id="8fd0"></span>8FD0</td>
+<td class="instruction">DEFW <a href="E716.html">SaoPaulo_Data</a></td>
+<td class="comment-1" rowspan="1">Data: <a href="E716.html">SaoPaulo_Data</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">SaoPaulo_MapCoordinates</td>
+<td class="address-1"><span id="8fd2"></span>8FD2</td>
+<td class="instruction">DEFB $46,$7E</td>
+<td class="comment-1" rowspan="1">Map co-ordinates.</td>
+</tr>
+<tr>
+<td class="asm-label">SaoPaulo_Destinations_1</td>
+<td class="address-1"><span id="8fd4"></span>8FD4</td>
+<td class="instruction">DEFW <a href="8E82.html#8fb9">Kanyu_Location</a></td>
+<td class="comment-1" rowspan="1">Location: <a href="8E82.html#8fb9">Kanyu_Location</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8fd6"></span>8FD6</td>
+<td class="instruction">DEFB $00,$06</td>
+<td class="comment-1" rowspan="1">Cost: "£600".</td>
+</tr>
+<tr>
+<td class="asm-label">SaoPaulo_Destinations_2</td>
+<td class="address-1"><span id="8fd8"></span>8FD8</td>
+<td class="instruction">DEFW <a href="8E82.html#8f7e">ChichenItza_Location</a></td>
+<td class="comment-1" rowspan="1">Location: <a href="8E82.html#8f7e">ChichenItza_Location</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8fda"></span>8FDA</td>
+<td class="instruction">DEFB $00,$06</td>
+<td class="comment-1" rowspan="1">Cost: "£600".</td>
+</tr>
+<tr>
+<td class="asm-label">SaoPaulo_Destinations_3</td>
+<td class="address-1"><span id="8fdc"></span>8FDC</td>
+<td class="instruction">DEFW <a href="8E82.html#8f67">Samoa_Location</a></td>
+<td class="comment-1" rowspan="1">Location: <a href="8E82.html#8f67">Samoa_Location</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8fde"></span>8FDE</td>
+<td class="instruction">DEFB $00,$07</td>
+<td class="comment-1" rowspan="1">Cost: "£700".</td>
+</tr>
+<tr>
+<td class="asm-label">SaoPaulo_State</td>
+<td class="address-1"><span id="8fe0"></span>8FE0</td>
+<td class="instruction">DEFB $00</td>
+<td class="comment-1" rowspan="1">State: Not visited.</td>
+</tr>
+<tr>
+<td class="asm-label">SaoPaulo_Name</td>
+<td class="address-1"><span id="8fe1"></span>8FE1</td>
+<td class="instruction">DEFM " Sao Paul","o"+$80</td>
+<td class="comment-1" rowspan="1"><img alt="location-sao-paulo" src="../images/font/location-sao-paulo.png" /></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="8E73.html">8E73</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#8e82">Map</a></td>
+<td class="next">
+Next: <a href="8FEB.html">8FEB</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1984 New Generation Software &copy; 2024 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.3.</div>
+<div class="repository">Link to <a href="https://github.com/pobtastic/travelwithtrashman/">Source code</a>.</div>
+<div><a href="asm/8E82.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

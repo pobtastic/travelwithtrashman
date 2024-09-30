@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Travel With Trashman: Routine at BAB5</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="BA76.html">BA76</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#bab5">Map</a></td>
+<td class="next">
+Next: <a href="BB05.html">BB05</a>
+</td>
+</tr>
+</table>
+<div class="description">BAB5: Initialise: Munich</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Initialise_Munich</td>
+<td class="address-2"><span id="bab5"></span>BAB5</td>
+<td class="instruction">LD C,$48</td>
+<td class="comment-1" rowspan="1"><span class="register">C</span>=48.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bab7"></span>BAB7</td>
+<td class="instruction">LD IX,$6240</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>=<a href="6000.html#6240">6240</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="babb"></span>BABB</td>
+<td class="instruction">LD DE,$0006</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=0006.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="babe"></span>BABE</td>
+<td class="instruction">LD HL,$BD4A</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="BB05.html#bd4a">BD4A</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">Initialise_Munich_0</td>
+<td class="address-2"><span id="bac1"></span>BAC1</td>
+<td class="instruction">LD B,$08</td>
+<td class="comment-1" rowspan="1"><span class="register">B</span>=08.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bac3"></span>BAC3</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=*<span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label">Initialise_Munich_1</td>
+<td class="address-2"><span id="bac4"></span>BAC4</td>
+<td class="instruction">RLCA</td>
+<td class="comment-1" rowspan="1">RLCA.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bac5"></span>BAC5</td>
+<td class="instruction">JR NC,<a href="BAB5.html#bacb">Initialise_Munich_2</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="BAB5.html#bacb">Initialise_Munich_2</a> if  is higher.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bac7"></span>BAC7</td>
+<td class="instruction">SET 7,(IX+$00)</td>
+<td class="comment-1" rowspan="1">Set bit 7 of *<span class="register">IX</span>+00.</td>
+</tr>
+<tr>
+<td class="asm-label">Initialise_Munich_2</td>
+<td class="address-2"><span id="bacb"></span>BACB</td>
+<td class="instruction">ADD IX,DE</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>+=<span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bacd"></span>BACD</td>
+<td class="instruction">DJNZ <a href="BAB5.html#bac4">Initialise_Munich_1</a></td>
+<td class="comment-1" rowspan="1">Decrease counter by one and loop back to <a href="BAB5.html#bac4">Initialise_Munich_1</a> until counter is zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bacf"></span>BACF</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Increment <span class="register">HL</span> by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bad0"></span>BAD0</td>
+<td class="instruction">DEC C</td>
+<td class="comment-1" rowspan="1">Decrease <span class="register">C</span> by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bad1"></span>BAD1</td>
+<td class="instruction">JR NZ,<a href="BAB5.html#bac1">Initialise_Munich_0</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="BAB5.html#bac1">Initialise_Munich_0</a> if <span class="register">C</span> is not zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bad3"></span>BAD3</td>
+<td class="instruction">LD HL,$9A92</td>
+<td class="comment-1" rowspan="2">Write <a href="9A32.html#9a92">9A92</a> to *<a href="9969.html#99ba">99BA</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bad6"></span>BAD6</td>
+<td class="instruction">LD ($99BA),HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bad9"></span>BAD9</td>
+<td class="instruction">LD B,$22</td>
+<td class="comment-1" rowspan="1"><span class="register">B</span>=22.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="badb"></span>BADB</td>
+<td class="instruction">LD IX,$BD92</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>=<a href="BB05.html#bd92">BD92</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="badf"></span>BADF</td>
+<td class="instruction">LD DE,$0018</td>
+<td class="comment-1" rowspan="2">Write 0018 to *<a href="9226.html#926e">926E</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bae2"></span>BAE2</td>
+<td class="instruction">LD ($926E),DE</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bae6"></span>BAE6</td>
+<td class="instruction">LD DE,$7240</td>
+<td class="comment-1" rowspan="2">Write <a href="6000.html#7240">7240</a> to *<a href="9969.html#99b8">99B8</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bae9"></span>BAE9</td>
+<td class="instruction">LD ($99B8),DE</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="baed"></span>BAED</td>
+<td class="instruction">CALL <a href="9226.html">$9226</a></td>
+<td class="comment-1" rowspan="1">Call <a href="9226.html">9226</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="baf0"></span>BAF0</td>
+<td class="instruction">LD B,$09</td>
+<td class="comment-1" rowspan="1"><span class="register">B</span>=09.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="baf2"></span>BAF2</td>
+<td class="instruction">LD DE,$0030</td>
+<td class="comment-1" rowspan="2">Write 0030 to *<a href="9226.html#926e">926E</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="baf5"></span>BAF5</td>
+<td class="instruction">LD ($926E),DE</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="baf9"></span>BAF9</td>
+<td class="instruction">CALL <a href="9226.html">$9226</a></td>
+<td class="comment-1" rowspan="1">Call <a href="9226.html">9226</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bafc"></span>BAFC</td>
+<td class="instruction">LD A,$07</td>
+<td class="comment-1" rowspan="3">Write 07 to: <ul class="">
+<li>*6192</li>
+<li>*6198</li>
+</ul></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bafe"></span>BAFE</td>
+<td class="instruction">LD ($6192),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bb01"></span>BB01</td>
+<td class="instruction">LD ($6198),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="bb04"></span>BB04</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="BA76.html">BA76</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#bab5">Map</a></td>
+<td class="next">
+Next: <a href="BB05.html">BB05</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1984 New Generation Software &copy; 2024 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.3.</div>
+<div class="repository">Link to <a href="https://github.com/pobtastic/travelwithtrashman/">Source code</a>.</div>
+<div><a href="asm/BAB5.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

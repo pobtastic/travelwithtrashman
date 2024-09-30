@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Travel With Trashman: Routine at 837F</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="836E.html">836E</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#837f">Map</a></td>
+<td class="next">
+Next: <a href="839F.html">839F</a>
+</td>
+</tr>
+</table>
+<div class="description">837F: Add Spacing To Fill Ticker Buffer</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="823B.html">Messaging_GenerateTicker</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">A</td>
+<td class="register-desc">Final position for spacing</td>
+</tr>
+<tr>
+<td class="register">DE</td>
+<td class="register-desc">Starting address in <a href="7820.html">Buffer_Ticker</a></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label">AddSpacingFillTickerBuffer</td>
+<td class="address-2"><span id="837f"></span>837F</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-1" rowspan="1">Exchange the <span class="register">DE</span> and <span class="register">HL</span> registers.</td>
+</tr>
+<tr>
+<td class="asm-label">AddSpacingFillTickerBuffer_Loop</td>
+<td class="address-2"><span id="8380"></span>8380</td>
+<td class="instruction">CP L</td>
+<td class="comment-1" rowspan="2">Jump to <a href="837F.html#8388">DoneFillingTickerBuffer</a> if <span class="register">A</span> is equal to <span class="register">L</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8381"></span>8381</td>
+<td class="instruction">JR Z,<a href="837F.html#8388">DoneFillingTickerBuffer</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8383"></span>8383</td>
+<td class="instruction">LD (HL),$20</td>
+<td class="comment-1" rowspan="1">Write an ASCII space (20) to *<span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8385"></span>8385</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Increment <span class="register">HL</span> by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8386"></span>8386</td>
+<td class="instruction">JR <a href="837F.html#8380">AddSpacingFillTickerBuffer_Loop</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="837F.html#8380">AddSpacingFillTickerBuffer_Loop</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="8388"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="81D4.html">Handler_Ticker</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">DoneFillingTickerBuffer</td>
+<td class="address-2"><span id="8388"></span>8388</td>
+<td class="instruction">LD HL,$7815</td>
+<td class="comment-1" rowspan="2">Write 01 to *<a href="7815.html">7815</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="838b"></span>838B</td>
+<td class="instruction">LD (HL),$01</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="838d"></span>838D</td>
+<td class="instruction">LD ($7812),A</td>
+<td class="comment-1" rowspan="2">Write the final spacing position to: <ul class="">
+<li>*<a href="7812.html">7812</a></li>
+<li>*<a href="7815.html#781e">781E</a></li>
+</ul></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8390"></span>8390</td>
+<td class="instruction">LD ($781E),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8393"></span>8393</td>
+<td class="instruction">LD HL,$781F</td>
+<td class="comment-1" rowspan="2">Write <a href="781F.html">781F</a> to *<a href="7813.html">7813</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8396"></span>8396</td>
+<td class="instruction">LD ($7813),HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="8399"></span>8399</td>
+<td class="instruction">LD HL,$EFFB</td>
+<td class="comment-1" rowspan="2">Set bit 0 ("Ticker On/ Off") of *<a href="EFFB.html">GameState_2</a> to turn the ticker on.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="839c"></span>839C</td>
+<td class="instruction">SET 0,(HL)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="839e"></span>839E</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="836E.html">836E</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#837f">Map</a></td>
+<td class="next">
+Next: <a href="839F.html">839F</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1984 New Generation Software &copy; 2024 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.3.</div>
+<div class="repository">Link to <a href="https://github.com/pobtastic/travelwithtrashman/">Source code</a>.</div>
+<div><a href="asm/837F.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

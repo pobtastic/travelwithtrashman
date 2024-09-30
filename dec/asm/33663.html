@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Travel With Trashman: Routine at 33663</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="33646.html">33646</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#33663">Map</a></td>
+<td class="next">
+Next: <a href="33695.html">33695</a>
+</td>
+</tr>
+</table>
+<div class="description">33663: Add Spacing To Fill Ticker Buffer</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="33339.html">Messaging_GenerateTicker</a>.
+</div>
+</div>
+<table class="input">
+<tr class="asm-input-header">
+<th colspan="2">Input</th>
+</tr>
+<tr>
+<td class="register">A</td>
+<td class="register-desc">Final position for spacing</td>
+</tr>
+<tr>
+<td class="register">DE</td>
+<td class="register-desc">Starting address in <a href="30752.html">Buffer_Ticker</a></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td class="asm-label">AddSpacingFillTickerBuffer</td>
+<td class="address-2"><span id="33663"></span>33663</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-1" rowspan="1">Exchange the <span class="register">DE</span> and <span class="register">HL</span> registers.</td>
+</tr>
+<tr>
+<td class="asm-label">AddSpacingFillTickerBuffer_Loop</td>
+<td class="address-2"><span id="33664"></span>33664</td>
+<td class="instruction">CP L</td>
+<td class="comment-1" rowspan="2">Jump to <a href="33663.html#33672">DoneFillingTickerBuffer</a> if <span class="register">A</span> is equal to <span class="register">L</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33665"></span>33665</td>
+<td class="instruction">JR Z,<a href="33663.html#33672">DoneFillingTickerBuffer</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33667"></span>33667</td>
+<td class="instruction">LD (HL),32</td>
+<td class="comment-1" rowspan="1">Write an ASCII space (32) to *<span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33669"></span>33669</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Increment <span class="register">HL</span> by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33670"></span>33670</td>
+<td class="instruction">JR <a href="33663.html#33664">AddSpacingFillTickerBuffer_Loop</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="33663.html#33664">AddSpacingFillTickerBuffer_Loop</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33672"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="33236.html">Handler_Ticker</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">DoneFillingTickerBuffer</td>
+<td class="address-2"><span id="33672"></span>33672</td>
+<td class="instruction">LD HL,30741</td>
+<td class="comment-1" rowspan="2">Write 1 to *<a href="30741.html">30741</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33675"></span>33675</td>
+<td class="instruction">LD (HL),1</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33677"></span>33677</td>
+<td class="instruction">LD (30738),A</td>
+<td class="comment-1" rowspan="2">Write the final spacing position to: <ul class="">
+<li>*<a href="30738.html">30738</a></li>
+<li>*<a href="30741.html#30750">30750</a></li>
+</ul></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33680"></span>33680</td>
+<td class="instruction">LD (30750),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33683"></span>33683</td>
+<td class="instruction">LD HL,30751</td>
+<td class="comment-1" rowspan="2">Write <a href="30751.html">30751</a> to *<a href="30739.html">30739</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33686"></span>33686</td>
+<td class="instruction">LD (30739),HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33689"></span>33689</td>
+<td class="instruction">LD HL,61435</td>
+<td class="comment-1" rowspan="2">Set bit 0 ("Ticker On/ Off") of *<a href="61435.html">GameState_2</a> to turn the ticker on.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33692"></span>33692</td>
+<td class="instruction">SET 0,(HL)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33694"></span>33694</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="33646.html">33646</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#33663">Map</a></td>
+<td class="next">
+Next: <a href="33695.html">33695</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1984 New Generation Software &copy; 2024 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.3.</div>
+<div class="repository">Link to <a href="https://github.com/pobtastic/travelwithtrashman/">Source code</a>.</div>
+<div><a href="asm/33663.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

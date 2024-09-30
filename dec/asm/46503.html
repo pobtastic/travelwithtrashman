@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Travel With Trashman: Routine at 46503</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="46453.html">46453</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#46503">Map</a></td>
+<td class="next">
+Next: <a href="46749.html">46749</a>
+</td>
+</tr>
+</table>
+<div class="description">46503: Initialise: Madrid</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Madrid_Initialise</td>
+<td class="address-2"><span id="46503"></span>46503</td>
+<td class="instruction">LD IX,25152</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>=<a href="24576.html#25152">25152</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46507"></span>46507</td>
+<td class="instruction">LD B,96</td>
+<td class="comment-1" rowspan="1"><span class="register">B</span>=96.</td>
+</tr>
+<tr>
+<td class="asm-label">Madrid_Initialise_0</td>
+<td class="address-2"><span id="46509"></span>46509</td>
+<td class="instruction">LD DE,46330</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=<a href="46274.html#46330">46330</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46512"></span>46512</td>
+<td class="instruction">LD L,(IX+2)</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=*<span class="register">IX</span>+2.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46515"></span>46515</td>
+<td class="instruction">LD H,(IX+3)</td>
+<td class="comment-1" rowspan="1"><span class="register">H</span>=*<span class="register">IX</span>+3.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46518"></span>46518</td>
+<td class="instruction">AND A</td>
+<td class="comment-1" rowspan="1">Set flags.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46519"></span>46519</td>
+<td class="instruction">SBC HL,DE</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>-=<span class="register">DE</span> (with carry).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46521"></span>46521</td>
+<td class="instruction">JR Z,<a href="46503.html#46599">Madrid_Initialise_3</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="46503.html#46599">Madrid_Initialise_3</a> if the result is zero.</td>
+</tr>
+<tr>
+<td class="asm-label">Madrid_Initialise_1</td>
+<td class="address-2"><span id="46523"></span>46523</td>
+<td class="instruction">PUSH IX</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">IX</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46525"></span>46525</td>
+<td class="instruction">CALL <a href="38425.html">38425</a></td>
+<td class="comment-1" rowspan="1">Call <a href="38425.html">38425</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46528"></span>46528</td>
+<td class="instruction">LD A,(39333)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=*<a href="39273.html#39333">39333</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46531"></span>46531</td>
+<td class="instruction">POP IX</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">IX</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46533"></span>46533</td>
+<td class="instruction">AND (IX+4)</td>
+<td class="comment-1" rowspan="1">Merge the bits of <span class="register">A</span> with *<span class="register">IX</span>+4.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46536"></span>46536</td>
+<td class="instruction">JR Z,<a href="46503.html#46523">Madrid_Initialise_1</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="46503.html#46523">Madrid_Initialise_1</a> if the result is zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46538"></span>46538</td>
+<td class="instruction">CP 64</td>
+<td class="comment-1" rowspan="2">Jump to <a href="46503.html#46523">Madrid_Initialise_1</a> if <span class="register">A</span> is equal to 64.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46540"></span>46540</td>
+<td class="instruction">JR Z,<a href="46503.html#46523">Madrid_Initialise_1</a></td>
+</tr>
+<tr>
+<td class="asm-label">Madrid_Initialise_2</td>
+<td class="address-2"><span id="46542"></span>46542</td>
+<td class="instruction">LD (IX+4),A</td>
+<td class="comment-1" rowspan="1">Write <span class="register">A</span> to *<span class="register">IX</span>+4.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46545"></span>46545</td>
+<td class="instruction">LD DE,6</td>
+<td class="comment-1" rowspan="2"><span class="register">IX</span>+=0006.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46548"></span>46548</td>
+<td class="instruction">ADD IX,DE</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46550"></span>46550</td>
+<td class="instruction">DJNZ <a href="46503.html#46509">Madrid_Initialise_0</a></td>
+<td class="comment-1" rowspan="1">Decrease counter by one and loop back to <a href="46503.html#46509">Madrid_Initialise_0</a> until counter is zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46552"></span>46552</td>
+<td class="instruction">LD HL,31652</td>
+<td class="comment-1" rowspan="2">Write 31652 to *29276.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46555"></span>46555</td>
+<td class="instruction">LD (29276),HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46558"></span>46558</td>
+<td class="instruction">LD HL,29280</td>
+<td class="comment-1" rowspan="2">Write 29280 to *<a href="39273.html#39352">39352</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46561"></span>46561</td>
+<td class="instruction">LD (39352),HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46564"></span>46564</td>
+<td class="instruction">LD A,1</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46566"></span>46566</td>
+<td class="instruction">LD (29272),A</td>
+<td class="comment-1" rowspan="1">Write <span class="register">A</span> to *<a href="24576.html#29272">29272</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46569"></span>46569</td>
+<td class="instruction">DEC A</td>
+<td class="comment-1" rowspan="1">Decrease <span class="register">A</span> by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46570"></span>46570</td>
+<td class="instruction">LD (39338),A</td>
+<td class="comment-1" rowspan="1">Write <span class="register">A</span> to *<a href="39273.html#39338">39338</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46573"></span>46573</td>
+<td class="instruction">CALL <a href="39206.html#39209">39209</a></td>
+<td class="comment-1" rowspan="1">Call <a href="39206.html#39209">39209</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46576"></span>46576</td>
+<td class="instruction">LD IX,46627</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>=<a href="46503.html#46627">46627</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46580"></span>46580</td>
+<td class="instruction">LD DE,32</td>
+<td class="comment-1" rowspan="2">Write 0032 to *<a href="37414.html#37486">37486</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46583"></span>46583</td>
+<td class="instruction">LD (37486),DE</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46587"></span>46587</td>
+<td class="instruction">LD DE,29696</td>
+<td class="comment-1" rowspan="2">Write 29696 to *<a href="39273.html#39352">39352</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46590"></span>46590</td>
+<td class="instruction">LD (39352),DE</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46594"></span>46594</td>
+<td class="instruction">LD B,9</td>
+<td class="comment-1" rowspan="1"><span class="register">B</span>=9.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46596"></span>46596</td>
+<td class="instruction">JP <a href="37414.html">37414</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="37414.html">37414</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">Madrid_Initialise_3</td>
+<td class="address-2"><span id="46599"></span>46599</td>
+<td class="instruction">PUSH IX</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">IX</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46601"></span>46601</td>
+<td class="instruction">LD DE,65348</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=<a href="63552.html#65348">65348</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46604"></span>46604</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">HL</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46605"></span>46605</td>
+<td class="instruction">ADD HL,DE</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>+=<span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46606"></span>46606</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=*<span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46607"></span>46607</td>
+<td class="instruction">AND %00000111</td>
+<td class="comment-1" rowspan="1">Keep only bits 0-2.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46609"></span>46609</td>
+<td class="instruction">RLCA</td>
+<td class="comment-1" rowspan="3">RLCA.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46610"></span>46610</td>
+<td class="instruction">RLCA</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46611"></span>46611</td>
+<td class="instruction">RLCA</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46612"></span>46612</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-1" rowspan="1"><span class="register">C</span>=<span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46613"></span>46613</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=*<span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46614"></span>46614</td>
+<td class="instruction">AND %00111000</td>
+<td class="comment-1" rowspan="1">Keep only bits 3-5.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46616"></span>46616</td>
+<td class="instruction">RRCA</td>
+<td class="comment-1" rowspan="3">RRCA.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46617"></span>46617</td>
+<td class="instruction">RRCA</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46618"></span>46618</td>
+<td class="instruction">RRCA</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46619"></span>46619</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-1" rowspan="1"><span class="register">E</span>=<span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46620"></span>46620</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=*<span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46621"></span>46621</td>
+<td class="instruction">AND %01000000</td>
+<td class="comment-1" rowspan="1">Keep only bits 6.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46623"></span>46623</td>
+<td class="instruction">OR C</td>
+<td class="comment-1" rowspan="1">Set the bits from <span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46624"></span>46624</td>
+<td class="instruction">OR E</td>
+<td class="comment-1" rowspan="1">Set the bits from <span class="register">E</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46625"></span>46625</td>
+<td class="instruction">JR <a href="46503.html#46542">Madrid_Initialise_2</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="46503.html#46542">Madrid_Initialise_2</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46627"></span>46627</td>
+<td class="instruction">DEFB 80,182,64,124,0,80,182,136</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46635"></span>46635</td>
+<td class="instruction">DEFB 124,0,80,182,188,124,0,96</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46643"></span>46643</td>
+<td class="instruction">DEFB 182,196,124,0,88,182,6,125</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46651"></span>46651</td>
+<td class="instruction">DEFB 0,96,182,12,125,0,80,182</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46659"></span>46659</td>
+<td class="instruction">DEFB 14,125,0,80,182,54,125,0</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46667"></span>46667</td>
+<td class="instruction">DEFB 88,182,58,125,0,104,182,2</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46675"></span>46675</td>
+<td class="instruction">DEFB 2,152,182,0,0,136,182,1</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46683"></span>46683</td>
+<td class="instruction">DEFB 1,152,182,0,0,144,182,1</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46691"></span>46691</td>
+<td class="instruction">DEFB 1,152,182,0,0,7,31,63</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46699"></span>46699</td>
+<td class="instruction">DEFB 63,127,127,255,255,255,127,63</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46707"></span>46707</td>
+<td class="instruction">DEFB 63,31,15,7,7,224,248,252</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46715"></span>46715</td>
+<td class="instruction">DEFB 252,254,254,255,255,255,254,252</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46723"></span>46723</td>
+<td class="instruction">DEFB 252,248,240,224,224,0,3,7</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46731"></span>46731</td>
+<td class="instruction">DEFB 15,15,31,31,223,0,192,224</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46739"></span>46739</td>
+<td class="instruction">DEFB 240,240,248,248,254,7,7,7</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46747"></span>46747</td>
+<td class="instruction">DEFB 7,160</td>
+<td class="comment-1" rowspan="1"></td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="46453.html">46453</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#46503">Map</a></td>
+<td class="next">
+Next: <a href="46749.html">46749</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1984 New Generation Software &copy; 2024 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.3.</div>
+<div class="repository">Link to <a href="https://github.com/pobtastic/travelwithtrashman/">Source code</a>.</div>
+<div><a href="asm/46503.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

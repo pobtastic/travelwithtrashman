@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Travel With Trashman: Routine at 95C6</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="9562.html">9562</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#95c6">Map</a></td>
+<td class="next">
+Next: <a href="9604.html">9604</a>
+</td>
+</tr>
+</table>
+<div class="description">95C6: Routine at 95C6</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routines at <a href="9226.html">9226</a>, <a href="92C5.html">92C5</a>, <a href="9762.html">9762</a>, <a href="97D7.html">97D7</a> and <a href="9926.html">9926</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="95c6"></span>95C6</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-1" rowspan="1"><span class="register">E</span>=<span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="95c7"></span>95C7</td>
+<td class="instruction">LD D,$00</td>
+<td class="comment-1" rowspan="1"><span class="register">D</span>=00.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="95c9"></span>95C9</td>
+<td class="instruction">ADD IX,DE</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>+=<span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="95cb"></span>95CB</td>
+<td class="instruction">LD B,(IX+$02)</td>
+<td class="comment-1" rowspan="1"><span class="register">B</span>=*<span class="register">IX</span>+02.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="95ce"></span>95CE</td>
+<td class="instruction">LD C,(IX+$03)</td>
+<td class="comment-1" rowspan="1"><span class="register">C</span>=*<span class="register">IX</span>+03.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="95d1"></span>95D1</td>
+<td class="instruction">LD A,$00</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=00.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="95d3"></span>95D3</td>
+<td class="instruction">ADD A,C</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>+=<span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="95d4"></span>95D4</td>
+<td class="instruction">DJNZ <a href="95C6.html#95d3">$95D3</a></td>
+<td class="comment-1" rowspan="1">Decrease counter by one and loop back to <a href="95C6.html#95d3">95D3</a> until counter is zero.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="95d6"></span>95D6</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-1" rowspan="1"><span class="register">B</span>=<span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="95d7"></span>95D7</td>
+<td class="instruction">LD A,($99AA)</td>
+<td class="comment-1" rowspan="2"><span class="register">C</span>=*<a href="9969.html#99aa">99AA</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="95da"></span>95DA</td>
+<td class="instruction">LD C,A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="95db"></span>95DB</td>
+<td class="instruction">LD L,(IX+$00)</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=*<span class="register">IX</span>+00.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="95de"></span>95DE</td>
+<td class="instruction">LD H,(IX+$01)</td>
+<td class="comment-1" rowspan="1"><span class="register">H</span>=*<span class="register">IX</span>+01.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="95e1"></span>95E1</td>
+<td class="instruction">LD E,(IX+$04)</td>
+<td class="comment-1" rowspan="1"><span class="register">E</span>=*<span class="register">IX</span>+04.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="95e4"></span>95E4</td>
+<td class="instruction">LD D,(IX+$05)</td>
+<td class="comment-1" rowspan="1"><span class="register">D</span>=*<span class="register">IX</span>+05.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="95e7"></span>95E7</td>
+<td class="instruction">LD IX,($99B8)</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>=<a href="9969.html#99b8">99B8</a>.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="95eb"></span>95EB</td>
+<td class="instruction">PUSH BC</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">BC</span> on the stack.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="95ec"></span>95EC</td>
+<td class="instruction">LD A,(DE)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=*<span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="95ed"></span>95ED</td>
+<td class="instruction">LD (IX+$01),A</td>
+<td class="comment-1" rowspan="1">Write <span class="register">A</span> to *<span class="register">IX</span>+01.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="95f0"></span>95F0</td>
+<td class="instruction">LD (IX+$02),L</td>
+<td class="comment-1" rowspan="1">Write <span class="register">L</span> to *<span class="register">IX</span>+02.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="95f3"></span>95F3</td>
+<td class="instruction">LD (IX+$03),H</td>
+<td class="comment-1" rowspan="1">Write <span class="register">H</span> to *<span class="register">IX</span>+03.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="95f6"></span>95F6</td>
+<td class="instruction">LD (IX+$04),C</td>
+<td class="comment-1" rowspan="1">Write <span class="register">C</span> to *<span class="register">IX</span>+04.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="95f9"></span>95F9</td>
+<td class="instruction">LD BC,$0008</td>
+<td class="comment-1" rowspan="2"><span class="register">IX</span>+=0008.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="95fc"></span>95FC</td>
+<td class="instruction">ADD IX,BC</td>
+</tr>
+<tr>
+<td class="address-1"><span id="95fe"></span>95FE</td>
+<td class="instruction">ADD HL,BC</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>+=0008.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="95ff"></span>95FF</td>
+<td class="instruction">INC DE</td>
+<td class="comment-1" rowspan="1">Increment <span class="register">DE</span> by one.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9600"></span>9600</td>
+<td class="instruction">POP BC</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">BC</span> from the stack.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9601"></span>9601</td>
+<td class="instruction">DJNZ <a href="95C6.html#95eb">$95EB</a></td>
+<td class="comment-1" rowspan="1">Decrease counter by one and loop back to <a href="95C6.html#95eb">95EB</a> until counter is zero.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9603"></span>9603</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="9562.html">9562</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#95c6">Map</a></td>
+<td class="next">
+Next: <a href="9604.html">9604</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1984 New Generation Software &copy; 2024 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.3.</div>
+<div class="repository">Link to <a href="https://github.com/pobtastic/travelwithtrashman/">Source code</a>.</div>
+<div><a href="asm/95C6.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

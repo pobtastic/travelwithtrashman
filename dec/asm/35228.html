@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Travel With Trashman: Routine at 35228</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="35180.html">35180</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#35228">Map</a></td>
+<td class="next">
+Next: <a href="35335.html">35335</a>
+</td>
+</tr>
+</table>
+<div class="description">35228: Handler: Flight Path</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="32771.html">GameInitialise</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Handler_FlightPath</td>
+<td class="address-2"><span id="35228"></span>35228</td>
+<td class="instruction">LD B,1</td>
+<td class="comment-1" rowspan="1"><span class="register">B</span>=1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35230"></span>35230</td>
+<td class="instruction">LD HL,61439</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="61439.html">61439</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35233"></span>35233</td>
+<td class="instruction">SET 0,(HL)</td>
+<td class="comment-1" rowspan="1">Set bit 0 of *<span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35235"></span>35235</td>
+<td class="instruction">CALL <a href="32853.html">32853</a></td>
+<td class="comment-1" rowspan="1">Call <a href="32853.html">32853</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35238"></span>35238</td>
+<td class="instruction">LD A,(61436)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=*<a href="61436.html">61436</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35241"></span>35241</td>
+<td class="instruction">AND %00001111</td>
+<td class="comment-1" rowspan="1">Keep only bits 0-3.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35243"></span>35243</td>
+<td class="instruction">CP 8</td>
+<td class="comment-1" rowspan="2">Jump to <a href="35228.html">Handler_FlightPath</a> if <span class="register">A</span> is not equal to 8.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35245"></span>35245</td>
+<td class="instruction">JR NZ,<a href="35228.html#35228">Handler_FlightPath</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35247"></span>35247</td>
+<td class="instruction">LD BC,(30721)</td>
+<td class="comment-1" rowspan="1"><span class="register">BC</span>=*<a href="30721.html">30721</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35251"></span>35251</td>
+<td class="instruction">LD DE,(30723)</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=*<a href="30723.html">30723</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35255"></span>35255</td>
+<td class="instruction">LD HL,(30725)</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=*<a href="30725.html">CurrentLocationCoOrdinates</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35258"></span>35258</td>
+<td class="instruction">LD A,C</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=<span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35259"></span>35259</td>
+<td class="instruction">CP B</td>
+<td class="comment-1" rowspan="2">Jump to <a href="35228.html#35287">Handler_FlightPath_0</a> if <span class="register">A</span> is lower than <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35260"></span>35260</td>
+<td class="instruction">JR C,<a href="35228.html#35287">Handler_FlightPath_0</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35262"></span>35262</td>
+<td class="instruction">SUB B</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>-=<span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35263"></span>35263</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-1" rowspan="1"><span class="register">C</span>=<span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35264"></span>35264</td>
+<td class="instruction">LD A,E</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=<span class="register">E</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35265"></span>35265</td>
+<td class="instruction">ADD A,L</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>+=<span class="register">L</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35266"></span>35266</td>
+<td class="instruction">LD L,A</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=<span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35267"></span>35267</td>
+<td class="instruction">LD A,(30730)</td>
+<td class="comment-1" rowspan="2"><span class="register">B</span>=*<a href="30729.html#30730">30730</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35270"></span>35270</td>
+<td class="instruction">LD B,A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35271"></span>35271</td>
+<td class="instruction">CP C</td>
+<td class="comment-1" rowspan="2">Jump to <a href="35228.html#35313">Handler_FlightPath_1</a> if *<a href="30729.html#30730">30730</a> is lower than <span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35272"></span>35272</td>
+<td class="instruction">JR C,<a href="35228.html#35313">Handler_FlightPath_1</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35274"></span>35274</td>
+<td class="instruction">SUB C</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>-=<span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35275"></span>35275</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-1" rowspan="1"><span class="register">B</span>=<span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35276"></span>35276</td>
+<td class="instruction">LD A,(30729)</td>
+<td class="comment-1" rowspan="2"><span class="register">C</span>=*<a href="30729.html">30729</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35279"></span>35279</td>
+<td class="instruction">LD C,A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35280"></span>35280</td>
+<td class="instruction">LD A,(30724)</td>
+<td class="comment-1" rowspan="3"><span class="register">H</span>+=*<a href="30723.html#30724">30724</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35283"></span>35283</td>
+<td class="instruction">ADD A,H</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35284"></span>35284</td>
+<td class="instruction">LD H,A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35285"></span>35285</td>
+<td class="instruction">JR <a href="35228.html#35313">Handler_FlightPath_1</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="35228.html#35313">Handler_FlightPath_1</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">Handler_FlightPath_0</td>
+<td class="address-2"><span id="35287"></span>35287</td>
+<td class="instruction">LD A,B</td>
+<td class="comment-1" rowspan="3"><span class="register">B</span>-=<span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35288"></span>35288</td>
+<td class="instruction">SUB C</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35289"></span>35289</td>
+<td class="instruction">LD B,A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35290"></span>35290</td>
+<td class="instruction">LD A,D</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=<span class="register">D</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35291"></span>35291</td>
+<td class="instruction">ADD A,H</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>+=<span class="register">H</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35292"></span>35292</td>
+<td class="instruction">LD H,A</td>
+<td class="comment-1" rowspan="1"><span class="register">H</span>=<span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35293"></span>35293</td>
+<td class="instruction">LD A,(30729)</td>
+<td class="comment-1" rowspan="2"><span class="register">C</span>=*<a href="30729.html">30729</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35296"></span>35296</td>
+<td class="instruction">LD C,A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35297"></span>35297</td>
+<td class="instruction">CP B</td>
+<td class="comment-1" rowspan="2">Jump to <a href="35228.html#35313">Handler_FlightPath_1</a> if <span class="register">C</span> is lower than <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35298"></span>35298</td>
+<td class="instruction">JR C,<a href="35228.html#35313">Handler_FlightPath_1</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35300"></span>35300</td>
+<td class="instruction">SUB B</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>-=<span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35301"></span>35301</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-1" rowspan="1"><span class="register">C</span>=<span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35302"></span>35302</td>
+<td class="instruction">LD A,(30730)</td>
+<td class="comment-1" rowspan="2"><span class="register">B</span>=*<a href="30729.html#30730">30730</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35305"></span>35305</td>
+<td class="instruction">LD B,A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35306"></span>35306</td>
+<td class="instruction">LD A,(30723)</td>
+<td class="comment-1" rowspan="3"><span class="register">L</span>+=*<a href="30723.html">30723</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35309"></span>35309</td>
+<td class="instruction">ADD A,L</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35310"></span>35310</td>
+<td class="instruction">LD L,A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35311"></span>35311</td>
+<td class="instruction">JR <a href="35228.html#35313">Handler_FlightPath_1</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="35228.html#35313">Handler_FlightPath_1</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">Handler_FlightPath_1</td>
+<td class="address-2"><span id="35313"></span>35313</td>
+<td class="instruction">LD (30725),HL</td>
+<td class="comment-1" rowspan="1">Write <span class="register">HL</span> to *<a href="30725.html">CurrentLocationCoOrdinates</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35316"></span>35316</td>
+<td class="instruction">LD (30721),BC</td>
+<td class="comment-1" rowspan="1">Write <span class="register">BC</span> to *<a href="30721.html">30721</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35320"></span>35320</td>
+<td class="instruction">AND A</td>
+<td class="comment-1" rowspan="1">Set flags.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35321"></span>35321</td>
+<td class="instruction">LD DE,(30727)</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=*<a href="30727.html">30727</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35325"></span>35325</td>
+<td class="instruction">SBC HL,DE</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>-=<span class="register">DE</span> (with carry).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35327"></span>35327</td>
+<td class="instruction">JR NZ,<a href="35228.html#35228">Handler_FlightPath</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="35228.html">Handler_FlightPath</a> if <span class="register">A</span> is not zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35329"></span>35329</td>
+<td class="instruction">LD HL,61435</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="61435.html">GameState_2</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35332"></span>35332</td>
+<td class="instruction">RES 1,(HL)</td>
+<td class="comment-1" rowspan="1">Reset bit 1 of *<span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="35334"></span>35334</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="35180.html">35180</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#35228">Map</a></td>
+<td class="next">
+Next: <a href="35335.html">35335</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1984 New Generation Software &copy; 2024 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.3.</div>
+<div class="repository">Link to <a href="https://github.com/pobtastic/travelwithtrashman/">Source code</a>.</div>
+<div><a href="asm/35228.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

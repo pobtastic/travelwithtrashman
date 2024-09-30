@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Travel With Trashman: Routine at 9052</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="8FEB.html">8FEB</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#9052">Map</a></td>
+<td class="next">
+Next: <a href="908B.html">908B</a>
+</td>
+</tr>
+</table>
+<div class="description">9052: Initialise Sub-Game</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="883C.html">Handler_SubGame</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Initialise_SubGame</td>
+<td class="address-2"><span id="9052"></span>9052</td>
+<td class="instruction">CALL <a href="908B.html">CopySubGameData</a></td>
+<td class="comment-1" rowspan="1">Call <a href="908B.html">CopySubGameData</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9055"></span>9055</td>
+<td class="instruction">CALL <a href="9126.html">ClearShadowBuffer</a></td>
+<td class="comment-1" rowspan="1">Call <a href="9126.html">ClearShadowBuffer</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9058"></span>9058</td>
+<td class="instruction">CALL <a href="90A2.html">$90A2</a></td>
+<td class="comment-1" rowspan="1">Call <a href="90A2.html">90A2</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="905b"></span>905B</td>
+<td class="instruction">CALL <a href="90FC.html">$90FC</a></td>
+<td class="comment-1" rowspan="1">Call <a href="90FC.html">90FC</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="905e"></span>905E</td>
+<td class="instruction">CALL <a href="9194.html">$9194</a></td>
+<td class="comment-1" rowspan="1">Call <a href="9194.html">9194</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9061"></span>9061</td>
+<td class="instruction">LD HL,($99D1)</td>
+<td class="comment-1" rowspan="2">Write *<a href="99C4.html#99d1">99D1</a> to *<a href="9270.html#92bd">92BE</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9064"></span>9064</td>
+<td class="instruction">LD ($92BE),HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9067"></span>9067</td>
+<td class="instruction">LD HL,($99D5)</td>
+<td class="comment-1" rowspan="2">Write *<a href="99C4.html#99d5">99D5</a> to *<a href="6000.html#7204">7204</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="906a"></span>906A</td>
+<td class="instruction">LD ($7204),HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="906d"></span>906D</td>
+<td class="instruction">LD HL,$9A32</td>
+<td class="comment-1" rowspan="2">Write <a href="9A32.html">9A32</a> to *<a href="9969.html#99ba">99BA</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9070"></span>9070</td>
+<td class="instruction">LD ($99BA),HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9073"></span>9073</td>
+<td class="instruction">LD HL,$99F0</td>
+<td class="comment-1" rowspan="2">Write <a href="99C4.html#99f0">99F0</a> to *<a href="9969.html#99a7">99A7</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9076"></span>9076</td>
+<td class="instruction">LD ($99A7),HL</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="9079"></span>
+<div class="comments">
+<div class="paragraph">
+Self-modifying code; alters the <code>CALL</code> location target below.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9079"></span>9079</td>
+<td class="instruction">LD HL,($99D3)</td>
+<td class="comment-1" rowspan="3">Call the routine pointed to by *<a href="99C4.html#99d3">ActiveSubGameInitialisation</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="907c"></span>907C</td>
+<td class="instruction">LD ($9080),HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="907f"></span>907F</td>
+<td class="instruction">CALL $0000</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9082"></span>9082</td>
+<td class="instruction">CALL <a href="9134.html">CopyBufferToScreen</a></td>
+<td class="comment-1" rowspan="1">Call <a href="9134.html">CopyBufferToScreen</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9085"></span>9085</td>
+<td class="instruction">CALL <a href="9163.html">PaintHeaderFooter</a></td>
+<td class="comment-1" rowspan="1">Call <a href="9163.html">PaintHeaderFooter</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="9088"></span>9088</td>
+<td class="instruction">JP <a href="9270.html">$9270</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="9270.html">9270</a>.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="8FEB.html">8FEB</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#9052">Map</a></td>
+<td class="next">
+Next: <a href="908B.html">908B</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1984 New Generation Software &copy; 2024 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.3.</div>
+<div class="repository">Link to <a href="https://github.com/pobtastic/travelwithtrashman/">Source code</a>.</div>
+<div><a href="asm/9052.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

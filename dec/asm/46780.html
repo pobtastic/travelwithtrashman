@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Travel With Trashman: Routine at 46780</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="46759.html">46759</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#46780">Map</a></td>
+<td class="next">
+Next: <a href="47017.html">47017</a>
+</td>
+</tr>
+</table>
+<div class="description">46780: Handler: Bull</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="46749.html">Handler_Madrid</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="46780"></span>
+<div class="comments">
+<div class="paragraph">
+See <a href="../reference/pokes.html#bull">The Bull Doesn't Kill</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Handler_Bull</td>
+<td class="address-2"><span id="46780"></span>46780</td>
+<td class="instruction">LD A,(61434)</td>
+<td class="comment-1" rowspan="3">Jump to <a href="46780.html#46792">Handler_Bull_Play</a> if the player has not been hit by the bull.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46783"></span>46783</td>
+<td class="instruction">CP 8</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46785"></span>46785</td>
+<td class="instruction">JR NZ,<a href="46780.html#46792">Handler_Bull_Play</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46787"></span>46787</td>
+<td class="instruction">LD SP,(39342)</td>
+<td class="comment-1" rowspan="1"><span class="register">SP</span>=*<a href="39273.html#39342">39342</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46791"></span>46791</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="46792"></span>
+<div class="comments">
+<div class="paragraph">
+The player is still alive!
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Handler_Bull_Play</td>
+<td class="address-2"><span id="46792"></span>46792</td>
+<td class="instruction">LD A,0</td>
+<td class="comment-1" rowspan="2">Write 0 to *<a href="39273.html#39338">39338</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46794"></span>46794</td>
+<td class="instruction">LD (39338),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46797"></span>46797</td>
+<td class="instruction">LD IX,29272</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>=<a href="24576.html#29272">29272</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46801"></span>46801</td>
+<td class="instruction">LD A,(29191)</td>
+<td class="comment-1" rowspan="3">Jump to <a href="46780.html#46811">Handler_Bull_0</a> if *<a href="24576.html#29191">29191</a> is equal to 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46804"></span>46804</td>
+<td class="instruction">CP 1</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46806"></span>46806</td>
+<td class="instruction">JR Z,<a href="46780.html#46811">Handler_Bull_0</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46808"></span>46808</td>
+<td class="instruction">CP 5</td>
+<td class="comment-1" rowspan="2">Return if *<a href="24576.html#29191">29191</a> is not equal to 5.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46810"></span>46810</td>
+<td class="instruction">RET NZ</td>
+</tr>
+<tr>
+<td class="asm-label">Handler_Bull_0</td>
+<td class="address-2"><span id="46811"></span>46811</td>
+<td class="instruction">DEC (IX+0)</td>
+<td class="comment-1" rowspan="1">Decrease *<span class="register">IX</span>+0 by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46814"></span>46814</td>
+<td class="instruction">JP NZ,<a href="46780.html#46974">Handler_Bull_8</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="46780.html#46974">Handler_Bull_8</a> if <span class="register">A</span> is not zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46817"></span>46817</td>
+<td class="instruction">LD (IX+0),1</td>
+<td class="comment-1" rowspan="1">Write 1 to *<span class="register">IX</span>+0.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46821"></span>46821</td>
+<td class="instruction">LD HL,29272</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="24576.html#29272">29272</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46824"></span>46824</td>
+<td class="instruction">CALL <a href="37945.html">37945</a></td>
+<td class="comment-1" rowspan="1">Call <a href="37945.html">37945</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46827"></span>46827</td>
+<td class="instruction">BIT 5,(IX+6)</td>
+<td class="comment-1" rowspan="1">Test bit 5 of *<span class="register">IX</span>+6.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46831"></span>46831</td>
+<td class="instruction">JR NZ,<a href="46780.html#46881">Handler_Bull_3</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="46780.html#46881">Handler_Bull_3</a> if <span class="register">A</span> is not zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46833"></span>46833</td>
+<td class="instruction">DEC (IX+7)</td>
+<td class="comment-1" rowspan="1">Decrease *<span class="register">IX</span>+7 by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46836"></span>46836</td>
+<td class="instruction">JR Z,<a href="46780.html#46887">Handler_Bull_4</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="46780.html#46887">Handler_Bull_4</a> if <span class="register">A</span> is zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46838"></span>46838</td>
+<td class="instruction">LD L,(IX+1)</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=*<span class="register">IX</span>+1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46841"></span>46841</td>
+<td class="instruction">LD H,(IX+2)</td>
+<td class="comment-1" rowspan="1"><span class="register">H</span>=*<span class="register">IX</span>+2.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46844"></span>46844</td>
+<td class="instruction">CALL <a href="37749.html">37749</a></td>
+<td class="comment-1" rowspan="1">Call <a href="37749.html">37749</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46847"></span>46847</td>
+<td class="instruction">AND %01000001</td>
+<td class="comment-1" rowspan="1">Keep only bits 0 and 6.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46849"></span>46849</td>
+<td class="instruction">JR Z,<a href="46780.html#46863">Handler_Bull_1</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="46780.html#46863">Handler_Bull_1</a> if <span class="register">A</span> is zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46851"></span>46851</td>
+<td class="instruction">CP 1</td>
+<td class="comment-1" rowspan="2">Jump to <a href="46780.html#46887">Handler_Bull_4</a> if <span class="register">A</span> is equal to 1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46853"></span>46853</td>
+<td class="instruction">JR Z,<a href="46780.html#46887">Handler_Bull_4</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="46855"></span>
+<div class="comments">
+<div class="paragraph">
+See <a href="../reference/pokes.html#bull">The Bull Doesn't Kill</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46855"></span>46855</td>
+<td class="instruction">LD A,8</td>
+<td class="comment-1" rowspan="2">Write 00001000 ("Hit By The Bull") to *<a href="61434.html">GameState_1</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46857"></span>46857</td>
+<td class="instruction">LD (61434),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46860"></span>46860</td>
+<td class="instruction">JP <a href="39206.html">39206</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="39206.html">39206</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">Handler_Bull_1</td>
+<td class="address-2"><span id="46863"></span>46863</td>
+<td class="instruction">LD A,122</td>
+<td class="comment-1" rowspan="3">Jump to <a href="46780.html#46887">Handler_Bull_4</a> if 122 is equal to <span class="register">H</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46865"></span>46865</td>
+<td class="instruction">CP H</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46866"></span>46866</td>
+<td class="instruction">JR Z,<a href="46780.html#46887">Handler_Bull_4</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46868"></span>46868</td>
+<td class="instruction">LD (IX+4),L</td>
+<td class="comment-1" rowspan="1">Write <span class="register">L</span> to *<span class="register">IX</span>+4.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46871"></span>46871</td>
+<td class="instruction">LD (IX+5),H</td>
+<td class="comment-1" rowspan="1">Write <span class="register">H</span> to *<span class="register">IX</span>+5.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46874"></span>46874</td>
+<td class="instruction">SET 5,(IX+6)</td>
+<td class="comment-1" rowspan="1">Set bit 5 of *<span class="register">IX</span>+6.</td>
+</tr>
+<tr>
+<td class="asm-label">Handler_Bull_2</td>
+<td class="address-2"><span id="46878"></span>46878</td>
+<td class="instruction">JP <a href="39206.html">39206</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="39206.html">39206</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">Handler_Bull_3</td>
+<td class="address-2"><span id="46881"></span>46881</td>
+<td class="instruction">RES 5,(IX+6)</td>
+<td class="comment-1" rowspan="1">Reset bit 5 of *<span class="register">IX</span>+6.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46885"></span>46885</td>
+<td class="instruction">JR <a href="46780.html#46878">Handler_Bull_2</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="46780.html#46878">Handler_Bull_2</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">Handler_Bull_4</td>
+<td class="address-2"><span id="46887"></span>46887</td>
+<td class="instruction">CALL <a href="38871.html">38871</a></td>
+<td class="comment-1" rowspan="1">Call <a href="38871.html">38871</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46890"></span>46890</td>
+<td class="instruction">LD A,H</td>
+<td class="comment-1" rowspan="3">Jump to <a href="46780.html#46897">Handler_Bull_5</a> if <span class="register">H</span> is higher than <span class="register">L</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46891"></span>46891</td>
+<td class="instruction">CP L</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46892"></span>46892</td>
+<td class="instruction">JR NC,<a href="46780.html#46897">Handler_Bull_5</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46894"></span>46894</td>
+<td class="instruction">LD A,C</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=<span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46895"></span>46895</td>
+<td class="instruction">LD C,B</td>
+<td class="comment-1" rowspan="1"><span class="register">C</span>=<span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46896"></span>46896</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-1" rowspan="1"><span class="register">B</span>=<span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label">Handler_Bull_5</td>
+<td class="address-2"><span id="46897"></span>46897</td>
+<td class="instruction">LD A,(IX+6)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=*<span class="register">IX</span>+6.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46900"></span>46900</td>
+<td class="instruction">AND %00011000</td>
+<td class="comment-1" rowspan="1">Keep only bits 3-4.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46902"></span>46902</td>
+<td class="instruction">XOR %00010000</td>
+<td class="comment-1" rowspan="1">Flip bit 4.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46904"></span>46904</td>
+<td class="instruction">CP B</td>
+<td class="comment-1" rowspan="1">Compare <span class="register">A</span> with <span class="register">B</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46905"></span>46905</td>
+<td class="instruction">JR NZ,<a href="46780.html#46908">Handler_Bull_6</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="46780.html#46908">Handler_Bull_6</a> if <span class="register">A</span> is not zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46907"></span>46907</td>
+<td class="instruction">LD B,C</td>
+<td class="comment-1" rowspan="1"><span class="register">B</span>=<span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="asm-label">Handler_Bull_6</td>
+<td class="address-2"><span id="46908"></span>46908</td>
+<td class="instruction">LD (IX+6),B</td>
+<td class="comment-1" rowspan="1">Write <span class="register">B</span> to *<span class="register">IX</span>+6.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46911"></span>46911</td>
+<td class="instruction">CALL <a href="38425.html">38425</a></td>
+<td class="comment-1" rowspan="1">Call <a href="38425.html">38425</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46914"></span>46914</td>
+<td class="instruction">LD A,(39333)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=*<a href="39273.html#39333">39333</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46917"></span>46917</td>
+<td class="instruction">AND %00000011</td>
+<td class="comment-1" rowspan="1">Keep only bits 0-1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46919"></span>46919</td>
+<td class="instruction">JR Z,<a href="46780.html#46933">Handler_Bull_7</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="46780.html#46933">Handler_Bull_7</a> if <span class="register">A</span> is zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46921"></span>46921</td>
+<td class="instruction">ADD A,5</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>+=5.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46923"></span>46923</td>
+<td class="instruction">LD IX,29272</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>=<a href="24576.html#29272">29272</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46927"></span>46927</td>
+<td class="instruction">LD (IX+7),A</td>
+<td class="comment-1" rowspan="1">Write <span class="register">A</span> to *<span class="register">IX</span>+7.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46930"></span>46930</td>
+<td class="instruction">JP <a href="46780.html#46878">Handler_Bull_2</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="46780.html#46878">Handler_Bull_2</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">Handler_Bull_7</td>
+<td class="address-2"><span id="46933"></span>46933</td>
+<td class="instruction">CALL <a href="38425.html">38425</a></td>
+<td class="comment-1" rowspan="1">Call <a href="38425.html">38425</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46936"></span>46936</td>
+<td class="instruction">LD A,(39333)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=*<a href="39273.html#39333">39333</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46939"></span>46939</td>
+<td class="instruction">AND %00011110</td>
+<td class="comment-1" rowspan="1">Keep only bits 1-4.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46941"></span>46941</td>
+<td class="instruction">ADD A,10</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>+=10.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46943"></span>46943</td>
+<td class="instruction">LD (29272),A</td>
+<td class="comment-1" rowspan="1">Write <span class="register">A</span> to *<a href="24576.html#29272">29272</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46946"></span>46946</td>
+<td class="instruction">LD IX,29272</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>=<a href="24576.html#29272">29272</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46950"></span>46950</td>
+<td class="instruction">LD A,(IX+6)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=*<span class="register">IX</span>+6.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46953"></span>46953</td>
+<td class="instruction">AND %00011000</td>
+<td class="comment-1" rowspan="1">Keep only bits 3-4.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46955"></span>46955</td>
+<td class="instruction">RRCA</td>
+<td class="comment-1" rowspan="1">RRCA.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46956"></span>46956</td>
+<td class="instruction">LD HL,47694</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="47119.html#47694">47694</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46959"></span>46959</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-1" rowspan="1"><span class="register">E</span>=<span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46960"></span>46960</td>
+<td class="instruction">LD D,0</td>
+<td class="comment-1" rowspan="1"><span class="register">D</span>=0.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46962"></span>46962</td>
+<td class="instruction">ADD HL,DE</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>+=<span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46963"></span>46963</td>
+<td class="instruction">LD DE,29360</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=<a href="24576.html#29360">29360</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46966"></span>46966</td>
+<td class="instruction">LD BC,4</td>
+<td class="comment-1" rowspan="1"><span class="register">BC</span>=0004.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46969"></span>46969</td>
+<td class="instruction">LDIR</td>
+<td class="comment-1" rowspan="1">LDIR.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46971"></span>46971</td>
+<td class="instruction">JP <a href="46780.html#46878">Handler_Bull_2</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="46780.html#46878">Handler_Bull_2</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">Handler_Bull_8</td>
+<td class="address-2"><span id="46974"></span>46974</td>
+<td class="instruction">LD A,(IX+0)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=*<span class="register">IX</span>+0.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46977"></span>46977</td>
+<td class="instruction">AND %00000011</td>
+<td class="comment-1" rowspan="1">Keep only bits 0-1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46979"></span>46979</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-1" rowspan="1">Return if {} is not zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46980"></span>46980</td>
+<td class="instruction">LD IX,(29360)</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>=*<a href="24576.html#29360">29360</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46984"></span>46984</td>
+<td class="instruction">LD E,(IX+0)</td>
+<td class="comment-1" rowspan="1"><span class="register">E</span>=*<span class="register">IX</span>+0.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46987"></span>46987</td>
+<td class="instruction">LD D,(IX+1)</td>
+<td class="comment-1" rowspan="1"><span class="register">D</span>=*<span class="register">IX</span>+1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46990"></span>46990</td>
+<td class="instruction">LD HL,(29362)</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=*<a href="24576.html#29362">29362</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46993"></span>46993</td>
+<td class="instruction">EX DE,HL</td>
+<td class="comment-1" rowspan="1">Exchange the <span class="register">DE</span> and <span class="register">HL</span> registers.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46994"></span>46994</td>
+<td class="instruction">LD (29362),HL</td>
+<td class="comment-1" rowspan="1">Write <span class="register">HL</span> to *<a href="24576.html#29362">29362</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="46997"></span>46997</td>
+<td class="instruction">LD (IX+0),E</td>
+<td class="comment-1" rowspan="1">Write <span class="register">E</span> to *<span class="register">IX</span>+0.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47000"></span>47000</td>
+<td class="instruction">LD (IX+1),D</td>
+<td class="comment-1" rowspan="1">Write <span class="register">D</span> to *<span class="register">IX</span>+1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47003"></span>47003</td>
+<td class="instruction">LD IX,29272</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>=<a href="24576.html#29272">29272</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47007"></span>47007</td>
+<td class="instruction">LD L,(IX+4)</td>
+<td class="comment-1" rowspan="1"><span class="register">L</span>=*<span class="register">IX</span>+4.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47010"></span>47010</td>
+<td class="instruction">LD H,(IX+5)</td>
+<td class="comment-1" rowspan="1"><span class="register">H</span>=*<span class="register">IX</span>+5.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47013"></span>47013</td>
+<td class="instruction">CALL <a href="39188.html">39188</a></td>
+<td class="comment-1" rowspan="1">Call <a href="39188.html">39188</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="47016"></span>47016</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="46759.html">46759</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#46780">Map</a></td>
+<td class="next">
+Next: <a href="47017.html">47017</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1984 New Generation Software &copy; 2024 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.3.</div>
+<div class="repository">Link to <a href="https://github.com/pobtastic/travelwithtrashman/">Source code</a>.</div>
+<div><a href="asm/46780.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

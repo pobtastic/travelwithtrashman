@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Travel With Trashman: Routine at 33949</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="33913.html">33913</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#33949">Map</a></td>
+<td class="next">
+Next: <a href="34005.html">34005</a>
+</td>
+</tr>
+</table>
+<div class="description">33949: Initialise New Game</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="32771.html">GameInitialise</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33949"></span>
+<div class="comments">
+<div class="paragraph">
+Clears the 1UP/ 2UP game data for: <ul class="">
+<li><a href="35880.html#35888">1UP_Location</a></li>
+<li><a href="35880.html#35890">1UP_Score</a></li>
+<li><a href="35880.html#35893">1UP_Cash</a></li>
+<li><a href="35880.html#35895">1UP_State</a></li>
+</ul>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Initialise_NewGame</td>
+<td class="address-2"><span id="33949"></span>33949</td>
+<td class="instruction">LD HL,35888</td>
+<td class="comment-1" rowspan="1">Start at <a href="35880.html#35888">1UP_Location</a> (stored in <span class="register">HL</span>), as the player name is retained (probably as it's a pain to enter!)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33952"></span>33952</td>
+<td class="instruction">LD B,8</td>
+<td class="comment-1" rowspan="1">Set a counter in <span class="register">B</span> for 8 bytes (2 for location, 3 for score, 2 for cash balance and 1 for player state).</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33954"></span>
+<div class="comments">
+<div class="paragraph">
+Loop through the player variables and reset them all to 0, ready for the new game.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Clear1UPStats_Loop</td>
+<td class="address-2"><span id="33954"></span>33954</td>
+<td class="instruction">LD (HL),0</td>
+<td class="comment-1" rowspan="1">Write 0 to *<span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33956"></span>33956</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Increment <span class="register">HL</span> by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33957"></span>33957</td>
+<td class="instruction">DJNZ <a href="33949.html#33954">Clear1UPStats_Loop</a></td>
+<td class="comment-1" rowspan="1">Decrease counter by one and loop back to <a href="33949.html#33954">Clear1UPStats_Loop</a> until counter is zero.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33959"></span>
+<div class="comments">
+<div class="paragraph">
+Set the initial location for when the game starts.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33959"></span>33959</td>
+<td class="instruction">LD DE,36482</td>
+<td class="comment-1" rowspan="2">Write <a href="36482.html">London_Location</a> to *<a href="35880.html#35888">1UP_Location</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33962"></span>33962</td>
+<td class="instruction">LD (35888),DE</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33966"></span>
+<div class="comments">
+<div class="paragraph">
+Set the starting cash amount.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33966"></span>33966</td>
+<td class="instruction">LD HL,592</td>
+<td class="comment-1" rowspan="2">Write 592 to *<a href="35880.html#35893">1UP_Cash</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33969"></span>33969</td>
+<td class="instruction">LD (35893),HL</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33972"></span>
+<div class="comments">
+<div class="paragraph">
+Copy all the same 1UP data to 2UP.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33972"></span>33972</td>
+<td class="instruction">LD HL,35888</td>
+<td class="comment-1" rowspan="4">Copy 0008 bytes of data from <a href="35880.html#35888">1UP_Location</a> to <a href="35880.html#35904">2UP_Location</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33975"></span>33975</td>
+<td class="instruction">LD DE,35904</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33978"></span>33978</td>
+<td class="instruction">LD BC,8</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33981"></span>33981</td>
+<td class="instruction">LDIR</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33983"></span>
+<div class="comments">
+<div class="paragraph">
+Set the active player to 1UP.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33983"></span>33983</td>
+<td class="instruction">LD HL,35880</td>
+<td class="comment-1" rowspan="2">Write <a href="35880.html">1UP_Name</a> to *<a href="61426.html">Pointer_ActivePlayer</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33986"></span>33986</td>
+<td class="instruction">LD (61426),HL</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33989"></span>
+<div class="comments">
+<div class="paragraph">
+Set the 1UP default state (and also 2UP if this is a two player game).
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33989"></span>33989</td>
+<td class="instruction">LD A,129</td>
+<td class="comment-1" rowspan="2">Write 10000001 to *<a href="35880.html#35895">1UP_State</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33991"></span>33991</td>
+<td class="instruction">LD (35895),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33994"></span>33994</td>
+<td class="instruction">LD HL,61435</td>
+<td class="comment-1" rowspan="3">Return if this is not a two player game.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33997"></span>33997</td>
+<td class="instruction">BIT 5,(HL)</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="33999"></span>33999</td>
+<td class="instruction">RET Z</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34000"></span>34000</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="2">Write 10000010 to *<a href="35880.html#35911">2UP_State</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34001"></span>34001</td>
+<td class="instruction">LD (35911),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34004"></span>34004</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="33913.html">33913</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#33949">Map</a></td>
+<td class="next">
+Next: <a href="34005.html">34005</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1984 New Generation Software &copy; 2024 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.3.</div>
+<div class="repository">Link to <a href="https://github.com/pobtastic/travelwithtrashman/">Source code</a>.</div>
+<div><a href="asm/33949.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Travel With Trashman: Pokes</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Pokes">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Pokes</td>
+</tr>
+</table>
+<ul class="contents">
+<li><a href="#dontspendmoney">Don't Spend Money</a></li>
+<li><a href="#9999">£9999</a></li>
+<li><a href="#altdontspendmoney">Don't Spend Money (alt)</a></li>
+<li><a href="#nocash">Game Doesn't End When Cash is £0000</a></li>
+<li><a href="#bull">The Bull Doesn't Kill</a></li>
+<li><a href="#moscow">Not Deported From Moscow</a></li>
+</ul>
+<div><span id="dontspendmoney"></span></div>
+<div class="box box-1">
+<div class="box-title">Don't Spend Money</div>
+<div class="paragraph">
+<code>POKE <a href="../asm/38654.html#38656">38656</a>,142</code>
+</div>
+<div class="paragraph">
+This alters the following line:
+<table>
+<tbody>
+<tr>
+<td class="address-1"><a href="../asm/38654.html#38656">38656</a></td>
+<td class="instruction">SBC <span class="register">A</span>,(<span class="register">HL</span>)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="paragraph">
+To ADD (with carry) instead of subtract:
+<table>
+<tbody>
+<tr>
+<td class="address-1"><a href="../asm/38654.html#38656">38656</a></td>
+<td class="instruction">ADC <span class="register">A</span>,(<span class="register">HL</span>)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div><span id="9999"></span></div>
+<div class="box box-2">
+<div class="box-title">£9999</div>
+<div class="paragraph">
+You've 9999 pounds (the max) -use these when you've to select city- (*)
+</div>
+<div class="paragraph">
+<code>
+<div>POKE <a href="../asm/35880.html#35893">35893</a>,153</div>
+<div>POKE <a href="../asm/35880.html#35893">35894</a>,153</div>
+</code>
+</div>
+<div class="paragraph">
+You've 9999 pounds (the max) -these pokes ONLY work while you're playing a city.
+<code>
+<div>POKE <a href="../asm/61431.html">61431</a>,153</div>
+<div>POKE <a href="../asm/61431.html">61432</a>,153</div>
+</code>
+</div>
+</div>
+<div><span id="altdontspendmoney"></span></div>
+<div class="box box-1">
+<div class="box-title">Don't Spend Money (alt)</div>
+<div class="paragraph">
+<code>
+<div>POKE <a href="../asm/38654.html#38656">38656</a>,26</div>
+<div>POKE <a href="../asm/38654.html#38657">38657</a>,0</div>
+</code>
+</div>
+<div class="paragraph">
+This alters the following line:
+<table>
+<tbody>
+<tr>
+<td class="address-1"><a href="../asm/38654.html#38656">38656</a></td>
+<td class="instruction">SUB <span class="register">A</span>,(<span class="register">HL</span>)</td>
+</tr>
+<tr>
+<td class="address-1"><a href="../asm/38654.html#38657">38657</a></td>
+<td class="instruction">DAA</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="paragraph">
+To just set <span class="register">A</span> to the current value in the wallet (so it doesn't ever
+decrease):
+<table>
+<tbody>
+<tr>
+<td class="address-1"><a href="../asm/38654.html#38656">38656</a></td>
+<td class="instruction">LD <span class="register">A</span>,(<span class="register">DE</span>)</td>
+</tr>
+<tr>
+<td class="address-1"><a href="../asm/38654.html#38657">38657</a></td>
+<td class="instruction">NOP</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div><span id="nocash"></span></div>
+<div class="box box-2">
+<div class="box-title">Game Doesn't End When Cash is £0000</div>
+<div class="paragraph">
+<code>
+<div>POKE <a href="../asm/34876.html#34965">34966</a>,0</div>
+<div>POKE <a href="../asm/35151.html#35171">35172</a>,98</div>
+</code>
+</div>
+</div>
+<div><span id="bull"></span></div>
+<div class="box box-1">
+<div class="box-title">The Bull Doesn't Kill</div>
+<div class="paragraph">
+<code>POKE <a href="../asm/46780.html#46857">46857</a>,58</code>
+</div>
+<div class="paragraph">
+This alters the following line:
+<table>
+<tbody>
+<tr>
+<td class="address-1"><a href="../asm/46780.html#46855">46855</a></td>
+<td class="instruction">LD <span class="register">A</span>,8</td>
+<td class="comment-1" rowspan="2">Write 00001000 ("Hit By The Bull") to *<a href="../asm/61434.html">GameState_1</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><a href="../asm/46780.html#46857">46857</a></td>
+<td class="instruction">LD (<a href="../asm/61434.html">61434</a>),<span class="register">A</span></td>
+</tr>
+<tr>
+<td class="address-1"><a href="../asm/46780.html#46860">46860</a></td>
+<td class="instruction">JP <a href="../asm/39206.html">39206</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="../asm/39206.html">39206</a>.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="paragraph">
+To:
+<table>
+<tbody>
+<tr>
+<td class="address-1"><a href="../asm/46780.html#46857">46857</a></td>
+<td class="instruction">LD <span class="register">A</span>,(<a href="../asm/61434.html">61434</a>)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="paragraph">
+So the game flag for setting that the player has been struck by the bull is
+never set.
+</div>
+</div>
+<div><span id="moscow"></span></div>
+<div class="box box-2">
+<div class="box-title">Not Deported From Moscow</div>
+<div class="paragraph">
+<code>POKE <a href="../asm/51236.html#51238">51238</a>,24</code>
+</div>
+<div class="paragraph">
+This alters the following line:
+<table>
+<tbody>
+<tr>
+<td class="address-1"><a href="../asm/51236.html">51236</a></td>
+<td class="instruction">CP 64</td>
+</tr>
+<tr>
+<td class="address-1"><a href="../asm/51236.html#51238">51238</a></td>
+<td class="instruction">JR NZ,<a href="../asm/51236.html#51250">51250</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="paragraph">
+To jump regardless of the result of the comparison:
+<table>
+<tbody>
+<tr>
+<td class="address-1"><a href="../asm/51236.html">51236</a></td>
+<td class="instruction">CP 64</td>
+</tr>
+<tr>
+<td class="address-1"><a href="../asm/51236.html#51238">51238</a></td>
+<td class="instruction">JR <a href="../asm/51236.html#51250">51250</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1984 New Generation Software &copy; 2024 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.3.</div>
+<div class="repository">Link to <a href="https://github.com/pobtastic/travelwithtrashman/">Source code</a>.</div>
+<div><a href="reference/pokes.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

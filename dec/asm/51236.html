@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Travel With Trashman: Routine at 51236</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="51126.html">51126</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#51236">Map</a></td>
+<td class="next">
+Next: <a href="51305.html">51305</a>
+</td>
+</tr>
+</table>
+<div class="description">51236: Handler: Moscow2</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="51126.html">Handler_Moscow</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="51236"></span>
+<div class="comments">
+<div class="paragraph">
+See <a href="../reference/pokes.html#moscow">You Are Not Deported From Moscow</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Handler_Moscow2</td>
+<td class="address-2"><span id="51236"></span>51236</td>
+<td class="instruction">CP 64</td>
+<td class="comment-1" rowspan="2">Jump to <a href="51236.html#51250">Handler_Moscow2_0</a> if <span class="register">A</span> is not equal to 64.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51238"></span>51238</td>
+<td class="instruction">JR NZ,<a href="51236.html#51250">Handler_Moscow2_0</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51240"></span>51240</td>
+<td class="instruction">LD HL,61434</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="61434.html">GameState_1</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51243"></span>51243</td>
+<td class="instruction">SET 2,(HL)</td>
+<td class="comment-1" rowspan="1">Set bit 2 of *<span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51245"></span>51245</td>
+<td class="instruction">LD SP,(39342)</td>
+<td class="comment-1" rowspan="1"><span class="register">SP</span>=*39342.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51249"></span>51249</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="asm-label">Handler_Moscow2_0</td>
+<td class="address-2"><span id="51250"></span>51250</td>
+<td class="instruction">CALL <a href="38871.html">38871</a></td>
+<td class="comment-1" rowspan="1">Call <a href="38871.html">38871</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51253"></span>51253</td>
+<td class="instruction">LD A,(IX+6)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=*<span class="register">IX</span>+6.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51256"></span>51256</td>
+<td class="instruction">CP C</td>
+<td class="comment-1" rowspan="1">Compare <span class="register">A</span> with <span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51257"></span>51257</td>
+<td class="instruction">LD A,C</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=<span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51258"></span>51258</td>
+<td class="instruction">JR NZ,<a href="51236.html#51261">Handler_Moscow2_1</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="51236.html#51261">Handler_Moscow2_1</a> if <span class="register">A</span> is not zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51260"></span>51260</td>
+<td class="instruction">LD A,B</td>
+<td class="comment-1" rowspan="2">Write <span class="register">B</span> to *<span class="register">IX</span>+6.</td>
+</tr>
+<tr>
+<td class="asm-label">Handler_Moscow2_1</td>
+<td class="address-2"><span id="51261"></span>51261</td>
+<td class="instruction">LD (IX+6),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51264"></span>51264</td>
+<td class="instruction">CALL <a href="51236.html#51270">Handler_Moscow2_2</a></td>
+<td class="comment-1" rowspan="1">Call <a href="51236.html#51270">Handler_Moscow2_2</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51267"></span>51267</td>
+<td class="instruction">JP <a href="39206.html">39206</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="39206.html">39206</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="51270"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="51126.html">Handler_Moscow</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Handler_Moscow2_2</td>
+<td class="address-2"><span id="51270"></span>51270</td>
+<td class="instruction">CALL <a href="38425.html">38425</a></td>
+<td class="comment-1" rowspan="1">Call <a href="38425.html">38425</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51273"></span>51273</td>
+<td class="instruction">AND %00000011</td>
+<td class="comment-1" rowspan="1">Keep only bits 0-1.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51275"></span>51275</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="1">Increment <span class="register">A</span> by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51276"></span>51276</td>
+<td class="instruction">LD IX,(39395)</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>=*<a href="39364.html#39395">39395</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51280"></span>51280</td>
+<td class="instruction">LD (IX+7),A</td>
+<td class="comment-1" rowspan="1">Write <span class="register">A</span> to *<span class="register">IX</span>+7.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51283"></span>51283</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="51284"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="51126.html">Handler_Moscow</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">Handler_Moscow2_3</td>
+<td class="address-2"><span id="51284"></span>51284</td>
+<td class="instruction">LD A,0</td>
+<td class="comment-1" rowspan="2">Write 0 to *<a href="39273.html#39338">39338</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51286"></span>51286</td>
+<td class="instruction">LD (39338),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51289"></span>51289</td>
+<td class="instruction">CALL <a href="38871.html#38926">38926</a></td>
+<td class="comment-1" rowspan="1">Call <a href="38871.html#38926">38926</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51292"></span>51292</td>
+<td class="instruction">CALL <a href="38871.html#39083">39083</a></td>
+<td class="comment-1" rowspan="1">Call <a href="38871.html#39083">39083</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51295"></span>51295</td>
+<td class="instruction">LD B,120</td>
+<td class="comment-1" rowspan="1"><span class="register">B</span>=120.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51297"></span>51297</td>
+<td class="instruction">LD A,C</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=<span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51298"></span>51298</td>
+<td class="instruction">OR %11000000</td>
+<td class="comment-1" rowspan="1">Set bits 6-7.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51300"></span>51300</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-1" rowspan="1"><span class="register">C</span>=<span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51301"></span>51301</td>
+<td class="instruction">CALL <a href="39154.html">39154</a></td>
+<td class="comment-1" rowspan="1">Call <a href="39154.html">39154</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="51304"></span>51304</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="51126.html">51126</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#51236">Map</a></td>
+<td class="next">
+Next: <a href="51305.html">51305</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1984 New Generation Software &copy; 2024 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.3.</div>
+<div class="repository">Link to <a href="https://github.com/pobtastic/travelwithtrashman/">Source code</a>.</div>
+<div><a href="asm/51236.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

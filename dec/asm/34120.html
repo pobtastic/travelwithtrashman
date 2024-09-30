@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Travel With Trashman: Routine at 34120</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="34073.html">34073</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#34120">Map</a></td>
+<td class="next">
+Next: <a href="34254.html">34254</a>
+</td>
+</tr>
+</table>
+<div class="description">34120: Player Name Input</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="34005.html">Select1Or2PlayerGame</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="34120"></span>
+<div class="comments">
+<div class="paragraph">
+Prints "Name....(&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;)".
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">PlayerNameInput</td>
+<td class="address-2"><span id="34120"></span>34120</td>
+<td class="instruction">LD HL,35816</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="35779.html#35816">Messaging_Name</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34123"></span>34123</td>
+<td class="instruction">LD DE,20616</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=20616 (screen buffer location).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34126"></span>34126</td>
+<td class="instruction">CALL <a href="35389.html">Print_String</a></td>
+<td class="comment-1" rowspan="1">Call <a href="35389.html">Print_String</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="34129"></span>
+<div class="comments">
+<div class="paragraph">
+Prints the name of the current player.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34129"></span>34129</td>
+<td class="instruction">LD HL,(61426)</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=*<a href="61426.html">Pointer_ActivePlayer</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34132"></span>34132</td>
+<td class="instruction">LD DE,20625</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=20625 (screen buffer location).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34135"></span>34135</td>
+<td class="instruction">CALL <a href="35389.html">Print_String</a></td>
+<td class="comment-1" rowspan="1">Call <a href="35389.html">Print_String</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="34138"></span>
+<div class="comments">
+<div class="paragraph">
+Draw an underline to show the "cursor".
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34138"></span>34138</td>
+<td class="instruction">LD HL,20657</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=20657 (screen buffer location).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34141"></span>34141</td>
+<td class="instruction">LD (HL),255</td>
+<td class="comment-1" rowspan="1">Write 255 to *<span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34143"></span>34143</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="1">Stash the cursor position on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34144"></span>34144</td>
+<td class="instruction">LD HL,(61426)</td>
+<td class="comment-1" rowspan="2">Stash *<a href="61426.html">Pointer_ActivePlayer</a> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34147"></span>34147</td>
+<td class="instruction">PUSH HL</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34148"></span>34148</td>
+<td class="instruction">CALL <a href="33913.html">PauseCheck</a></td>
+<td class="comment-1" rowspan="1">Call <a href="33913.html">PauseCheck</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">PlayerNameInput_Fire</td>
+<td class="address-2"><span id="34151"></span>34151</td>
+<td class="instruction">LD B,10</td>
+<td class="comment-1" rowspan="1"><span class="register">B</span>=10.</td>
+</tr>
+<tr>
+<td class="asm-label">PlayerNameInput_Loop</td>
+<td class="address-2"><span id="34153"></span>34153</td>
+<td class="instruction">CALL <a href="32853.html">32853</a></td>
+<td class="comment-1" rowspan="1">Call <a href="32853.html">32853</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34156"></span>34156</td>
+<td class="instruction">CALL <a href="34279.html">Handler_Controls</a></td>
+<td class="comment-1" rowspan="1">Call <a href="34279.html">Handler_Controls</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34159"></span>34159</td>
+<td class="instruction">LD A,E</td>
+<td class="comment-1" rowspan="3">Jump to <a href="34120.html#34199">PlayerNameInput_Up</a> if <span class="register">E</span> is equal to 24.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34160"></span>34160</td>
+<td class="instruction">CP 24</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34162"></span>34162</td>
+<td class="instruction">JR Z,<a href="34120.html#34199">PlayerNameInput_Up</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34164"></span>34164</td>
+<td class="instruction">CP 8</td>
+<td class="comment-1" rowspan="2">Jump to <a href="34120.html#34219">PlayerNameInput_Down</a> if <span class="register">E</span> is equal to 8.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34166"></span>34166</td>
+<td class="instruction">JR Z,<a href="34120.html#34219">PlayerNameInput_Down</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34168"></span>34168</td>
+<td class="instruction">CP 32</td>
+<td class="comment-1" rowspan="2">Jump to <a href="34120.html#34151">PlayerNameInput_Fire</a> if <span class="register">E</span> is not equal to 32.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34170"></span>34170</td>
+<td class="instruction">JR NZ,<a href="34120.html#34151">PlayerNameInput_Fire</a></td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34172"></span>34172</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="2">Restore <span class="register">HL</span> and <span class="register">DE</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34173"></span>34173</td>
+<td class="instruction">POP DE</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34174"></span>34174</td>
+<td class="instruction">LD A,0</td>
+<td class="comment-1" rowspan="2">Write 0 to *<span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34176"></span>34176</td>
+<td class="instruction">LD (DE),A</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34177"></span>34177</td>
+<td class="instruction">BIT 7,(HL)</td>
+<td class="comment-1" rowspan="2">Return if bit 7 of *<span class="register">HL</span> is set.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34179"></span>34179</td>
+<td class="instruction">RET NZ</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34180"></span>34180</td>
+<td class="instruction">INC DE</td>
+<td class="comment-1" rowspan="1">Increment <span class="register">DE</span> by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34181"></span>34181</td>
+<td class="instruction">CPL</td>
+<td class="comment-1" rowspan="1">Invert the bits in <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34182"></span>34182</td>
+<td class="instruction">LD (DE),A</td>
+<td class="comment-1" rowspan="1">Write <span class="register">A</span> to *<span class="register">DE</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34183"></span>34183</td>
+<td class="instruction">PUSH DE</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">DE</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34184"></span>34184</td>
+<td class="instruction">INC HL</td>
+<td class="comment-1" rowspan="1">Increment <span class="register">HL</span> by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34185"></span>34185</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">HL</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34186"></span>34186</td>
+<td class="instruction">LD HL,(61426)</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=*<a href="61426.html">Pointer_ActivePlayer</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34189"></span>34189</td>
+<td class="instruction">LD DE,20625</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=20625 (screen buffer location).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34192"></span>34192</td>
+<td class="instruction">CALL <a href="35389.html">Print_String</a></td>
+<td class="comment-1" rowspan="1">Call <a href="35389.html">Print_String</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34195"></span>34195</td>
+<td class="instruction">LD B,20</td>
+<td class="comment-1" rowspan="1"><span class="register">B</span>=20.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34197"></span>34197</td>
+<td class="instruction">JR <a href="34120.html#34153">PlayerNameInput_Loop</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="34120.html#34153">PlayerNameInput_Loop</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">PlayerNameInput_Up</td>
+<td class="address-2"><span id="34199"></span>34199</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">HL</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34200"></span>34200</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=*<span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34201"></span>34201</td>
+<td class="instruction">AND %01111111</td>
+<td class="comment-1" rowspan="1">Keep only bits 0-6.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34203"></span>34203</td>
+<td class="instruction">CP 32</td>
+<td class="comment-1" rowspan="1">Compare <span class="register">A</span> with 32.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34205"></span>34205</td>
+<td class="instruction">LD C,65</td>
+<td class="comment-1" rowspan="1"><span class="register">C</span>=65.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34207"></span>34207</td>
+<td class="instruction">JR Z,<a href="34120.html#34237">PlayerNameInput_0</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="34120.html#34237">PlayerNameInput_0</a> if <span class="register">A</span> is zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34209"></span>34209</td>
+<td class="instruction">CP 90</td>
+<td class="comment-1" rowspan="1">Compare <span class="register">A</span> with 90.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34211"></span>34211</td>
+<td class="instruction">LD C,32</td>
+<td class="comment-1" rowspan="1"><span class="register">C</span>=32.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34213"></span>34213</td>
+<td class="instruction">JR Z,<a href="34120.html#34237">PlayerNameInput_0</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="34120.html#34237">PlayerNameInput_0</a> if <span class="register">A</span> is zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34215"></span>34215</td>
+<td class="instruction">INC A</td>
+<td class="comment-1" rowspan="1">Increment <span class="register">A</span> by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34216"></span>34216</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-1" rowspan="1"><span class="register">C</span>=<span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34217"></span>34217</td>
+<td class="instruction">JR <a href="34120.html#34237">PlayerNameInput_0</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="34120.html#34237">PlayerNameInput_0</a>.</td>
+</tr>
+<tr>
+<td class="asm-label">PlayerNameInput_Down</td>
+<td class="address-2"><span id="34219"></span>34219</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">HL</span> from the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34220"></span>34220</td>
+<td class="instruction">LD A,(HL)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=*<span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34221"></span>34221</td>
+<td class="instruction">AND %01111111</td>
+<td class="comment-1" rowspan="1">Keep only bits 0-6.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34223"></span>34223</td>
+<td class="instruction">CP 65</td>
+<td class="comment-1" rowspan="1">Compare <span class="register">A</span> with 65.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34225"></span>34225</td>
+<td class="instruction">LD C,32</td>
+<td class="comment-1" rowspan="1"><span class="register">C</span>=32.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34227"></span>34227</td>
+<td class="instruction">JR Z,<a href="34120.html#34237">PlayerNameInput_0</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="34120.html#34237">PlayerNameInput_0</a> if <span class="register">A</span> is zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34229"></span>34229</td>
+<td class="instruction">CP 32</td>
+<td class="comment-1" rowspan="1">Compare <span class="register">A</span> with 32.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34231"></span>34231</td>
+<td class="instruction">LD C,90</td>
+<td class="comment-1" rowspan="1"><span class="register">C</span>=90.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34233"></span>34233</td>
+<td class="instruction">JR Z,<a href="34120.html#34237">PlayerNameInput_0</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="34120.html#34237">PlayerNameInput_0</a> if <span class="register">A</span> is zero.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34235"></span>34235</td>
+<td class="instruction">DEC A</td>
+<td class="comment-1" rowspan="1">Decrease <span class="register">A</span> by one.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34236"></span>34236</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-1" rowspan="1"><span class="register">C</span>=<span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="asm-label">PlayerNameInput_0</td>
+<td class="address-2"><span id="34237"></span>34237</td>
+<td class="instruction">LD A,128</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=128.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34239"></span>34239</td>
+<td class="instruction">AND (HL)</td>
+<td class="comment-1" rowspan="1">Merge the bits from *<span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34240"></span>34240</td>
+<td class="instruction">OR C</td>
+<td class="comment-1" rowspan="1">Set the bits from <span class="register">C</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34241"></span>34241</td>
+<td class="instruction">LD (HL),A</td>
+<td class="comment-1" rowspan="1">Write <span class="register">A</span> to *<span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34242"></span>34242</td>
+<td class="instruction">PUSH HL</td>
+<td class="comment-1" rowspan="1">Stash <span class="register">HL</span> on the stack.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34243"></span>34243</td>
+<td class="instruction">LD HL,(61426)</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=*<a href="61426.html">Pointer_ActivePlayer</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34246"></span>34246</td>
+<td class="instruction">LD DE,20625</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=20625 (screen buffer location).</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34249"></span>34249</td>
+<td class="instruction">CALL <a href="35389.html">Print_String</a></td>
+<td class="comment-1" rowspan="1">Call <a href="35389.html">Print_String</a>.</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
+<td class="address-1"><span id="34252"></span>34252</td>
+<td class="instruction">JR <a href="34120.html#34151">PlayerNameInput_Fire</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="34120.html#34151">PlayerNameInput_Fire</a>.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="34073.html">34073</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#34120">Map</a></td>
+<td class="next">
+Next: <a href="34254.html">34254</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1984 New Generation Software &copy; 2024 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.3.</div>
+<div class="repository">Link to <a href="https://github.com/pobtastic/travelwithtrashman/">Source code</a>.</div>
+<div><a href="asm/34120.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>

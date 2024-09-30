@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Travel With Trashman: Routine at 92C5</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="9270.html">9270</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#92c5">Map</a></td>
+<td class="next">
+Next: <a href="9375.html">9375</a>
+</td>
+</tr>
+</table>
+<div class="description">92C5: Routine at 92C5</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="9270.html">9270</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="92c5"></span>92C5</td>
+<td class="instruction">LD A,($7207)</td>
+<td class="comment-1" rowspan="3">Return if *7207 is not equal to 00.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="92c8"></span>92C8</td>
+<td class="instruction">CP $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="92ca"></span>92CA</td>
+<td class="instruction">RET NZ</td>
+</tr>
+<tr>
+<td class="address-1"><span id="92cb"></span>92CB</td>
+<td class="instruction">LD A,($99EE)</td>
+<td class="comment-1" rowspan="2">Write *<a href="99C4.html#99ee">99EE</a> to *<a href="9969.html#99aa">99AA</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="92ce"></span>92CE</td>
+<td class="instruction">LD ($99AA),A</td>
+</tr>
+<tr>
+<td class="address-1"><span id="92d1"></span>92D1</td>
+<td class="instruction">LD HL,$7200</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="6000.html#7200">7200</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="92d4"></span>92D4</td>
+<td class="instruction">CALL <a href="9439.html">$9439</a></td>
+<td class="comment-1" rowspan="1">Call <a href="9439.html">9439</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="92d7"></span>92D7</td>
+<td class="instruction">LD IX,$7200</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>=<a href="6000.html#7200">7200</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="92db"></span>92DB</td>
+<td class="instruction">BIT 6,(IX+$06)</td>
+<td class="comment-1" rowspan="1">Test bit 6 of *<span class="register">IX</span>+06.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="92df"></span>92DF</td>
+<td class="instruction">JR NZ,<a href="92C5.html#931e">$931E</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="92C5.html#931e">931E</a> if <span class="register">A</span> is not zero.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="92e1"></span>92E1</td>
+<td class="instruction">LD A,($7238)</td>
+<td class="comment-1" rowspan="3">Jump to <a href="92C5.html#9303">9303</a> if *7238 is equal to 00.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="92e4"></span>92E4</td>
+<td class="instruction">CP $00</td>
+</tr>
+<tr>
+<td class="address-1"><span id="92e6"></span>92E6</td>
+<td class="instruction">JR Z,<a href="92C5.html#9303">$9303</a></td>
+</tr>
+<tr>
+<td class="address-1"><span id="92e8"></span>92E8</td>
+<td class="instruction">DEC A</td>
+<td class="comment-1" rowspan="1">Decrease <span class="register">A</span> by one.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="92e9"></span>92E9</td>
+<td class="instruction">LD ($7238),A</td>
+<td class="comment-1" rowspan="1">Write <span class="register">A</span> to *7238.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="92ec"></span>92EC</td>
+<td class="instruction">BIT 2,A</td>
+<td class="comment-1" rowspan="1">Test bit 2 of <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="92ee"></span>92EE</td>
+<td class="instruction">JR NZ,<a href="92C5.html#9303">$9303</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="92C5.html#9303">9303</a> if <span class="register">A</span> is not zero.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="92f0"></span>92F0</td>
+<td class="instruction">AND %00000011</td>
+<td class="comment-1" rowspan="1">Keep only bits 0-1.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="92f2"></span>92F2</td>
+<td class="instruction">CP $03</td>
+<td class="comment-1" rowspan="1">Compare <span class="register">A</span> with 03.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="92f4"></span>92F4</td>
+<td class="instruction">LD A,($7206)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=*7206.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="92f7"></span>92F7</td>
+<td class="instruction">CALL Z,<a href="9619.html">$9619</a></td>
+<td class="comment-1" rowspan="1">Call <a href="9619.html">9619</a> zero.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="92fa"></span>92FA</td>
+<td class="instruction">AND %00011000</td>
+<td class="comment-1" rowspan="1">Keep only bits 3-4.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="92fc"></span>92FC</td>
+<td class="instruction">LD E,A</td>
+<td class="comment-1" rowspan="1"><span class="register">E</span>=<span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="92fd"></span>92FD</td>
+<td class="instruction">LD IX,$7200</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>=<a href="6000.html#7200">7200</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9301"></span>9301</td>
+<td class="instruction">JR <a href="92C5.html#9309">$9309</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="92C5.html#9309">9309</a>.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="9303"></span>9303</td>
+<td class="instruction">CALL <a href="92C5.html#936c">$936C</a></td>
+<td class="comment-1" rowspan="1">Call <a href="92C5.html#936c">936C</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9306"></span>9306</td>
+<td class="instruction">CP $20</td>
+<td class="comment-1" rowspan="2">Return if <span class="register">A</span> is equal to 20.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9308"></span>9308</td>
+<td class="instruction">RET Z</td>
+</tr>
+<tr>
+<td class="address-2"><span id="9309"></span>9309</td>
+<td class="instruction">LD A,($7206)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=*7206.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="930c"></span>930C</td>
+<td class="instruction">AND %00011000</td>
+<td class="comment-1" rowspan="1">Keep only bits 3-4.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="930e"></span>930E</td>
+<td class="instruction">CP E</td>
+<td class="comment-1" rowspan="2">Jump to <a href="92C5.html#9316">9316</a> if <span class="register">A</span> is equal to <span class="register">E</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="930f"></span>930F</td>
+<td class="instruction">JR Z,<a href="92C5.html#9316">$9316</a></td>
+</tr>
+<tr>
+<td class="address-2"><span id="9311"></span>9311</td>
+<td class="instruction">LD (IX+$06),E</td>
+<td class="comment-1" rowspan="1">Write <span class="register">E</span> to *<span class="register">IX</span>+06.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9314"></span>9314</td>
+<td class="instruction">JR <a href="92C5.html#933b">$933B</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="92C5.html#933b">933B</a>.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="9316"></span>9316</td>
+<td class="instruction">BIT 5,(IX+$06)</td>
+<td class="comment-1" rowspan="1">Test bit 5 of *<span class="register">IX</span>+06.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="931a"></span>931A</td>
+<td class="instruction">JR Z,<a href="92C5.html#9324">$9324</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="92C5.html#9324">9324</a> if <span class="register">A</span> is zero.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="931c"></span>931C</td>
+<td class="instruction">JR <a href="92C5.html#9311">$9311</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="92C5.html#9311">9311</a>.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="931e"></span>931E</td>
+<td class="instruction">RES 6,(IX+$06)</td>
+<td class="comment-1" rowspan="1">Reset bit 6 of *<span class="register">IX</span>+06.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9322"></span>9322</td>
+<td class="instruction">JR <a href="92C5.html#933b">$933B</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="92C5.html#933b">933B</a>.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="9324"></span>9324</td>
+<td class="instruction">LD HL,($7201)</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=*7201.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9327"></span>9327</td>
+<td class="instruction">CALL <a href="9375.html">$9375</a></td>
+<td class="comment-1" rowspan="1">Call <a href="9375.html">9375</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="932a"></span>932A</td>
+<td class="instruction">BIT 5,A</td>
+<td class="comment-1" rowspan="1">Test bit 5 of <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="932c"></span>932C</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-1" rowspan="1">Return if {} is not zero.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="932d"></span>932D</td>
+<td class="instruction">BIT 4,A</td>
+<td class="comment-1" rowspan="1">Test bit 4 of <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="932f"></span>932F</td>
+<td class="instruction">JR NZ,<a href="92C5.html#935c">$935C</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="92C5.html#935c">935C</a> if <span class="register">A</span> is not zero.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9331"></span>9331</td>
+<td class="instruction">BIT 0,A</td>
+<td class="comment-1" rowspan="1">Test bit 0 of <span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9333"></span>9333</td>
+<td class="instruction">RET NZ</td>
+<td class="comment-1" rowspan="1">Return if {} is not zero.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9334"></span>9334</td>
+<td class="instruction">LD ($7204),HL</td>
+<td class="comment-1" rowspan="1">Write <span class="register">HL</span> to *7204.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9337"></span>9337</td>
+<td class="instruction">SET 5,(IX+$06)</td>
+<td class="comment-1" rowspan="1">Set bit 5 of *<span class="register">IX</span>+06.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="933b"></span>933B</td>
+<td class="instruction">LD IX,$7200</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>=<a href="6000.html#7200">7200</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="933f"></span>933F</td>
+<td class="instruction">LD BC,($99BA)</td>
+<td class="comment-1" rowspan="1"><span class="register">BC</span>=*<a href="9969.html#99ba">99BA</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9343"></span>9343</td>
+<td class="instruction">CALL <a href="9403.html">$9403</a></td>
+<td class="comment-1" rowspan="1">Call <a href="9403.html">9403</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="9346"></span>
+<div class="comments">
+<div class="paragraph">
+This entry point is used by the routine at <a href="9270.html">9270</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="9346"></span>9346</td>
+<td class="instruction">LD A,($7206)</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=*7206.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9349"></span>9349</td>
+<td class="instruction">LD IX,($99BA)</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>=<a href="9969.html#99ba">99BA</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="934d"></span>934D</td>
+<td class="instruction">CALL <a href="95C6.html">$95C6</a></td>
+<td class="comment-1" rowspan="1">Call <a href="95C6.html">95C6</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9350"></span>9350</td>
+<td class="instruction">LD IX,$7200</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>=<a href="6000.html#7200">7200</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9354"></span>9354</td>
+<td class="instruction">LD BC,($99BA)</td>
+<td class="comment-1" rowspan="1"><span class="register">BC</span>=*<a href="9969.html#99ba">99BA</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9358"></span>9358</td>
+<td class="instruction">CALL <a href="941E.html">$941E</a></td>
+<td class="comment-1" rowspan="1">Call <a href="941E.html">941E</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="935b"></span>935B</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="935c"></span>935C</td>
+<td class="instruction">SET 6,(IX+$06)</td>
+<td class="comment-1" rowspan="1">Set bit 6 of *<span class="register">IX</span>+06.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9360"></span>9360</td>
+<td class="instruction">CALL <a href="939D.html">$939D</a></td>
+<td class="comment-1" rowspan="1">Call <a href="939D.html">939D</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9363"></span>9363</td>
+<td class="instruction">LD DE,$7208</td>
+<td class="comment-1" rowspan="2">Write 7208 to *<a href="9969.html#99b8">99B8</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9366"></span>9366</td>
+<td class="instruction">LD ($99B8),DE</td>
+</tr>
+<tr>
+<td class="address-1"><span id="936a"></span>936A</td>
+<td class="instruction">JR <a href="92C5.html#933b">$933B</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="92C5.html#933b">933B</a>.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="936c"></span>936C</td>
+<td class="instruction">CALL <a href="85E7.html">Handler_Controls</a></td>
+<td class="comment-1" rowspan="1">Call <a href="85E7.html">Handler_Controls</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="936f"></span>936F</td>
+<td class="instruction">LD A,E</td>
+<td class="comment-1" rowspan="3">Return if <span class="register">E</span> is not equal to 28.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9370"></span>9370</td>
+<td class="instruction">CP $28</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9372"></span>9372</td>
+<td class="instruction">RET NZ</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9373"></span>9373</td>
+<td class="instruction">POP HL</td>
+<td class="comment-1" rowspan="1">Restore <span class="register">HL</span> from the stack.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="9374"></span>9374</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="9270.html">9270</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#92c5">Map</a></td>
+<td class="next">
+Next: <a href="9375.html">9375</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1984 New Generation Software &copy; 2024 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.3.</div>
+<div class="repository">Link to <a href="https://github.com/pobtastic/travelwithtrashman/">Source code</a>.</div>
+<div><a href="asm/92C5.html">Switch to decimal</a>.</div>
+</footer>
+</body>
+</html>

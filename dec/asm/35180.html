@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Travel With Trashman: Routine at 35180</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../skoolkit.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-dark.css" />
+<link rel="stylesheet" type="text/css" href="../skoolkit-wide.css" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-75RERFCHBG"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-75RERFCHBG');
+</script>
+</head>
+<body class="Asm-c">
+<table class="header">
+<tr>
+<td class="logo"><a href="../index.html"><img alt="logo" src="../images/logo.png" /></a></td>
+<td class="page-header">Routines</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="35151.html">35151</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#35180">Map</a></td>
+<td class="next">
+Next: <a href="35228.html">35228</a>
+</td>
+</tr>
+</table>
+<div class="description">35180: Routine at 896C</div>
+<table class="disassembly">
+<tr>
+<td class="routine-comment" colspan="5">
+<div class="details">
+<div class="paragraph">
+Used by the routine at <a href="34633.html">Handler_LocationChoice</a>.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35180"></span>35180</td>
+<td class="instruction">LD HL,(30725)</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=*<a href="30725.html">CurrentLocationCoOrdinates</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35183"></span>35183</td>
+<td class="instruction">LD DE,(30727)</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=*<a href="30727.html">30727</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35187"></span>35187</td>
+<td class="instruction">LD A,L</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=<span class="register">L</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35188"></span>35188</td>
+<td class="instruction">SUB E</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>-=<span class="register">E</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35189"></span>35189</td>
+<td class="instruction">LD E,255</td>
+<td class="comment-1" rowspan="1"><span class="register">E</span>=255.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35191"></span>35191</td>
+<td class="instruction">JP P,<a href="35180.html#35198">35198</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="35180.html#35198">35198</a> P.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35194"></span>35194</td>
+<td class="instruction">NEG</td>
+<td class="comment-1" rowspan="1">NEG.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35196"></span>35196</td>
+<td class="instruction">LD E,1</td>
+<td class="comment-1" rowspan="1"><span class="register">E</span>=1.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35198"></span>35198</td>
+<td class="instruction">LD C,A</td>
+<td class="comment-1" rowspan="1"><span class="register">C</span>=<span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35199"></span>35199</td>
+<td class="instruction">LD A,H</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=<span class="register">H</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35200"></span>35200</td>
+<td class="instruction">SUB D</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>-=<span class="register">D</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35201"></span>35201</td>
+<td class="instruction">LD D,255</td>
+<td class="comment-1" rowspan="1"><span class="register">D</span>=255.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35203"></span>35203</td>
+<td class="instruction">JR NC,<a href="35180.html#35209">35209</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="35180.html#35209">35209</a> if <span class="register">HL</span> is higher.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35205"></span>35205</td>
+<td class="instruction">NEG</td>
+<td class="comment-1" rowspan="1">NEG.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35207"></span>35207</td>
+<td class="instruction">LD D,1</td>
+<td class="comment-1" rowspan="1"><span class="register">D</span>=1.</td>
+</tr>
+<tr>
+<td class="address-2"><span id="35209"></span>35209</td>
+<td class="instruction">LD B,A</td>
+<td class="comment-1" rowspan="1"><span class="register">B</span>=<span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35210"></span>35210</td>
+<td class="instruction">LD (30721),BC</td>
+<td class="comment-1" rowspan="1">Write <span class="register">BC</span> to *<a href="30721.html">30721</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35214"></span>35214</td>
+<td class="instruction">LD (30729),BC</td>
+<td class="comment-1" rowspan="1">Write <span class="register">BC</span> to *<a href="30729.html">30729</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35218"></span>35218</td>
+<td class="instruction">LD (30723),DE</td>
+<td class="comment-1" rowspan="1">Write <span class="register">DE</span> to *<a href="30723.html">30723</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35222"></span>35222</td>
+<td class="instruction">LD HL,61435</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="61435.html">GameState_2</a>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35225"></span>35225</td>
+<td class="instruction">SET 1,(HL)</td>
+<td class="comment-1" rowspan="1">Set bit 1 of *<span class="register">HL</span>.</td>
+</tr>
+<tr>
+<td class="address-1"><span id="35227"></span>35227</td>
+<td class="instruction">RET</td>
+<td class="comment-1" rowspan="1">Return.</td>
+</tr>
+</table>
+<table class="asm-navigation">
+<tr>
+<td class="prev">
+Prev: <a href="35151.html">35151</a>
+</td>
+<td class="up">Up: <a href="../maps/all.html#35180">Map</a></td>
+<td class="next">
+Next: <a href="35228.html">35228</a>
+</td>
+</tr>
+</table>
+<footer>
+<div class="release"></div>
+<div class="copyright">&copy; 1984 New Generation Software &copy; 2024 ArcadeGeek LTD.</div>
+<div class="created">Created using <a href="https://skoolkit.ca">SkoolKit</a> 9.3.</div>
+<div class="repository">Link to <a href="https://github.com/pobtastic/travelwithtrashman/">Source code</a>.</div>
+<div><a href="asm/35180.html">Switch to hexadecimal</a>.</div>
+</footer>
+</body>
+</html>
