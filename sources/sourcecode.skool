@@ -1,0 +1,371 @@
+; Source Code Remnants
+t$7800 DEFM " FFFFH"        ; "#STR(#PC,$04,$06)".
+ $7806 DEFB $0D             ; Newline.
+ $7807 DEFM "DEFW DFFFH"    ; "#STR(#PC,$04,$0A)".
+ $7811 DEFB $0D             ; Newline.
+ $7812 DEFM "DEFW FFFFH;6E" ; "#STR(#PC,$04,$0D)".
+ $781F DEFB $0D             ; Newline.
+ $7820 DEFM "DEFW FCFEH"    ; "#STR(#PC,$04,$0A)".
+ $782A DEFB $0D             ; Newline.
+ $782B DEFM "DEFW C0FCH"    ; "#STR(#PC,$04,$0A)".
+ $7835 DEFB $0D             ; Newline.
+ $7836 DEFM "DEFW C0C0H"    ; "#STR(#PC,$04,$0A)".
+ $7840 DEFB $0D             ; Newline.
+ $7841 DEFM "DEFW 20H;6F"   ; "#STR(#PC,$04,$0B)".
+ $784C DEFB $0D             ; Newline.
+ $784D DEFM "DEFW 1C10H"    ; "#STR(#PC,$04,$0A)".
+ $7857 DEFB $0D             ; Newline.
+ $7858 DEFM "DEFW 83CH"     ; "#STR(#PC,$04,$09)".
+ $7861 DEFB $0D             ; Newline.
+ $7862 DEFM "DEFW 3020H"    ; "#STR(#PC,$04,$0A)".
+ $786C DEFB $0D             ; Newline.
+ $786D DEFM "DEFW FFFFH;70" ; "#STR(#PC,$04,$0D)".
+ $787A DEFB $0D             ; Newline.
+ $787B DEFM "DEFW 7FFFH"    ; "#STR(#PC,$04,$0A)".
+ $7885 DEFB $0D             ; Newline.
+ $7886 DEFM "DEFW 7F7FH"    ; "#STR(#PC,$04,$0A)".
+ $7890 DEFB $0D             ; Newline.
+ $7891 DEFM "DEFW 3F3FH"    ; "#STR(#PC,$04,$0A)".
+ $789B DEFB $0D             ; Newline.
+ $789C DEFM "DEFW FFFFH;71" ; "#STR(#PC,$04,$0D)".
+ $78A9 DEFB $0D             ; Newline.
+ $78AA DEFM "DEFW FEFEH"    ; "#STR(#PC,$04,$0A)".
+ $78B4 DEFB $0D             ; Newline.
+ $78B5 DEFM "DEFW FCFCH"    ; "#STR(#PC,$04,$0A)".
+ $78BF DEFB $0D             ; Newline.
+ $78C0 DEFM "DEFW F8FCH"    ; "#STR(#PC,$04,$0A)".
+ $78CA DEFB $0D             ; Newline.
+ $78CB DEFM "DEFW 10H;72"   ; "#STR(#PC,$04,$0B)".
+ $78D6 DEFB $0D             ; Newline.
+ $78D7 DEFM "DEFS 6"        ; "#STR(#PC,$04,$06)".
+ $78DD DEFB $0D             ; Newline.
+ $78DE DEFM "DEFW 707H;73"  ; "#STR(#PC,$04,$0C)".
+ $78EA DEFB $0D             ; Newline.
+ $78EB DEFM "DEFW 307H"     ; "#STR(#PC,$04,$09)".
+ $78F4 DEFB $0D             ; Newline.
+ $78F5 DEFM "DEFW 100H"     ; "#STR(#PC,$04,$09)".
+ $78FE DEFB $0D             ; Newline.
+ $78FF DEFM "DEFW 101H"     ; "#STR(#PC,$04,$09)".
+ $7908 DEFB $0D             ; Newline.
+ $7909 DEFM "DEFW F0F0H;74" ; "#STR(#PC,$04,$0D)".
+ $7916 DEFB $0D             ; Newline.
+ $7917 DEFM "DEFW E0F0H"    ; "#STR(#PC,$04,$0A)".
+ $7921 DEFB $0D             ; Newline.
+ $7922 DEFM "DEFW 9F0FH"    ; "#STR(#PC,$04,$0A)".
+ $792C DEFB $0D             ; Newline.
+ $792D DEFM "DEFW FFFFH"    ; "#STR(#PC,$04,$0A)".
+ $7937 DEFB $0D             ; Newline.
+ $7938 DEFM "DEFW 0H;75"    ; "#STR(#PC,$04,$0A)".
+ $7942 DEFB $0D             ; Newline.
+ $7943 DEFM "DEFW 6001H"    ; "#STR(#PC,$04,$0A)".
+ $794D DEFB $0D             ; Newline.
+ $794E DEFM "DEFW F0E0H"    ; "#STR(#PC,$04,$0A)".
+ $7958 DEFB $0D             ; Newline.
+ $7959 DEFM "DEFW F0E0H"    ; "#STR(#PC,$04,$0A)".
+ $7963 DEFB $0D             ; Newline.
+ $7964 DEFM "DEFW 9E9CH;76" ; "#STR(#PC,$04,$0D)".
+ $7971 DEFB $0D             ; Newline.
+ $7972 DEFM "DEFW 80EH"     ; "#STR(#PC,$04,$09)".
+ $797B DEFB $0D             ; Newline.
+ $797C DEFM "DEFS 4"        ; "#STR(#PC,$04,$06)".
+ $7982 DEFB $0D             ; Newline.
+ $7983 DEFM "DEFW FFFFH;77" ; "#STR(#PC,$04,$0D)".
+ $7990 DEFB $0D             ; Newline.
+ $7991 DEFM "DEFW 7FFFH"    ; "#STR(#PC,$04,$0A)".
+ $799B DEFB $0D             ; Newline.
+ $799C DEFM "DEFW 101H"     ; "#STR(#PC,$04,$09)".
+ $79A5 DEFB $0D             ; Newline.
+ $79A6 DEFM "DEFW 101H"     ; "#STR(#PC,$04,$09)".
+ $79AF DEFB $0D             ; Newline.
+ $79B0 DEFM "DEFW 83C7H;78" ; "#STR(#PC,$04,$0D)".
+ $79BD DEFB $0D             ; Newline.
+ $79BE DEFM "DEFW E383H"    ; "#STR(#PC,$04,$0A)".
+ $79C8 DEFB $0D             ; Newline.
+ $79C9 DEFM "DEFW FFFFH"    ; "#STR(#PC,$04,$0A)".
+ $79D3 DEFB $0D             ; Newline.
+ $79D4 DEFM "DEFW FFFFH"    ; "#STR(#PC,$04,$0A)".
+ $79DE DEFB $0D             ; Newline.
+ $79DF DEFM "DEFW 839BH;79" ; "#STR(#PC,$04,$0D)".
+ $79EC DEFB $0D             ; Newline.
+ $79ED DEFM "DEFW F0F0H"    ; "#STR(#PC,$04,$0A)".
+ $79F7 DEFB $0D             ; Newline.
+ $79F8 DEFM "DEFW E0E0H"    ; "#STR(#PC,$04,$0A)".
+ $7A02 DEFB $0D             ; Newline.
+ $7A03 DEFM "DEFW F0F0H"    ; "#STR(#PC,$04,$0A)".
+ $7A0D DEFB $0D             ; Newline.
+ $7A0E DEFM "DEFW C080H;7A" ; "#STR(#PC,$04,$0D)".
+ $7A1B DEFB $0D             ; Newline.
+ $7A1C DEFM "DEFW E0C0H"    ; "#STR(#PC,$04,$0A)".
+ $7A26 DEFB $0D             ; Newline.
+ $7A27 DEFM "DEFW C7E0H"    ; "#STR(#PC,$04,$0A)".
+ $7A31 DEFB $0D             ; Newline.
+ $7A32 DEFM "DEFW 800H"     ; "#STR(#PC,$04,$09)".
+ $7A3B DEFB $0D             ; Newline.
+ $7A3C DEFM "DEFW 3030H;7B" ; "#STR(#PC,$04,$0D)".
+ $7A49 DEFB $0D             ; Newline.
+ $7A4A DEFM "DEFW 7030H"    ; "#STR(#PC,$04,$0A)".
+ $7A54 DEFB $0D             ; Newline.
+ $7A55 DEFM "DEFW E0F0H"    ; "#STR(#PC,$04,$0A)".
+ $7A5F DEFB $0D             ; Newline.
+ $7A60 DEFM "DEFW 0H"       ; "#STR(#PC,$04,$07)".
+ $7A67 DEFB $0D             ; Newline.
+ $7A68 DEFM "DEFW F1FH;7C"  ; "#STR(#PC,$04,$0C)".
+ $7A74 DEFB $0D             ; Newline.
+ $7A75 DEFM "DEFW 50FH"     ; "#STR(#PC,$04,$09)".
+ $7A7E DEFB $0D             ; Newline.
+ $7A7F DEFM "DEFW 206H"     ; "#STR(#PC,$04,$09)".
+ $7A88 DEFB $0D             ; Newline.
+ $7A89 DEFM "DEFW 702H"     ; "#STR(#PC,$04,$09)".
+ $7A92 DEFB $0D             ; Newline.
+ $7A93 DEFM "DEFW FFFFH;7D" ; "#STR(#PC,$04,$0D)".
+ $7AA0 DEFB $0D             ; Newline.
+ $7AA1 DEFM "DEFW FFFFH"    ; "#STR(#PC,$04,$0A)".
+ $7AAB DEFB $0D             ; Newline.
+ $7AAC DEFM "DEFW FFFFH"    ; "#STR(#PC,$04,$0A)".
+ $7AB6 DEFB $0D             ; Newline.
+ $7AB7 DEFM "DEFW 3F7FH"    ; "#STR(#PC,$04,$0A)".
+ $7AC1 DEFB $0D             ; Newline.
+ $7AC2 DEFM "DEFW FFFFH;7E" ; "#STR(#PC,$04,$0D)".
+ $7ACF DEFB $0D             ; Newline.
+ $7AD0 DEFM "DEFW FFFFH"    ; "#STR(#PC,$04,$0A)".
+ $7ADA DEFB $0D             ; Newline.
+ $7ADB DEFM "DEFW F8FFH"    ; "#STR(#PC,$04,$0A)".
+ $7AE5 DEFB $0D             ; Newline.
+ $7AE6 DEFM "DEFW F0F0H"    ; "#STR(#PC,$04,$0A)".
+ $7AF0 DEFB $0D             ; Newline.
+ $7AF1 DEFM "DEFW FFFFH;7F" ; "#STR(#PC,$04,$0D)".
+ $7AFE DEFB $0D             ; Newline.
+ $7AFF DEFM "DEFW FFFFH"    ; "#STR(#PC,$04,$0A)".
+ $7B09 DEFB $0D             ; Newline.
+ $7B0A DEFM "DEFW 20E1H"    ; "#STR(#PC,$04,$0A)".
+ $7B14 DEFB $0D             ; Newline.
+ $7B15 DEFM "DEFW 0H"       ; "#STR(#PC,$04,$07)".
+ $7B1C DEFB $0D             ; Newline.
+ $7B1D DEFM "DEFW C0E0H;80" ; "#STR(#PC,$04,$0D)".
+ $7B2A DEFB $0D             ; Newline.
+ $7B2B DEFM "DEFW C0C0H"    ; "#STR(#PC,$04,$0A)".
+ $7B35 DEFB $0D             ; Newline.
+ $7B36 DEFM "DEFW C0C0H"    ; "#STR(#PC,$04,$0A)".
+ $7B40 DEFB $0D             ; Newline.
+ $7B41 DEFM "DEFW C0C0H"    ; "#STR(#PC,$04,$0A)".
+ $7B4B DEFB $0D             ; Newline.
+ $7B4C DEFM "DEFW 707H;81"  ; "#STR(#PC,$04,$0C)".
+ $7B58 DEFB $0D             ; Newline.
+ $7B59 DEFM "DEFW F07H"     ; "#STR(#PC,$04,$09)".
+ $7B62 DEFB $0D             ; Newline.
+ $7B63 DEFM "DEFW 3F1FH"    ; "#STR(#PC,$04,$0A)".
+ $7B6D DEFB $0D             ; Newline.
+ $7B6E DEFM "DEFW FF7FH"    ; "#STR(#PC,$04,$0A)".
+ $7B78 DEFB $0D             ; Newline.
+ $7B79 DEFM "DEFW 1F1FH;82" ; "#STR(#PC,$04,$0D)".
+ $7B86 DEFB $0D             ; Newline.
+ $7B87 DEFM "DEFW FFFFH"    ; "#STR(#PC,$04,$0A)".
+ $7B91 DEFB $0D             ; Newline.
+ $7B92 DEFM "DEFW FFFFH"    ; "#STR(#PC,$04,$0A)".
+ $7B9C DEFB $0D             ; Newline.
+ $7B9D DEFM "DEFW FFFFH"    ; "#STR(#PC,$04,$0A)".
+ $7BA7 DEFB $0D             ; Newline.
+ $7BA8 DEFM "DEFW F301H;83" ; "#STR(#PC,$04,$0D)".
+ $7BB5 DEFB $0D             ; Newline.
+ $7BB6 DEFM "DEFW FFFFH"    ; "#STR(#PC,$04,$0A)".
+ $7BC0 DEFB $0D             ; Newline.
+ $7BC1 DEFM "DEFW F9FBH"    ; "#STR(#PC,$04,$0A)".
+ $7BCB DEFB $0D             ; Newline.
+ $7BCC DEFM "DEFW FCFCH"    ; "#STR(#PC,$04,$0A)".
+ $7BD6 DEFB $0D             ; Newline.
+ $7BD7 DEFM "DEFW FFFFH;84" ; "#STR(#PC,$04,$0D)".
+ $7BE4 DEFB $0D             ; Newline.
+ $7BE5 DEFM "DEFW 9FFFH"    ; "#STR(#PC,$04,$0A)".
+ $7BEF DEFB $0D             ; Newline.
+ $7BF0 DEFM "DEFW E78FH"    ; "#STR(#PC,$04,$0A)".
+ $7BFA DEFB $0D             ; Newline.
+ $7BFB DEFM "DEFW F1F0H"    ; "#STR(#PC,$04,$0A)".
+ $7C05 DEFB $0D             ; Newline.
+ $7C06 DEFM "DEFW FFFFH;85" ; "#STR(#PC,$04,$0D)".
+ $7C13 DEFB $0D             ; Newline.
+ $7C14 DEFM "DEFW FFFFH"    ; "#STR(#PC,$04,$0A)".
+ $7C1E DEFB $0D             ; Newline.
+ $7C1F DEFM "DEFW FFFFH"    ; "#STR(#PC,$04,$0A)".
+ $7C29 DEFB $0D             ; Newline.
+ $7C2A DEFM "DEFW 37FH"     ; "#STR(#PC,$04,$09)".
+ $7C33 DEFB $0D             ; Newline.
+ $7C34 DEFM "DEFW FFFFH;86" ; "#STR(#PC,$04,$0D)".
+ $7C41 DEFB $0D             ; Newline.
+ $7C42 DEFM "DEFW FFFFH"    ; "#STR(#PC,$04,$0A)".
+ $7C4C DEFB $0D             ; Newline.
+ $7C4D DEFM "DEFW FFFFH"    ; "#STR(#PC,$04,$0A)".
+ $7C57 DEFB $0D             ; Newline.
+ $7C58 DEFM "DEFW 7FFFH"    ; "#STR(#PC,$04,$0A)".
+ $7C62 DEFB $0D             ; Newline.
+ $7C63 DEFM "DEFW F8F8H;87" ; "#STR(#PC,$04,$0D)".
+ $7C70 DEFB $0D             ; Newline.
+ $7C71 DEFM "DEFW F8F8H"    ; "#STR(#PC,$04,$0A)".
+ $7C7B DEFB $0D             ; Newline.
+ $7C7C DEFM "DEFW F0F8H"    ; "#STR(#PC,$04,$0A)".
+ $7C86 DEFB $0D             ; Newline.
+ $7C87 DEFM "DEFW F4F0H"    ; "#STR(#PC,$04,$0A)".
+ $7C91 DEFB $0D             ; Newline.
+ $7C92 DEFM "DEFW 8H;88"    ; "#STR(#PC,$04,$0A)".
+ $7C9C DEFB $0D             ; Newline.
+ $7C9D DEFM "DEFS 6"        ; "#STR(#PC,$04,$06)".
+ $7CA3 DEFB $0D             ; Newline.
+ $7CA4 DEFM "DEFW 1H;89"    ; "#STR(#PC,$04,$0A)".
+ $7CAE DEFB $0D             ; Newline.
+ $7CAF DEFM "DEFS 6"        ; "#STR(#PC,$04,$06)".
+ $7CB5 DEFB $0D             ; Newline.
+ $7CB6 DEFM "DEFW 9FBFH;8A" ; "#STR(#PC,$04,$0D)".
+ $7CC3 DEFB $0D             ; Newline.
+ $7CC4 DEFM "DEFW F5FH"     ; "#STR(#PC,$04,$09)".
+ $7CCD DEFB $0D             ; Newline.
+ $7CCE DEFM "DEFW 707H"     ; "#STR(#PC,$04,$09)".
+ $7CD7 DEFB $0D             ; Newline.
+ $7CD8 DEFM "DEFW 107H"     ; "#STR(#PC,$04,$09)".
+ $7CE1 DEFB $0D             ; Newline.
+ $7CE2 DEFM "DEFW F0F0H;8B" ; "#STR(#PC,$04,$0D)".
+ $7CEF DEFB $0D             ; Newline.
+ $7CF0 DEFM "DEFW F0F0H"    ; "#STR(#PC,$04,$0A)".
+ $7CFA DEFB $0D             ; Newline.
+ $7CFB DEFM "DEFW F0F0H"    ; "#STR(#PC,$04,$0A)".
+ $7D05 DEFB $0D             ; Newline.
+ $7D06 DEFM "DEFW F8F8H"    ; "#STR(#PC,$04,$0A)".
+ $7D10 DEFB $0D             ; Newline.
+ $7D11 DEFM "DEFW 0H;8C"    ; "#STR(#PC,$04,$0A)".
+ $7D1B DEFB $0D             ; Newline.
+ $7D1C DEFM "DEFW 100H"     ; "#STR(#PC,$04,$09)".
+ $7D25 DEFB $0D             ; Newline.
+ $7D26 DEFM "DEFW 7010H"    ; "#STR(#PC,$04,$0A)".
+ $7D30 DEFB $0D             ; Newline.
+ $7D31 DEFM "DEFW F070H"    ; "#STR(#PC,$04,$0A)".
+ $7D3B DEFB $0D             ; Newline.
+ $7D3C DEFM "DEFW 40H;8D"   ; "#STR(#PC,$04,$0B)".
+ $7D47 DEFB $0D             ; Newline.
+ $7D48 DEFM "DEFW E000H"    ; "#STR(#PC,$04,$0A)".
+ $7D52 DEFB $0D             ; Newline.
+ $7D53 DEFM "DEFW 1E30H"    ; "#STR(#PC,$04,$0A)".
+ $7D5D DEFB $0D             ; Newline.
+ $7D5E DEFM "DEFW 10CH"     ; "#STR(#PC,$04,$09)".
+ $7D67 DEFB $0D             ; Newline.
+ $7D68 DEFM "DEFS 6;8E"     ; "#STR(#PC,$04,$09)".
+ $7D71 DEFB $0D             ; Newline.
+ $7D72 DEFM "DEFW F0E0H"    ; "#STR(#PC,$04,$0A)".
+ $7D7C DEFB $0D             ; Newline.
+ $7D7D DEFM "DEFW 0H;8F"    ; "#STR(#PC,$04,$0A)".
+ $7D87 DEFB $0D             ; Newline.
+ $7D88 DEFM "DEFW 101H"     ; "#STR(#PC,$04,$09)".
+ $7D91 DEFB $0D             ; Newline.
+ $7D92 DEFM "DEFW 101H"     ; "#STR(#PC,$04,$09)".
+ $7D9B DEFB $0D             ; Newline.
+ $7D9C DEFM "DEFW 101H"     ; "#STR(#PC,$04,$09)".
+ $7DA5 DEFB $0D             ; Newline.
+ $7DA6 DEFM "DEFW FEFEH;90" ; "#STR(#PC,$04,$0D)".
+ $7DB3 DEFB $0D             ; Newline.
+ $7DB4 DEFM "DEFW FFFFH"    ; "#STR(#PC,$04,$0A)".
+ $7DBE DEFB $0D             ; Newline.
+ $7DBF DEFM "DEFW FFFFH"    ; "#STR(#PC,$04,$0A)".
+ $7DC9 DEFB $0D             ; Newline.
+ $7DCA DEFM "DEFW FFFFH"    ; "#STR(#PC,$04,$0A)".
+ $7DD4 DEFB $0D             ; Newline.
+ $7DD5 DEFM "DEFW 7F7FH;91" ; "#STR(#PC,$04,$0D)".
+ $7DE2 DEFB $0D             ; Newline.
+ $7DE3 DEFM "DEFW BF3FH"    ; "#STR(#PC,$04,$0A)".
+ $7DED DEFB $0D             ; Newline.
+ $7DEE DEFM "DEFW 8F9FH"    ; "#STR(#PC,$04,$0A)".
+ $7DF8 DEFB $0D             ; Newline.
+ $7DF9 DEFM "DEFW C78FH"    ; "#STR(#PC,$04,$0A)".
+ $7E03 DEFB $0D             ; Newline.
+ $7E04 DEFM "DEFW FFF1H;92" ; "#STR(#PC,$04,$0D)".
+ $7E11 DEFB $0D             ; Newline.
+ $7E12 DEFM "DEFW FFFFH"    ; "#STR(#PC,$04,$0A)".
+ $7E1C DEFB $0D             ; Newline.
+ $7E1D DEFM "DEFW FFFFH"    ; "#STR(#PC,$04,$0A)".
+ $7E27 DEFB $0D             ; Newline.
+ $7E28 DEFM "DEFW FFFFH"    ; "#STR(#PC,$04,$0A)".
+ $7E32 DEFB $0D             ; Newline.
+ $7E33 DEFM "DEFW E080H;93" ; "#STR(#PC,$04,$0D)".
+ $7E40 DEFB $0D             ; Newline.
+ $7E41 DEFM "DEFW E0E0H"    ; "#STR(#PC,$04,$0A)".
+ $7E4B DEFB $0D             ; Newline.
+ $7E4C DEFM "DEFW C0C0H"    ; "#STR(#PC,$04,$0A)".
+ $7E56 DEFB $0D             ; Newline.
+ $7E57 DEFM "DEFW 80H"      ; "#STR(#PC,$04,$08)".
+ $7E5F DEFB $0D             ; Newline.
+ $7E60 DEFM "DEFW 1F3FH;94" ; "#STR(#PC,$04,$0D)".
+ $7E6D DEFB $0D             ; Newline.
+ $7E6E DEFM "DEFW 1F1FH"    ; "#STR(#PC,$04,$0A)".
+ $7E78 DEFB $0D             ; Newline.
+ $7E79 DEFM "DEFW 303H"     ; "#STR(#PC,$04,$09)".
+ $7E82 DEFB $0D             ; Newline.
+ $7E83 DEFM "DEFW 303H"     ; "#STR(#PC,$04,$09)".
+ $7E8C DEFB $0D             ; Newline.
+ $7E8D DEFM "DEFW FFFFH;95" ; "#STR(#PC,$04,$0D)".
+ $7E9A DEFB $0D             ; Newline.
+ $7E9B DEFM "DEFW FFFFH"    ; "#STR(#PC,$04,$0A)".
+ $7EA5 DEFB $0D             ; Newline.
+ $7EA6 DEFM "DEFW FFFFH"    ; "#STR(#PC,$04,$0A)".
+ $7EB0 DEFB $0D             ; Newline.
+ $7EB1 DEFM "DEFW FCFEH"    ; "#STR(#PC,$04,$0A)".
+ $7EBB DEFB $0D             ; Newline.
+ $7EBC DEFM "DEFW FFFFH;96" ; "#STR(#PC,$04,$0D)".
+ $7EC9 DEFB $0D             ; Newline.
+ $7ECA DEFM "DEFW C3F3H"    ; "#STR(#PC,$04,$0A)".
+ $7ED4 DEFB $0D             ; Newline.
+ $7ED5 DEFM "DEFW 181H"     ; "#STR(#PC,$04,$09)".
+ $7EDE DEFB $0D             ; Newline.
+ $7EDF DEFM "DEFW 101H"     ; "#STR(#PC,$04,$09)".
+ $7EE8 DEFB $0D             ; Newline.
+ $7EE9 DEFM "DEFW FFFFH;97" ; "#STR(#PC,$04,$0D)".
+ $7EF6 DEFB $0D             ; Newline.
+ $7EF7 DEFM "DEFW 88FFH"    ; "#STR(#PC,$04,$0A)".
+ $7F01 DEFB $0D             ; Newline.
+ $7F02 DEFM "DEFW 8880H"    ; "#STR(#PC,$04,$0A)".
+ $7F0C DEFB $0D             ; Newline.
+ $7F0D DEFM "DEFW C080H"    ; "#STR(#PC,$04,$0A)".
+ $7F17 DEFB $0D             ; Newline.
+ $7F18 DEFM "DEFW C4E4H;98" ; "#STR(#PC,$04,$0D)".
+ $7F25 DEFB $0D             ; Newline.
+ $7F26 DEFM "DEFS 4"        ; "#STR(#PC,$04,$06)".
+ $7F2C DEFB $0D             ; Newline.
+ $7F2D DEFM "DEFW 303H"     ; "#STR(#PC,$04,$09)".
+ $7F36 DEFB $0D             ; Newline.
+ $7F37 DEFM "DEFW 7FFFH;99" ; "#STR(#PC,$04,$0D)".
+ $7F44 DEFB $0D             ; Newline.
+ $7F45 DEFM "DEFW 11BH"     ; "#STR(#PC,$04,$09)".
+ $7F4E DEFB $0D             ; Newline.
+ $7F4F DEFM "DEFS 4"        ; "#STR(#PC,$04,$06)".
+ $7F55 DEFB $0D             ; Newline.
+ $7F56 DEFM "DEFW E0E0H;9A" ; "#STR(#PC,$04,$0D)".
+ $7F63 DEFB $0D             ; Newline.
+ $7F64 DEFM "DEFW FEFCH"    ; "#STR(#PC,$04,$0A)".
+ $7F6E DEFB $0D             ; Newline.
+ $7F6F DEFM "DEFW E3EH"     ; "#STR(#PC,$04,$09)".
+ $7F78 DEFB $0D             ; Newline.
+ $7F79 DEFM "DEFW F0EH"     ; "#STR(#PC,$04,$09)".
+ $7F82 DEFB $0D             ; Newline.
+ $7F83 DEFM "DEFW 8H;9B"    ; "#STR(#PC,$04,$0A)".
+ $7F8D DEFB $0D             ; Newline.
+ $7F8E DEFM "DEFS 4"        ; "#STR(#PC,$04,$06)".
+ $7F94 DEFB $0D             ; Newline.
+ $7F95 DEFM "DEFW 700H"     ; "#STR(#PC,$04,$09)".
+ $7F9E DEFB $0D             ; Newline.
+ $7F9F DEFM "DEFW 4H;9C"    ; "#STR(#PC,$04,$0A)".
+ $7FA9 DEFB $0D             ; Newline.
+ $7FAA DEFM "DEFS 4"        ; "#STR(#PC,$04,$06)".
+ $7FB0 DEFB $0D             ; Newline.
+ $7FB1 DEFM "DEFW FFE0H"    ; "#STR(#PC,$04,$0A)".
+ $7FBB DEFB $0D             ; Newline.
+ $7FBC DEFM "DEFW 0H;9D"    ; "#STR(#PC,$04,$0A)".
+ $7FC6 DEFB $0D             ; Newline.
+ $7FC7 DEFM "DEFW 40H"      ; "#STR(#PC,$04,$08)".
+ $7FCF DEFB $0D             ; Newline.
+ $7FD0 DEFM "DEFS 4"        ; "#STR(#PC,$04,$06)".
+ $7FD6 DEFB $0D             ; Newline.
+ $7FD7 DEFM "DEFW 101H;9E"  ; "#STR(#PC,$04,$0C)".
+ $7FE3 DEFB $0D             ; Newline.
+ $7FE4 DEFM "DEFW 101H"     ; "#STR(#PC,$04,$09)".
+ $7FED DEFB $0D             ; Newline.
+ $7FEE DEFM "DEFW 1H"       ; "#STR(#PC,$04,$07)".
+ $7FF5 DEFB $0D             ; Newline.
+ $7FF6 DEFM "DEFW 0H"       ; "#STR(#PC,$04,$07)".
+ $7FFD DEFB $0D             ; Newline.
+ $7FFE DEFM "DE"            ; "#STR(#PC,$04,$02)".
+

@@ -19,6 +19,17 @@ Repository=https://github.com/pobtastic/travelwithtrashman/
 LinkInternalOperands=1
 AddressAnchor={address#IF({base}==16)(:04x)}
 
+[Titles]
+GameStatusBuffer=Game Status Buffer
+sourcecode-Index=Source Code Remnants
+UnusedMap=Unused Addresses
+
+[OtherCode:sourcecode]
+
+[Paths]
+sourcecode-Index=source-code.html
+sourcecode-CodePath=reference/source-codes.html
+
 [PageHeaders]
 GameIndex=The complete<>RAM disassembly (work in progress)
 

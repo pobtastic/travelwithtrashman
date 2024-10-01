@@ -2,6 +2,7 @@
 import sys
 import os
 import argparse
+import datetime
 from collections import OrderedDict
 
 try:
@@ -138,6 +139,34 @@ class TravelWithTrashman:
 
         return '\n'.join(lines)
 
+    def get_source_code_data(self):
+        lines = []
+        addr = 0x7800
+        start = 0x7800
+        end = 0x8000
+        count = 0x00
+        now = datetime.datetime.now()
+
+        lines.append(f'; Copyright New Generation Software 1984, {now.strftime("%Y")} ArcadeGeek LTD.')
+        lines.append('; NOTE: Disassembly is Work-In-Progress.')
+        lines.append('; Label naming is loosely based on Action_ActionName_SubAction e.g. Print_HighScore_Loop.')
+        lines.append('')
+        lines.append(f't ${addr:04X} Source Code Remnants')
+
+        while addr <= end:
+            if self.snapshot[addr] == 0x0D:
+                lines.append(f'  ${start:04X},${count:02X} "#STR(#PC,$04,${count:02X})".')
+                lines.append(f'B ${addr:04X},$01 Newline.')
+                start = addr + 0x01
+                count = 0x00
+            else:
+                count+=0x01
+            addr+=0x01
+
+        lines.append('')
+        lines.append('i $8000')
+
+        return '\n'.join(lines)
 
 def run(subcommand):
     if not os.path.isdir(BUILD_DIR):
@@ -153,8 +182,8 @@ def run(subcommand):
 # Begin
 ###############################################################################
 methods = OrderedDict((
-    ('disassemble', ('get_disassembly', 'Disassemble')),
-    ('location_data', ('get_location_data', 'Location Data'))
+    ('location_data', ('get_location_data', 'Location Data')),
+    ('source_code', ('get_source_code_data', 'Source Code Remnants'))
 ))
 subcommands = '\n'.join('  {} - {}'.format(k, v[1]) for k, v in methods.items())
 parser = argparse.ArgumentParser(
