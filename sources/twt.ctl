@@ -38,21 +38,26 @@ W $7240,$02
 
 u $7800
 
-g $7801
-W $7801,$02
+g $7801 Flightpath Movement Vectors
+@ $7801 label=Flightpath_X_MovementVector
+B $7801,$02
+@ $7803 label=Flightpath_Y_MovementVector
+B $7803,$02
 
-g $7803
-B $7803,$02,$01
-
-g $7805 Current Location Co-Ordinates
-@ $7805 label=CurrentLocationCoOrdinates
+g $7805 Current Location Co-ordinates
+@ $7805 label=CurrentLocationCoordinates
 B $7805,$02
 
-u $7807
-T $7807
+u $7807 Destination Location Co-ordinates
+@ $7807 label=DestinationLocationCoordinates
+B $7807,$02
 
-g $7809
-B $7809,$02,$01
+g $7809 Flightpath Min/ Max Y Co-ordinates
+@ $7809 label=Flightpath_Minimum_Y_Coordinate
+D $7809 Used by the routine at #R$899C.
+B $7809,$01
+@ $780A label=Flightpath_Maximum_Y_Coordinate
+B $780A,$01
 
 g $7811 Temporary Screen Location
 @ $7811 label=TemporaryScreenLocation
@@ -348,7 +353,7 @@ N $81D4 Example messaging (note, this is two frames at a time - the game is
   $81E2,$03 #REGhl=#R$7812.
   $81E5,$01 Decrease *#REGhl by one.
   $81E6,$02 Jump to #R$8207 if *#REGhl is not zero.
-  $81E8,$07 Jump to #R$81FE if bit 1 of *#R$EFFB is set.
+  $81E8,$07 Jump to #R$81FE if bit 1 ("Flightpath In-Progress") of *#R$EFFB is set.
   $81EF,$07 Jump to #R$81FB if *#R$EFFA is equal to #N$00.
   $81F6,$03 Call #R$823B.
   $81F9,$02 Jump to #R$81D4.
@@ -1081,10 +1086,11 @@ c $8749 Handler: Location Choice
   $8749,$03 #REGa=*#R$7811.
   $874C,$02,b$01 Set bit 3.
   $874E,$01 #REGc=#REGa.
-  $874F,$05 Write #N$88 to *#R$7811.
+  $874F,$05 Initialise *#R$7811 with #N$88.
   $8754,$01 Stash #REGbc on the stack.
   $8755,$03 Call #R$8830.
   $8758,$03 Call #R$8479.
+N $875B Loop round until player input is detected.
 @ $875B label=Handler_LocationChoice_InputLoop
   $875B,$05 Call #R$8055 with a count of #N$0A.
   $8760,$03 Call #R$85E7.
@@ -1106,9 +1112,7 @@ N $8785 Keep looping until the selected destination matches #REGa.
 @ $878D label=FoundSelectedDestination
   $878D,$01 #REGc=*#REGhl.
   $878E,$01 Increment #REGhl by one.
-  $878F,$02 #REGa=#N$60.
-  $8791,$01 Compare #REGa with *#REGhl.
-  $8792,$03 Jump to #R$883C if #REGa is higher.
+  $878F,$06 Jump to #R$883C if *#REGhl is lower than #N$60.
   $8795,$01 #REGb=*#REGhl.
   $8796,$01 Increment #REGhl by one.
   $8797,$01 #REGe=*#REGhl.
@@ -1117,8 +1121,7 @@ N $8785 Keep looping until the selected destination matches #REGa.
   $879A,$01 #REGd=*#REGhl.
   $879B,$03 #REGl=*#REGix+#N$0D.
   $879E,$03 #REGh=*#REGix+#N$0E.
-  $87A1,$01 Set flags.
-  $87A2,$02 #REGhl-=#REGde (with carry).
+  $87A1,$03 #REGhl-=#REGde (with carry).
   $87A4,$02 Jump to #R$87DF if #REGhl is lower.
   $87A6,$03 Write #REGc to *#REGix+#N$08.
   $87A9,$03 Write #REGb to *#REGix+#N$09.
@@ -1139,8 +1142,7 @@ N $8785 Keep looping until the selected destination matches #REGa.
   $87CA,$03 #REGbc=#N($0202,$04,$04).
   $87CD,$03 Call #R$9712.
   $87D0,$01 Restore #REGhl from the stack.
-  $87D1,$03 #REGhl=#R$EFFA.
-  $87D4,$02 Set bit 7 of *#REGhl.
+  $87D1,$05 Set bit 7 ("Flying To New Destination") of *#R$EFFA.
   $87D6,$03 Call #R$823B.
   $87D9,$03 Call #R$8A61.
   $87DC,$03 Jump to #R$896C.
@@ -1162,9 +1164,7 @@ N $87F8 Process the player pressing "up".
 @ $87F8 label=ProcessLocationChoiceInput_Up
   $87F8,$03 Call #R$8824.
   $87FB,$01 Restore #REGbc from the stack.
-  $87FC,$03 #REGa=*#R$7811.
-  $87FF,$02 Compare #REGa with #N$88.
-  $8801,$02 Jump to #R$8821 if #REGa is zero.
+  $87FC,$07 Jump to #R$8821 if *#R$7811 is equal to with #N$88.
   $8803,$02 #REGa-=#N$20.
 @ $8805 label=UpdateDestinationChoice
   $8805,$03 Write #REGa to *#R$7811.
@@ -1175,9 +1175,7 @@ N $880F Process the player pressing "down".
 @ $880F label=ProcessLocationChoiceInput_Down
   $880F,$03 Call #R$8824.
   $8812,$01 Restore #REGbc from the stack.
-  $8813,$03 #REGa=*#R$7811.
-  $8816,$01 Compare #REGa with #REGc.
-  $8817,$02 Jump to #R$881D if #REGa is zero.
+  $8813,$06 Jump to #R$881D if *#R$7811 is equal to #REGc.
   $8819,$02 #REGa+=#N$20.
   $881B,$02 Jump to #R$8805.
   $881D,$02 #REGa=#N$88.
@@ -1322,35 +1320,40 @@ N $8969 Else, the player is stuck in their current destination. Set the flag
   $8969,$02 Set bit 5 ("Can't Afford To Fly") of *#R$EFFA.
   $896B,$01 Return.
 
-c $896C
+c $896C Calculate FlightPath
+@ $896C label=CalculateFlightPath
   $896C,$03 #REGhl=*#R$7805.
   $896F,$04 #REGde=*#R$7807.
-  $8973,$01 #REGa=#REGl.
-  $8974,$01 #REGa-=#REGe.
-  $8975,$02 #REGe=#N$FF.
-  $8977,$03 Jump to #R$897E P.
-  $897A,$02 NEG.
-  $897C,$02 #REGe=#N$01.
-  $897E,$01 #REGc=#REGa.
-  $897F,$01 #REGa=#REGh.
-  $8980,$01 #REGa-=#REGd.
-  $8981,$02 #REGd=#N$FF.
-  $8983,$02 Jump to #R$8989 if #REGhl is higher.
-  $8985,$02 NEG.
-  $8987,$02 #REGd=#N$01.
-  $8989,$01 #REGb=#REGa.
+N $8973 Calculate X movement vector.
+  $8973,$02 #REGa=current X - destination X.
+  $8975,$02 Assume moving left (negative X direction).
+  $8977,$03 If the result is positive, skip negation and jump to #R$897E.
+  $897A,$02 Negate #REGa if it's negative.
+  $897C,$02 Moving right (positive X direction).
+@ $897E label=StoreAbsolute_X_Difference
+  $897E,$01 Store absolute X difference in #REGc.
+N $897F Calculate Y movement vector.
+  $897F,$02 #REGa=current Y - destination Y.
+  $8981,$02 Assume moving up (negative Y direction).
+  $8983,$02 If result is non-negative, skip negation and jump to #R$8989.
+  $8985,$02 Negate #REGa if it's negative.
+  $8987,$02 Moving down (positive Y direction).
+@ $8989 label=StoreAbsolute_Y_Difference
+  $8989,$01 Store absolute Y difference in #REGb.
+N $898A Store calculated vectors and flags.
   $898A,$04 Write #REGbc to *#R$7801.
   $898E,$04 Write #REGbc to *#R$7809.
   $8992,$04 Write #REGde to *#R$7803.
-  $8996,$03 #REGhl=#R$EFFB.
-  $8999,$02 Set bit 1 of *#REGhl.
+  $8996,$05 Set bit 1 ("Flightpath In-Progress") of *#R$EFFB.
   $899B,$01 Return.
 
 c $899C Handler: Flight Path
 @ $899C label=Handler_FlightPath
+N $899C This routine uses Bresenham's line algorithm to plot a point between
+. the source and destination co-ordinates to show Trashman travelling from one
+. location to another.
   $899C,$02 #REGb=#N$01.
-  $899E,$03 #REGhl=#R$EFFF.
-  $89A1,$02 Set bit 0 of *#REGhl.
+  $899E,$05 Set bit 0 of *#R$EFFF.
   $89A3,$03 Call #R$8055.
   $89A6,$03 #REGa=*#R$EFFC.
   $89A9,$02,b$01 Keep only bits 0-3.
@@ -1358,40 +1361,36 @@ c $899C Handler: Flight Path
   $89AF,$04 #REGbc=*#R$7801.
   $89B3,$04 #REGde=*#R$7803.
   $89B7,$03 #REGhl=*#R$7805.
-  $89BA,$01 #REGa=#REGc.
-  $89BB,$03 Jump to #R$89D7 if #REGa is lower than #REGb.
-  $89BE,$01 #REGa-=#REGb.
-  $89BF,$01 #REGc=#REGa.
-  $89C0,$01 #REGa=#REGe.
-  $89C1,$01 #REGa+=#REGl.
-  $89C2,$01 #REGl=#REGa.
-  $89C3,$04 #REGb=*#R$780A.
+  $89BA,$04 Compare #REGc and #REGb to determine the movement direction.
+. Jump to #R$89D7 if #REGc is lower than #REGb.
+N $89BE Handle movement in positive X direction.
+  $89BE,$02 #REGc-=#REGb.
+N $89C0 Move in Y direction.
+  $89C0,$03 #REGl+=#REGe.
+  $89C3,$04 Load *#R$780A into #REGb.
+N $89C7 Compare with remaining X movement.
   $89C7,$03 Jump to #R$89F1 if *#R$780A is lower than #REGc.
-  $89CA,$01 #REGa-=#REGc.
-  $89CB,$01 #REGb=#REGa.
-  $89CC,$04 #REGc=*#R$7809.
-  $89D0,$05 #REGh+=*#R$7804.
+  $89CA,$02 Adjust Y co-ordinate.
+  $89CC,$04 Load *#R$7809 into #REGc.
+  $89D0,$05 Adjust X co-ordinate.
   $89D5,$02 Jump to #R$89F1.
-
-  $89D7,$03 #REGb-=#REGc.
-  $89DA,$01 #REGa=#REGd.
-  $89DB,$01 #REGa+=#REGh.
-  $89DC,$01 #REGh=#REGa.
-  $89DD,$04 #REGc=*#R$7809.
+N $89D7 Handle movement in negative X direction.
+@ $89D7 label=FlightPath_NegativeDirection
+  $89D7,$03 #REGb-=#REGc (remaining X movement).
+  $89DA,$03 Move in Y direction.
+  $89DD,$04 Load *#R$7809 into #REGc.
   $89E1,$03 Jump to #R$89F1 if #REGc is lower than #REGb.
-  $89E4,$01 #REGa-=#REGb.
-  $89E5,$01 #REGc=#REGa.
-  $89E6,$04 #REGb=*#R$780A.
-  $89EA,$05 #REGl+=*#R$7803.
+  $89E4,$02 Adjust Y co-ordinate.
+  $89E6,$04 Load *#R$780A into #REGb.
+  $89EA,$05 Adjust X co-ordinate.
   $89EF,$02 Jump to #R$89F1.
-  $89F1,$03 Write #REGhl to *#R$7805.
-  $89F4,$04 Write #REGbc to *#R$7801.
-  $89F8,$01 Set flags.
-  $89F9,$04 #REGde=*#R$7807.
-  $89FD,$02 #REGhl-=#REGde (with carry).
-  $89FF,$02 Jump to #R$899C if #REGa is not zero.
-  $8A01,$03 #REGhl=#R$EFFB.
-  $8A04,$02 Reset bit 1 of *#REGhl.
+N $89F1 Update position and check if destination reached.
+@ $89F1 label=FlightPath_CheckArrived
+  $89F1,$03 Write new X/ Y co-ordinates to *#R$7805.
+  $89F4,$04 Write updated movement vector to *#R$7801.
+  $89F8,$07 Compare current position with destination.
+  $89FF,$02 Jump to #R$899C until destination is reached.
+  $8A01,$05 Reset bit 1 ("Flightpath Complete") of *#R$EFFB.
   $8A06,$01 Return.
 
 c $8A07 Toggle Map Point
@@ -4012,7 +4011,7 @@ g $EFFB Game State #2
 D $EFFB #TABLE(default,centre,centre)
 . { =h Bit | =h Meaning }
 . { #N$00 | Ticker On/ Off }
-. { #N$01 | }
+. { #N$01 | Flightpath In-Progress/ Complete }
 . { #N$02 | }
 . { #N$03 | }
 . { #N$04 | Used for printing scores/ stripping off leading zeroes }

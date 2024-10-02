@@ -1182,22 +1182,26 @@ b$6000 DEFB $00,$00,$00,$00,$00,$00,$00,$00
 ; Unused
 u$7800 DEFB $20
 
-; Game status buffer entry at 7801
-g$7801 DEFW $4646
+; Flightpath Movement Vectors
+@label=Flightpath_X_MovementVector
+g$7801 DEFB $46,$46
+@label=Flightpath_Y_MovementVector
+ $7803 DEFB $46,$46
 
-; Game status buffer entry at 7803
-g$7803 DEFB $46
- $7804 DEFB $46
-
-; Current Location Co-Ordinates
-@label=CurrentLocationCoOrdinates
+; Current Location Co-ordinates
+@label=CurrentLocationCoordinates
 g$7805 DEFB $48,$0D
 
-; Unused
-u$7807 DEFM "DE"
+; Destination Location Co-ordinates
+@label=DestinationLocationCoordinates
+u$7807 DEFB $44,$45
 
-; Game status buffer entry at 7809
+; Flightpath Min/ Max Y Co-ordinates
+;
+; Used by the routine at #R$899C.
+@label=Flightpath_Minimum_Y_Coordinate
 g$7809 DEFB $46
+@label=Flightpath_Maximum_Y_Coordinate
  $780A DEFB $57
  $780B DEFB $20,$44,$46,$46,$46,$48
 
@@ -1808,8 +1812,8 @@ c$81D4 LD HL,$EFFB   ; {Return if the ticker is not currently enabled.
  $81E2 LD HL,$7812   ; #REGhl=#R$7812.
  $81E5 DEC (HL)      ; Decrease *#REGhl by one.
  $81E6 JR NZ,$8207   ; Jump to #R$8207 if *#REGhl is not zero.
- $81E8 LD HL,$EFFB   ; {Jump to #R$81FE if bit 1 of *#R$EFFB is set.
- $81EB BIT 1,(HL)    ;
+ $81E8 LD HL,$EFFB   ; {Jump to #R$81FE if bit 1 ("Flightpath In-Progress") of
+ $81EB BIT 1,(HL)    ; *#R$EFFB is set.
  $81ED JR NZ,$81FE   ; }
  $81EF LD A,($EFFA)  ; {Jump to #R$81FB if *#R$EFFA is equal to #N$00.
  $81F2 CP $00        ;
@@ -2766,11 +2770,12 @@ c$8666 LD B,$01       ; {Call #R$8055 with a count of #N$01.
 c$8749 LD A,($7811)  ; #REGa=*#R$7811.
  $874C OR %00001000  ; Set bit 3.
  $874E LD C,A        ; #REGc=#REGa.
- $874F LD A,$88      ; {Write #N$88 to *#R$7811.
+ $874F LD A,$88      ; {Initialise *#R$7811 with #N$88.
  $8751 LD ($7811),A  ; }
  $8754 PUSH BC       ; Stash #REGbc on the stack.
  $8755 CALL $8830    ; Call #R$8830.
  $8758 CALL $8479    ; Call #R$8479.
+; Loop round until player input is detected.
 @label=Handler_LocationChoice_InputLoop
 *$875B LD B,$0A      ; {Call #R$8055 with a count of #N$0A.
  $875D CALL $8055    ; }
@@ -2800,9 +2805,9 @@ c$8749 LD A,($7811)  ; #REGa=*#R$7811.
 @label=FoundSelectedDestination
 *$878D LD C,(HL)     ; #REGc=*#REGhl.
  $878E INC HL        ; Increment #REGhl by one.
- $878F LD A,$60      ; #REGa=#N$60.
- $8791 CP (HL)       ; Compare #REGa with *#REGhl.
- $8792 JP NC,$883C   ; Jump to #R$883C if #REGa is higher.
+ $878F LD A,$60      ; {Jump to #R$883C if *#REGhl is lower than #N$60.
+ $8791 CP (HL)       ;
+ $8792 JP NC,$883C   ; }
  $8795 LD B,(HL)     ; #REGb=*#REGhl.
  $8796 INC HL        ; Increment #REGhl by one.
  $8797 LD E,(HL)     ; #REGe=*#REGhl.
@@ -2811,8 +2816,8 @@ c$8749 LD A,($7811)  ; #REGa=*#R$7811.
  $879A LD D,(HL)     ; #REGd=*#REGhl.
  $879B LD L,(IX+$0D) ; #REGl=*#REGix+#N$0D.
  $879E LD H,(IX+$0E) ; #REGh=*#REGix+#N$0E.
- $87A1 AND A         ; Set flags.
- $87A2 SBC HL,DE     ; #REGhl-=#REGde (with carry).
+ $87A1 AND A         ; {#REGhl-=#REGde (with carry).
+ $87A2 SBC HL,DE     ; }
  $87A4 JR C,$87DF    ; Jump to #R$87DF if #REGhl is lower.
  $87A6 LD (IX+$08),C ; Write #REGc to *#REGix+#N$08.
  $87A9 LD (IX+$09),B ; Write #REGb to *#REGix+#N$09.
@@ -2835,8 +2840,8 @@ c$8749 LD A,($7811)  ; #REGa=*#R$7811.
  $87CA LD BC,$0202   ; #REGbc=#N($0202,$04,$04).
  $87CD CALL $9712    ; Call #R$9712.
  $87D0 POP HL        ; Restore #REGhl from the stack.
- $87D1 LD HL,$EFFA   ; #REGhl=#R$EFFA.
- $87D4 SET 7,(HL)    ; Set bit 7 of *#REGhl.
+ $87D1 LD HL,$EFFA   ; {Set bit 7 ("Flying To New Destination") of *#R$EFFA.
+ $87D4 SET 7,(HL)    ; }
  $87D6 CALL $823B    ; Call #R$823B.
  $87D9 CALL $8A61    ; Call #R$8A61.
  $87DC JP $896C      ; Jump to #R$896C.
@@ -2858,9 +2863,9 @@ c$8749 LD A,($7811)  ; #REGa=*#R$7811.
 @label=ProcessLocationChoiceInput_Up
 *$87F8 CALL $8824    ; Call #R$8824.
  $87FB POP BC        ; Restore #REGbc from the stack.
- $87FC LD A,($7811)  ; #REGa=*#R$7811.
- $87FF CP $88        ; Compare #REGa with #N$88.
- $8801 JR Z,$8821    ; Jump to #R$8821 if #REGa is zero.
+ $87FC LD A,($7811)  ; {Jump to #R$8821 if *#R$7811 is equal to with #N$88.
+ $87FF CP $88        ;
+ $8801 JR Z,$8821    ; }
  $8803 SUB $20       ; #REGa-=#N$20.
 @label=UpdateDestinationChoice
 *$8805 LD ($7811),A  ; Write #REGa to *#R$7811.
@@ -2871,9 +2876,9 @@ c$8749 LD A,($7811)  ; #REGa=*#R$7811.
 @label=ProcessLocationChoiceInput_Down
 *$880F CALL $8824    ; Call #R$8824.
  $8812 POP BC        ; Restore #REGbc from the stack.
- $8813 LD A,($7811)  ; #REGa=*#R$7811.
- $8816 CP C          ; Compare #REGa with #REGc.
- $8817 JR Z,$881D    ; Jump to #R$881D if #REGa is zero.
+ $8813 LD A,($7811)  ; {Jump to #R$881D if *#R$7811 is equal to #REGc.
+ $8816 CP C          ;
+ $8817 JR Z,$881D    ; }
  $8819 ADD A,$20     ; #REGa+=#N$20.
  $881B JR $8805      ; Jump to #R$8805.
 *$881D LD A,$88      ; #REGa=#N$88.
@@ -3057,39 +3062,53 @@ c$894F LD L,(IX+$08) ; {Fetch the players current location and store it in
  $8969 SET 5,(HL)    ; Set bit 5 ("Can't Afford To Fly") of *#R$EFFA.
  $896B RET           ; Return.
 
-; Routine at 896C
+; Calculate FlightPath
 ;
 ; Used by the routine at #R$8749.
+@label=CalculateFlightPath
 c$896C LD HL,($7805) ; #REGhl=*#R$7805.
  $896F LD DE,($7807) ; #REGde=*#R$7807.
- $8973 LD A,L        ; #REGa=#REGl.
- $8974 SUB E         ; #REGa-=#REGe.
- $8975 LD E,$FF      ; #REGe=#N$FF.
- $8977 JP P,$897E    ; Jump to #R$897E P.
- $897A NEG           ; NEG.
- $897C LD E,$01      ; #REGe=#N$01.
-*$897E LD C,A        ; #REGc=#REGa.
- $897F LD A,H        ; #REGa=#REGh.
- $8980 SUB D         ; #REGa-=#REGd.
- $8981 LD D,$FF      ; #REGd=#N$FF.
- $8983 JR NC,$8989   ; Jump to #R$8989 if #REGhl is higher.
- $8985 NEG           ; NEG.
- $8987 LD D,$01      ; #REGd=#N$01.
-*$8989 LD B,A        ; #REGb=#REGa.
+; Calculate X movement vector.
+ $8973 LD A,L        ; {#REGa=current X - destination X.
+ $8974 SUB E         ; }
+ $8975 LD E,$FF      ; Assume moving left (negative X direction).
+ $8977 JP P,$897E    ; If the result is positive, skip negation and jump to
+                     ; #R$897E.
+ $897A NEG           ; Negate #REGa if it's negative.
+ $897C LD E,$01      ; Moving right (positive X direction).
+@label=StoreAbsolute_X_Difference
+*$897E LD C,A        ; Store absolute X difference in #REGc.
+; Calculate Y movement vector.
+ $897F LD A,H        ; {#REGa=current Y - destination Y.
+ $8980 SUB D         ; }
+ $8981 LD D,$FF      ; Assume moving up (negative Y direction).
+ $8983 JR NC,$8989   ; If result is non-negative, skip negation and jump to
+                     ; #R$8989.
+ $8985 NEG           ; Negate #REGa if it's negative.
+ $8987 LD D,$01      ; Moving down (positive Y direction).
+@label=StoreAbsolute_Y_Difference
+*$8989 LD B,A        ; Store absolute Y difference in #REGb.
+; Store calculated vectors and flags.
  $898A LD ($7801),BC ; Write #REGbc to *#R$7801.
  $898E LD ($7809),BC ; Write #REGbc to *#R$7809.
  $8992 LD ($7803),DE ; Write #REGde to *#R$7803.
- $8996 LD HL,$EFFB   ; #REGhl=#R$EFFB.
- $8999 SET 1,(HL)    ; Set bit 1 of *#REGhl.
+ $8996 LD HL,$EFFB   ; {Set bit 1 ("Flightpath In-Progress") of *#R$EFFB.
+ $8999 SET 1,(HL)    ; }
  $899B RET           ; Return.
 
 ; Handler: Flight Path
 ;
 ; Used by the routine at #R$8003.
+;
+; .
+;
+; This routine uses Bresenham's line algorithm to plot a point between
+; the source and destination co-ordinates to show Trashman travelling from one
+; location to another.
 @label=Handler_FlightPath
 c$899C LD B,$01      ; #REGb=#N$01.
- $899E LD HL,$EFFF   ; #REGhl=#R$EFFF.
- $89A1 SET 0,(HL)    ; Set bit 0 of *#REGhl.
+ $899E LD HL,$EFFF   ; {Set bit 0 of *#R$EFFF.
+ $89A1 SET 0,(HL)    ; }
  $89A3 CALL $8055    ; Call #R$8055.
  $89A6 LD A,($EFFC)  ; #REGa=*#R$EFFC.
  $89A9 AND %00001111 ; Keep only bits 0-3.
@@ -3098,52 +3117,59 @@ c$899C LD B,$01      ; #REGb=#N$01.
  $89AF LD BC,($7801) ; #REGbc=*#R$7801.
  $89B3 LD DE,($7803) ; #REGde=*#R$7803.
  $89B7 LD HL,($7805) ; #REGhl=*#R$7805.
- $89BA LD A,C        ; #REGa=#REGc.
- $89BB CP B          ; {Jump to #R$89D7 if #REGa is lower than #REGb.
+ $89BA LD A,C        ; {Compare #REGc and #REGb to determine the movement direction.
+ $89BB CP B          ; Jump to #R$89D7 if #REGc is lower than #REGb.
  $89BC JR C,$89D7    ; }
- $89BE SUB B         ; #REGa-=#REGb.
- $89BF LD C,A        ; #REGc=#REGa.
- $89C0 LD A,E        ; #REGa=#REGe.
- $89C1 ADD A,L       ; #REGa+=#REGl.
- $89C2 LD L,A        ; #REGl=#REGa.
- $89C3 LD A,($780A)  ; {#REGb=*#R$780A.
+; Handle movement in positive X direction.
+ $89BE SUB B         ; {#REGc-=#REGb.
+ $89BF LD C,A        ; }
+; Move in Y direction.
+ $89C0 LD A,E        ; {#REGl+=#REGe.
+ $89C1 ADD A,L       ;
+ $89C2 LD L,A        ; }
+ $89C3 LD A,($780A)  ; {Load *#R$780A into #REGb.
  $89C6 LD B,A        ; }
+; Compare with remaining X movement.
  $89C7 CP C          ; {Jump to #R$89F1 if *#R$780A is lower than #REGc.
  $89C8 JR C,$89F1    ; }
- $89CA SUB C         ; #REGa-=#REGc.
- $89CB LD B,A        ; #REGb=#REGa.
- $89CC LD A,($7809)  ; {#REGc=*#R$7809.
+ $89CA SUB C         ; {Adjust Y co-ordinate.
+ $89CB LD B,A        ; }
+ $89CC LD A,($7809)  ; {Load *#R$7809 into #REGc.
  $89CF LD C,A        ; }
- $89D0 LD A,($7804)  ; {#REGh+=*#R$7804.
+ $89D0 LD A,($7804)  ; {Adjust X co-ordinate.
  $89D3 ADD A,H       ;
  $89D4 LD H,A        ; }
  $89D5 JR $89F1      ; Jump to #R$89F1.
-*$89D7 LD A,B        ; {#REGb-=#REGc.
+; Handle movement in negative X direction.
+@label=FlightPath_NegativeDirection
+*$89D7 LD A,B        ; {#REGb-=#REGc (remaining X movement).
  $89D8 SUB C         ;
  $89D9 LD B,A        ; }
- $89DA LD A,D        ; #REGa=#REGd.
- $89DB ADD A,H       ; #REGa+=#REGh.
- $89DC LD H,A        ; #REGh=#REGa.
- $89DD LD A,($7809)  ; {#REGc=*#R$7809.
+ $89DA LD A,D        ; {Move in Y direction.
+ $89DB ADD A,H       ;
+ $89DC LD H,A        ; }
+ $89DD LD A,($7809)  ; {Load *#R$7809 into #REGc.
  $89E0 LD C,A        ; }
  $89E1 CP B          ; {Jump to #R$89F1 if #REGc is lower than #REGb.
  $89E2 JR C,$89F1    ; }
- $89E4 SUB B         ; #REGa-=#REGb.
- $89E5 LD C,A        ; #REGc=#REGa.
- $89E6 LD A,($780A)  ; {#REGb=*#R$780A.
+ $89E4 SUB B         ; {Adjust Y co-ordinate.
+ $89E5 LD C,A        ; }
+ $89E6 LD A,($780A)  ; {Load *#R$780A into #REGb.
  $89E9 LD B,A        ; }
- $89EA LD A,($7803)  ; {#REGl+=*#R$7803.
+ $89EA LD A,($7803)  ; {Adjust X co-ordinate.
  $89ED ADD A,L       ;
  $89EE LD L,A        ; }
  $89EF JR $89F1      ; Jump to #R$89F1.
-*$89F1 LD ($7805),HL ; Write #REGhl to *#R$7805.
- $89F4 LD ($7801),BC ; Write #REGbc to *#R$7801.
- $89F8 AND A         ; Set flags.
- $89F9 LD DE,($7807) ; #REGde=*#R$7807.
- $89FD SBC HL,DE     ; #REGhl-=#REGde (with carry).
- $89FF JR NZ,$899C   ; Jump to #R$899C if #REGa is not zero.
- $8A01 LD HL,$EFFB   ; #REGhl=#R$EFFB.
- $8A04 RES 1,(HL)    ; Reset bit 1 of *#REGhl.
+; Update position and check if destination reached.
+@label=FlightPath_CheckArrived
+*$89F1 LD ($7805),HL ; Write new X/ Y co-ordinates to *#R$7805.
+ $89F4 LD ($7801),BC ; Write updated movement vector to *#R$7801.
+ $89F8 AND A         ; {Compare current position with destination.
+ $89F9 LD DE,($7807) ;
+ $89FD SBC HL,DE     ; }
+ $89FF JR NZ,$899C   ; Jump to #R$899C until destination is reached.
+ $8A01 LD HL,$EFFB   ; {Reset bit 1 ("Flightpath Complete") of *#R$EFFB.
+ $8A04 RES 1,(HL)    ; }
  $8A06 RET           ; Return.
 
 ; Toggle Map Point
@@ -11773,7 +11799,7 @@ g$EFFA DEFB $00
 ; #TABLE(default,centre,centre)
 ; { =h Bit | =h Meaning }
 ; { #N$00 | Ticker On/ Off }
-; { #N$01 | }
+; { #N$01 | Flightpath In-Progress/ Complete }
 ; { #N$02 | }
 ; { #N$03 | }
 ; { #N$04 | Used for printing scores/ stripping off leading zeroes }
