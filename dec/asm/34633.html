@@ -66,7 +66,7 @@ Used by the routine at <a href="32771.html">GameInitialise</a>.
 <td class="asm-label"></td>
 <td class="address-1"><span id="34639"></span>34639</td>
 <td class="instruction">LD A,136</td>
-<td class="comment-1" rowspan="2">Write 136 to *<a href="30737.html">TemporaryScreenLocation</a>.</td>
+<td class="comment-1" rowspan="2">Initialise *<a href="30737.html">TemporaryScreenLocation</a> with 136.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -90,6 +90,16 @@ Used by the routine at <a href="32771.html">GameInitialise</a>.
 <td class="address-1"><span id="34648"></span>34648</td>
 <td class="instruction">CALL <a href="33913.html">PauseCheck</a></td>
 <td class="comment-1" rowspan="1">Call <a href="33913.html">PauseCheck</a>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="34651"></span>
+<div class="comments">
+<div class="paragraph">
+Loop round until player input is detected.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="asm-label">Handler_LocationChoice_InputLoop</td>
@@ -251,19 +261,17 @@ Keep looping until the selected destination matches <span class="register">A</sp
 <td class="asm-label"></td>
 <td class="address-1"><span id="34703"></span>34703</td>
 <td class="instruction">LD A,96</td>
-<td class="comment-1" rowspan="1"><span class="register">A</span>=96.</td>
+<td class="comment-1" rowspan="3">Jump to <a href="34876.html">Handler_SubGame</a> if *<span class="register">HL</span> is lower than 96.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="34705"></span>34705</td>
 <td class="instruction">CP (HL)</td>
-<td class="comment-1" rowspan="1">Compare <span class="register">A</span> with *<span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="34706"></span>34706</td>
 <td class="instruction">JP NC,<a href="34876.html">Handler_SubGame</a></td>
-<td class="comment-1" rowspan="1">Jump to <a href="34876.html">Handler_SubGame</a> if <span class="register">A</span> is higher.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -317,13 +325,12 @@ Keep looping until the selected destination matches <span class="register">A</sp
 <td class="asm-label"></td>
 <td class="address-1"><span id="34721"></span>34721</td>
 <td class="instruction">AND A</td>
-<td class="comment-1" rowspan="1">Set flags.</td>
+<td class="comment-1" rowspan="2"><span class="register">HL</span>-=<span class="register">DE</span> (with carry).</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="34722"></span>34722</td>
 <td class="instruction">SBC HL,DE</td>
-<td class="comment-1" rowspan="1"><span class="register">HL</span>-=<span class="register">DE</span> (with carry).</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -377,7 +384,7 @@ Keep looping until the selected destination matches <span class="register">A</sp
 <td class="asm-label"></td>
 <td class="address-1"><span id="34739"></span>34739</td>
 <td class="instruction">LD (30727),BC</td>
-<td class="comment-1" rowspan="1">Write <span class="register">BC</span> to *<a href="30727.html">30727</a>.</td>
+<td class="comment-1" rowspan="1">Write <span class="register">BC</span> to *<a href="30727.html">DestinationLocationCoordinates</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -459,13 +466,12 @@ Keep looping until the selected destination matches <span class="register">A</sp
 <td class="asm-label"></td>
 <td class="address-1"><span id="34769"></span>34769</td>
 <td class="instruction">LD HL,61434</td>
-<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="61434.html">GameState_1</a>.</td>
+<td class="comment-1" rowspan="2">Set bit 7 ("Flying To New Destination") of *<a href="61434.html">GameState_1</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="34772"></span>34772</td>
 <td class="instruction">SET 7,(HL)</td>
-<td class="comment-1" rowspan="1">Set bit 7 of *<span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -482,8 +488,8 @@ Keep looping until the selected destination matches <span class="register">A</sp
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="34780"></span>34780</td>
-<td class="instruction">JP <a href="35180.html">35180</a></td>
-<td class="comment-1" rowspan="1">Jump to <a href="35180.html">35180</a>.</td>
+<td class="instruction">JP <a href="35180.html">CalculateFlightPath</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="35180.html">CalculateFlightPath</a>.</td>
 </tr>
 <tr>
 <td class="routine-comment" colspan="5">
@@ -605,19 +611,17 @@ Process the player pressing "up".
 <td class="asm-label"></td>
 <td class="address-1"><span id="34812"></span>34812</td>
 <td class="instruction">LD A,(30737)</td>
-<td class="comment-1" rowspan="1"><span class="register">A</span>=*<a href="30737.html">TemporaryScreenLocation</a>.</td>
+<td class="comment-1" rowspan="3">Jump to <a href="34633.html#34849">Handler_LocationChoice_1</a> if *<a href="30737.html">TemporaryScreenLocation</a> is equal to with 136.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="34815"></span>34815</td>
 <td class="instruction">CP 136</td>
-<td class="comment-1" rowspan="1">Compare <span class="register">A</span> with 136.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="34817"></span>34817</td>
 <td class="instruction">JR Z,<a href="34633.html#34849">Handler_LocationChoice_1</a></td>
-<td class="comment-1" rowspan="1">Jump to <a href="34633.html#34849">Handler_LocationChoice_1</a> if <span class="register">A</span> is zero.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -675,19 +679,17 @@ Process the player pressing "down".
 <td class="asm-label"></td>
 <td class="address-1"><span id="34835"></span>34835</td>
 <td class="instruction">LD A,(30737)</td>
-<td class="comment-1" rowspan="1"><span class="register">A</span>=*<a href="30737.html">TemporaryScreenLocation</a>.</td>
+<td class="comment-1" rowspan="3">Jump to <a href="34633.html#34845">Handler_LocationChoice_0</a> if *<a href="30737.html">TemporaryScreenLocation</a> is equal to <span class="register">C</span>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="34838"></span>34838</td>
 <td class="instruction">CP C</td>
-<td class="comment-1" rowspan="1">Compare <span class="register">A</span> with <span class="register">C</span>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="34839"></span>34839</td>
 <td class="instruction">JR Z,<a href="34633.html#34845">Handler_LocationChoice_0</a></td>
-<td class="comment-1" rowspan="1">Jump to <a href="34633.html#34845">Handler_LocationChoice_0</a> if <span class="register">A</span> is zero.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>

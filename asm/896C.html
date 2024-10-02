@@ -33,7 +33,7 @@ Next: <a href="899C.html">899C</a>
 </td>
 </tr>
 </table>
-<div class="description">896C: Routine at 896C</div>
+<div class="description">896C: Calculate FlightPath</div>
 <table class="disassembly">
 <tr>
 <td class="routine-comment" colspan="5">
@@ -45,111 +45,160 @@ Used by the routine at <a href="8749.html">Handler_LocationChoice</a>.
 </td>
 </tr>
 <tr>
+<td class="asm-label">CalculateFlightPath</td>
 <td class="address-2"><span id="896c"></span>896C</td>
 <td class="instruction">LD HL,($7805)</td>
-<td class="comment-1" rowspan="1"><span class="register">HL</span>=*<a href="7805.html">CurrentLocationCoOrdinates</a>.</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=*<a href="7805.html">CurrentLocationCoordinates</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="896f"></span>896F</td>
 <td class="instruction">LD DE,($7807)</td>
-<td class="comment-1" rowspan="1"><span class="register">DE</span>=*<a href="7807.html">7807</a>.</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=*<a href="7807.html">DestinationLocationCoordinates</a>.</td>
 </tr>
 <tr>
+<td class="routine-comment" colspan="5">
+<span id="8973"></span>
+<div class="comments">
+<div class="paragraph">
+Calculate X movement vector.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="8973"></span>8973</td>
 <td class="instruction">LD A,L</td>
-<td class="comment-1" rowspan="1"><span class="register">A</span>=<span class="register">L</span>.</td>
+<td class="comment-1" rowspan="2"><span class="register">A</span>=current X - destination X.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="8974"></span>8974</td>
 <td class="instruction">SUB E</td>
-<td class="comment-1" rowspan="1"><span class="register">A</span>-=<span class="register">E</span>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="8975"></span>8975</td>
 <td class="instruction">LD E,$FF</td>
-<td class="comment-1" rowspan="1"><span class="register">E</span>=FF.</td>
+<td class="comment-1" rowspan="1">Assume moving left (negative X direction).</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="8977"></span>8977</td>
-<td class="instruction">JP P,<a href="896C.html#897e">$897E</a></td>
-<td class="comment-1" rowspan="1">Jump to <a href="896C.html#897e">897E</a> P.</td>
+<td class="instruction">JP P,<a href="896C.html#897e">StoreAbsolute_X_Difference</a></td>
+<td class="comment-1" rowspan="1">If the result is positive, skip negation and jump to <a href="896C.html#897e">StoreAbsolute_X_Difference</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="897a"></span>897A</td>
 <td class="instruction">NEG</td>
-<td class="comment-1" rowspan="1">NEG.</td>
+<td class="comment-1" rowspan="1">Negate <span class="register">A</span> if it's negative.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="897c"></span>897C</td>
 <td class="instruction">LD E,$01</td>
-<td class="comment-1" rowspan="1"><span class="register">E</span>=01.</td>
+<td class="comment-1" rowspan="1">Moving right (positive X direction).</td>
 </tr>
 <tr>
+<td class="asm-label">StoreAbsolute_X_Difference</td>
 <td class="address-2"><span id="897e"></span>897E</td>
 <td class="instruction">LD C,A</td>
-<td class="comment-1" rowspan="1"><span class="register">C</span>=<span class="register">A</span>.</td>
+<td class="comment-1" rowspan="1">Store absolute X difference in <span class="register">C</span>.</td>
 </tr>
 <tr>
+<td class="routine-comment" colspan="5">
+<span id="897f"></span>
+<div class="comments">
+<div class="paragraph">
+Calculate Y movement vector.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="897f"></span>897F</td>
 <td class="instruction">LD A,H</td>
-<td class="comment-1" rowspan="1"><span class="register">A</span>=<span class="register">H</span>.</td>
+<td class="comment-1" rowspan="2"><span class="register">A</span>=current Y - destination Y.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="8980"></span>8980</td>
 <td class="instruction">SUB D</td>
-<td class="comment-1" rowspan="1"><span class="register">A</span>-=<span class="register">D</span>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="8981"></span>8981</td>
 <td class="instruction">LD D,$FF</td>
-<td class="comment-1" rowspan="1"><span class="register">D</span>=FF.</td>
+<td class="comment-1" rowspan="1">Assume moving up (negative Y direction).</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="8983"></span>8983</td>
-<td class="instruction">JR NC,<a href="896C.html#8989">$8989</a></td>
-<td class="comment-1" rowspan="1">Jump to <a href="896C.html#8989">8989</a> if <span class="register">HL</span> is higher.</td>
+<td class="instruction">JR NC,<a href="896C.html#8989">StoreAbsolute_Y_Difference</a></td>
+<td class="comment-1" rowspan="1">If result is non-negative, skip negation and jump to <a href="896C.html#8989">StoreAbsolute_Y_Difference</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="8985"></span>8985</td>
 <td class="instruction">NEG</td>
-<td class="comment-1" rowspan="1">NEG.</td>
+<td class="comment-1" rowspan="1">Negate <span class="register">A</span> if it's negative.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="8987"></span>8987</td>
 <td class="instruction">LD D,$01</td>
-<td class="comment-1" rowspan="1"><span class="register">D</span>=01.</td>
+<td class="comment-1" rowspan="1">Moving down (positive Y direction).</td>
 </tr>
 <tr>
+<td class="asm-label">StoreAbsolute_Y_Difference</td>
 <td class="address-2"><span id="8989"></span>8989</td>
 <td class="instruction">LD B,A</td>
-<td class="comment-1" rowspan="1"><span class="register">B</span>=<span class="register">A</span>.</td>
+<td class="comment-1" rowspan="1">Store absolute Y difference in <span class="register">B</span>.</td>
 </tr>
 <tr>
+<td class="routine-comment" colspan="5">
+<span id="898a"></span>
+<div class="comments">
+<div class="paragraph">
+Store calculated vectors and flags.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="898a"></span>898A</td>
 <td class="instruction">LD ($7801),BC</td>
-<td class="comment-1" rowspan="1">Write <span class="register">BC</span> to *<a href="7801.html">7801</a>.</td>
+<td class="comment-1" rowspan="1">Write <span class="register">BC</span> to *<a href="7801.html">Flightpath_X_MovementVector</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="898e"></span>898E</td>
 <td class="instruction">LD ($7809),BC</td>
-<td class="comment-1" rowspan="1">Write <span class="register">BC</span> to *<a href="7809.html">7809</a>.</td>
+<td class="comment-1" rowspan="1">Write <span class="register">BC</span> to *<a href="7809.html">Flightpath_Minimum_Y_Coordinate</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="8992"></span>8992</td>
 <td class="instruction">LD ($7803),DE</td>
-<td class="comment-1" rowspan="1">Write <span class="register">DE</span> to *<a href="7803.html">7803</a>.</td>
+<td class="comment-1" rowspan="1">Write <span class="register">DE</span> to *<a href="7801.html#7803">Flightpath_Y_MovementVector</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="8996"></span>8996</td>
 <td class="instruction">LD HL,$EFFB</td>
-<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="EFFB.html">GameState_2</a>.</td>
+<td class="comment-1" rowspan="2">Set bit 1 ("Flightpath In-Progress") of *<a href="EFFB.html">GameState_2</a>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="8999"></span>8999</td>
 <td class="instruction">SET 1,(HL)</td>
-<td class="comment-1" rowspan="1">Set bit 1 of *<span class="register">HL</span>.</td>
 </tr>
 <tr>
+<td class="asm-label"></td>
 <td class="address-1"><span id="899b"></span>899B</td>
 <td class="instruction">RET</td>
 <td class="comment-1" rowspan="1">Return.</td>

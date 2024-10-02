@@ -45,6 +45,16 @@ Used by the routine at <a href="32771.html">GameInitialise</a>.
 </td>
 </tr>
 <tr>
+<td class="routine-comment" colspan="5">
+<span id="35228"></span>
+<div class="comments">
+<div class="paragraph">
+This routine uses Bresenham's line algorithm to plot a point between the source and destination co-ordinates to show Trashman travelling from one location to another.
+</div>
+</div>
+</td>
+</tr>
+<tr>
 <td class="asm-label">Handler_FlightPath</td>
 <td class="address-2"><span id="35228"></span>35228</td>
 <td class="instruction">LD B,1</td>
@@ -54,13 +64,12 @@ Used by the routine at <a href="32771.html">GameInitialise</a>.
 <td class="asm-label"></td>
 <td class="address-1"><span id="35230"></span>35230</td>
 <td class="instruction">LD HL,61439</td>
-<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="61439.html">61439</a>.</td>
+<td class="comment-1" rowspan="2">Set bit 0 of *<a href="61439.html">61439</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="35233"></span>35233</td>
 <td class="instruction">SET 0,(HL)</td>
-<td class="comment-1" rowspan="1">Set bit 0 of *<span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -95,72 +104,88 @@ Used by the routine at <a href="32771.html">GameInitialise</a>.
 <td class="asm-label"></td>
 <td class="address-1"><span id="35247"></span>35247</td>
 <td class="instruction">LD BC,(30721)</td>
-<td class="comment-1" rowspan="1"><span class="register">BC</span>=*<a href="30721.html">30721</a>.</td>
+<td class="comment-1" rowspan="1"><span class="register">BC</span>=*<a href="30721.html">Flightpath_X_MovementVector</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="35251"></span>35251</td>
 <td class="instruction">LD DE,(30723)</td>
-<td class="comment-1" rowspan="1"><span class="register">DE</span>=*<a href="30723.html">30723</a>.</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=*<a href="30721.html#30723">Flightpath_Y_MovementVector</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="35255"></span>35255</td>
 <td class="instruction">LD HL,(30725)</td>
-<td class="comment-1" rowspan="1"><span class="register">HL</span>=*<a href="30725.html">CurrentLocationCoOrdinates</a>.</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=*<a href="30725.html">CurrentLocationCoordinates</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="35258"></span>35258</td>
 <td class="instruction">LD A,C</td>
-<td class="comment-1" rowspan="1"><span class="register">A</span>=<span class="register">C</span>.</td>
+<td class="comment-1" rowspan="3">Compare <span class="register">C</span> and <span class="register">B</span> to determine the movement direction. Jump to <a href="35228.html#35287">FlightPath_NegativeDirection</a> if <span class="register">C</span> is lower than <span class="register">B</span>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="35259"></span>35259</td>
 <td class="instruction">CP B</td>
-<td class="comment-1" rowspan="2">Jump to <a href="35228.html#35287">Handler_FlightPath_0</a> if <span class="register">A</span> is lower than <span class="register">B</span>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="35260"></span>35260</td>
-<td class="instruction">JR C,<a href="35228.html#35287">Handler_FlightPath_0</a></td>
+<td class="instruction">JR C,<a href="35228.html#35287">FlightPath_NegativeDirection</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="35262"></span>
+<div class="comments">
+<div class="paragraph">
+Handle movement in positive X direction.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="35262"></span>35262</td>
 <td class="instruction">SUB B</td>
-<td class="comment-1" rowspan="1"><span class="register">A</span>-=<span class="register">B</span>.</td>
+<td class="comment-1" rowspan="2"><span class="register">C</span>-=<span class="register">B</span>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="35263"></span>35263</td>
 <td class="instruction">LD C,A</td>
-<td class="comment-1" rowspan="1"><span class="register">C</span>=<span class="register">A</span>.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="35264"></span>
+<div class="comments">
+<div class="paragraph">
+Move in Y direction.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="35264"></span>35264</td>
 <td class="instruction">LD A,E</td>
-<td class="comment-1" rowspan="1"><span class="register">A</span>=<span class="register">E</span>.</td>
+<td class="comment-1" rowspan="3"><span class="register">L</span>+=<span class="register">E</span>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="35265"></span>35265</td>
 <td class="instruction">ADD A,L</td>
-<td class="comment-1" rowspan="1"><span class="register">A</span>+=<span class="register">L</span>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="35266"></span>35266</td>
 <td class="instruction">LD L,A</td>
-<td class="comment-1" rowspan="1"><span class="register">L</span>=<span class="register">A</span>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="35267"></span>35267</td>
 <td class="instruction">LD A,(30730)</td>
-<td class="comment-1" rowspan="2"><span class="register">B</span>=*<a href="30729.html#30730">30730</a>.</td>
+<td class="comment-1" rowspan="2">Load *<a href="30729.html#30730">Flightpath_Maximum_Y_Coordinate</a> into <span class="register">B</span>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -168,33 +193,42 @@ Used by the routine at <a href="32771.html">GameInitialise</a>.
 <td class="instruction">LD B,A</td>
 </tr>
 <tr>
+<td class="routine-comment" colspan="5">
+<span id="35271"></span>
+<div class="comments">
+<div class="paragraph">
+Compare with remaining X movement.
+</div>
+</div>
+</td>
+</tr>
+<tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="35271"></span>35271</td>
 <td class="instruction">CP C</td>
-<td class="comment-1" rowspan="2">Jump to <a href="35228.html#35313">Handler_FlightPath_1</a> if *<a href="30729.html#30730">30730</a> is lower than <span class="register">C</span>.</td>
+<td class="comment-1" rowspan="2">Jump to <a href="35228.html#35313">FlightPath_CheckArrived</a> if *<a href="30729.html#30730">Flightpath_Maximum_Y_Coordinate</a> is lower than <span class="register">C</span>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="35272"></span>35272</td>
-<td class="instruction">JR C,<a href="35228.html#35313">Handler_FlightPath_1</a></td>
+<td class="instruction">JR C,<a href="35228.html#35313">FlightPath_CheckArrived</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="35274"></span>35274</td>
 <td class="instruction">SUB C</td>
-<td class="comment-1" rowspan="1"><span class="register">A</span>-=<span class="register">C</span>.</td>
+<td class="comment-1" rowspan="2">Adjust Y co-ordinate.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="35275"></span>35275</td>
 <td class="instruction">LD B,A</td>
-<td class="comment-1" rowspan="1"><span class="register">B</span>=<span class="register">A</span>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="35276"></span>35276</td>
 <td class="instruction">LD A,(30729)</td>
-<td class="comment-1" rowspan="2"><span class="register">C</span>=*<a href="30729.html">30729</a>.</td>
+<td class="comment-1" rowspan="2">Load *<a href="30729.html">Flightpath_Minimum_Y_Coordinate</a> into <span class="register">C</span>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -205,7 +239,7 @@ Used by the routine at <a href="32771.html">GameInitialise</a>.
 <td class="asm-label"></td>
 <td class="address-1"><span id="35280"></span>35280</td>
 <td class="instruction">LD A,(30724)</td>
-<td class="comment-1" rowspan="3"><span class="register">H</span>+=*<a href="30723.html#30724">30724</a>.</td>
+<td class="comment-1" rowspan="3">Adjust X co-ordinate.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -220,14 +254,24 @@ Used by the routine at <a href="32771.html">GameInitialise</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="35285"></span>35285</td>
-<td class="instruction">JR <a href="35228.html#35313">Handler_FlightPath_1</a></td>
-<td class="comment-1" rowspan="1">Jump to <a href="35228.html#35313">Handler_FlightPath_1</a>.</td>
+<td class="instruction">JR <a href="35228.html#35313">FlightPath_CheckArrived</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="35228.html#35313">FlightPath_CheckArrived</a>.</td>
 </tr>
 <tr>
-<td class="asm-label">Handler_FlightPath_0</td>
+<td class="routine-comment" colspan="5">
+<span id="35287"></span>
+<div class="comments">
+<div class="paragraph">
+Handle movement in negative X direction.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">FlightPath_NegativeDirection</td>
 <td class="address-2"><span id="35287"></span>35287</td>
 <td class="instruction">LD A,B</td>
-<td class="comment-1" rowspan="3"><span class="register">B</span>-=<span class="register">C</span>.</td>
+<td class="comment-1" rowspan="3"><span class="register">B</span>-=<span class="register">C</span> (remaining X movement).</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -243,25 +287,23 @@ Used by the routine at <a href="32771.html">GameInitialise</a>.
 <td class="asm-label"></td>
 <td class="address-1"><span id="35290"></span>35290</td>
 <td class="instruction">LD A,D</td>
-<td class="comment-1" rowspan="1"><span class="register">A</span>=<span class="register">D</span>.</td>
+<td class="comment-1" rowspan="3">Move in Y direction.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="35291"></span>35291</td>
 <td class="instruction">ADD A,H</td>
-<td class="comment-1" rowspan="1"><span class="register">A</span>+=<span class="register">H</span>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="35292"></span>35292</td>
 <td class="instruction">LD H,A</td>
-<td class="comment-1" rowspan="1"><span class="register">H</span>=<span class="register">A</span>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="35293"></span>35293</td>
 <td class="instruction">LD A,(30729)</td>
-<td class="comment-1" rowspan="2"><span class="register">C</span>=*<a href="30729.html">30729</a>.</td>
+<td class="comment-1" rowspan="2">Load *<a href="30729.html">Flightpath_Minimum_Y_Coordinate</a> into <span class="register">C</span>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -272,30 +314,29 @@ Used by the routine at <a href="32771.html">GameInitialise</a>.
 <td class="asm-label"></td>
 <td class="address-1"><span id="35297"></span>35297</td>
 <td class="instruction">CP B</td>
-<td class="comment-1" rowspan="2">Jump to <a href="35228.html#35313">Handler_FlightPath_1</a> if <span class="register">C</span> is lower than <span class="register">B</span>.</td>
+<td class="comment-1" rowspan="2">Jump to <a href="35228.html#35313">FlightPath_CheckArrived</a> if <span class="register">C</span> is lower than <span class="register">B</span>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="35298"></span>35298</td>
-<td class="instruction">JR C,<a href="35228.html#35313">Handler_FlightPath_1</a></td>
+<td class="instruction">JR C,<a href="35228.html#35313">FlightPath_CheckArrived</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="35300"></span>35300</td>
 <td class="instruction">SUB B</td>
-<td class="comment-1" rowspan="1"><span class="register">A</span>-=<span class="register">B</span>.</td>
+<td class="comment-1" rowspan="2">Adjust Y co-ordinate.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="35301"></span>35301</td>
 <td class="instruction">LD C,A</td>
-<td class="comment-1" rowspan="1"><span class="register">C</span>=<span class="register">A</span>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="35302"></span>35302</td>
 <td class="instruction">LD A,(30730)</td>
-<td class="comment-1" rowspan="2"><span class="register">B</span>=*<a href="30729.html#30730">30730</a>.</td>
+<td class="comment-1" rowspan="2">Load *<a href="30729.html#30730">Flightpath_Maximum_Y_Coordinate</a> into <span class="register">B</span>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -306,7 +347,7 @@ Used by the routine at <a href="32771.html">GameInitialise</a>.
 <td class="asm-label"></td>
 <td class="address-1"><span id="35306"></span>35306</td>
 <td class="instruction">LD A,(30723)</td>
-<td class="comment-1" rowspan="3"><span class="register">L</span>+=*<a href="30723.html">30723</a>.</td>
+<td class="comment-1" rowspan="3">Adjust X co-ordinate.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -321,56 +362,63 @@ Used by the routine at <a href="32771.html">GameInitialise</a>.
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="35311"></span>35311</td>
-<td class="instruction">JR <a href="35228.html#35313">Handler_FlightPath_1</a></td>
-<td class="comment-1" rowspan="1">Jump to <a href="35228.html#35313">Handler_FlightPath_1</a>.</td>
+<td class="instruction">JR <a href="35228.html#35313">FlightPath_CheckArrived</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="35228.html#35313">FlightPath_CheckArrived</a>.</td>
 </tr>
 <tr>
-<td class="asm-label">Handler_FlightPath_1</td>
+<td class="routine-comment" colspan="5">
+<span id="35313"></span>
+<div class="comments">
+<div class="paragraph">
+Update position and check if destination reached.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">FlightPath_CheckArrived</td>
 <td class="address-2"><span id="35313"></span>35313</td>
 <td class="instruction">LD (30725),HL</td>
-<td class="comment-1" rowspan="1">Write <span class="register">HL</span> to *<a href="30725.html">CurrentLocationCoOrdinates</a>.</td>
+<td class="comment-1" rowspan="1">Write new X/ Y co-ordinates to *<a href="30725.html">CurrentLocationCoordinates</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="35316"></span>35316</td>
 <td class="instruction">LD (30721),BC</td>
-<td class="comment-1" rowspan="1">Write <span class="register">BC</span> to *<a href="30721.html">30721</a>.</td>
+<td class="comment-1" rowspan="1">Write updated movement vector to *<a href="30721.html">Flightpath_X_MovementVector</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="35320"></span>35320</td>
 <td class="instruction">AND A</td>
-<td class="comment-1" rowspan="1">Set flags.</td>
+<td class="comment-1" rowspan="3">Compare current position with destination.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="35321"></span>35321</td>
 <td class="instruction">LD DE,(30727)</td>
-<td class="comment-1" rowspan="1"><span class="register">DE</span>=*<a href="30727.html">30727</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="35325"></span>35325</td>
 <td class="instruction">SBC HL,DE</td>
-<td class="comment-1" rowspan="1"><span class="register">HL</span>-=<span class="register">DE</span> (with carry).</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="35327"></span>35327</td>
 <td class="instruction">JR NZ,<a href="35228.html#35228">Handler_FlightPath</a></td>
-<td class="comment-1" rowspan="1">Jump to <a href="35228.html">Handler_FlightPath</a> if <span class="register">A</span> is not zero.</td>
+<td class="comment-1" rowspan="1">Jump to <a href="35228.html">Handler_FlightPath</a> until destination is reached.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="35329"></span>35329</td>
 <td class="instruction">LD HL,61435</td>
-<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="61435.html">GameState_2</a>.</td>
+<td class="comment-1" rowspan="2">Reset bit 1 ("Flightpath Complete") of *<a href="61435.html">GameState_2</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="35332"></span>35332</td>
 <td class="instruction">RES 1,(HL)</td>
-<td class="comment-1" rowspan="1">Reset bit 1 of *<span class="register">HL</span>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
