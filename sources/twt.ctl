@@ -1141,14 +1141,16 @@ N $8785 Keep looping until the selected destination matches #REGa.
   $87C7,$03 #REGde=#N$403B (screen buffer location).
   $87CA,$03 #REGbc=#N($0202,$04,$04).
   $87CD,$03 Call #R$9712.
-  $87D0,$01 Restore #REGhl from the stack.
+  $87D0,$01 Restore #REGhl from the stack (housekeeping, this is immediately
+. thrown away).
   $87D1,$05 Set bit 7 ("Flying To New Destination") of *#R$EFFA.
   $87D6,$03 Call #R$823B.
   $87D9,$03 Call #R$8A61.
   $87DC,$03 Jump to #R$896C.
 N $87DF Prints "#STR($8C10)#STR($8C13)#STR($8C1C)".
 @ $87DF label=NotEnoughMoneyToFly
-  $87DF,$01 Restore #REGde from the stack.
+  $87DF,$01 Restore #REGde from the stack (housekeeping, this is immediately
+. thrown away).
 N $87E0 Prints "#STR($8C10)".
   $87E0,$03 #REGhl=#R$8C10.
   $87E3,$03 #REGde=#N$50A3 (screen buffer location).
