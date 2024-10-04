@@ -62,7 +62,7 @@ Used by the routines at <a href="32771.html">GameInitialise</a> and <a href="348
 <td class="asm-label">Print_WorldMap</td>
 <td class="address-2"><span id="33094"></span>33094</td>
 <td class="instruction">LD IX,61440</td>
-<td class="comment-1" rowspan="1"><span class="register">IX</span>=<a href="61440.html">61440</a>.</td>
+<td class="comment-1" rowspan="1"><span class="register">IX</span>=<a href="61440.html">WorldMap_Data</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -74,52 +74,72 @@ Used by the routines at <a href="32771.html">GameInitialise</a> and <a href="348
 <td class="asm-label"></td>
 <td class="address-1"><span id="33101"></span>33101</td>
 <td class="instruction">LD E,255</td>
-<td class="comment-1" rowspan="1"><span class="register">E</span>=255.</td>
+<td class="comment-1" rowspan="1">Set <span class="register">E</span> as a bit counter/ mask.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="33103"></span>33103</td>
 <td class="instruction">LD D,128</td>
-<td class="comment-1" rowspan="1"><span class="register">D</span>=128.</td>
+<td class="comment-1" rowspan="1"><span class="register">D</span> is used as a bit mask for the output.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="33105"></span>33105</td>
 <td class="instruction">LD A,0</td>
-<td class="comment-1" rowspan="1"><span class="register">A</span>=0.</td>
+<td class="comment-1" rowspan="1">Initialise <span class="register">A</span> to 0 which is used for comparisons.</td>
 </tr>
 <tr>
-<td class="asm-label">Print_WorldMap_0</td>
+<td class="routine-comment" colspan="5">
+<span id="33107"></span>
+<div class="comments">
+<div class="paragraph">
+Main loop, process the map data.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">WorldMap_Loop</td>
 <td class="address-2"><span id="33107"></span>33107</td>
 <td class="instruction">INC IX</td>
-<td class="comment-1" rowspan="1">Increment <span class="register">IX</span> by one.</td>
+<td class="comment-1" rowspan="1">Increment the map data pointer by one.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="33109"></span>33109</td>
 <td class="instruction">LD B,(IX-1)</td>
-<td class="comment-1" rowspan="1"><span class="register">B</span>=*<span class="register">IX</span>+255.</td>
+<td class="comment-1" rowspan="1">Load the current map data byte into <span class="register">B</span>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="33112"></span>33112</td>
 <td class="instruction">INC E</td>
-<td class="comment-1" rowspan="1">Increment <span class="register">E</span> by one.</td>
+<td class="comment-1" rowspan="1">Increment the bit counter by one.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="33113"></span>33113</td>
-<td class="instruction">JR Z,<a href="33094.html#33117">Print_WorldMap_1</a></td>
-<td class="comment-1" rowspan="1">Jump to <a href="33094.html#33117">Print_WorldMap_1</a> if <span class="register">E</span> is zero.</td>
+<td class="instruction">JR Z,<a href="33094.html#33117">WorldMap_ExpandData</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="33094.html#33117">WorldMap_ExpandData</a> if the bit counter wrapped around to zero.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="33115"></span>33115</td>
 <td class="instruction">LD E,255</td>
-<td class="comment-1" rowspan="1"><span class="register">E</span>=255.</td>
+<td class="comment-1" rowspan="1">Reset <span class="register">E</span> to 255 if it didn't wrap.</td>
 </tr>
 <tr>
-<td class="asm-label">Print_WorldMap_1</td>
+<td class="routine-comment" colspan="5">
+<span id="33117"></span>
+<div class="comments">
+<div class="paragraph">
+Expand map data into pixels.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">WorldMap_ExpandData</td>
 <td class="address-2"><span id="33117"></span>33117</td>
 <td class="instruction">RRC E</td>
 <td class="comment-1" rowspan="1">Rotate <span class="register">E</span> right (with carry).</td>
@@ -128,142 +148,185 @@ Used by the routines at <a href="32771.html">GameInitialise</a> and <a href="348
 <td class="asm-label"></td>
 <td class="address-1"><span id="33119"></span>33119</td>
 <td class="instruction">RL (HL)</td>
-<td class="comment-1" rowspan="1">Rotate *<span class="register">HL</span> left.</td>
+<td class="comment-1" rowspan="1">Rotate the byte at *<span class="register">HL</span> left one position, including the carry from the previous line.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="33121"></span>33121</td>
 <td class="instruction">DEC B</td>
-<td class="comment-1" rowspan="1">Decrease <span class="register">B</span> by one.</td>
+<td class="comment-1" rowspan="1">Decrease bits remaining in the current map byte by one.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="33122"></span>33122</td>
 <td class="instruction">SRL D</td>
-<td class="comment-1" rowspan="1">Shift <span class="register">D</span> right.</td>
+<td class="comment-1" rowspan="1">Shift the output bit mask right one position.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="33124"></span>33124</td>
-<td class="instruction">JR Z,<a href="33094.html#33131">Print_WorldMap_2</a></td>
-<td class="comment-1" rowspan="1">Jump to <a href="33094.html#33131">Print_WorldMap_2</a> if <span class="register">B</span> is zero.</td>
+<td class="instruction">JR Z,<a href="33094.html#33131">WorldMap_NextByte</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="33094.html#33131">WorldMap_NextByte</a> if <span class="register">B</span> is zero (the byte is filled).</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="33126"></span>33126</td>
 <td class="instruction">CP B</td>
-<td class="comment-1" rowspan="1">Compare <span class="register">A</span> with <span class="register">B</span>.</td>
+<td class="comment-1" rowspan="2">Jump to <a href="33094.html#33117">WorldMap_ExpandData</a> if <span class="register">A</span> is not equal to <span class="register">B</span>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="33127"></span>33127</td>
-<td class="instruction">JR NZ,<a href="33094.html#33117">Print_WorldMap_1</a></td>
-<td class="comment-1" rowspan="1">Jump to <a href="33094.html#33117">Print_WorldMap_1</a> if <span class="register">A</span> is not zero.</td>
+<td class="instruction">JR NZ,<a href="33094.html#33117">WorldMap_ExpandData</a></td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33129"></span>
+<div class="comments">
+<div class="paragraph">
+Move to the next map data byte.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="33129"></span>33129</td>
-<td class="instruction">JR <a href="33094.html#33107">Print_WorldMap_0</a></td>
-<td class="comment-1" rowspan="1">Jump to <a href="33094.html#33107">Print_WorldMap_0</a>.</td>
+<td class="instruction">JR <a href="33094.html#33107">WorldMap_Loop</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="33094.html#33107">WorldMap_Loop</a>.</td>
 </tr>
 <tr>
-<td class="asm-label">Print_WorldMap_2</td>
+<td class="routine-comment" colspan="5">
+<span id="33131"></span>
+<div class="comments">
+<div class="paragraph">
+Move to next shadow buffer byte.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">WorldMap_NextByte</td>
 <td class="address-2"><span id="33131"></span>33131</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="1">Increment <span class="register">HL</span> by one.</td>
+<td class="comment-1" rowspan="1">Increment the shadow buffer pointer by one.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="33132"></span>33132</td>
 <td class="instruction">LD A,120</td>
-<td class="comment-1" rowspan="1"><span class="register">A</span>=120.</td>
+<td class="comment-1" rowspan="1"><span class="register">A</span>=120 (high byte of the shadow buffer end address).</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="33134"></span>33134</td>
 <td class="instruction">CP H</td>
-<td class="comment-1" rowspan="1">Compare <span class="register">A</span> with <span class="register">H</span>.</td>
+<td class="comment-1" rowspan="2">Jump to <a href="33094.html#33158">WorldMap_ClearEdge</a> if the end of the shadow buffer has been reached.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="33135"></span>33135</td>
-<td class="instruction">JR Z,<a href="33094.html#33158">Print_WorldMap_4</a></td>
-<td class="comment-1" rowspan="1">Jump to <a href="33094.html#33158">Print_WorldMap_4</a> if <span class="register">A</span> is zero.</td>
+<td class="instruction">JR Z,<a href="33094.html#33158">WorldMap_ClearEdge</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="33137"></span>33137</td>
 <td class="instruction">LD A,B</td>
-<td class="comment-1" rowspan="1"><span class="register">A</span>=<span class="register">B</span>.</td>
+<td class="comment-1" rowspan="1">Store the remaining bits from the current map byte in <span class="register">A</span>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="33138"></span>33138</td>
 <td class="instruction">CP 8</td>
-<td class="comment-1" rowspan="1">Compare <span class="register">A</span> with 8.</td>
+<td class="comment-1" rowspan="2">Jump to <a href="33094.html#33152">WorldMap_FullByte</a> if <span class="register">A</span> is equal to/ higher than 8.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="33140"></span>33140</td>
-<td class="instruction">JR NC,<a href="33094.html#33152">Print_WorldMap_3</a></td>
-<td class="comment-1" rowspan="1">Jump to <a href="33094.html#33152">Print_WorldMap_3</a> if <span class="register">A</span> is higher.</td>
+<td class="instruction">JR NC,<a href="33094.html#33152">WorldMap_FullByte</a></td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="33142"></span>33142</td>
 <td class="instruction">CP 0</td>
-<td class="comment-1" rowspan="1">Compare <span class="register">A</span> with 0.</td>
+<td class="comment-1" rowspan="1">Check if we're done with current map byte.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="33144"></span>33144</td>
 <td class="instruction">LD D,128</td>
-<td class="comment-1" rowspan="1"><span class="register">D</span>=128.</td>
+<td class="comment-1" rowspan="1">Reset the bit mask in <span class="register">D</span> to 128.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="33146"></span>33146</td>
-<td class="instruction">JR Z,<a href="33094.html#33107">Print_WorldMap_0</a></td>
-<td class="comment-1" rowspan="1">Jump to <a href="33094.html#33107">Print_WorldMap_0</a> if <span class="register">A</span> is zero.</td>
+<td class="instruction">JR Z,<a href="33094.html#33107">WorldMap_Loop</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="33094.html#33107">WorldMap_Loop</a> if we are done with the current map byte.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="33148"></span>33148</td>
 <td class="instruction">LD A,0</td>
-<td class="comment-1" rowspan="1"><span class="register">A</span>=0.</td>
+<td class="comment-1" rowspan="1">Reset <span class="register">A</span> for comparison in bit manipulation loop.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="33150"></span>33150</td>
-<td class="instruction">JR <a href="33094.html#33117">Print_WorldMap_1</a></td>
-<td class="comment-1" rowspan="1">Jump to <a href="33094.html#33117">Print_WorldMap_1</a>.</td>
+<td class="instruction">JR <a href="33094.html#33117">WorldMap_ExpandData</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="33094.html#33117">WorldMap_ExpandData</a>.</td>
 </tr>
 <tr>
-<td class="asm-label">Print_WorldMap_3</td>
+<td class="routine-comment" colspan="5">
+<span id="33152"></span>
+<div class="comments">
+<div class="paragraph">
+Handle full byte remaining.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">WorldMap_FullByte</td>
 <td class="address-2"><span id="33152"></span>33152</td>
 <td class="instruction">LD (HL),E</td>
-<td class="comment-1" rowspan="1">Write <span class="register">E</span> to *<span class="register">HL</span>.</td>
+<td class="comment-1" rowspan="1">Store the full byte in the shadow buffer.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="33153"></span>33153</td>
 <td class="instruction">SUB 8</td>
-<td class="comment-1" rowspan="1"><span class="register">A</span>-=8.</td>
+<td class="comment-1" rowspan="2">Subtract 8 from the remaining bit count.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="33155"></span>33155</td>
 <td class="instruction">LD B,A</td>
-<td class="comment-1" rowspan="1"><span class="register">B</span>=<span class="register">A</span>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="33156"></span>33156</td>
-<td class="instruction">JR <a href="33094.html#33131">Print_WorldMap_2</a></td>
-<td class="comment-1" rowspan="1">Jump to <a href="33094.html#33131">Print_WorldMap_2</a>.</td>
+<td class="instruction">JR <a href="33094.html#33131">WorldMap_NextByte</a></td>
+<td class="comment-1" rowspan="1">Jump to <a href="33094.html#33131">WorldMap_NextByte</a>.</td>
 </tr>
 <tr>
-<td class="asm-label">Print_WorldMap_4</td>
+<td class="routine-comment" colspan="5">
+<span id="33158"></span>
+<div class="comments">
+<div class="paragraph">
+Due to the way the decompression works, the image is left with a trailing line - this is what it would look like if we didn't clear the right edge of the map.  <table class="">
+<tr>
+<td class="" colspan="1" rowspan="1"><img alt="world-map-no-clear" src="../../images/scr/world-map-no-clear.png" /></td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+Clear the right edge of the map.
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="asm-label">WorldMap_ClearEdge</td>
 <td class="address-2"><span id="33158"></span>33158</td>
 <td class="instruction">LD HL,24607</td>
 <td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="24576.html">24607</a>.</td>
@@ -272,16 +335,16 @@ Used by the routines at <a href="32771.html">GameInitialise</a> and <a href="348
 <td class="asm-label"></td>
 <td class="address-1"><span id="33161"></span>33161</td>
 <td class="instruction">LD DE,32</td>
-<td class="comment-1" rowspan="1"><span class="register">DE</span>=0032.</td>
+<td class="comment-1" rowspan="1">Set the row width in <span class="register">DE</span> (0032 bytes is one whole row).</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="33164"></span>33164</td>
 <td class="instruction">LD B,192</td>
-<td class="comment-1" rowspan="1"><span class="register">B</span>=192.</td>
+<td class="comment-1" rowspan="1">Set a counter in <span class="register">B</span> of the number of rows to process (192).</td>
 </tr>
 <tr>
-<td class="asm-label">Print_WorldMap_5</td>
+<td class="asm-label">WorldMap_ClearEdge_Loop</td>
 <td class="address-2"><span id="33166"></span>33166</td>
 <td class="instruction">RES 0,(HL)</td>
 <td class="comment-1" rowspan="1">Reset bit 0 of *<span class="register">HL</span>.</td>
@@ -290,55 +353,77 @@ Used by the routines at <a href="32771.html">GameInitialise</a> and <a href="348
 <td class="asm-label"></td>
 <td class="address-1"><span id="33168"></span>33168</td>
 <td class="instruction">ADD HL,DE</td>
-<td class="comment-1" rowspan="1"><span class="register">HL</span>+=<span class="register">DE</span>.</td>
+<td class="comment-1" rowspan="1">Move to the next row.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="33169"></span>33169</td>
-<td class="instruction">DJNZ <a href="33094.html#33166">Print_WorldMap_5</a></td>
-<td class="comment-1" rowspan="1">Decrease counter by one and loop back to <a href="33094.html#33166">Print_WorldMap_5</a> until counter is zero.</td>
+<td class="instruction">DJNZ <a href="33094.html#33166">WorldMap_ClearEdge_Loop</a></td>
+<td class="comment-1" rowspan="1">Decrease the row counter by one and loop back to <a href="33094.html#33166">WorldMap_ClearEdge_Loop</a> until all rows have been processed.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33171"></span>
+<div class="comments">
+<div class="paragraph">
+Copy the map to the screen buffer.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="33171"></span>33171</td>
 <td class="instruction">LD HL,24576</td>
-<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="24576.html">ShadowBuffer</a>.</td>
+<td class="comment-1" rowspan="4">Copy 6144 bytes from <a href="24576.html">ShadowBuffer</a> to <a href="16384.html">the screen buffer</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="33174"></span>33174</td>
 <td class="instruction">LD DE,16384</td>
-<td class="comment-1" rowspan="1"><span class="register">DE</span>=16384.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="33177"></span>33177</td>
 <td class="instruction">LD BC,6144</td>
-<td class="comment-1" rowspan="1"><span class="register">BC</span>=6144.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="33180"></span>33180</td>
 <td class="instruction">LDIR</td>
-<td class="comment-1" rowspan="1">LDIR.</td>
+</tr>
+<tr>
+<td class="routine-comment" colspan="5">
+<span id="33182"></span>
+<div class="comments">
+<div class="paragraph">
+Colour the whole of the attribute buffer INK:
+YELLOW,
+PAPER:
+BLUE
+(BRIGHT)
+.
+</div>
+</div>
+</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="33182"></span>33182</td>
 <td class="instruction">LD HL,22528</td>
-<td class="comment-1" rowspan="1"><span class="register">HL</span>=22528 (screen buffer location).</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=22528 (attribute buffer location).</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="33185"></span>33185</td>
 <td class="instruction">LD DE,22529</td>
-<td class="comment-1" rowspan="1"><span class="register">DE</span>=22529 (attribute buffer location).</td>
+<td class="comment-1" rowspan="1"><span class="register">DE</span>=22529.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="33188"></span>33188</td>
 <td class="instruction">LD BC,767</td>
-<td class="comment-1" rowspan="1"><span class="register">BC</span>=0767.</td>
+<td class="comment-1" rowspan="1"><span class="register">BC</span>=767.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -355,25 +440,27 @@ BLUE
 <td class="asm-label"></td>
 <td class="address-1"><span id="33193"></span>33193</td>
 <td class="instruction">LDIR</td>
-<td class="comment-1" rowspan="1">LDIR.</td>
+<td class="comment-1" rowspan="1">Copy 767 more bytes to the rest of the attribute buffer.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="33195"></span>33195</td>
 <td class="instruction">LD A,1</td>
-<td class="comment-1" rowspan="1"><span class="register">A</span>=1.</td>
+<td class="comment-1" rowspan="2">Write 1 to *<a href="39364.html#39372">39372</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="33197"></span>33197</td>
 <td class="instruction">LD (39372),A</td>
-<td class="comment-1" rowspan="1">Write <span class="register">A</span> to *<a href="39364.html#39372">39372</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="33200"></span>33200</td>
 <td class="instruction">OUT (254),A</td>
-<td class="comment-1" rowspan="1">OUT 51710</td>
+<td class="comment-1" rowspan="1">Set the border to 
+
+
+BLUE.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
