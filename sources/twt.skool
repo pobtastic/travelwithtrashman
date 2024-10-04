@@ -2795,13 +2795,17 @@ c$8749 LD A,($7811)  ; #REGa=*#R$7811.
  $877F LD A,($7811)  ; {Set the selected position from *#R$7811 in #REGe.
  $8782 LD E,A        ; }
  $8783 LD A,$88      ; Set the position of the top destination in #REGa.
-; Keep looping until the selected destination matches #REGa.
+; With the selected position being in #REGe, start with #REGa being the
+; position of the top entry (#N$88) and check if the values match, if they
+; don't - loop back round adding #N$20 to the checking value in #REGa until a
+; a match is found (and the destination will be in #REGhl).
 @label=CalculateSelectedDestination_Loop
 *$8785 ADD HL,BC     ; Move #REGhl to the next destination.
- $8786 CP E          ; {Jump to #R$878D if #REGa is equal to #REGe.
- $8787 JR Z,$878D    ; }
+ $8786 CP E          ; {Jump to #R$878D if #REGa is equal to the selected
+ $8787 JR Z,$878D    ; position.}
  $8789 ADD A,$20     ; Move down one line.
  $878B JR $8785      ; Jump to #R$8785.
+; Destination has been found.
 @label=FoundSelectedDestination
 *$878D LD C,(HL)     ; #REGc=*#REGhl.
  $878E INC HL        ; Increment #REGhl by one.
@@ -2810,32 +2814,37 @@ c$8749 LD A,($7811)  ; #REGa=*#R$7811.
  $8792 JP NC,$883C   ; }
  $8795 LD B,(HL)     ; #REGb=*#REGhl.
  $8796 INC HL        ; Increment #REGhl by one.
- $8797 LD E,(HL)     ; #REGe=*#REGhl.
- $8798 PUSH HL       ; Stash #REGhl on the stack.
- $8799 INC HL        ; Increment #REGhl by one.
- $879A LD D,(HL)     ; #REGd=*#REGhl.
- $879B LD L,(IX+$0D) ; #REGl=*#REGix+#N$0D.
- $879E LD H,(IX+$0E) ; #REGh=*#REGix+#N$0E.
- $87A1 AND A         ; {#REGhl-=#REGde (with carry).
- $87A2 SBC HL,DE     ; }
- $87A4 JR C,$87DF    ; Jump to #R$87DF if #REGhl is lower.
- $87A6 LD (IX+$08),C ; Write #REGc to *#REGix+#N$08.
- $87A9 LD (IX+$09),B ; Write #REGb to *#REGix+#N$09.
- $87AC LD HL,$0002   ; #REGhl=#N($0002,$04,$04).
- $87AF ADD HL,BC     ; #REGhl+=#REGbc.
- $87B0 LD C,(HL)     ; #REGc=*#REGhl.
- $87B1 INC HL        ; Increment #REGhl by one.
- $87B2 LD B,(HL)     ; #REGb=*#REGhl.
- $87B3 LD ($7807),BC ; Write #REGbc to *#R$7807.
- $87B7 LD HL,($EFF2) ; {#REGhl=*#R$EFF2+#N($000D,$04,$04).
+ $8797 LD E,(HL)     ; {Stash the pointer to the cost on the stack.
+ $8798 PUSH HL       ; }
+ $8799 INC HL        ; {Load the cost of this trip into #REGde.
+ $879A LD D,(HL)     ; }
+ $879B LD L,(IX+$0D) ; {Load the players cash balance into #REGhl.
+ $879E LD H,(IX+$0E) ; }
+ $87A1 AND A         ; {Jump to #R$87DF if the players cash balance is lower than the cost
+ $87A2 SBC HL,DE     ; of this trip.
+ $87A4 JR C,$87DF    ; }
+; The player can afford the trip, so continue.
+ $87A6 LD (IX+$08),C ; {Update the players current destination with the new
+ $87A9 LD (IX+$09),B ; destination.}
+ $87AC LD HL,$0002   ; {Move #REGhl to point to the co-ordinates of the
+ $87AF ADD HL,BC     ; destination.}
+ $87B0 LD C,(HL)     ; {Load the map co-ordinates into #REGbc.
+ $87B1 INC HL        ;
+ $87B2 LD B,(HL)     ; }
+ $87B3 LD ($7807),BC ; Write the map co-ordinates to *#R$7807.
+; Spent the money on the air fare.
+ $87B7 LD HL,($EFF2) ; {Store a pointer to the players cash balance in #REGde.
  $87BA LD DE,$000D   ;
- $87BD ADD HL,DE     ; }
- $87BE EX DE,HL      ; Exchange the #REGde and #REGhl registers.
- $87BF POP HL        ; Restore #REGhl from the stack.
- $87C0 LD B,$02      ; #REGb=#N$02.
- $87C2 CALL $96FE    ; Call #R$96FE.
- $87C5 DEC DE        ; Decrease #REGde by one.
- $87C6 EX DE,HL      ; Exchange the #REGde and #REGhl registers.
+ $87BD ADD HL,DE     ;
+ $87BE EX DE,HL      ; }
+ $87BF POP HL        ; Restore the pointer to the cost of this trip from the stack into
+                     ; #REGhl.
+ $87C0 LD B,$02      ; {Call #R$96FE with #N$02 digits to process.
+ $87C2 CALL $96FE    ; }
+; Print the updated cash balance to the screen.
+ $87C5 DEC DE        ; {Decrease the cash balance pointer by one to point to the correct
+ $87C6 EX DE,HL      ; starting position (the print call moved it). Move this to #REGhl.
+                     ; }
  $87C7 LD DE,$403B   ; #REGde=#N$403B (screen buffer location).
  $87CA LD BC,$0202   ; #REGbc=#N($0202,$04,$04).
  $87CD CALL $9712    ; Call #R$9712.
@@ -2883,8 +2892,11 @@ c$8749 LD A,($7811)  ; #REGa=*#R$7811.
  $8817 JR Z,$881D    ; }
  $8819 ADD A,$20     ; #REGa+=#N$20.
  $881B JR $8805      ; Jump to #R$8805.
+; Set the cursor position back to the initial "top" choice.
+@label=LocationChoice_BackToTop
 *$881D LD A,$88      ; #REGa=#N$88.
  $881F JR $8805      ; Jump to #R$8805.
+@label=LocationChoice_MoveChoice
 *$8821 LD A,C        ; #REGa=#REGc.
  $8822 JR $8805      ; Jump to #R$8805.
 

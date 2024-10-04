@@ -1103,41 +1103,40 @@ N $8772 Process the player pressing "fire".
   $877C,$03 Set the increment between destinations in #REGbc.
   $877F,$04 Set the selected position from *#R$7811 in #REGe.
   $8783,$02 Set the position of the top destination in #REGa.
-N $8785 Keep looping until the selected destination matches #REGa.
+N $8785 With the selected position being in #REGe, start with #REGa being the
+. position of the top entry (#N$88) and check if the values match, if they
+. don't - loop back round adding #N$20 to the checking value in #REGa until a
+. a match is found (and the destination will be in #REGhl).
 @ $8785 label=CalculateSelectedDestination_Loop
   $8785,$01 Move #REGhl to the next destination.
-  $8786,$03 Jump to #R$878D if #REGa is equal to #REGe.
+  $8786,$03 Jump to #R$878D if #REGa is equal to the selected position.
   $8789,$02 Move down one line.
   $878B,$02 Jump to #R$8785.
+N $878D Destination has been found.
 @ $878D label=FoundSelectedDestination
   $878D,$01 #REGc=*#REGhl.
   $878E,$01 Increment #REGhl by one.
   $878F,$06 Jump to #R$883C if *#REGhl is lower than #N$60.
   $8795,$01 #REGb=*#REGhl.
   $8796,$01 Increment #REGhl by one.
-  $8797,$01 #REGe=*#REGhl.
-  $8798,$01 Stash #REGhl on the stack.
-  $8799,$01 Increment #REGhl by one.
-  $879A,$01 #REGd=*#REGhl.
-  $879B,$03 #REGl=*#REGix+#N$0D.
-  $879E,$03 #REGh=*#REGix+#N$0E.
-  $87A1,$03 #REGhl-=#REGde (with carry).
-  $87A4,$02 Jump to #R$87DF if #REGhl is lower.
-  $87A6,$03 Write #REGc to *#REGix+#N$08.
-  $87A9,$03 Write #REGb to *#REGix+#N$09.
-  $87AC,$03 #REGhl=#N($0002,$04,$04).
-  $87AF,$01 #REGhl+=#REGbc.
-  $87B0,$01 #REGc=*#REGhl.
-  $87B1,$01 Increment #REGhl by one.
-  $87B2,$01 #REGb=*#REGhl.
-  $87B3,$04 Write #REGbc to *#R$7807.
-  $87B7,$07 #REGhl=*#R$EFF2+#N($000D,$04,$04).
-  $87BE,$01 Exchange the #REGde and #REGhl registers.
-  $87BF,$01 Restore #REGhl from the stack.
-  $87C0,$02 #REGb=#N$02.
-  $87C2,$03 Call #R$96FE.
-  $87C5,$01 Decrease #REGde by one.
-  $87C6,$01 Exchange the #REGde and #REGhl registers.
+  $8797,$02 Stash the pointer to the cost on the stack.
+  $8799,$02 Load the cost of this trip into #REGde.
+  $879B,$06 Load the players cash balance into #REGhl.
+  $87A1,$05 Jump to #R$87DF if the players cash balance is lower than the cost
+. of this trip.
+N $87A6 The player can afford the trip, so continue.
+  $87A6,$06 Update the players current destination with the new destination.
+  $87AC,$04 Move #REGhl to point to the co-ordinates of the destination.
+  $87B0,$03 Load the map co-ordinates into #REGbc.
+  $87B3,$04 Write the map co-ordinates to *#R$7807.
+N $87B7 Spent the money on the air fare.
+  $87B7,$08 Store a pointer to the players cash balance in #REGde.
+  $87BF,$01 Restore the pointer to the cost of this trip from the stack into
+. #REGhl.
+  $87C0,$05 Call #R$96FE with #N$02 digits to process.
+N $87C5 Print the updated cash balance to the screen.
+  $87C5,$02 Decrease the cash balance pointer by one to point to the correct
+. starting position (the print call moved it). Move this to #REGhl.
   $87C7,$03 #REGde=#N$403B (screen buffer location).
   $87CA,$03 #REGbc=#N($0202,$04,$04).
   $87CD,$03 Call #R$9712.
@@ -1180,8 +1179,12 @@ N $880F Process the player pressing "down".
   $8813,$06 Jump to #R$881D if *#R$7811 is equal to #REGc.
   $8819,$02 #REGa+=#N$20.
   $881B,$02 Jump to #R$8805.
+N $881D Set the cursor position back to the initial "top" choice.
+@ $881D label=LocationChoice_BackToTop
   $881D,$02 #REGa=#N$88.
   $881F,$02 Jump to #R$8805.
+N $8821
+@ $8821 label=LocationChoice_MoveChoice
   $8821,$01 #REGa=#REGc.
   $8822,$02 Jump to #R$8805.
 
