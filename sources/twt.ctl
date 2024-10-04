@@ -247,56 +247,71 @@ N $8146 #PUSHS #POKES$8C28,$50;$8C29,$4F;$8C2A,$42;$8C2B,$53;$8C2C,$54;$8C2D,$45
 . #UDGTABLE { #SIM(start=$8146,stop=$81AB)#SCR$02(world-map) } UDGTABLE# #PUSHS
   $8146,$04 #REGix=#R$F000.
   $814A,$03 #REGhl=#R$6000.
-  $814D,$02 #REGe=#N$FF.
-  $814F,$02 #REGd=#N$80.
-  $8151,$02 #REGa=#N$00.
-  $8153,$02 Increment #REGix by one.
-  $8155,$03 #REGb=*#REGix+#N$FF.
-  $8158,$01 Increment #REGe by one.
-  $8159,$02 Jump to #R$815D if #REGe is zero.
-  $815B,$02 #REGe=#N$FF.
+  $814D,$02 Set #REGe as a bit counter/ mask.
+  $814F,$02 #REGd is used as a bit mask for the output.
+  $8151,$02 Initialise #REGa to #N$00, which is used for comparisons.
+N $8153 Main loop, process the map data.
+@ $8153 label=WorldMap_Loop
+  $8153,$02 Increment the map data pointer by one.
+  $8155,$03 Load the current map data byte into #REGb.
+  $8158,$01 Increment the bit counter by one.
+  $8159,$02 Jump to #R$815D if the bit counter wrapped around to zero.
+  $815B,$02 Reset #REGe to #N$FF if it didn't wrap.
+N $815D Expand map data into pixels.
+@ $815D label=WorldMap_ExpandData
   $815D,$02 Rotate #REGe right (with carry).
-  $815F,$02 Rotate *#REGhl left.
-  $8161,$01 Decrease #REGb by one.
-  $8162,$02 Shift #REGd right.
-  $8164,$02 Jump to #R$816B if #REGb is zero.
-  $8166,$01 Compare #REGa with #REGb.
-  $8167,$02 Jump to #R$815D if #REGa is not zero.
+  $815F,$02 Rotate the byte at *#REGhl left one position, including the carry
+. from the previous line.
+  $8161,$01 Decrease bits remaining in the current map byte by one.
+  $8162,$02 Shift the output bit mask right one position.
+  $8164,$02 Jump to #R$816B if #REGb is zero (the byte is filled).
+  $8166,$03 Jump to #R$815D if #REGa is not equal to #REGb.
+N $8169 Move to the next map data byte.
   $8169,$02 Jump to #R$8153.
-  $816B,$01 Increment #REGhl by one.
-  $816C,$02 #REGa=#N$78.
-  $816E,$01 Compare #REGa with #REGh.
-  $816F,$02 Jump to #R$8186 if #REGa is zero.
-  $8171,$01 #REGa=#REGb.
-  $8172,$02 Compare #REGa with #N$08.
-  $8174,$02 Jump to #R$8180 if #REGa is higher.
-  $8176,$02 Compare #REGa with #N$00.
-  $8178,$02 #REGd=#N$80.
-  $817A,$02 Jump to #R$8153 if #REGa is zero.
-  $817C,$02 #REGa=#N$00.
+N $816B Move to next shadow buffer byte.
+@ $816B label=WorldMap_NextByte
+  $816B,$01 Increment the shadow buffer pointer by one.
+  $816C,$02 #REGa=#N$78 (high byte of the shadow buffer end address).
+  $816E,$03 Jump to #R$8186 if the end of the shadow buffer has been reached.
+  $8171,$01 Store the remaining bits from the current map byte in #REGa.
+  $8172,$04 Jump to #R$8180 if #REGa is equal to/ higher than #N$08.
+  $8176,$02 Check if we're done with current map byte.
+  $8178,$02 Reset the bit mask in #REGd to #N$80.
+  $817A,$02 Jump to #R$8153 if we are done with the current map byte.
+  $817C,$02 Reset #REGa for comparison in bit manipulation loop.
   $817E,$02 Jump to #R$815D.
-  $8180,$01 Write #REGe to *#REGhl.
-  $8181,$02 #REGa-=#N$08.
-  $8183,$01 #REGb=#REGa.
+N $8180 Handle full byte remaining.
+@ $8180 label=WorldMap_FullByte
+  $8180,$01 Store the full byte in the shadow buffer.
+  $8181,$03 Subtract #N$08 from the remaining bit count.
   $8184,$02 Jump to #R$816B.
+N $8186 Due to the way the decompression works, the image is left with a
+. trailing line - this is what it would look like if we didn't clear the right
+. edge of the map.
+. #PUSHS
+. #UDGTABLE { #SIM(start=$8146,stop=$8186)#SIM(start=$8193,stop=$81AB)#SCR$02(world-map-no-clear) } UDGTABLE#
+. #PUSHS
+N $8186 Clear the right edge of the map.
+@ $8186 label=WorldMap_ClearEdge
   $8186,$03 #REGhl=#R$6000(#N$601F).
-  $8189,$03 #REGde=#N($0020,$04,$04).
-  $818C,$02 #REGb=#N$C0.
+  $8189,$03 Set the row width in #REGde (#N($0020,$04,$04) bytes is one whole
+. row).
+  $818C,$02 Set a counter in #REGb of the number of rows to process (#N$C0).
+@ $818E label=WorldMap_ClearEdge_Loop
   $818E,$02 Reset bit 0 of *#REGhl.
-  $8190,$01 #REGhl+=#REGde.
-  $8191,$02 Decrease counter by one and loop back to #R$818E until counter is zero.
-  $8193,$03 #REGhl=#R$6000.
-  $8196,$03 #REGde=#N($4000,$04,$04).
-  $8199,$03 #REGbc=#N($1800,$04,$04).
-  $819C,$02 LDIR.
-  $819E,$03 #REGhl=#N$5800 (screen buffer location).
-  $81A1,$03 #REGde=#N$5801 (attribute buffer location).
-  $81A4,$03 #REGbc=#N($02FF,$04,$04).
+  $8190,$01 Move to the next row.
+  $8191,$02 Decrease the row counter by one and loop back to #R$818E until all
+. rows have been processed.
+N $8193 Copy the map to the screen buffer.
+  $8193,$0B Copy #N$1800 bytes from #R$6000 to #R$4000(the screen buffer).
+N $819E Colour the whole of the attribute buffer #COLOUR$4E.
+  $819E,$03 #REGhl=#N$5800 (attribute buffer location).
+  $81A1,$03 #REGde=#N$5801.
+  $81A4,$03 #REGbc=#N$02FF.
   $81A7,$02 Write #COLOUR$4E to *#REGhl.
-  $81A9,$02 LDIR.
-  $81AB,$02 #REGa=#N$01.
-  $81AD,$03 Write #REGa to *#R$99CC.
-  $81B0,$02 OUT #N$C9FE
+  $81A9,$02 Copy #N$02FF more bytes to the rest of the attribute buffer.
+  $81AB,$05 Write #N$01 to *#R$99CC.
+  $81B0,$02 Set the border to #INK$01.
   $81B2,$01 Return.
 
 c $81B3 Flash Location Map Points
@@ -4033,7 +4048,9 @@ b $EFFD
 b $EFFE
 
 b $EFFF
-b $F000
+
+b $F000 World Map Data
+@ $F000 label=WorldMap_Data
 
 b $F840 Font UDGs
 @ $F840 label=Font

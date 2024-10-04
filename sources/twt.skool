@@ -1701,57 +1701,87 @@ c$813C LD A,$7F      ; {Read from the keyboard;
 @label=Print_WorldMap
 c$8146 LD IX,$F000   ; #REGix=#R$F000.
  $814A LD HL,$6000   ; #REGhl=#R$6000.
- $814D LD E,$FF      ; #REGe=#N$FF.
- $814F LD D,$80      ; #REGd=#N$80.
- $8151 LD A,$00      ; #REGa=#N$00.
-*$8153 INC IX        ; Increment #REGix by one.
- $8155 LD B,(IX-$01) ; #REGb=*#REGix+#N$FF.
- $8158 INC E         ; Increment #REGe by one.
- $8159 JR Z,$815D    ; Jump to #R$815D if #REGe is zero.
- $815B LD E,$FF      ; #REGe=#N$FF.
+ $814D LD E,$FF      ; Set #REGe as a bit counter/ mask.
+ $814F LD D,$80      ; #REGd is used as a bit mask for the output.
+ $8151 LD A,$00      ; Initialise #REGa to #N$00, which is used for
+                     ; comparisons.
+; Main loop, process the map data.
+@label=WorldMap_Loop
+*$8153 INC IX        ; Increment the map data pointer by one.
+ $8155 LD B,(IX-$01) ; Load the current map data byte into #REGb.
+ $8158 INC E         ; Increment the bit counter by one.
+ $8159 JR Z,$815D    ; Jump to #R$815D if the bit counter wrapped around to
+                     ; zero.
+ $815B LD E,$FF      ; Reset #REGe to #N$FF if it didn't wrap.
+; Expand map data into pixels.
+@label=WorldMap_ExpandData
 *$815D RRC E         ; Rotate #REGe right (with carry).
- $815F RL (HL)       ; Rotate *#REGhl left.
- $8161 DEC B         ; Decrease #REGb by one.
- $8162 SRL D         ; Shift #REGd right.
- $8164 JR Z,$816B    ; Jump to #R$816B if #REGb is zero.
- $8166 CP B          ; Compare #REGa with #REGb.
- $8167 JR NZ,$815D   ; Jump to #R$815D if #REGa is not zero.
+ $815F RL (HL)       ; Rotate the byte at *#REGhl left one position, including the carry
+                     ; from the previous line.
+ $8161 DEC B         ; Decrease bits remaining in the current map byte by one.
+ $8162 SRL D         ; Shift the output bit mask right one position.
+ $8164 JR Z,$816B    ; Jump to #R$816B if #REGb is zero (the byte is filled).
+ $8166 CP B          ; {Jump to #R$815D if #REGa is not equal to #REGb.
+ $8167 JR NZ,$815D   ; }
+; Move to the next map data byte.
  $8169 JR $8153      ; Jump to #R$8153.
-*$816B INC HL        ; Increment #REGhl by one.
- $816C LD A,$78      ; #REGa=#N$78.
- $816E CP H          ; Compare #REGa with #REGh.
- $816F JR Z,$8186    ; Jump to #R$8186 if #REGa is zero.
- $8171 LD A,B        ; #REGa=#REGb.
- $8172 CP $08        ; Compare #REGa with #N$08.
- $8174 JR NC,$8180   ; Jump to #R$8180 if #REGa is higher.
- $8176 CP $00        ; Compare #REGa with #N$00.
- $8178 LD D,$80      ; #REGd=#N$80.
- $817A JR Z,$8153    ; Jump to #R$8153 if #REGa is zero.
- $817C LD A,$00      ; #REGa=#N$00.
+; Move to next shadow buffer byte.
+@label=WorldMap_NextByte
+*$816B INC HL        ; Increment the shadow buffer pointer by one.
+ $816C LD A,$78      ; #REGa=#N$78 (high byte of the shadow buffer end
+                     ; address).
+ $816E CP H          ; {Jump to #R$8186 if the end of the shadow buffer has
+ $816F JR Z,$8186    ; been reached.}
+ $8171 LD A,B        ; Store the remaining bits from the current map byte in
+                     ; #REGa.
+ $8172 CP $08        ; {Jump to #R$8180 if #REGa is equal to/ higher than
+ $8174 JR NC,$8180   ; #N$08.}
+ $8176 CP $00        ; Check if we're done with current map byte.
+ $8178 LD D,$80      ; Reset the bit mask in #REGd to #N$80.
+ $817A JR Z,$8153    ; Jump to #R$8153 if we are done with the current map
+                     ; byte.
+ $817C LD A,$00      ; Reset #REGa for comparison in bit manipulation loop.
  $817E JR $815D      ; Jump to #R$815D.
-*$8180 LD (HL),E     ; Write #REGe to *#REGhl.
- $8181 SUB $08       ; #REGa-=#N$08.
- $8183 LD B,A        ; #REGb=#REGa.
+; Handle full byte remaining.
+@label=WorldMap_FullByte
+*$8180 LD (HL),E     ; Store the full byte in the shadow buffer.
+ $8181 SUB $08       ; {Subtract #N$08 from the remaining bit count.
+ $8183 LD B,A        ; }
  $8184 JR $816B      ; Jump to #R$816B.
+; Due to the way the decompression works, the image is left with a
+; trailing line - this is what it would look like if we didn't clear the right
+; edge of the map.
+; #PUSHS
+; #UDGTABLE { #SIM(start=$8146,stop=$8186)#SIM(start=$8193,stop=$81AB)#SCR$02(world-map-no-clear) } UDGTABLE#
+; #PUSHS
+; .
+; Clear the right edge of the map.
+@label=WorldMap_ClearEdge
 *$8186 LD HL,$601F   ; #REGhl=#R$6000(#N$601F).
- $8189 LD DE,$0020   ; #REGde=#N($0020,$04,$04).
- $818C LD B,$C0      ; #REGb=#N$C0.
+ $8189 LD DE,$0020   ; Set the row width in #REGde (#N($0020,$04,$04) bytes is one whole
+                     ; row).
+ $818C LD B,$C0      ; Set a counter in #REGb of the number of rows to process
+                     ; (#N$C0).
+@label=WorldMap_ClearEdge_Loop
 *$818E RES 0,(HL)    ; Reset bit 0 of *#REGhl.
- $8190 ADD HL,DE     ; #REGhl+=#REGde.
- $8191 DJNZ $818E    ; Decrease counter by one and loop back to #R$818E until
-                     ; counter is zero.
- $8193 LD HL,$6000   ; #REGhl=#R$6000.
- $8196 LD DE,$4000   ; #REGde=#N($4000,$04,$04).
- $8199 LD BC,$1800   ; #REGbc=#N($1800,$04,$04).
- $819C LDIR          ; LDIR.
- $819E LD HL,$5800   ; #REGhl=#N$5800 (screen buffer location).
- $81A1 LD DE,$5801   ; #REGde=#N$5801 (attribute buffer location).
- $81A4 LD BC,$02FF   ; #REGbc=#N($02FF,$04,$04).
+ $8190 ADD HL,DE     ; Move to the next row.
+ $8191 DJNZ $818E    ; Decrease the row counter by one and loop back to #R$818E until all
+                     ; rows have been processed.
+; Copy the map to the screen buffer.
+ $8193 LD HL,$6000   ; {Copy #N$1800 bytes from #R$6000 to #R$4000(the screen
+ $8196 LD DE,$4000   ; buffer).
+ $8199 LD BC,$1800   ;
+ $819C LDIR          ; }
+; Colour the whole of the attribute buffer #COLOUR$4E.
+ $819E LD HL,$5800   ; #REGhl=#N$5800 (attribute buffer location).
+ $81A1 LD DE,$5801   ; #REGde=#N$5801.
+ $81A4 LD BC,$02FF   ; #REGbc=#N$02FF.
  $81A7 LD (HL),$4E   ; Write #COLOUR$4E to *#REGhl.
- $81A9 LDIR          ; LDIR.
- $81AB LD A,$01      ; #REGa=#N$01.
- $81AD LD ($99CC),A  ; Write #REGa to *#R$99CC.
- $81B0 OUT ($FE),A   ; OUT #N$C9FE
+ $81A9 LDIR          ; Copy #N$02FF more bytes to the rest of the attribute
+                     ; buffer.
+ $81AB LD A,$01      ; {Write #N$01 to *#R$99CC.
+ $81AD LD ($99CC),A  ; }
+ $81B0 OUT ($FE),A   ; Set the border to #INK$01.
  $81B2 RET           ; Return.
 
 ; Flash Location Map Points
@@ -11836,7 +11866,8 @@ b$EFFE DEFB $00
 ; Data block at EFFF
 b$EFFF DEFB $00
 
-; Data block at F000
+; World Map Data
+@label=WorldMap_Data
 b$F000 DEFB $FF,$01,$FF,$01,$39,$25,$53,$04
  $F008 DEFB $4A,$01,$12,$05,$07,$02,$03,$02
  $F010 DEFB $02,$03,$04,$06,$10,$17,$34,$04
