@@ -1209,15 +1209,21 @@ g$7809 DEFB $46
 @label=TemporaryScreenLocation
 g$7811 DEFB $0D
 
-; Game status buffer entry at 7812
+; Ticker Character Counter
+@label=Ticker_CharacterCounter
 g$7812 DEFB $44
 
-; Game status buffer entry at 7813
+; Pointer Current Ticker Character
+@label=TickerCharacter_Pointer
 g$7813 DEFW $4645
 
-; Game status buffer entry at 7815
+; Ticker Speed Counter
+@label=Ticker_SpeedCounter
 g$7815 DEFB $57
- $7816 DEFB $20,$46,$46,$46,$46,$48,$3B,$36
+
+; Ticker Character Buffer
+@label=Buffer_TickerCharacter
+g$7816 DEFB $20,$46,$46,$46,$46,$48,$3B,$36
  $781E DEFB $45
 
 ; Game status buffer entry at 781F
@@ -1753,7 +1759,7 @@ c$8146 LD IX,$F000   ; #REGix=#R$F000.
 ; edge of the map.
 ; #PUSHS
 ; #UDGTABLE { #SIM(start=$8146,stop=$8186)#SIM(start=$8193,stop=$81AB)#SCR$02(world-map-no-clear) } UDGTABLE#
-; #PUSHS
+; #POPS
 ; .
 ; Clear the right edge of the map.
 @label=WorldMap_ClearEdge
@@ -1836,16 +1842,16 @@ c$81D4 LD HL,$EFFB   ; {Return if the ticker is not currently enabled.
  $81D7 BIT 0,(HL)    ;
  $81D9 RET Z         ; }
  $81DA LD HL,$7815   ; #REGhl=#R$7815.
- $81DD DEC (HL)      ; Decrease *#REGhl by one.
- $81DE JR NZ,$8220   ; Jump to #R$8220 if *#REGhl is not zero.
- $81E0 LD (HL),$07   ; Write #N$07 to *#REGhl.
+ $81DD DEC (HL)      ; Decrease *#R$7815 by one.
+ $81DE JR NZ,$8220   ; Jump to #R$8220 if *#R$7815 is not zero.
+ $81E0 LD (HL),$07   ; Reset *#R$7815 to #N$07.
  $81E2 LD HL,$7812   ; #REGhl=#R$7812.
- $81E5 DEC (HL)      ; Decrease *#REGhl by one.
- $81E6 JR NZ,$8207   ; Jump to #R$8207 if *#REGhl is not zero.
+ $81E5 DEC (HL)      ; Decrease *#R$7812 by one.
+ $81E6 JR NZ,$8207   ; Jump to #R$8207 if *#R$7812 is not zero.
  $81E8 LD HL,$EFFB   ; {Jump to #R$81FE if bit 1 ("Flightpath In-Progress") of
  $81EB BIT 1,(HL)    ; *#R$EFFB is set.
  $81ED JR NZ,$81FE   ; }
- $81EF LD A,($EFFA)  ; {Jump to #R$81FB if *#R$EFFA is equal to #N$00.
+ $81EF LD A,($EFFA)  ; {Jump to #R$81FB if the ticker animation has completed.
  $81F2 CP $00        ;
  $81F4 JR Z,$81FB    ; }
  $81F6 CALL $823B    ; Call #R$823B.
@@ -1867,13 +1873,13 @@ c$81D4 LD HL,$EFFB   ; {Return if the ticker is not currently enabled.
  $8213 ADD HL,HL     ; }
  $8214 LD DE,$F740   ; {#REGhl+=#R$F840(#N$F740).
  $8217 ADD HL,DE     ; }
- $8218 LD DE,$7816   ; {Copy #N($0008,$04,$04) bytes from *#REGhl to #N$7816.
+ $8218 LD DE,$7816   ; {Copy #N($0008,$04,$04) bytes from *#REGhl to #R$7816.
  $821B LD BC,$0008   ;
  $821E LDIR          ; }
 ; Rotate the messaging left across the screen.
-*$8220 LD C,$08      ; Set a counter in #REGc for the number of bytes in a
+*$8220 LD C,$08      ; Set a counter in #REGc for the lines (bytes) in a
                      ; character (#N$08).
- $8222 LD HL,$7816   ; #REGhl=#N$7816.
+ $8222 LD HL,$7816   ; #REGhl=#R$7816.
  $8225 LD DE,$50DF   ; Set #REGde to the screen buffer location #N$50DF.
 @label=TickerRotate_Loop
 *$8228 RLC (HL)      ; Rotate *#REGhl left (with carry).
@@ -1891,8 +1897,8 @@ c$81D4 LD HL,$EFFB   ; {Return if the ticker is not currently enabled.
  $8234 INC H         ; Increment #REGh by one.
  $8235 EX DE,HL      ; Exchange the #REGde and #REGhl registers.
  $8236 INC HL        ; Increment #REGhl by one.
- $8237 DEC C         ; Decrease #REGc by one.
- $8238 JR NZ,$8228   ; Jump to #R$8228 if #REGc is not zero.
+ $8237 DEC C         ; Decrease the line counter by one.
+ $8238 JR NZ,$8228   ; Jump to #R$8228 until the line counter is zero.
  $823A RET           ; Return.
 
 ; Generate Ticker Messaging

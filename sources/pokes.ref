@@ -78,6 +78,70 @@ decrease):
   <div>POKE #R$8963(#N$8964),#N$62</div>
 </code>
 
+This alters the following line:
+<table>
+  <tbody>
+    <tr>
+      <td class="address-1">#R$888F(#N$888F)</td>
+      <td class="instruction">LD #REGbc,(#R$EFF7(#N$EFF7))</td>
+      <td class="comment-1" rowspan="4">Jump to #R$88AB(#N$88AB) if *#R$EFF7 is zero.</td>
+    </tr>
+    <tr>
+      <td class="address-1">#R$8893(#N$8893)</td>
+      <td class="instruction">LD #REGa,#REGb</td>
+    </tr>
+    <tr>
+      <td class="address-1">#R$8894(#N$8894)</td>
+      <td class="instruction">OR #REGc</td>
+    </tr>
+    <tr>
+      <td class="address-1">#R$8895(#N$8895)</td>
+      <td class="instruction">JR Z,#R$88AB(#N$88AB)</td>
+    </tr>
+  </tbody>
+</table>
+
+To:
+<table>
+  <tbody>
+    <tr>
+      <td class="address-1">#R$8895(#N$8895)</td>
+      <td class="instruction">JR Z,#R$8897(#N$8897)</td>
+    </tr>
+  </tbody>
+</table>
+
+So the relative jump just moves onto the next instruction.
+
+And also alters the following line:
+<table>
+  <tbody>
+    <tr>
+      <td class="address-1">#R$8962(#N$8962)</td>
+      <td class="instruction">AND #REGa</td>
+      <td class="comment-1" rowspan="2">Subtract the cost of the destination from the active players cash balance.</td>
+    </tr>
+    <tr>
+      <td class="address-1">#R$8963(#N$8963)</td>
+      <td class="instruction">SBC #REGhl,#REGde</td>
+    </tr>
+  </tbody>
+</table>
+
+To:
+<table>
+  <tbody>
+    <tr>
+      <td class="address-1">#R$8963(#N$8963)</td>
+      <td class="instruction">SBC #REGhl,#REGhl</td>
+    </tr>
+  </tbody>
+</table>
+
+Which means "subtract the the active players cash balance from itself", this
+means the player can then always afford the flight (as it's signified using the
+carry flag with <code>RET NC</code>).
+
 [Poke:bull:The Bull Doesn't Kill]
 <code>POKE #R$B709,#N$3A</code>
 

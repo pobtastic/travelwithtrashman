@@ -63,14 +63,21 @@ g $7811 Temporary Screen Location
 @ $7811 label=TemporaryScreenLocation
 B $7811,$01
 
-g $7812
+g $7812 Ticker Character Counter
+@ $7812 label=Ticker_CharacterCounter
 B $7812,$01
 
-g $7813
+g $7813 Pointer Current Ticker Character
+@ $7813 label=TickerCharacter_Pointer
 W $7813,$02
 
-g $7815
+g $7815 Ticker Speed Counter
+@ $7815 label=Ticker_SpeedCounter
 B $7815,$01
+
+g $7816 Ticker Character Buffer
+@ $7816 label=Buffer_TickerCharacter
+B $7816,$08
 
 g $781F
 B $781F,$01
@@ -290,7 +297,7 @@ N $8186 Due to the way the decompression works, the image is left with a
 . edge of the map.
 . #PUSHS
 . #UDGTABLE { #SIM(start=$8146,stop=$8186)#SIM(start=$8193,stop=$81AB)#SCR$02(world-map-no-clear) } UDGTABLE#
-. #PUSHS
+. #POPS
 N $8186 Clear the right edge of the map.
 @ $8186 label=WorldMap_ClearEdge
   $8186,$03 #REGhl=#R$6000(#N$601F).
@@ -362,14 +369,14 @@ N $81D4 Example messaging (note, this is two frames at a time - the game is
 . } UDGTABLE# #POPS
   $81D4,$06 Return if the ticker is not currently enabled.
   $81DA,$03 #REGhl=#R$7815.
-  $81DD,$01 Decrease *#REGhl by one.
-  $81DE,$02 Jump to #R$8220 if *#REGhl is not zero.
-  $81E0,$02 Write #N$07 to *#REGhl.
+  $81DD,$01 Decrease *#R$7815 by one.
+  $81DE,$02 Jump to #R$8220 if *#R$7815 is not zero.
+  $81E0,$02 Reset *#R$7815 to #N$07.
   $81E2,$03 #REGhl=#R$7812.
-  $81E5,$01 Decrease *#REGhl by one.
-  $81E6,$02 Jump to #R$8207 if *#REGhl is not zero.
+  $81E5,$01 Decrease *#R$7812 by one.
+  $81E6,$02 Jump to #R$8207 if *#R$7812 is not zero.
   $81E8,$07 Jump to #R$81FE if bit 1 ("Flightpath In-Progress") of *#R$EFFB is set.
-  $81EF,$07 Jump to #R$81FB if *#R$EFFA is equal to #N$00.
+  $81EF,$07 Jump to #R$81FB if the ticker animation has completed.
   $81F6,$03 Call #R$823B.
   $81F9,$02 Jump to #R$81D4.
 N $81FB The ticker animation is complete, so reset the state flag.
@@ -387,10 +394,10 @@ N $81FB The ticker animation is complete, so reset the state flag.
   $820F,$02 #REGh=#N$00.
   $8211,$03 #REGhl*=#N$08.
   $8214,$04 #REGhl+=#R$F840(#N$F740).
-  $8218,$08 Copy #N($0008,$04,$04) bytes from *#REGhl to #N$7816.
+  $8218,$08 Copy #N($0008,$04,$04) bytes from *#REGhl to #R$7816.
 N $8220 Rotate the messaging left across the screen.
-  $8220,$02 Set a counter in #REGc for the number of bytes in a character (#N$08).
-  $8222,$03 #REGhl=#N$7816.
+  $8220,$02 Set a counter in #REGc for the lines (bytes) in a character (#N$08).
+  $8222,$03 #REGhl=#R$7816.
   $8225,$03 Set #REGde to the screen buffer location #N$50DF.
 @ $8228 label=TickerRotate_Loop
   $8228,$02 Rotate *#REGhl left (with carry).
@@ -406,8 +413,8 @@ N $822C Rotate the current line.
   $8234,$01 Increment #REGh by one.
   $8235,$01 Exchange the #REGde and #REGhl registers.
   $8236,$01 Increment #REGhl by one.
-  $8237,$01 Decrease #REGc by one.
-  $8238,$02 Jump to #R$8228 if #REGc is not zero.
+  $8237,$01 Decrease the line counter by one.
+  $8238,$02 Jump to #R$8228 until the line counter is zero.
   $823A,$01 Return.
 
 c $823B Generate Ticker Messaging
