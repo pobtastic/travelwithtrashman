@@ -78,43 +78,43 @@ Example messaging (note, this is two frames at a time - the game is smoother - p
 <td class="asm-label"></td>
 <td class="address-1"><span id="81da"></span>81DA</td>
 <td class="instruction">LD HL,$7815</td>
-<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="7815.html">7815</a>.</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="7815.html">Ticker_SpeedCounter</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="81dd"></span>81DD</td>
 <td class="instruction">DEC (HL)</td>
-<td class="comment-1" rowspan="1">Decrease *<span class="register">HL</span> by one.</td>
+<td class="comment-1" rowspan="1">Decrease *<a href="7815.html">Ticker_SpeedCounter</a> by one.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="81de"></span>81DE</td>
 <td class="instruction">JR NZ,<a href="81D4.html#8220">Handler_Ticker_2</a></td>
-<td class="comment-1" rowspan="1">Jump to <a href="81D4.html#8220">Handler_Ticker_2</a> if *<span class="register">HL</span> is not zero.</td>
+<td class="comment-1" rowspan="1">Jump to <a href="81D4.html#8220">Handler_Ticker_2</a> if *<a href="7815.html">Ticker_SpeedCounter</a> is not zero.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="81e0"></span>81E0</td>
 <td class="instruction">LD (HL),$07</td>
-<td class="comment-1" rowspan="1">Write 07 to *<span class="register">HL</span>.</td>
+<td class="comment-1" rowspan="1">Reset *<a href="7815.html">Ticker_SpeedCounter</a> to 07.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="81e2"></span>81E2</td>
 <td class="instruction">LD HL,$7812</td>
-<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="7812.html">7812</a>.</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="7812.html">Ticker_CharacterCounter</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="81e5"></span>81E5</td>
 <td class="instruction">DEC (HL)</td>
-<td class="comment-1" rowspan="1">Decrease *<span class="register">HL</span> by one.</td>
+<td class="comment-1" rowspan="1">Decrease *<a href="7812.html">Ticker_CharacterCounter</a> by one.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="81e6"></span>81E6</td>
 <td class="instruction">JR NZ,<a href="81D4.html#8207">Handler_Ticker_1</a></td>
-<td class="comment-1" rowspan="1">Jump to <a href="81D4.html#8207">Handler_Ticker_1</a> if *<span class="register">HL</span> is not zero.</td>
+<td class="comment-1" rowspan="1">Jump to <a href="81D4.html#8207">Handler_Ticker_1</a> if *<a href="7812.html">Ticker_CharacterCounter</a> is not zero.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -136,7 +136,7 @@ Example messaging (note, this is two frames at a time - the game is smoother - p
 <td class="asm-label"></td>
 <td class="address-1"><span id="81ef"></span>81EF</td>
 <td class="instruction">LD A,($EFFA)</td>
-<td class="comment-1" rowspan="3">Jump to <a href="81D4.html#81fb">TickerAnimation_Complete</a> if *<a href="EFFA.html">GameState_1</a> is equal to 00.</td>
+<td class="comment-1" rowspan="3">Jump to <a href="81D4.html#81fb">TickerAnimation_Complete</a> if the ticker animation has completed.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -204,13 +204,13 @@ The ticker animation is complete, so reset the state flag.
 <td class="asm-label">Handler_Ticker_1</td>
 <td class="address-2"><span id="8207"></span>8207</td>
 <td class="instruction">LD HL,($7813)</td>
-<td class="comment-1" rowspan="1"><span class="register">HL</span>=*<a href="7813.html">7813</a>.</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=*<a href="7813.html">TickerCharacter_Pointer</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="820a"></span>820A</td>
 <td class="instruction">INC HL</td>
-<td class="comment-1" rowspan="2">Increment *<a href="7813.html">7813</a> by one.</td>
+<td class="comment-1" rowspan="2">Increment *<a href="7813.html">TickerCharacter_Pointer</a> by one.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -260,7 +260,7 @@ The ticker animation is complete, so reset the state flag.
 <td class="asm-label"></td>
 <td class="address-1"><span id="8218"></span>8218</td>
 <td class="instruction">LD DE,$7816</td>
-<td class="comment-1" rowspan="3">Copy 0008 bytes from *<span class="register">HL</span> to 7816.</td>
+<td class="comment-1" rowspan="3">Copy 0008 bytes from *<span class="register">HL</span> to <a href="7816.html">Buffer_TickerCharacter</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -286,13 +286,13 @@ Rotate the messaging left across the screen.
 <td class="asm-label">Handler_Ticker_2</td>
 <td class="address-2"><span id="8220"></span>8220</td>
 <td class="instruction">LD C,$08</td>
-<td class="comment-1" rowspan="1">Set a counter in <span class="register">C</span> for the number of bytes in a character (08).</td>
+<td class="comment-1" rowspan="1">Set a counter in <span class="register">C</span> for the lines (bytes) in a character (08).</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="8222"></span>8222</td>
 <td class="instruction">LD HL,$7816</td>
-<td class="comment-1" rowspan="1"><span class="register">HL</span>=7816.</td>
+<td class="comment-1" rowspan="1"><span class="register">HL</span>=<a href="7816.html">Buffer_TickerCharacter</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -380,13 +380,13 @@ Rotate the current line.
 <td class="asm-label"></td>
 <td class="address-1"><span id="8237"></span>8237</td>
 <td class="instruction">DEC C</td>
-<td class="comment-1" rowspan="1">Decrease <span class="register">C</span> by one.</td>
+<td class="comment-1" rowspan="1">Decrease the line counter by one.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
 <td class="address-1"><span id="8238"></span>8238</td>
 <td class="instruction">JR NZ,<a href="81D4.html#8228">TickerRotate_Loop</a></td>
-<td class="comment-1" rowspan="1">Jump to <a href="81D4.html#8228">TickerRotate_Loop</a> if <span class="register">C</span> is not zero.</td>
+<td class="comment-1" rowspan="1">Jump to <a href="81D4.html#8228">TickerRotate_Loop</a> until the line counter is zero.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>

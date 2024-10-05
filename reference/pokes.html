@@ -129,6 +129,76 @@ decrease):
 <div>POKE <a href="../asm/894F.html#8963">8964</a>,62</div>
 </code>
 </div>
+<div class="paragraph">
+This alters the following line:
+<table>
+<tbody>
+<tr>
+<td class="address-1"><a href="../asm/883C.html#888f">888F</a></td>
+<td class="instruction">LD <span class="register">BC</span>,(<a href="../asm/EFF7.html">EFF7</a>)</td>
+<td class="comment-1" rowspan="4">Jump to <a href="../asm/883C.html#88ab">88AB</a> if *<a href="../asm/EFF7.html">ActivePlayerCash_01</a> is zero.</td>
+</tr>
+<tr>
+<td class="address-1"><a href="../asm/883C.html#8893">8893</a></td>
+<td class="instruction">LD <span class="register">A</span>,<span class="register">B</span></td>
+</tr>
+<tr>
+<td class="address-1"><a href="../asm/883C.html#8894">8894</a></td>
+<td class="instruction">OR <span class="register">C</span></td>
+</tr>
+<tr>
+<td class="address-1"><a href="../asm/883C.html#8895">8895</a></td>
+<td class="instruction">JR Z,<a href="../asm/883C.html#88ab">88AB</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="paragraph">
+To:
+<table>
+<tbody>
+<tr>
+<td class="address-1"><a href="../asm/883C.html#8895">8895</a></td>
+<td class="instruction">JR Z,<a href="../asm/883C.html#8897">8897</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="paragraph">
+So the relative jump just moves onto the next instruction.
+</div>
+<div class="paragraph">
+And also alters the following line:
+<table>
+<tbody>
+<tr>
+<td class="address-1"><a href="../asm/894F.html#8962">8962</a></td>
+<td class="instruction">AND <span class="register">A</span></td>
+<td class="comment-1" rowspan="2">Subtract the cost of the destination from the active players cash balance.</td>
+</tr>
+<tr>
+<td class="address-1"><a href="../asm/894F.html#8963">8963</a></td>
+<td class="instruction">SBC <span class="register">HL</span>,<span class="register">DE</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="paragraph">
+To:
+<table>
+<tbody>
+<tr>
+<td class="address-1"><a href="../asm/894F.html#8963">8963</a></td>
+<td class="instruction">SBC <span class="register">HL</span>,<span class="register">HL</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="paragraph">
+Which means "subtract the the active players cash balance from itself", this
+means the player can then always afford the flight (as it's signified using the
+carry flag with <code>RET NC</code>).
+</div>
 </div>
 <div><span id="bull"></span></div>
 <div class="box box-1">

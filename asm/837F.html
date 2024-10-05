@@ -106,7 +106,7 @@ This entry point is used by the routine at <a href="81D4.html">Handler_Ticker</a
 <td class="asm-label">DoneFillingTickerBuffer</td>
 <td class="address-2"><span id="8388"></span>8388</td>
 <td class="instruction">LD HL,$7815</td>
-<td class="comment-1" rowspan="2">Write 01 to *<a href="7815.html">7815</a>.</td>
+<td class="comment-1" rowspan="2">Write 01 to *<a href="7815.html">Ticker_SpeedCounter</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
@@ -118,8 +118,8 @@ This entry point is used by the routine at <a href="81D4.html">Handler_Ticker</a
 <td class="address-1"><span id="838d"></span>838D</td>
 <td class="instruction">LD ($7812),A</td>
 <td class="comment-1" rowspan="2">Write the final spacing position to: <ul class="">
-<li>*<a href="7812.html">7812</a></li>
-<li>*<a href="7815.html#781e">781E</a></li>
+<li>*<a href="7812.html">Ticker_CharacterCounter</a></li>
+<li>*<a href="7816.html#781e">781E</a></li>
 </ul></td>
 </tr>
 <tr>
@@ -131,7 +131,7 @@ This entry point is used by the routine at <a href="81D4.html">Handler_Ticker</a
 <td class="asm-label"></td>
 <td class="address-1"><span id="8393"></span>8393</td>
 <td class="instruction">LD HL,$781F</td>
-<td class="comment-1" rowspan="2">Write <a href="781F.html">781F</a> to *<a href="7813.html">7813</a>.</td>
+<td class="comment-1" rowspan="2">Write <a href="781F.html">781F</a> to *<a href="7813.html">TickerCharacter_Pointer</a>.</td>
 </tr>
 <tr>
 <td class="asm-label"></td>
