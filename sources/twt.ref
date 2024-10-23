@@ -28,7 +28,7 @@ UnusedMap=Unused Addresses
 
 [Paths]
 sourcecode-Index=source-code.html
-sourcecode-CodePath=reference/source-codes.html
+sourcecode-CodePath=reference/source-code
 
 [PageHeaders]
 GameIndex=The complete<>RAM disassembly (work in progress)
