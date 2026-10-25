@@ -1,4 +1,4 @@
-; Copyright New Generation Software 1984, 2024 ArcadeGeek LTD.
+; Copyright New Generation Software 1984, 2026 ArcadeGeek LTD.
 ; NOTE: Disassembly is Work-In-Progress.
 ; Label naming is loosely based on Action_ActionName_SubAction e.g. Print_HighScore_Loop.
 

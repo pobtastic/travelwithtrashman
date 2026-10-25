@@ -1,3 +1,5 @@
+; Copyright 2026 Paul Maddern (paul@arcadegeek.co.uk)
+
 ;
 ; SkoolKit ref file for Travel With Trashman
 ;
@@ -14,7 +16,7 @@ GameDir=twt
 [Game]
 Game=Travel With Trashman
 Logo=#SCR$01,$00,$01,$0D,$07,$4000,$5800(/images/logo)
-Copyright=&copy; 1984 New Generation Software &copy; 2024 ArcadeGeek LTD.
+Copyright=&copy; 1984 New Generation Software<br />&copy; 2026 ArcadeGeek LTD.
 Repository=https://github.com/pobtastic/travelwithtrashman/
 LinkInternalOperands=1
 AddressAnchor={address#IF({base}==16)(:04x)}
@@ -90,4 +92,4 @@ GameIndex=The complete<>RAM disassembly (work in progress)
   3:Completed))
 
 #DEF(#TICKER(bit)
-  #POKES($EFFA,$01<<$bit)#SIM(start=$823B,stop=$839E)#FONT#(:(#STR($7820,$01,$A0)))$F840,attr=$4E)
+  #POKES($EFFA,$01<<$bit)#SIM(start=$823B,stop=$839E)#FONT#($F840,attr=$4E,chars=0(#STR($7820,$01,$A0))))

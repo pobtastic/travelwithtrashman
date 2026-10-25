@@ -1,3 +1,5 @@
+; Copyright 2026 Paul Maddern (paul@arcadegeek.co.uk)
+
 ; Source Code Remnants
 t$7800 DEFM " FFFFH"        ; "#STR(#PC,$04,$06)".
  $7806 DEFB $0D             ; Newline.

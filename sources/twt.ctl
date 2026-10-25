@@ -1,11 +1,11 @@
-; Copyright New Generation Software 1984, 2024 ArcadeGeek LTD.
+; Copyright New Generation Software 1984, 2026 ArcadeGeek LTD.
 ; NOTE: Disassembly is Work-In-Progress.
 ; Label naming is loosely based on Action_ActionName_SubAction e.g. Print_HighScore_Loop.
 
 > $4000 @rom
 > $4000 @start
-> $4000 @expand=#DEF(#POKE #LINK:Pokes)
-> $4000 @expand=#DEF(#ANIMATE(delay,count=$50)(name=$a)*$name-1,$delay;#FOR$02,$count||x|$name-x|;||($name-animation))
+> $4000 @expand=#DEF(#POKE()(anchor,text) #LINK(Pokes#$anchor)($text))
+> $4000 @expand=#DEF(#ANIMATE(delay,count=$50)(name=$a)#FRAMES#(($name-1,$delay;#FOR$02,$count||x|$name-x|;||))($name-animation))
 > $4000 @set-handle-unsupported-macros=1
 b $4000 Loading Screen
 D $4000 #UDGTABLE { =h Travel With Trashman Loading Screen. } { #SCR$02(loading) } UDGTABLE#
@@ -365,7 +365,7 @@ N $81D4 Example messaging (note, this is two frames at a time - the game is
 .   #FOR$01,$FF||x|#SIM(start=$8059,stop=$805C)#SIM(start=$8059,stop=$805C)
 .     #SCR$02,$00,$16,$20,$01(*ticker-x)#PLOT(0,0,0)(ticker-x)
 .   ||
-.   #UDGARRAY#(#ANIMATE$08,$FF(ticker))
+.   #ANIMATE$08,$FF(ticker)
 . } UDGTABLE# #POPS
   $81D4,$06 Return if the ticker is not currently enabled.
   $81DA,$03 #REGhl=#R$7815.
@@ -1606,71 +1606,71 @@ N $8AF7 Cycle through each high score and print the details.
 t $8B31 Messaging: Menu
 @ $8B31 label=Messaging_SelectControls
 N $8B31 Used by the routine at #R$83AA.
-  $8B31,$0F,$0E:$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(select-01)
+  $8B31,$0F,$0E:$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(select-01)
 @ $8B40 label=Messaging_UserDefinedKeys
-  $8B40,$13,$12:$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(select-02)
+  $8B40,$13,$12:$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(select-02)
 @ $8B53 label=Messaging_KempstonJoystick
-  $8B53,$13,$12:$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(select-03)
+  $8B53,$13,$12:$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(select-03)
 @ $8B66 label=Messaging_Interface2
-  $8B66,$0D,$0C:$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(select-04)
+  $8B66,$0D,$0C:$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(select-04)
 @ $8B73 label=Messaging_CursorKeys
-  $8B73,$15,$14:$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(select-05)
+  $8B73,$15,$14:$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(select-05)
 
 t $8B88 Messaging: Redefine Keys
 @ $8B88 label=Messaging_PleaseSelectKeys
 N $8B88 Used by the routine at #R$83AA.
-  $8B88,$0E,$0D:$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(redefine-keys-01)
+  $8B88,$0E,$0D:$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(redefine-keys-01)
 @ $8B96 label=Messaging_RedefineKeys_Right
-  $8B96,$09,$08:$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(redefine-keys-02)
+  $8B96,$09,$08:$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(redefine-keys-02)
 @ $8B9F label=Messaging_RedefineKeys_Down
-  $8B9F,$09,$08:$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(redefine-keys-03)
+  $8B9F,$09,$08:$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(redefine-keys-03)
 @ $8BA8 label=Messaging_RedefineKeys_Left
-  $8BA8,$09,$08:$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(redefine-keys-04)
+  $8BA8,$09,$08:$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(redefine-keys-04)
 @ $8BB1 label=Messaging_RedefineKeys_Up
-  $8BB1,$09,$08:$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(redefine-keys-05)
+  $8BB1,$09,$08:$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(redefine-keys-05)
 @ $8BBA label=Messaging_RedefineKeys_Fire
-  $8BBA,$09,$08:$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(redefine-keys-06)
+  $8BBA,$09,$08:$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(redefine-keys-06)
 
 t $8BC3 Messaging: Visa Application
 @ $8BC3 label=Messaging_VisaApplication
 N $8BC3 Used by the routine at #R$84D5.
-  $8BC3,$10,$0F:$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(visa-application-01)
+  $8BC3,$10,$0F:$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(visa-application-01)
 @ $8BD3 label=Messaging_FormNo
-  $8BD3,$15,$14:$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(visa-application-02)
+  $8BD3,$15,$14:$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(visa-application-02)
 N $8BE8 Used by the routine at #R$8548.
 @ $8BE8 label=Messaging_Name
-  $8BE8,$16,$15:$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(visa-application-03)
+  $8BE8,$16,$15:$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(visa-application-03)
 N $8BFE Used by the routine at #R$84D5.
 @ $8BFE label=Messaging_AnotherForm
-  $8BFE,$12,$11:$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(visa-application-04)
+  $8BFE,$12,$11:$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(visa-application-04)
 
 t $8C10 Messaging: No
 @ $8C10 label=Messaging_No
-  $8C10,$03,$02:$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(no)
+  $8C10,$03,$02:$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(no)
 
 t $8C13 Messaging: Discounts
 @ $8C13 label=Messaging_Discounts
-  $8C13,$09,$08:$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(discounts)
+  $8C13,$09,$08:$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(discounts)
 
 t $8C1C Messaging: Allowed
 @ $8C1C label=Messaging_Allowed
-  $8C1C,$07,$06:$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(allowed)
+  $8C1C,$07,$06:$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(allowed)
 
 t $8C23 Messaging: Yes
 @ $8C23 label=Messaging_Yes
-  $8C23,$03,$02:$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(yes)
+  $8C23,$03,$02:$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(yes)
 
 t $8C26 Messaging: Pound Symbol
 @ $8C26 label=Messaging_£
-  $8C26,$01 #FONT:(`)$F840,attr=$4E(pound)
+  $8C26,$01 #FONT$F840,attr=$4E,chars=0(`)(pound)
 
 t $8C27 Messaging: Arrow Symbol
 @ $8C27 label=Messaging_Arrow
-  $8C27,$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(arrow)
+  $8C27,$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(arrow)
 
 t $8C28 1UP/ 2UP Player Details
 @ $8C28 label=1UP_Name
-N $8C28 See #POKE#9999(£9999).
+N $8C28 See #POKE(9999,£9999).
 N $8C28 1UP variables.
   $8C28,$08 1UP Player name.
 @ $8C30 label=1UP_Location
@@ -1695,87 +1695,87 @@ B $8C47,$01 2UP State.
 
 t $8C48 Messaging: Header
 @ $8C48 label=Messaging_Header
-  $8C48,$1E,$1D:$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(header)
+  $8C48,$1E,$1D:$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(header)
 
 t $8C66 Messaging: In
 @ $8C66 label=Messaging_In
-  $8C66,$02,$01:$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(in)
+  $8C66,$02,$01:$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(in)
 
 t $8C68 Messaging: Travel Header
 @ $8C68 label=Messaging_TravelHeader
-  $8C68,$12,$11:$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(travel-header)
+  $8C68,$12,$11:$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(travel-header)
 
 t $8C7A Messaging: Job Complete
 @ $8C7A label=Messaging_JobComplete
-  $8C7A,$0D,$0C:$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(job-complete)
+  $8C7A,$0D,$0C:$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(job-complete)
 
 t $8C87 Messaging: Accept Job Offered
 @ $8C87 label=Messaging_AcceptJobOffered
-  $8C87,$12,$11:$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(accept-job)
+  $8C87,$12,$11:$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(accept-job)
 
 t $8C99 Messaging: Stop Press
 @ $8C99 label=Messaging_StopPress
-  $8C99,$21,$20:$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(stop-press)
+  $8C99,$21,$20:$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(stop-press)
 
 t $8CBA Messaging: Flies To
 @ $8CBA label=Messaging_FliesTo
-  $8CBA,$09,$08:$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(flies-to)
+  $8CBA,$09,$08:$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(flies-to)
 
 t $8CC3 Messaging: Stranded In
 @ $8CC3 label=Messaging_StrandedIn
-  $8CC3,$0D,$0C:$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(stranded-in)
+  $8CC3,$0D,$0C:$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(stranded-in)
 
 t $8CD0 Messaging: Penniless
 @ $8CD0 label=Messaging_Penniless
-  $8CD0,$0C,$0B:$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(penniless)
+  $8CD0,$0C,$0B:$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(penniless)
 
 t $8CDC Messaging: Without Fare Home
 @ $8CDC label=Messaging_WithoutFareHome
-  $8CDC,$14,$13:$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(without-fare-home)
+  $8CDC,$14,$13:$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(without-fare-home)
 
 t $8CF0 Messaging: Deported Russia
 @ $8CF0 label=Messaging_DeportedRussia
-  $8CF0,$27,$26:$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(deported-russia)
+  $8CF0,$27,$26:$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(deported-russia)
 
 t $8D17 Messaging: Denies Smuggling
 @ $8D17 label=Messaging_DeniesSmuggling
-  $8D17,$19,$18:$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(denies-smuggling)
+  $8D17,$19,$18:$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(denies-smuggling)
 
 t $8D30 Messaging: Killed In Spain
 @ $8D30 label=Messaging_KilledInSpain
-  $8D30,$25,$24:$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(killed-in-spain)
+  $8D30,$25,$24:$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(killed-in-spain)
 
 t $8D55 Messaging: His
 @ $8D55 label=Messaging_His
-  $8D55,$05,$04:$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(his)
+  $8D55,$05,$04:$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(his)
 
 t $8D5A Messaging: Flown Back To UK
 @ $8D5A label=Messaging_FlownBackToUK
-  $8D5A,$31,$30:$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(flown-back-to-uk)
+  $8D5A,$31,$30:$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(flown-back-to-uk)
 
 t $8D8B Messaging: Successful Clean Up
 @ $8D8B label=Messaging_SuccessfulCleanUp
-  $8D8B,$18,$17:$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(successful-clean-up)
+  $8D8B,$18,$17:$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(successful-clean-up)
 
 t $8DA3 Messaging: Full Stop
 @ $8DA3 label=Messaging_FullStop
-  $8DA3,$02,$01:$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(full-stop)
+  $8DA3,$02,$01:$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(full-stop)
 
 t $8DA5 Messaging: And Gains
 @ $8DA5 label=Messaging_AndGains
-  $8DA5,$0C,$0B:$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(and-gains)
+  $8DA5,$0C,$0B:$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(and-gains)
 
 t $8DB1 Messaging: Bonus Pts
 @ $8DB1 label=Messaging_BonusPts
-  $8DB1,$0B,$0A:$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(bonus-pts)
+  $8DB1,$0B,$0A:$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(bonus-pts)
 
 t $8DBC Messaging: Game Complete
 @ $8DBC label=Messaging_GameComplete
-  $8DBC,$3D,$3C:$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(game-complete)
+  $8DBC,$3D,$3C:$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(game-complete)
 
 t $8DF9 Messaging: Famous Trashmen
 @ $8DF9 label=Messaging_FamousTrashmen
-  $8DF9,$0F,$0E:$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(famous-trashmen)
+  $8DF9,$0F,$0E:$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(famous-trashmen)
 
 t $8E08 Messaging: High Scores
 @ $8E08 label=Messaging_HighScores
@@ -1786,11 +1786,11 @@ L $8E08,$0B,$04
 
 t $8E34 Messaging: Change Controls
 @ $8E34 label=Messaging_ChangeControls
-  $8E34,$11,$10:$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(change-controls)
+  $8E34,$11,$10:$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(change-controls)
 
 t $8E45 Messaging: Change Players
 @ $8E45 label=Messaging_ChangePlayers
-  $8E45,$10,$0F:$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(change-players)
+  $8E45,$10,$0F:$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(change-players)
 
 b $8E55 Key Map: Kempston Joystick
 @ $8E55 label=KeyMap_Kempston
@@ -1833,7 +1833,7 @@ W $8E8E,$02 Location: #R((#PEEK(#PC+$01)*$0100)+#PEEK(#PC)).
 @ $8E92 label=London_State
   $8E92,$01 State: #STATE(#PEEK(#PC)).
 @ $8E93 label=London_Name
-T $8E93,$07,$06:$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(location-london)
+T $8E93,$07,$06:$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(location-london)
 
 N $8E9A Location #N$02: Madrid.
 @ $8E9A label=Madrid_Location
@@ -1852,7 +1852,7 @@ W $8EA6,$02 Location: #R((#PEEK(#PC+$01)*$0100)+#PEEK(#PC)).
 @ $8EAA label=Madrid_State
   $8EAA,$01 State: #STATE(#PEEK(#PC)).
 @ $8EAB label=Madrid_Name
-T $8EAB,$07,$06:$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(location-madrid)
+T $8EAB,$07,$06:$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(location-madrid)
 
 N $8EB2 Location #N$03: Paris.
 @ $8EB2 label=Paris_Location
@@ -1871,7 +1871,7 @@ W $8EBE,$02 Location: #R((#PEEK(#PC+$01)*$0100)+#PEEK(#PC)).
 @ $8EC2 label=Paris_State
   $8EC2,$01 State: #STATE(#PEEK(#PC)).
 @ $8EC3 label=Paris_Name
-T $8EC3,$06,$05:$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(location-paris)
+T $8EC3,$06,$05:$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(location-paris)
 
 N $8EC9 Location #N$04: Munich.
 @ $8EC9 label=Munich_Location
@@ -1890,7 +1890,7 @@ W $8ED5,$02 Location: #R((#PEEK(#PC+$01)*$0100)+#PEEK(#PC)).
 @ $8ED9 label=Munich_State
   $8ED9,$01 State: #STATE(#PEEK(#PC)).
 @ $8EDA label=Munich_Name
-T $8EDA,$07,$06:$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(location-munich)
+T $8EDA,$07,$06:$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(location-munich)
 
 N $8EE1 Location #N$05: Moscow.
 @ $8EE1 label=Moscow_Location
@@ -1909,7 +1909,7 @@ W $8EED,$02 Location: #R((#PEEK(#PC+$01)*$0100)+#PEEK(#PC)).
 @ $8EF1 label=Moscow_State
   $8EF1,$01 State: #STATE(#PEEK(#PC)).
 @ $8EF2 label=Moscow_Name
-T $8EF2,$07,$06:$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(location-moscow)
+T $8EF2,$07,$06:$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(location-moscow)
 
 N $8EF9 Location #N$06: Jerusalem.
 @ $8EF9 label=Jerusalem_Location
@@ -1928,7 +1928,7 @@ W $8F05,$02 Location: #R((#PEEK(#PC+$01)*$0100)+#PEEK(#PC)).
 @ $8F09 label=Jerusalem_State
   $8F09,$01 State: #STATE(#PEEK(#PC)).
 @ $8F0A label=Jerusalem_Name
-T $8F0A,$0A,$09:$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(location-jerusalem)
+T $8F0A,$0A,$09:$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(location-jerusalem)
 
 N $8F14 Location #N$07: Benares.
 @ $8F14 label=Benares_Location
@@ -1947,7 +1947,7 @@ W $8F20,$02 Location: #R((#PEEK(#PC+$01)*$0100)+#PEEK(#PC)).
 @ $8F24 label=Benares_State
   $8F24,$01 State: #STATE(#PEEK(#PC)).
 @ $8F25 label=Benares_Name
-T $8F25,$08,$07:$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(location-benares)
+T $8F25,$08,$07:$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(location-benares)
 
 N $8F2D Location #N$08: Hong Kong.
 @ $8F2D label=HongKong_Location
@@ -1966,7 +1966,7 @@ W $8F39,$02 Location: #R((#PEEK(#PC+$01)*$0100)+#PEEK(#PC)).
 @ $8F3D label=HongKong_State
   $8F3D,$01 State: #STATE(#PEEK(#PC)).
 @ $8F3E label=HongKong_Name
-T $8F3E,$0A,$09:$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(location-hong-kong)
+T $8F3E,$0A,$09:$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(location-hong-kong)
 
 N $8F48 Location #N$09: Alice Springs.
 @ $8F48 label=AliceSprings_Location
@@ -1985,7 +1985,7 @@ W $8F54,$02 Location: #R((#PEEK(#PC+$01)*$0100)+#PEEK(#PC)).
 @ $8F58 label=AliceSprings_State
   $8F58,$01 State: #STATE(#PEEK(#PC)).
 @ $8F59 label=AliceSprings_Name
-T $8F59,$0E,$0D:$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(location-alice-springs)
+T $8F59,$0E,$0D:$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(location-alice-springs)
 
 N $8F67 Location #N$0A: Samoa.
 @ $8F67 label=Samoa_Location
@@ -2004,7 +2004,7 @@ W $8F73,$02 Location: #R((#PEEK(#PC+$01)*$0100)+#PEEK(#PC)).
 @ $8F77 label=Samoa_State
   $8F77,$01 State: #STATE(#PEEK(#PC)).
 @ $8F78 label=Samoa_Name
-T $8F78,$06,$05:$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(location-samoa)
+T $8F78,$06,$05:$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(location-samoa)
 
 N $8F7E Location #N$0B: Chichen Itza.
 @ $8F7E label=ChichenItza_Location
@@ -2023,7 +2023,7 @@ W $8F8A,$02 Location: #R((#PEEK(#PC+$01)*$0100)+#PEEK(#PC)).
 @ $8F8E label=ChichenItza_State
   $8F8E,$01 State: #STATE(#PEEK(#PC)).
 @ $8F8F label=ChichenItza_Name
-T $8F8F,$0D,$0C:$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(location-chichen-itza)
+T $8F8F,$0D,$0C:$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(location-chichen-itza)
 
 N $8F9C Location #N$0C: New Orleans.
 @ $8F9C label=NewOrleans_Location
@@ -2042,7 +2042,7 @@ W $8FA8,$02 Location: #R((#PEEK(#PC+$01)*$0100)+#PEEK(#PC)).
 @ $8FAC label=NewOrleans_State
   $8FAC,$01 State: #STATE(#PEEK(#PC)).
 @ $8FAD label=NewOrleans_Name
-T $8FAD,$0C,$0B:$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(location-new-orleans)
+T $8FAD,$0C,$0B:$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(location-new-orleans)
 
 N $8FB9 Location #N$0D: Kanyu.
 @ $8FB9 label=Kanyu_Location
@@ -2061,7 +2061,7 @@ W $8FC5,$02 Location: #R((#PEEK(#PC+$01)*$0100)+#PEEK(#PC)).
 @ $8FC9 label=Kanyu_State
   $8FC9,$01 State: #STATE(#PEEK(#PC)).
 @ $8FCA label=Kanyu_Name
-T $8FCA,$06,$05:$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(location-kanyu)
+T $8FCA,$06,$05:$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(location-kanyu)
 
 N $8FD0 Location #N$0E: Sao Paulo.
 @ $8FD0 label=SaoPaulo_Location
@@ -2080,7 +2080,7 @@ W $8FDC,$02 Location: #R((#PEEK(#PC+$01)*$0100)+#PEEK(#PC)).
 @ $8FE0 label=SaoPaulo_State
   $8FE0,$01 State: #STATE(#PEEK(#PC)).
 @ $8FE1 label=SaoPaulo_Name
-T $8FE1,$0A,$09:$01 #FONT#(:(#STR(#PC)))$F840,attr=$4E(location-sao-paulo)
+T $8FE1,$0A,$09:$01 #FONT#($F840,attr=$4E,chars=0(#STR(#PC)))(location-sao-paulo)
 
 b $8FEB
 
@@ -2880,7 +2880,7 @@ c $96FE Spend Money
 R $96FE B Number of digits
 R $96FE DE Pointer to players cash
 R $96FE HL Pointer to cost to deduct
-N $96FE See #POKE#dontspendmoney(Don't Spend Money) and #POKE#altdontspendmoney(Don't Spend Money (alt)).
+N $96FE See #POKE(dontspendmoney,Don't Spend Money) and #POKE(altdontspendmoney,Don't Spend Money (alt)).
   $96FE,$01 Set flags ready for the subtraction.
 @ $96FF label=SpendMoney_Loop
   $96FF,$01 Load the player cash digit from *#REGde into #REGa.
@@ -3601,7 +3601,7 @@ c $B6A7
 
 c $B6BC Handler: Bull
 @ $B6BC label=Handler_Bull
-N $B6BC See #POKE#bull(The Bull Doesn't Kill).
+N $B6BC See #POKE(bull,The Bull Doesn't Kill).
   $B6BC,$07 Jump to #R$B6C8 if the player has not been hit by the bull.
   $B6C3,$04 #REGsp=*#R$99AE.
   $B6C7,$01 Return.
@@ -3626,7 +3626,7 @@ N $B6C8 The player is still alive!
   $B6FF,$02,b$01 Keep only bits 0 and 6.
   $B701,$02 Jump to #R$B70F if #REGa is zero.
   $B703,$04 Jump to #R$B727 if #REGa is equal to #N$01.
-N $B707 See #POKE#bull(The Bull Doesn't Kill).
+N $B707 See #POKE(bull,The Bull Doesn't Kill).
   $B707,$05 Write #EVAL($08,$02,$08) ("Hit By The Bull") to *#R$EFFA.
   $B70C,$03 Jump to #R$9926.
   $B70F,$05 Jump to #R$B727 if #N$7A is equal to #REGh.
@@ -3841,7 +3841,7 @@ c $C7B6 Handler: Moscow
 
 c $C824 Handler: Moscow2
 @ $C824 label=Handler_Moscow2
-N $C824 See #POKE#moscow(You Are Not Deported From Moscow).
+N $C824 See #POKE(moscow,You Are Not Deported From Moscow).
   $C824,$04 Jump to #R$C832 if #REGa is not equal to #N$40.
   $C828,$03 #REGhl=#R$EFFA.
   $C82B,$02 Set bit 2 of *#REGhl.
