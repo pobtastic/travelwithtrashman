@@ -6,7 +6,7 @@
 ; To build the HTML disassembly, run these commands:
 ;   tap2sna.py @twt.t2s
 ;   sna2skool.py -H -c sources/twt.ctl TravelWithTrashman.z80 > sources/twt.skool
-;   skool2html.py -H sources/twt.skool -T dark
+;   skool2html.py -H sources/twt.skool -T dark -T wide -toOa
 
 [Config]
 Expand=#INCLUDE(Expand)
@@ -18,6 +18,9 @@ Game=Travel With Trashman
 Logo=#SCR$01,$00,$01,$0D,$07,$4000,$5800(/images/logo)
 Copyright=&copy; 1984 New Generation Software<br />&copy; 2026 ArcadeGeek LTD.
 Repository=https://github.com/pobtastic/travelwithtrashman/
+Canonical=https://skoolkit.arcadegeek.co.uk/twt/
+GameIndexUrl=https://skoolkit.arcadegeek.co.uk/twt/
+OgImage=https://skoolkit.arcadegeek.co.uk/twt/images/logo.png
 LinkInternalOperands=1
 AddressAnchor={address#IF({base}==16)(:04x)}
 
